@@ -1,0 +1,49 @@
+WeatherStation Project
+(c) 2013-2014 by Emchenko Boris
+
+Change log
+1.0.15 (2014-07-02)
+- more narodmon.ru integration
+- corrected preferences issues
+- some code optimization
+- show log window problem
+
+1.0.14 (2014-07-01)
+- com port connection watchdog
+- sending data to narodmon.ru service (5 sensors: pressure, illumination, temperature, humidity and rain gauge counter)
+- code optimization for buffering
+
+1.0.13 (2014-06-28)
+- settings are saved between sessions at once
+- added tooltip and folder browser dialogs
+- at once 90% settings are used by program :)
+- improved logging
+- some code optimization
+
+1.0.12 (2014-06-17)
+- recompiled to .NET 4.0 for WinXP compatibility
+- added simulation
+
+1.0.11 (2014-06-08)
+- added refresh interval and max graphical points settings
+- some graphs logic change
+- minor error correstions (wrong rainFlagLastminute and wetFlagLastminute calculations, some graphs issues, etc)
+
+1.0.10 (2014-05-24)
+- added threshold settings for rain model
+- calculations for RainFlag and WetFlag (based on rain sensor)
+
+1.0.9 (2014-05-21)
+- added main boltwood file format fields displaying
+- added threshold and model coefficients settings for sky model
+
+1.0.8 
+- added rain gauge counter
+- read polloing interval from serial increased from 3 to 10 sec (to decrease CPU usage - need tests)
+
+1.0.6 (2013-08-15)
+ - Added Boltwood Cloud Sensor II file output
+
+1.0.5 (2013-08-11) 
+- Graph visualisation
+- "About"
