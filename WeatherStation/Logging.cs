@@ -66,7 +66,7 @@ namespace WeatherStation
         /// Data log procedures
         /// </summary>
         #region Data log section
-        public static void OpenDataLogFile()
+        public static void OpenDataLogFile(string headerline)
         {
             if (DataFilePath == "") DataFilePath = ApplicationFilePath;
 
@@ -75,8 +75,7 @@ namespace WeatherStation
             if (!File.Exists(FullFileName))
             {
                 dataLogFile = File.CreateText(FullFileName);
-                //Write header
-                dataLogFile.WriteLine("Data" + CSVseparator +"ObjTemp" + CSVseparator + "ATemp" + CSVseparator + "BTemp" + CSVseparator + "Press" + CSVseparator + "DTemp1" + CSVseparator + "Hum1" + CSVseparator + "DTemp2" + CSVseparator + "Hum2" + CSVseparator + "Illum" + CSVseparator + "LumSens" + CSVseparator + "LumRes" + CSVseparator + "LumWTime" + CSVseparator + "Temp1" + CSVseparator + "Temp2" + CSVseparator + "Wet" + CSVseparator);
+                dataLogFile.WriteLine(headerline);
             }
             else
             {
@@ -90,11 +89,11 @@ namespace WeatherStation
             dataLogFile = null;
         }
 
-        public static void LogData(string dataline)
+        public static void LogData(string dataline, string headerline)
         {
             if (dataLogFile == null)
             {
-                OpenDataLogFile();
+                OpenDataLogFile(headerline);
             }
             dataLogFile.WriteLine("{0} {1:H:mm:ss}" + CSVseparator + " {2}", DateTime.Now.ToShortDateString(), DateTime.Now, dataline);
 

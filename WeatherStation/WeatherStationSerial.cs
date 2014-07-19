@@ -68,30 +68,30 @@ namespace WeatherStation
         /// Fields for sensor data
         /// </summary>        
         #region SensorData Fields 
-        public double ObjTemp = -100.0;
-        public double ATemp = -100.0; 
+        public double ObjTemp_ = -100.0;
+        public double ATemp_ = -100.0; 
        
         public double CloudIdx = -100.0;
         public double CloudIdxCorr = -100.0;
 
-        public double BTemp = -100.0;
-        public double Press = 0.0;
+        public double BTemp_ = -100.0;
+        public double Press_ = 0.0;
 
-        public double Hum1 = -1.0;
+        public double Hum1_ = -1.0;
         public double DTemp1 = -100.0;
 
-        public double Hum2 = -1.0;
-        public double DTemp2 = -100.0;
+        public double Hum2_ = -1.0;
+        public double DTemp2_ = -100.0;
 
-        public double Illum = -1.0;
+        public double Illum_ = -1.0;
         public int LumRes = 0;
         public int LumSens = 0;
         public int LumWTime = 0;
 
-        public double Temp1 = -100.0;
-        public double Temp2 = -100.0;
+        public double Temp1_ = -100.0;
+        public double Temp2_ = -100.0;
 
-        public int Wet = 1024;
+        public int Wet_ = 1025;
         public int RGC = 0;
 
         public double WindSpeed = 0.0;
@@ -108,6 +108,14 @@ namespace WeatherStation
         public string BaseTempName = "Temp1";
         public int BaseTempIdx = -1;
         public double BaseTempVal = -100;
+
+        public double IllumVal = -1.0;
+        public double ObjTempVal = -100.0;
+        public double SensorCaseTempVal = -100.0;
+        public double HumidityVal = -1.0;
+        public int WetVal = 1025;        
+
+        public string SketchVersion = "";
 
         public Dictionary<string, SensorTypeEnum> SensorTypeEnum_Dict = new Dictionary<string, SensorTypeEnum> {
             { "Temp", SensorTypeEnum.Temp },
@@ -544,171 +552,6 @@ namespace WeatherStation
         }
 
         /// <summary>
-        /// Main method to parse received data
-        /// </summary>        
-        public void ParseData(string txtBuffer)
-        {
-            string aLine = null;
-            StringReader strReader = new StringReader(txtBuffer);
-            while (true)
-            {
-                aLine = strReader.ReadLine();
-                if (aLine != null)
-                {
-                    //IS THIS DATA PROTOCOL LINE?
-                    if (aLine.Trim().StartsWith(DATAPROTOCOL_START))
-                    {
-
-                        int tagStartPosition=DATAPROTOCOL_START.Length;
-                        int tagEndPosition = aLine.IndexOf(DATAPROTOCOL_SEPARATOR); 
-                        int valEndPosition = aLine.IndexOf(DATAPROTOCOL_END);
-
-                        // is this a full line (with TAG and DATA)?
-                        if (tagEndPosition >= 0 && valEndPosition >= 0)
-                        {
-                            string tagName = aLine.Substring(tagStartPosition, tagEndPosition - tagStartPosition);
-                            string tagValue_raw = aLine.Substring(tagEndPosition + 1, valEndPosition - tagEndPosition - 1);
-
-                            char Separator = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator[0];
-                            char BadSeparator='.';
-                            if (Separator == '.') { BadSeparator = ','; }
-                            if (Separator == ',') { BadSeparator = '.'; }
-
-                            string tagValue = tagValue_raw.Replace(BadSeparator, Separator); 
-
-                            if (tagName == "Obj")
-                            {
-                                ObjTemp= Convert.ToDouble(tagValue);
-                                if (ObjTemp>-85 && Temp1 > -85)
-                                {
-                                    CloudIdx = Temp1 - ObjTemp;
-                                    CloudIdxCorr = CloudIndexCorr(ObjTemp, Temp1);
-                                }
-                            }
-                            else if (tagName == "Amb")
-                            {
-                                ATemp = Convert.ToDouble(tagValue);
-                            }
-                            else if (tagName == "BTe")
-                            {
-                                BTemp = Convert.ToDouble(tagValue);
-
-                                //Dolph edition
-                                Temp1 = BTemp;
-                                //
-                            }
-                            else if (tagName == "Pre")
-                            {
-                                if (CheckData(Convert.ToDouble(tagValue), SensorTypeEnum.Press))
-                                {
-                                    Press = Convert.ToDouble(tagValue);
-                                }
-                            }
-                            else if (tagName == "DT1")
-                            {
-                                DTemp1 = Convert.ToDouble(tagValue);
-                            }
-                            else if (tagName == "DH1")
-                            {
-                                Hum1 = Convert.ToDouble(tagValue);
-                            }
-                            else if (tagName == "DT2")
-                            {
-                                DTemp2 = Convert.ToDouble(tagValue);
-                            }
-                            else if (tagName == "DH2")
-                            {
-                                Hum2 = Convert.ToDouble(tagValue);
-                            }
-                            else if (tagName == "Lum")
-                            {
-                                Illum = Convert.ToDouble(tagValue);
-                            }
-                            else if (tagName == "Lur")
-                            {
-                                LumRes = Convert.ToInt16(tagValue);
-                            }
-                            else if (tagName == "Lus")
-                            {
-                                LumSens = Convert.ToInt16(tagValue);
-                            }
-                            else if (tagName == "Luw")
-                            {
-                                LumWTime = Convert.ToInt16(tagValue);
-                            }
-                            else if (tagName == "Te1")
-                            {
-                                if (CheckData(Convert.ToDouble(tagValue), SensorTypeEnum.Temp))
-                                {
-                                    Temp1 = Convert.ToDouble(tagValue);
-                                }
-                                //Dolph edition
-                                Temp1 = BTemp;
-                                //
-                            }
-                            else if (tagName == "Te2")
-                            {
-                                if (CheckData(Convert.ToDouble(tagValue), SensorTypeEnum.Temp))
-                                {
-                                    Temp2 = Convert.ToDouble(tagValue);
-                                }
-                            }
-                            else if (tagName == "Wet")
-                            {
-                                Wet = Convert.ToInt16(tagValue);
-                            }
-                            else if (tagName == "RGC")
-                            {
-                                RGC = Convert.ToInt16(tagValue);
-                            }
-                            else if (tagName == "!be")
-                            {
-                            }
-                            else if (tagName == "!en")
-                            {
-
-                                //Сохранение Boltwood файла
-                                Logging.WirteBoltwoodData(getBoltwoodString());
-
-                                LastMeasure = DateTime.Now;
-
-                                //Сохранение CSV файла
-                                Logging.LogData(getCSVline());
-
-                                /*
-                                  //Отправка Web запроса
-                                    Web_date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-
-                                    string queryst = "date=" + Web_date + "&ot=" + Convert.ToString(ObjTemp) + "&at=" + Convert.ToString(ATemp) + "&bp=" + Convert.ToString(Press) + "&bt=" + Convert.ToString(BTemp) + "&dh=" + Convert.ToString(Hum1) + "&dt=" + Convert.ToString(DTemp1) +
-                                        "&dh2=" + Convert.ToString(Hum2) + "&dt2=" + Convert.ToString(DTemp2) + "&bhv=" + Convert.ToString(Illum) + "&bhs=" + Convert.ToString(LumSens) + "&bhr=" + Convert.ToString(LumRes) +
-                                        "&bhw=" + Convert.ToString(LumWTime) + "&owt1=" + Convert.ToString(Temp1) + "&owt2=" + Convert.ToString(Temp2) + "&wsv=" + Convert.ToString(Wet) + "&rgc=" + Convert.ToString(RGC);
-
-                                    if (Press != 333.33)
-                                    {
-                                        WebServices.sendToServer(queryst);
-                                    }
-                                 */
-                            }
-                        
-                        }
-                        else {
-                            //write error log
-                            Logging.Log("Incomplete protocol line: " + aLine);
-
-
-                        }
-                    }
-                }
-                else
-                {
-                    break;
-                }
-            }
-        
-        }
-
-
-        /// <summary>
         /// Upgraded main method to parse received data
         /// Based on SensorArray
         /// </summary>        
@@ -767,19 +610,34 @@ namespace WeatherStation
                             try
                             {
                                 if (SensorsArray[SensorsArrayHashArduino[tagName]].SensorName == BaseTempName)
-                                    BaseTempVal = SensorsArray[BaseTempIdx].LastValue;
+                                {
+                                    if (CheckData(SensorsArray[BaseTempIdx].LastValue, SensorTypeEnum.Temp))
+                                    {
+                                        BaseTempVal = SensorsArray[BaseTempIdx].LastValue;
+                                    }
+                                }
                             }
                             catch
                             {
 
                             }
 
-                            //Расчетные поля
+                            //Calculated and Auxiliary sensor fields
+                            IllumVal = SensorsArray[SensorsArrayHash["Illum"]].LastValue;
+                            ObjTempVal = SensorsArray[SensorsArrayHash["ObjTemp"]].LastValue;
+                            SensorCaseTempVal = SensorsArray[SensorsArrayHash["ATemp"]].LastValue;
+                            HumidityVal = SensorsArray[SensorsArrayHash["Hum1"]].LastValue;
+                            WetVal = (int)SensorsArray[SensorsArrayHash["Wet"]].LastValue;
+
                             if (tagName == "Obj")
                             {
-                                ObjTemp = SensorsArray[SensorsArrayHashArduino[tagName]].LastValue;
-                                CloudIdx = BaseTempVal - ObjTemp;
-                                CloudIdxCorr = CloudIndexCorr(ObjTemp, BaseTempVal);
+                                ObjTempVal = SensorsArray[SensorsArrayHashArduino[tagName]].LastValue;
+
+                                if (CheckData(ObjTempVal, SensorTypeEnum.Temp) && CheckData(BaseTempVal, SensorTypeEnum.Temp))
+                                {
+                                    CloudIdx = BaseTempVal - ObjTempVal;
+                                    CloudIdxCorr = CloudIndexCorr(ObjTempVal, BaseTempVal);
+                                }
                             }
                             else if (tagName == "Lur")
                             {
@@ -796,6 +654,10 @@ namespace WeatherStation
                             else if (tagName == "!be")
                             {
                             }
+                            else if (tagName == "!ver")
+                            {
+                                SketchVersion = tagValue;
+                            }
                             else if (tagName == "!en")
                             {
 
@@ -805,21 +667,7 @@ namespace WeatherStation
                                 LastMeasure = DateTime.Now;
 
                                 //Сохранение CSV файла
-                                Logging.LogData(getCSVline());
-
-                                /*
-                                  //Отправка Web запроса
-                                    Web_date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-
-                                    string queryst = "date=" + Web_date + "&ot=" + Convert.ToString(ObjTemp) + "&at=" + Convert.ToString(ATemp) + "&bp=" + Convert.ToString(Press) + "&bt=" + Convert.ToString(BTemp) + "&dh=" + Convert.ToString(Hum1) + "&dt=" + Convert.ToString(DTemp1) +
-                                        "&dh2=" + Convert.ToString(Hum2) + "&dt2=" + Convert.ToString(DTemp2) + "&bhv=" + Convert.ToString(Illum) + "&bhs=" + Convert.ToString(LumSens) + "&bhr=" + Convert.ToString(LumRes) +
-                                        "&bhw=" + Convert.ToString(LumWTime) + "&owt1=" + Convert.ToString(Temp1) + "&owt2=" + Convert.ToString(Temp2) + "&wsv=" + Convert.ToString(Wet) + "&rgc=" + Convert.ToString(RGC);
-
-                                    if (Press != 333.33)
-                                    {
-                                        WebServices.sendToServer(queryst);
-                                    }
-                                 */
+                                Logging.LogData(getCSVline(), getCSVHeaderline());
                             }
 
                         }
@@ -844,7 +692,7 @@ namespace WeatherStation
         public string getBoltwoodString()
         {
             //Calculations for boltwood
-            Bolt_DewPoint = DewPoint(Temp1, Hum1);
+            Bolt_DewPoint = DewPoint(BaseTempVal, HumidityVal);
 
             //Bolt_Heater
             //not implemented yet
@@ -872,7 +720,7 @@ namespace WeatherStation
             Bolt_RainFlag_sinceLastDetected = (ushort)Math.Round(MeasureIntervalRF.TotalSeconds, 0);
 
             //Rain condition & Bolt_RainFlag + Bolt_WetFlag
-            if (Wet > RAININDEX_WET_LIMIT)
+            if (WetVal > RAININDEX_WET_LIMIT)
             {
                 //DRY
                 Bolt_RainCond = RainCond.rainDry;
@@ -882,7 +730,7 @@ namespace WeatherStation
                 if (Bolt_WetFlag_sinceLastDetected > 0 && Bolt_WetFlag_sinceLastDetected < 60) { Bolt_WetFlag = WetFlag.wetFlagLastminute; }
                 else { Bolt_WetFlag = WetFlag.wetFlagDry; }
             }
-            else if (Wet > RAININDEX_RAIN_LIMIT)
+            else if (WetVal > RAININDEX_RAIN_LIMIT)
             {
                 //WET
                 if (Bolt_CloudCond == CloudCond.cloudCloudy || Bolt_CloudCond == CloudCond.cloudVeryCloudy)
@@ -902,7 +750,7 @@ namespace WeatherStation
                     else { Bolt_WetFlag = WetFlag.wetFlagDry; }
                 }
             }
-            else if (Wet >= RAININDEX_BAD_LIMIT)
+            else if (WetVal >= RAININDEX_BAD_LIMIT)
             {
                 //RAIN
                 Bolt_RainCond = RainCond.rainRain;
@@ -915,9 +763,9 @@ namespace WeatherStation
             }
 
             //Daylight condition
-            if (Illum > DAYLIGHT_LIGHT_LIMIT) { Bolt_DaylighCond = DayCond.dayVeryLight; }
-            else if (Illum > DAYLIGHT_DARK_LIMIT) { Bolt_DaylighCond = DayCond.dayLight; }
-            else if (Illum >= 0) { Bolt_DaylighCond = DayCond.dayDark; }
+            if (IllumVal > DAYLIGHT_LIGHT_LIMIT) { Bolt_DaylighCond = DayCond.dayVeryLight; }
+            else if (IllumVal > DAYLIGHT_DARK_LIMIT) { Bolt_DaylighCond = DayCond.dayLight; }
+            else if (IllumVal >= 0) { Bolt_DaylighCond = DayCond.dayDark; }
 
             //Bolt_RoofCloseFlag: roof close, =0 not requested, =1 if roof close was requested on this cycle 
             //not implemented yet
@@ -927,7 +775,7 @@ namespace WeatherStation
 
             //Making boltwood string
             string bold_st = String.Format("{0,10} {1,11} C K {2,6:N1} {3,6:N1} {4,6:N1} {5,6:N1} {6,3:N0} {7,6:N1} {8,3:N0} {9,1:N0} {10,1:N0} {11,5:N0} {12,12:F5} {13,1:N0} {14,1:N0} {15,1:N0} {16,1:N0} {17,1:N0} {18,1:N0}",
-                Bolt_date, Bolt_time, ObjTemp, Temp1, ATemp, WindSpeed, Hum1, Bolt_DewPoint, Bolt_Heater,
+                Bolt_date, Bolt_time, ObjTempVal, BaseTempVal, SensorCaseTempVal, WindSpeed, HumidityVal, Bolt_DewPoint, Bolt_Heater,
                 (int)Bolt_RainFlag, (int)Bolt_WetFlag, Bolt_SinceLastMeasure.ToString("00000"), Bolt_now.ToString("000000.#####"),
                 (int)Bolt_CloudCond, (int)Bolt_WindCond, (int)Bolt_RainCond, (int)Bolt_DaylighCond, (int)Bolt_RoofCloseFlag, (int)Bolt_AlertFlag);
 
@@ -939,14 +787,50 @@ namespace WeatherStation
         /// </summary>   
         public string getCSVline()
         {
-            //Супер CSV файла
-            string st = Convert.ToString(ObjTemp) + Logging.CSVseparator + Convert.ToString(ATemp) + Logging.CSVseparator + Convert.ToString(BTemp) + Logging.CSVseparator + Convert.ToString(Press) + Logging.CSVseparator
-                + Convert.ToString(DTemp1) + Logging.CSVseparator + Convert.ToString(Hum1) + Logging.CSVseparator + Convert.ToString(DTemp2) + Logging.CSVseparator + Convert.ToString(Hum2) + Logging.CSVseparator +
-                Convert.ToString(Illum) + Logging.CSVseparator + Convert.ToString(LumRes) + Logging.CSVseparator + Convert.ToString(LumSens) + Logging.CSVseparator + Convert.ToString(LumWTime) + Logging.CSVseparator + Convert.ToString(Temp1) + Logging.CSVseparator +
-                Convert.ToString(Temp2) + Logging.CSVseparator + Convert.ToString(Wet) + Logging.CSVseparator + Convert.ToString(RGC) + Logging.CSVseparator;
+            //Строка CSV файла
+            string st = "";
+
+            int SensIdx = -1;
+            foreach (SensorElement DataSensor in SensorsArray)
+            {
+                SensIdx++;
+                if (DataSensor != null)
+                {
+                    if (DataSensor.Enabled)
+                    {
+                        st += Convert.ToString(DataSensor.LastValue) + Logging.CSVseparator;
+                    }
+                }
+            }
             
             return st;
         }
+
+        /// <summary>
+        /// Method to generate CSV header line for datalog file
+        /// </summary>   
+        public string getCSVHeaderline()
+        {
+            //Строка CSV файла
+            string st = "";
+
+            int SensIdx = -1;
+            foreach (SensorElement DataSensor in SensorsArray)
+            {
+                SensIdx++;
+                if (DataSensor != null)
+                {
+                    if (DataSensor.Enabled)
+                    {
+                        st += Convert.ToString(DataSensor.SensorName) + Logging.CSVseparator;
+                    }
+                }
+            }
+
+            return st;
+        }
+
+
         
         /// <summary>
         /// Method to check data validity for different sensors type
@@ -1001,7 +885,7 @@ namespace WeatherStation
                 T67 = K6/10 * Math.Sign(Tamb - K2 / 10) * (Math.Log(Math.Abs((K2 / 10 - Tamb)))/Math.Log(10) + K7/100);
             }
 
-            double Td = (K1 / 100) * (Temp1 - K2 / 10) + (K3 / 100) * Math.Pow (Math.Exp(K4 / 1000 * Temp1), (K5 / 100)) + T67;
+            double Td = (K1 / 100) * (Tamb - K2 / 10) + (K3 / 100) * Math.Pow(Math.Exp(K4 / 1000 * Tamb), (K5 / 100)) + T67;
 
             double Tcorr = Tsky - Td;
 

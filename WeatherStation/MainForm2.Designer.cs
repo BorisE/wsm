@@ -118,6 +118,9 @@
             this.txtDayCond = new System.Windows.Forms.TextBox();
             this.txtCloudCond = new System.Windows.Forms.TextBox();
             this.btnSimulate = new System.Windows.Forms.Button();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.btnRelay = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -127,6 +130,8 @@
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.groupBox8.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnStart
@@ -838,23 +843,23 @@
             // 
             // txtCloudIndex2
             // 
-            this.txtCloudIndex2.Location = new System.Drawing.Point(567, 18);
+            this.txtCloudIndex2.Location = new System.Drawing.Point(91, 15);
             this.txtCloudIndex2.Name = "txtCloudIndex2";
-            this.txtCloudIndex2.Size = new System.Drawing.Size(84, 20);
+            this.txtCloudIndex2.Size = new System.Drawing.Size(63, 20);
             this.txtCloudIndex2.TabIndex = 9;
             // 
             // txtCloudIndex1
             // 
-            this.txtCloudIndex1.Location = new System.Drawing.Point(567, 47);
+            this.txtCloudIndex1.Location = new System.Drawing.Point(91, 47);
             this.txtCloudIndex1.Name = "txtCloudIndex1";
-            this.txtCloudIndex1.Size = new System.Drawing.Size(84, 20);
+            this.txtCloudIndex1.Size = new System.Drawing.Size(63, 20);
             this.txtCloudIndex1.TabIndex = 9;
             // 
             // txtRainCond
             // 
-            this.txtRainCond.Location = new System.Drawing.Point(93, 47);
+            this.txtRainCond.Location = new System.Drawing.Point(89, 47);
             this.txtRainCond.Name = "txtRainCond";
-            this.txtRainCond.Size = new System.Drawing.Size(78, 20);
+            this.txtRainCond.Size = new System.Drawing.Size(75, 20);
             this.txtRainCond.TabIndex = 10;
             // 
             // label15
@@ -878,7 +883,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(174, 25);
+            this.label17.Location = new System.Drawing.Point(170, 25);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(75, 13);
             this.label17.TabIndex = 11;
@@ -886,8 +891,6 @@
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.label21);
-            this.groupBox8.Controls.Add(this.label20);
             this.groupBox8.Controls.Add(this.label19);
             this.groupBox8.Controls.Add(this.label18);
             this.groupBox8.Controls.Add(this.label17);
@@ -898,11 +901,9 @@
             this.groupBox8.Controls.Add(this.txtDayCond);
             this.groupBox8.Controls.Add(this.txtCloudCond);
             this.groupBox8.Controls.Add(this.txtRainCond);
-            this.groupBox8.Controls.Add(this.txtCloudIndex1);
-            this.groupBox8.Controls.Add(this.txtCloudIndex2);
             this.groupBox8.Location = new System.Drawing.Point(2, 41);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(673, 73);
+            this.groupBox8.Size = new System.Drawing.Size(416, 73);
             this.groupBox8.TabIndex = 4;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Boltwood cloud sensor flags state";
@@ -910,7 +911,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(479, 50);
+            this.label21.Location = new System.Drawing.Point(6, 50);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(76, 13);
             this.label21.TabIndex = 12;
@@ -919,7 +920,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(479, 21);
+            this.label20.Location = new System.Drawing.Point(6, 18);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(87, 13);
             this.label20.TabIndex = 12;
@@ -928,7 +929,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(342, 25);
+            this.label19.Location = new System.Drawing.Point(329, 25);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(50, 13);
             this.label19.TabIndex = 11;
@@ -937,7 +938,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(258, 25);
+            this.label18.Location = new System.Drawing.Point(251, 25);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(52, 13);
             this.label18.TabIndex = 11;
@@ -945,35 +946,35 @@
             // 
             // txtWetflag
             // 
-            this.txtWetflag.Location = new System.Drawing.Point(345, 47);
+            this.txtWetflag.Location = new System.Drawing.Point(332, 47);
             this.txtWetflag.Name = "txtWetflag";
-            this.txtWetflag.Size = new System.Drawing.Size(78, 20);
+            this.txtWetflag.Size = new System.Drawing.Size(75, 20);
             this.txtWetflag.TabIndex = 10;
             // 
             // txtRainflag
             // 
-            this.txtRainflag.Location = new System.Drawing.Point(261, 47);
+            this.txtRainflag.Location = new System.Drawing.Point(251, 47);
             this.txtRainflag.Name = "txtRainflag";
-            this.txtRainflag.Size = new System.Drawing.Size(78, 20);
+            this.txtRainflag.Size = new System.Drawing.Size(75, 20);
             this.txtRainflag.TabIndex = 10;
             // 
             // txtDayCond
             // 
-            this.txtDayCond.Location = new System.Drawing.Point(177, 47);
+            this.txtDayCond.Location = new System.Drawing.Point(170, 47);
             this.txtDayCond.Name = "txtDayCond";
-            this.txtDayCond.Size = new System.Drawing.Size(78, 20);
+            this.txtDayCond.Size = new System.Drawing.Size(75, 20);
             this.txtDayCond.TabIndex = 10;
             // 
             // txtCloudCond
             // 
             this.txtCloudCond.Location = new System.Drawing.Point(6, 47);
             this.txtCloudCond.Name = "txtCloudCond";
-            this.txtCloudCond.Size = new System.Drawing.Size(78, 20);
+            this.txtCloudCond.Size = new System.Drawing.Size(75, 20);
             this.txtCloudCond.TabIndex = 10;
             // 
             // btnSimulate
             // 
-            this.btnSimulate.Location = new System.Drawing.Point(350, 10);
+            this.btnSimulate.Location = new System.Drawing.Point(318, 10);
             this.btnSimulate.Name = "btnSimulate";
             this.btnSimulate.Size = new System.Drawing.Size(100, 23);
             this.btnSimulate.TabIndex = 8;
@@ -981,11 +982,46 @@
             this.btnSimulate.UseVisualStyleBackColor = true;
             this.btnSimulate.Click += new System.EventHandler(this.btnSimulate_Click);
             // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.txtCloudIndex1);
+            this.groupBox9.Controls.Add(this.label21);
+            this.groupBox9.Controls.Add(this.txtCloudIndex2);
+            this.groupBox9.Controls.Add(this.label20);
+            this.groupBox9.Location = new System.Drawing.Point(509, 41);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(166, 73);
+            this.groupBox9.TabIndex = 13;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Cloud index";
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.btnRelay);
+            this.groupBox10.Location = new System.Drawing.Point(427, 44);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(71, 69);
+            this.groupBox10.TabIndex = 14;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Heating";
+            // 
+            // btnRelay
+            // 
+            this.btnRelay.Location = new System.Drawing.Point(6, 34);
+            this.btnRelay.Name = "btnRelay";
+            this.btnRelay.Size = new System.Drawing.Size(59, 30);
+            this.btnRelay.TabIndex = 0;
+            this.btnRelay.Text = "On";
+            this.btnRelay.UseVisualStyleBackColor = true;
+            this.btnRelay.Click += new System.EventHandler(this.btnRelay_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 712);
+            this.Controls.Add(this.groupBox10);
+            this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.btnSimulate);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.btnLogWindow);
@@ -1005,7 +1041,7 @@
             this.MinimumSize = new System.Drawing.Size(400, 650);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Weather Station";
+            this.Text = "`";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox2.ResumeLayout(false);
@@ -1025,6 +1061,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1093,6 +1132,9 @@
         public System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnSimulate;
         public System.Windows.Forms.Timer timer_debug;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.Button btnRelay;
     }
 }
 

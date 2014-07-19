@@ -257,42 +257,6 @@ waiting 10000
             LogForm.Show();
         }
 
-        private void RefreshFormFields_obsolete()
-        {
-            txtObj.Text = Convert.ToString(Hardware.ObjTemp);
-            txtATemp.Text = Convert.ToString(Hardware.ATemp);
-
-            txtCloudIndex1.Text = Convert.ToString(Hardware.CloudIdx);
-            txtCloudIndex2.Text = Convert.ToString(Math.Round(Hardware.CloudIdxCorr,2));
-
-            txtBTemp.Text = Convert.ToString(Hardware.BTemp);
-            txtPress.Text = Convert.ToString(Hardware.Press);
-
-            txtHum1.Text = Convert.ToString(Hardware.Hum1);
-            txtDTemp1.Text = Convert.ToString(Hardware.DTemp1);
-            
-            txtHum2.Text = Convert.ToString(Hardware.Hum2);
-            txtDTemp2.Text = Convert.ToString(Hardware.DTemp2);
-
-            txtIllum.Text = Convert.ToString(Hardware.Illum);
-            txtLumRes.Text = Convert.ToString(Hardware.LumRes);
-            txtLumSen.Text = Convert.ToString(Hardware.LumSens);
-            txtLumWTime.Text = Convert.ToString(Hardware.LumWTime);
-
-            switch (Hardware.LumRes)
-            {
-                case 16: txtIllumRes.Text = "1x"; break;
-                case 17: txtIllumRes.Text = "0.5x"; break;
-                case 19: txtIllumRes.Text = "4x"; break;
-            }
-
-            txtWet.Text = Convert.ToString(Hardware.Wet);
-            txtRGC.Text = Convert.ToString(Hardware.RGC);
-
-            txtTemp1.Text = Convert.ToString(Hardware.Temp1);
-            txtTemp2.Text = Convert.ToString(Hardware.Temp2);
-        
-        }
 
         private void RefreshFormFields2()
         {
@@ -304,7 +268,7 @@ waiting 10000
                 SensIdx++;
                 if (DataSensor != null)
                 {
-                    if (DataSensor.SensorFormField != "")
+                    if (DataSensor.Enabled && DataSensor.SensorFormField != "")
                     {
                         TextBox SensVal = this.Controls.Find(DataSensor.SensorFormField, true).FirstOrDefault() as TextBox;
                         SensVal.Text = Convert.ToString(DataSensor.LastValue);
@@ -362,23 +326,6 @@ waiting 10000
 
         }
 
-        private void SendDataToWeb()
-        {
-            //Send data to custom site
-            if (WebServices.WebDataFlag)
-            {
-                Hardware.Web_date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-
-                string queryst = "date=" + Hardware.Web_date + "&ot=" + Convert.ToString(Hardware.ObjTemp) + "&at=" + Convert.ToString(Hardware.ATemp) +
-                    "&bp=" + Convert.ToString(Hardware.Press) + "&bt=" + Convert.ToString(Hardware.BTemp) + "&dh=" + Convert.ToString(Hardware.Hum1) +
-                    "&dt=" + Convert.ToString(Hardware.DTemp1) + "&dh2=" + Convert.ToString(Hardware.Hum2) + "&dt2=" + Convert.ToString(Hardware.DTemp2) +
-                    "&bhv=" + Convert.ToString(Hardware.Illum) + "&bhs=" + Convert.ToString(Hardware.LumSens) + "&bhr=" + Convert.ToString(Hardware.LumRes) +
-                    "&bhw=" + Convert.ToString(Hardware.LumWTime) + "&owt1=" + Convert.ToString(Hardware.Temp1) + "&owt2=" + Convert.ToString(Hardware.Temp2) +
-                    "&wsv=" + Convert.ToString(Hardware.Wet) + "&rgc=" + Convert.ToString(Hardware.RGC);
-                WebServices.sendToServer(queryst);
-            }
-        }
-
         /// <summary>
         /// Send Data to web wrapper
         /// </summary>
@@ -411,7 +358,7 @@ waiting 10000
                 SensIdx++;
                 if (DataSensor != null)
                 {
-                    if (DataSensor.SendToWebFlag)
+                    if (DataSensor.Enabled && DataSensor.SendToWebFlag)
                         webstr += "&" + DataSensor.WebCustomName + "=" + Convert.ToString(DataSensor.LastValue);
                 }
             }
@@ -438,7 +385,7 @@ waiting 10000
                 SensIdx++;
                 if (DataSensor != null)
                 {
-                    if (DataSensor.SendToNarodMon)
+                    if (DataSensor.Enabled && DataSensor.SendToNarodMon)
                     {
                         if (Hardware.CheckData(Convert.ToDouble(DataSensor.LastValue), DataSensor.SensorType))
                         {
@@ -456,15 +403,18 @@ waiting 10000
         {
             curX = DateTime.Now;
             //Graph1 & 2
-            if (Hardware.CheckData(Convert.ToDouble(txtObj.Text), SensorTypeEnum.Temp) && Hardware.CheckData(Convert.ToDouble(txtTemp1.Text), SensorTypeEnum.Temp) && Hardware.CheckData(Convert.ToDouble(txtCloudIndex1.Text), SensorTypeEnum.Temp)) { 
+            double cloudidx1 = -100.0, cloudidx2 = -100.0, objtemp=-100.0;
+            if (Double.TryParse(txtCloudIndex1.Text, out cloudidx1) && Hardware.CheckData(cloudidx1, SensorTypeEnum.Temp))
+            { 
                 addGraphicsPoint(chart1, 0, curX, Convert.ToDouble(txtCloudIndex1.Text)); 
             }
-            if (Hardware.CheckData(Convert.ToDouble(txtObj.Text), SensorTypeEnum.Temp) && Hardware.CheckData(Convert.ToDouble(txtTemp1.Text), SensorTypeEnum.Temp) && Hardware.CheckData(Convert.ToDouble(txtCloudIndex2.Text), SensorTypeEnum.Temp))
-            {
+            if (Double.TryParse(txtCloudIndex2.Text, out cloudidx2) && Hardware.CheckData(cloudidx2, SensorTypeEnum.Temp))
+            { 
                 addGraphicsPoint(chart1, 1, curX, Convert.ToDouble(txtCloudIndex2.Text));
             }
-            if (Hardware.CheckData(Convert.ToDouble(txtObj.Text), SensorTypeEnum.Temp) && Hardware.CheckData(Convert.ToDouble(txtTemp1.Text), SensorTypeEnum.Temp))
-            {
+            if (Double.TryParse(txtObj.Text, out objtemp) && Hardware.CheckData(objtemp, SensorTypeEnum.Temp))
+            { 
+  
                 addGraphicsPoint(chart1, 2, curX, Convert.ToDouble(txtObj.Text)); 
             }
 
@@ -608,6 +558,22 @@ waiting 10000
             Logging.LogFileFlag = Properties.Settings.Default.logFileFlag;
             Logging.DataFileFlag = Properties.Settings.Default.CSVFileFlag;
             Logging.BoltwoodFileFlag = Properties.Settings.Default.BoltwoodFileFlag;
+        }
+
+        private void btnRelay_Click(object sender, EventArgs e)
+        {
+            if (btnRelay.Text == "On")
+            {
+                btnRelay.Text = "Off";
+                btnRelay.BackColor = Color.Red;
+
+            }
+            else if (btnRelay.Text == "Off")
+            {
+                btnRelay.Text = "On";
+                btnRelay.BackColor = default(Color);
+                btnRelay.UseVisualStyleBackColor = true;
+            }
         }
 
 
