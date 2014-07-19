@@ -211,7 +211,7 @@ waiting 10000
             if (Hardware.WatchDog && !SimulationMode) Hardware.CheckIfDataReceiving();
             
             //Parse data
-            Hardware.ParseData(Hardware.SerialBuffer);
+            Hardware.ParseData2(Hardware.SerialBuffer);
 
             //Logging.Log(Hardware.SerialBuffer);
 
@@ -228,7 +228,7 @@ waiting 10000
             Hardware.SerialBuffer = "";
 
             //Refresh form values
-            RefreshFormFields();
+            RefreshFormFields2();
 
             //Refresh form values
             RefreshBoltwoodFields();
@@ -237,7 +237,7 @@ waiting 10000
             refreshGraphs();
             
             //Send data to web
-            SendDataToWeb();
+            SendDataToWeb2();
         }
 
 
@@ -257,7 +257,7 @@ waiting 10000
             LogForm.Show();
         }
 
-        private void RefreshFormFields()
+        private void RefreshFormFields_obsolete()
         {
             txtObj.Text = Convert.ToString(Hardware.ObjTemp);
             txtATemp.Text = Convert.ToString(Hardware.ATemp);
@@ -293,6 +293,30 @@ waiting 10000
             txtTemp2.Text = Convert.ToString(Hardware.Temp2);
         
         }
+
+        private void RefreshFormFields2()
+        {
+
+            //Include all sensor that needed to web query
+            int SensIdx = -1;
+            foreach (SensorElement DataSensor in Hardware.SensorsArray)
+            {
+                SensIdx++;
+                if (DataSensor != null)
+                {
+                    if (DataSensor.SensorFormField != "")
+                    {
+                        TextBox SensVal = this.Controls.Find(DataSensor.SensorFormField, true).FirstOrDefault() as TextBox;
+                        SensVal.Text = Convert.ToString(DataSensor.LastValue);
+                    }
+                }
+            }
+
+            //Calculated fields
+            txtCloudIndex1.Text = Convert.ToString(Hardware.CloudIdx);
+            txtCloudIndex2.Text = Convert.ToString(Math.Round(Hardware.CloudIdxCorr, 2));
+        }
+
 
         private void RefreshBoltwoodFields()
         {
@@ -353,32 +377,79 @@ waiting 10000
                     "&wsv=" + Convert.ToString(Hardware.Wet) + "&rgc=" + Convert.ToString(Hardware.RGC);
                 WebServices.sendToServer(queryst);
             }
+        }
 
-            //Send data to narodmon.ru
+        /// <summary>
+        /// Send Data to web wrapper
+        /// </summary>
+        private void SendDataToWeb2()
+        {
+            if (WebServices.WebDataFlag)
+            {
+                SendDataToCustomSite();
+            }
+
             if (WebServices.SendToNarodmonFlag && WebServices.SinceLastNarodMonDataSent() > WebServices.LIMIT_NARODMON_SEND_INTERVAL)
             {
-                string DevPrefix = WebServices.Narodmon_MAC.Replace("-", "");
-                
-/*                string queryst2 = DevPrefix+"01=" + Convert.ToString(Hardware.Press) +
-                    "&"+DevPrefix+"02=" + Convert.ToString(Hardware.Hum2) +
-                    "&" + DevPrefix + "03=" + Convert.ToString(Hardware.Illum) +
-                    "&" + DevPrefix + "04=" + Convert.ToString(Hardware.Temp1) +
-                    "&" + DevPrefix + "05=" + Convert.ToString(Hardware.RGC) +
-                    "&" + DevPrefix + "06=" + Convert.ToString(Hardware.CloudIdx) +
-                    "&" + DevPrefix + "07=" + Convert.ToString(Hardware.Temp2);
-*/
-                //Dolph edition
-                string queryst2 = DevPrefix + "01=" + Convert.ToString(Hardware.ATemp) +
-                    "&" + DevPrefix + "02=" + Convert.ToString(Hardware.ObjTemp) +
-                    "&" + DevPrefix + "03=" + Convert.ToString(Hardware.CloudIdx) +
-                    "&" + DevPrefix + "04=" + Convert.ToString(Hardware.BTemp) +
-                    "&" + DevPrefix + "05=" + Convert.ToString(Hardware.Press) +
-                    "&" + DevPrefix + "06=" + Convert.ToString(Hardware.Hum1) +
-                    "&" + DevPrefix + "07=" + Convert.ToString(Hardware.DTemp1);
-
-
-                WebServices.sendDataToNetMon(queryst2);
+                SendDataToNarodmon();
             }
+        }
+
+        /// <summary>
+        /// SEND DATA TO CUSTOM WEBSITE
+        /// Using SensorArray
+        /// </summary>
+        private void SendDataToCustomSite()
+        {
+            string webstr = "";
+            Hardware.Web_date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+            //Include all sensor that needed to web query
+            int SensIdx = -1;
+            foreach (SensorElement DataSensor in Hardware.SensorsArray)
+            {
+                SensIdx++;
+                if (DataSensor != null)
+                {
+                    if (DataSensor.SendToWebFlag)
+                        webstr += "&" + DataSensor.WebCustomName + "=" + Convert.ToString(DataSensor.LastValue);
+                }
+            }
+
+            //Send web query
+            string queryst = "date=" + Hardware.Web_date + webstr;
+            WebServices.sendToServer(queryst);
+        }
+
+
+        /// <summary>
+        /// SEND DATA TO NARODMON WEBSITE
+        /// Using SensorArray
+        /// </summary>
+        private void SendDataToNarodmon()
+        {
+            //Присвоить прочитанное значение нужному сенсору
+            string DevPrefix = WebServices.Narodmon_MAC.Replace("-", "");
+            string narodmonst="";
+
+            int SensIdx = -1;
+            foreach (SensorElement DataSensor in Hardware.SensorsArray)
+            {
+                SensIdx++;
+                if (DataSensor != null)
+                {
+                    if (DataSensor.SendToNarodMon)
+                    {
+                        if (Hardware.CheckData(Convert.ToDouble(DataSensor.LastValue), DataSensor.SensorType))
+                        {
+                            narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(DataSensor.LastValue);
+                        }
+                    }
+                                
+                }
+            }                
+
+            WebServices.sendDataToNetMon(narodmonst);
         }
 
         private void refreshGraphs()

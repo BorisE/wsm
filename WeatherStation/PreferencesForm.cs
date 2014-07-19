@@ -25,31 +25,9 @@ namespace WeatherStation
 
         private void PreferencesForm_Load(object sender, EventArgs e)
         {
+            //READ COM PORT LIST
             foreach (string s in SerialPort.GetPortNames())
                 cmbPortList.Items.Add(s);
-
-            /*
-            cmbPortList.Text = ParentMainForm.Hardware.PortName;
-            txtClearsky.Text = Convert.ToString(ParentMainForm.Hardware.CLOUDINDEX_CLEAR);
-            txtCloudysky.Text = Convert.ToString(ParentMainForm.Hardware.CLOUDINDEX_CLOUDY);
-
-            txtK1.Text = Convert.ToString(ParentMainForm.Hardware.K1);
-            txtK2.Text = Convert.ToString(ParentMainForm.Hardware.K2);
-            txtK3.Text = Convert.ToString(ParentMainForm.Hardware.K3);
-            txtK4.Text = Convert.ToString(ParentMainForm.Hardware.K4);
-            txtK5.Text = Convert.ToString(ParentMainForm.Hardware.K5);
-            txtK6.Text = Convert.ToString(ParentMainForm.Hardware.K6);
-            txtK7.Text = Convert.ToString(ParentMainForm.Hardware.K7);
-
-            txtWetLimit.Text = Convert.ToString(ParentMainForm.Hardware.RAININDEX_WET_LIMIT);
-            txtRainLimit.Text = Convert.ToString(ParentMainForm.Hardware.RAININDEX_RAIN_LIMIT);
-
-            //Logging.LogFileName=
-            //Logging.dataLogFileName=
-
-            txtMaxPoints.Text = Convert.ToString(ParentMainForm.maxNumberOfPointsInChart);
-            txtRefreshInterval.Text = Convert.ToString(ParentMainForm.timer1.Interval);
-            */
 
             //READ AND FILL SENSOR PARAMETERS
             LoadSensorArrayFromSettings();
@@ -129,7 +107,7 @@ namespace WeatherStation
 
                 //Save datagrid to Properties.Settings
                 //1 - make param strings
-                string SensorName = "", SensorType = "", SensorEnabled = "", SendToWeb = "", SendToNarodmon = "", ArduinoName = "";
+                string SensorName = "", SensorType = "", SensorEnabled = "", SendToWeb = "", SendToNarodmon = "", ArduinoName = "", WebCustomName="";
                 foreach (DataGridViewRow SensorRow in dataGridSensors.Rows)
                 {
 
@@ -146,6 +124,7 @@ namespace WeatherStation
                     SendToWeb += SensorRow.Cells["SendToWeb"].Value + ";";
                     SendToNarodmon += SensorRow.Cells["SendToNarodmon"].Value + ";";
                     ArduinoName += SensorRow.Cells["ArduinoName"].Value + ";";
+                    WebCustomName += SensorRow.Cells["WebCustomName"].Value + ";";
 
 
                 }
@@ -156,6 +135,7 @@ namespace WeatherStation
                 Properties.Settings.Default.SensorSendToWeb = SendToWeb;
                 Properties.Settings.Default.SensorSendToNarodmon = SendToNarodmon;
                 Properties.Settings.Default.SensorArduinoName = ArduinoName;
+                Properties.Settings.Default.SensorWebCustomName = WebCustomName;
 
                 //3 - commit changes
                 Properties.Settings.Default.Save();
@@ -233,6 +213,9 @@ namespace WeatherStation
             string ArduinoName = Properties.Settings.Default.SensorArduinoName;
             string[] ArduinoNameArr = ArduinoName.Split(';');
 
+            string WebCustomName = Properties.Settings.Default.SensorWebCustomName;
+            string[] WebCustomNameArr = WebCustomName.Split(';');
+
             if (SensorName != "")
             {
                 //Clear default values
@@ -253,6 +236,7 @@ namespace WeatherStation
                         ParentMainForm.Hardware.SensorsArray[nI].SendToNarodMon = Convert.ToBoolean(SendToNarodmonArr[nI]);
                         //ParentMainForm.Hardware.SensorsArray[nI].SensorFormField = "";
                         ParentMainForm.Hardware.SensorsArray[nI].SensorArduinoField = ArduinoNameArr[nI];
+                        ParentMainForm.Hardware.SensorsArray[nI].WebCustomName = WebCustomNameArr[nI];
                     }
                 }
             }
@@ -279,6 +263,8 @@ namespace WeatherStation
                     dataGridSensors.Rows[curRowIndex].Cells["SendToWeb"].Value = DataSensor.SendToWebFlag;
                     dataGridSensors.Rows[curRowIndex].Cells["SendToNarodmon"].Value = DataSensor.SendToNarodMon;
                     dataGridSensors.Rows[curRowIndex].Cells["ArduinoName"].Value = DataSensor.SensorArduinoField;
+                    dataGridSensors.Rows[curRowIndex].Cells["WebCustomName"].Value = DataSensor.WebCustomName;
+                    
 
                     //FILL IN TEMP SENSORS
                     if (DataSensor.SensorType == SensorTypeEnum.Temp)

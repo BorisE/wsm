@@ -418,5 +418,17 @@ namespace WeatherStation.Properties {
                 this["SensorArduinoName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SensorWebCustomName {
+            get {
+                return ((string)(this["SensorWebCustomName"]));
+            }
+            set {
+                this["SensorWebCustomName"] = value;
+            }
+        }
     }
 }

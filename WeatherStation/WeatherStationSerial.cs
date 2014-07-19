@@ -29,6 +29,8 @@ public class SensorElement
     public bool SendToWebFlag=true;
     public bool SendToNarodMon=false;
     public string SensorArduinoField = "";
+    public string WebCustomName = "";
+    public string NarodMonID = "";
     public string SensorFormField = "";
     public double LastValue = -100.0;
     public DateTime LastValueReadTime = DateTime.MinValue;
@@ -214,6 +216,7 @@ namespace WeatherStation
             SensorsArray[nI].SendToNarodMon=false;
             SensorsArray[nI].SensorFormField = "txtObj";
             SensorsArray[nI].SensorArduinoField = "Obj";
+            SensorsArray[nI].WebCustomName="ot";
             nI++;
             SensorsArray[nI] = new SensorElement();
             SensorsArray[nI].SensorName = "ATemp";
@@ -223,6 +226,7 @@ namespace WeatherStation
             SensorsArray[nI].SendToNarodMon = false;
             SensorsArray[nI].SensorFormField = "txtATemp";
             SensorsArray[nI].SensorArduinoField = "Amb";
+            SensorsArray[nI].WebCustomName="at";
 
             //BMP085
             nI++;
@@ -234,6 +238,7 @@ namespace WeatherStation
             SensorsArray[nI].SendToNarodMon = false;
             SensorsArray[nI].SensorFormField = "txtBTemp";
             SensorsArray[nI].SensorArduinoField = "BTe";
+            SensorsArray[nI].WebCustomName="bt";
             nI++;
             SensorsArray[nI] = new SensorElement();
             SensorsArray[nI].SensorName = "Press";
@@ -243,6 +248,7 @@ namespace WeatherStation
             SensorsArray[nI].SendToNarodMon = true;
             SensorsArray[nI].SensorFormField = "txtPress";
             SensorsArray[nI].SensorArduinoField = "Pre";
+            SensorsArray[nI].WebCustomName="bp";
 
             //DHT22_1
             nI++;
@@ -254,6 +260,7 @@ namespace WeatherStation
             SensorsArray[nI].SendToNarodMon = false;
             SensorsArray[nI].SensorFormField = "txtHum1";
             SensorsArray[nI].SensorArduinoField = "DH1";
+            SensorsArray[nI].WebCustomName="dh";
             nI++;
             SensorsArray[nI] = new SensorElement();
             SensorsArray[nI].SensorName = "DTemp1";
@@ -263,6 +270,7 @@ namespace WeatherStation
             SensorsArray[nI].SendToNarodMon = false;
             SensorsArray[nI].SensorFormField = "txtDTemp1";
             SensorsArray[nI].SensorArduinoField = "DT1";
+            SensorsArray[nI].WebCustomName="dt";
 
             //DHT22_2
             nI++;
@@ -274,6 +282,7 @@ namespace WeatherStation
             SensorsArray[nI].SendToNarodMon = false;
             SensorsArray[nI].SensorFormField = "txtHum2";
             SensorsArray[nI].SensorArduinoField = "DH2";
+            SensorsArray[nI].WebCustomName="dh2";
             nI++;
             SensorsArray[nI] = new SensorElement();
             SensorsArray[nI].SensorName = "DTemp2";
@@ -283,6 +292,7 @@ namespace WeatherStation
             SensorsArray[nI].SendToNarodMon = false;
             SensorsArray[nI].SensorFormField = "txtDTemp2";
             SensorsArray[nI].SensorArduinoField = "DT2";
+            SensorsArray[nI].WebCustomName="dt2";
 
             //Illuminance
             nI++;
@@ -294,6 +304,7 @@ namespace WeatherStation
             SensorsArray[nI].SendToNarodMon = true;
             SensorsArray[nI].SensorFormField = "txtIllum";
             SensorsArray[nI].SensorArduinoField = "Lum";
+            SensorsArray[nI].WebCustomName="bhv";
 
             //OneWire temp
             nI++;
@@ -305,6 +316,7 @@ namespace WeatherStation
             SensorsArray[nI].SendToNarodMon = true;
             SensorsArray[nI].SensorFormField = "txtTemp1";
             SensorsArray[nI].SensorArduinoField = "Te1";
+            SensorsArray[nI].WebCustomName="owt1";
             nI++;
             SensorsArray[nI] = new SensorElement();
             SensorsArray[nI].SensorName = "Temp2";
@@ -314,6 +326,7 @@ namespace WeatherStation
             SensorsArray[nI].SendToNarodMon = true;
             SensorsArray[nI].SensorFormField = "txtTemp2";
             SensorsArray[nI].SensorArduinoField = "Te2";
+            SensorsArray[nI].WebCustomName="owt2";
 
             //Wet sensor
             nI++;
@@ -325,6 +338,7 @@ namespace WeatherStation
             SensorsArray[nI].SendToNarodMon = true;
             SensorsArray[nI].SensorFormField = "txtWet";
             SensorsArray[nI].SensorArduinoField = "Wet";
+            SensorsArray[nI].WebCustomName="wsv";
 
             //RGC sensor
             nI++;
@@ -336,6 +350,7 @@ namespace WeatherStation
             SensorsArray[nI].SendToNarodMon = true;
             SensorsArray[nI].SensorFormField = "txtRGC";
             SensorsArray[nI].SensorArduinoField = "RGC";
+            SensorsArray[nI].WebCustomName="rgc";
 
             
             //Make hash tables
@@ -351,6 +366,12 @@ namespace WeatherStation
                     SensorsArrayHashArduino.Add(DataSensor.SensorArduinoField, SensIdx);
                 }
             }
+
+
+            //set base temp
+            BaseTempIdx = SensorsArrayHash[BaseTempName];
+            BaseTempVal=SensorsArray[SensorsArrayHash[BaseTempName]].LastValue;
+
 /*
             public double WindSpeed = 0.0;
 */
@@ -736,16 +757,27 @@ namespace WeatherStation
                                             SensorsArray[SensIdx].LastValue = Convert.ToDouble(tagValue);
                                             SensorsArray[SensIdx].LastValueReadTime = DateTime.Now;
                                             SensorsArray[SensIdx].ValuesCount++;
-
-                                            BaseTempVal = SensorsArray[BaseTempIdx].LastValue;
                                         }
                                     }
+                                
                                 }
+                            }
+
+                            //Base temp sensor setting
+                            try
+                            {
+                                if (SensorsArray[SensorsArrayHashArduino[tagName]].SensorName == BaseTempName)
+                                    BaseTempVal = SensorsArray[BaseTempIdx].LastValue;
+                            }
+                            catch
+                            {
+
                             }
 
                             //Расчетные поля
                             if (tagName == "Obj")
                             {
+                                ObjTemp = SensorsArray[SensorsArrayHashArduino[tagName]].LastValue;
                                 CloudIdx = BaseTempVal - ObjTemp;
                                 CloudIdxCorr = CloudIndexCorr(ObjTemp, BaseTempVal);
                             }
@@ -825,7 +857,7 @@ namespace WeatherStation
             Bolt_SinceLastMeasure = (ushort)Math.Round(MeasureInterval.TotalSeconds, 0);
 
             //Cloud condition
-            CloudIdx = Temp1 - ObjTemp;
+            //CloudIdx = Temp1 - ObjTemp;
             if (CloudIdx > CLOUDINDEX_CLEAR) { Bolt_CloudCond = CloudCond.cloudClear; }
             else if (CloudIdx > CLOUDINDEX_CLOUDY) { Bolt_CloudCond = CloudCond.cloudCloudy; }
             else if (CloudIdx >= CLOUDINDEX_CLOUDY_BAD) { Bolt_CloudCond = CloudCond.cloudVeryCloudy; }
