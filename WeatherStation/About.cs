@@ -13,8 +13,11 @@ namespace WeatherStation
 {
     public partial class About : Form
     {
-        public About()
+        string HardwareVerExt = "";
+
+        public About(string _HardwareVer)
         {
+            HardwareVerExt = _HardwareVer;
             InitializeComponent();
         }
         
@@ -27,7 +30,13 @@ namespace WeatherStation
             Version ver = assemName.Version;
             lblVersion.Text += "Version " + ver.Major.ToString() + "." + ver.Minor.ToString() + "." + ver.Build.ToString() + " rev "+ver.Revision.ToString();
             //MessageBox.Show("Application " + assemName.Name + ", Version " + ver.ToString());
-            lblVersion.Text += "\n"+RetrieveLinkerTimestamp();
+            lblVersion.Text += "\n"+"Compile time: "+RetrieveLinkerTimestamp();
+
+            // Put Arduino sketch version
+            if (HardwareVerExt == "") HardwareVerExt = "n/a";
+            lblVersion.Text += "\n" + "Hardware sketch version: " + HardwareVerExt;
+            
+
             // Add link
             LinkLabel.Link link = new LinkLabel.Link();
             link.LinkData = "http://www.astromania.info/";

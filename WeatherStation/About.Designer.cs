@@ -72,7 +72,7 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(10, 204);
+            this.label1.Location = new System.Drawing.Point(10, 217);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(227, 109);
             this.label1.TabIndex = 3;
@@ -89,9 +89,9 @@
             // 
             // lblVersion
             // 
-            this.lblVersion.Location = new System.Drawing.Point(10, 172);
+            this.lblVersion.Location = new System.Drawing.Point(10, 164);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(227, 32);
+            this.lblVersion.Size = new System.Drawing.Size(227, 47);
             this.lblVersion.TabIndex = 3;
             // 
             // label3

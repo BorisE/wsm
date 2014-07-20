@@ -654,7 +654,7 @@ namespace WeatherStation
                             else if (tagName == "!be")
                             {
                             }
-                            else if (tagName == "!ver")
+                            else if (tagName == "ver")
                             {
                                 SketchVersion = tagValue;
                             }
