@@ -113,7 +113,9 @@ namespace WeatherStation
         public double ObjTempVal = -100.0;
         public double SensorCaseTempVal = -100.0;
         public double HumidityVal = -1.0;
-        public int WetVal = 1025;        
+        public int WetVal = 1025;
+
+        public int Relay1 = 0;
 
         public string SketchVersion = "";
 
@@ -265,7 +267,7 @@ namespace WeatherStation
             SensorsArray[nI].SensorType = SensorTypeEnum.Hum;
             SensorsArray[nI].Enabled = true;
             SensorsArray[nI].SendToWebFlag = true;
-            SensorsArray[nI].SendToNarodMon = false;
+            SensorsArray[nI].SendToNarodMon = true;
             SensorsArray[nI].SensorFormField = "txtHum1";
             SensorsArray[nI].SensorArduinoField = "DH1";
             SensorsArray[nI].WebCustomName="dh";
@@ -508,7 +510,24 @@ namespace WeatherStation
 
             LastTimeDataRead = DateTime.Now;
         }
-            
+
+        /// <summary>
+        /// Wrapper for writing data to serial port
+        /// </summary>
+        /// <param name="CommandSt">string with command, which should be sent to Arduino</param>
+        public bool WriteData(string CommandSt)
+        {
+            try
+            {
+                comport.WriteLine("(" + CommandSt + ")");
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+    
         /// <summary>
         /// External method to check when was the last communication
         /// </summary>        
@@ -638,6 +657,10 @@ namespace WeatherStation
                                     CloudIdx = BaseTempVal - ObjTempVal;
                                     CloudIdxCorr = CloudIndexCorr(ObjTempVal, BaseTempVal);
                                 }
+                            }
+                            else if (tagName == "RL1")
+                            {
+                                Relay1= Convert.ToInt16(tagValue);
                             }
                             else if (tagName == "Lur")
                             {

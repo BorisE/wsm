@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="comport" Type="System.String" Scope="User">
-      <Value Profile="(Default)">COM6</Value>
+      <Value Profile="(Default)">COM5</Value>
     </Setting>
     <Setting Name="resetArduino" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

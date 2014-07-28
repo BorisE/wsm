@@ -109,14 +109,14 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.txtWetflag = new System.Windows.Forms.TextBox();
             this.txtRainflag = new System.Windows.Forms.TextBox();
             this.txtDayCond = new System.Windows.Forms.TextBox();
             this.txtCloudCond = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.btnSimulate = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
@@ -136,7 +136,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(175, 11);
+            this.btnStart.Location = new System.Drawing.Point(8, 10);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 0;
@@ -400,7 +400,7 @@
             // 
             // btnPreferences
             // 
-            this.btnPreferences.Location = new System.Drawing.Point(10, 11);
+            this.btnPreferences.Location = new System.Drawing.Point(169, 10);
             this.btnPreferences.Name = "btnPreferences";
             this.btnPreferences.Size = new System.Drawing.Size(79, 22);
             this.btnPreferences.TabIndex = 6;
@@ -410,7 +410,7 @@
             // 
             // btnLogWindow
             // 
-            this.btnLogWindow.Location = new System.Drawing.Point(95, 11);
+            this.btnLogWindow.Location = new System.Drawing.Point(89, 10);
             this.btnLogWindow.Name = "btnLogWindow";
             this.btnLogWindow.Size = new System.Drawing.Size(74, 22);
             this.btnLogWindow.TabIndex = 7;
@@ -908,24 +908,6 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Boltwood cloud sensor flags state";
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(6, 50);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(76, 13);
-            this.label21.TabIndex = 12;
-            this.label21.Text = "CloudIdx usual";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(6, 18);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(87, 13);
-            this.label20.TabIndex = 12;
-            this.label20.Text = "CloudIdx by AAG";
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -972,6 +954,24 @@
             this.txtCloudCond.Size = new System.Drawing.Size(75, 20);
             this.txtCloudCond.TabIndex = 10;
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(6, 50);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(76, 13);
+            this.label21.TabIndex = 12;
+            this.label21.Text = "CloudIdx usual";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 18);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(87, 13);
+            this.label20.TabIndex = 12;
+            this.label20.Text = "CloudIdx by AAG";
+            // 
             // btnSimulate
             // 
             this.btnSimulate.Location = new System.Drawing.Point(318, 10);
@@ -1007,9 +1007,9 @@
             // 
             // btnRelay
             // 
-            this.btnRelay.Location = new System.Drawing.Point(6, 34);
+            this.btnRelay.Location = new System.Drawing.Point(6, 22);
             this.btnRelay.Name = "btnRelay";
-            this.btnRelay.Size = new System.Drawing.Size(59, 30);
+            this.btnRelay.Size = new System.Drawing.Size(59, 42);
             this.btnRelay.TabIndex = 0;
             this.btnRelay.Text = "On";
             this.btnRelay.UseVisualStyleBackColor = true;

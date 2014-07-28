@@ -25,7 +25,7 @@ namespace WeatherStation.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("COM6")]
+        [global::System.Configuration.DefaultSettingValueAttribute("COM5")]
         public string comport {
             get {
                 return ((string)(this["comport"]));

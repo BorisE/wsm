@@ -148,8 +148,8 @@ namespace WeatherStation
 
             Random rand = new Random();
 
-            Hardware.SerialBuffer = @"Weather station v0.7
-[!ver:0.7]
+            Hardware.SerialBuffer = @"Weather station v0.8sim
+[!ver:0.8sim]
 IP: 192.168.1.178
 
 === New cycle ===
@@ -190,19 +190,22 @@ Inside t: 23.00C Outside t: 39.25C
 Wetsensor analog value: 1022     digital value: 1
 [!Wet:" + String.Format("{0:F0}", 1022 - rand.NextDouble() * 10) + @"]
 
-Rain Gauge counter: 
+Rain Gauge counter: 1
 [!RGC:" + String.Format("{0:N0}", 0 + rand.NextDouble() * 3) + @"]
+
+Heating relay state: 0
+[!RL1:" + String.Format("{0:N0}", 0 + rand.NextDouble()) + @"]
 
 [!!en:1]
 waiting 10000
 ";
             //WebServices.sendDataToNetMon("");
-            timer1_Tick(sender,e);
+            //timer1_Tick(sender,e);
         }
 
         
         /// <summary>
-        /// Timer ticking - main function in the form interface; used to check the buffer every second
+        /// Timer ticking - main function in the form interface; used to make data manupalation and displaying every given interval
         /// </summary>
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -217,13 +220,11 @@ waiting 10000
 
             //output buffer to Log window
             LogForm.txtLog.Text += Hardware.SerialBuffer;
-
             //Cut log window contents if it is greater then MAX_LOG_LENGTH
             if (LogForm.txtLog.Text.Length > MAX_LOG_LENGTH)
             {
                 LogForm.txtLog.Text = LogForm.txtLog.Text.Substring(LogForm.txtLog.Text.Length - MAX_LOG_LENGTH);
             }
-            
             //clear current buffer
             Hardware.SerialBuffer = "";
 
@@ -251,17 +252,14 @@ waiting 10000
             PrefForm.Close();
         }
 
-
         private void btnLogWindow_Click(object sender, EventArgs e)
         {
             LogForm.Show();
         }
 
-
         private void RefreshFormFields2()
         {
-
-            //Include all sensor that needed to web query
+            //Include all sensor that needed to display
             int SensIdx = -1;
             foreach (SensorElement DataSensor in Hardware.SensorsArray)
             {
@@ -279,6 +277,19 @@ waiting 10000
             //Calculated fields
             txtCloudIndex1.Text = Convert.ToString(Hardware.CloudIdx);
             txtCloudIndex2.Text = Convert.ToString(Math.Round(Hardware.CloudIdxCorr, 2));
+
+            //Heating button
+            if (Hardware.Relay1==1 && btnRelay.Text == "On")
+            {
+                btnRelay.Text = "Off";
+                btnRelay.BackColor = Color.Red;
+            }
+            else if (Hardware.Relay1 == 0 && btnRelay.Text == "Off")
+            {
+                btnRelay.Text = "On";
+                btnRelay.BackColor = default(Color);
+                btnRelay.UseVisualStyleBackColor = true;
+            }
         }
 
 
@@ -379,7 +390,7 @@ waiting 10000
             string DevPrefix = WebServices.Narodmon_MAC.Replace("-", "");
             string narodmonst="";
 
-            int SensIdx = -1;
+            int SensIdx = 0;
             foreach (SensorElement DataSensor in Hardware.SensorsArray)
             {
                 SensIdx++;
@@ -394,7 +405,12 @@ waiting 10000
                     }
                                 
                 }
-            }                
+            }
+
+            if (Hardware.CheckData(Convert.ToDouble(Hardware.CloudIdx), SensorTypeEnum.Temp))
+            {
+                narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + "00" + "=" + Convert.ToString(Hardware.CloudIdx);
+            }
 
             WebServices.sendDataToNetMon(narodmonst);
         }
@@ -507,13 +523,15 @@ waiting 10000
         {
             if (timer_debug.Enabled)
             {
-                btnSimulate.Text = "Simulation";
+                btnSimulate.Text = "Simulation start";
+                timer1.Enabled = false;
                 timer_debug.Enabled = false;
                 SimulationMode = false;
                 Logging.Log("Monitoring simulation was stopped");
                 LogForm.txtLog.Text += "Monitoring simulation was stopped\r\n";
                 Logging.CloseLogFile();
             }else{
+                timer1.Enabled = true;
                 timer_debug.Enabled = true;
                 Logging.Log("Monitoring simulation was started");
                 SimulationMode = true;
@@ -566,18 +584,36 @@ waiting 10000
         {
             if (btnRelay.Text == "On")
             {
-                btnRelay.Text = "Off";
-                btnRelay.BackColor = Color.Red;
-
+                if (!Hardware.WriteData("RL1:1"))
+                {
+                    ShowError("Couldn't write to COM port [" + Hardware.comport.PortName + "]");
+                }
+                else
+                {
+                    btnRelay.Text = "Off";
+                    btnRelay.BackColor = Color.Red;
+                }
             }
             else if (btnRelay.Text == "Off")
             {
-                btnRelay.Text = "On";
-                btnRelay.BackColor = default(Color);
-                btnRelay.UseVisualStyleBackColor = true;
-            }
+                if (!Hardware.WriteData("RL1:0"))
+                {
+                    ShowError("Couldn't write to COM port [" + Hardware.comport.PortName + "]");
+                }
+                else
+                {
+                    btnRelay.Text = "On";
+                    btnRelay.BackColor = default(Color);
+                    btnRelay.UseVisualStyleBackColor = true;
+                }
+             }
         }
 
+        public void ShowError(string ErrorMsg)
+        {
+            MessageBox.Show(ErrorMsg);
+            Logging.Log(ErrorMsg);
+        }
 
     }
 }
