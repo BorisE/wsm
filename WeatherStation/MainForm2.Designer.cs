@@ -122,7 +122,6 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.btnRelay = new System.Windows.Forms.Button();
-            this.txtRL1 = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -1014,7 +1013,6 @@
             // 
             // groupBox10
             // 
-            this.groupBox10.Controls.Add(this.txtRL1);
             this.groupBox10.Controls.Add(this.btnRelay);
             this.groupBox10.Location = new System.Drawing.Point(427, 44);
             this.groupBox10.Name = "groupBox10";
@@ -1025,20 +1023,13 @@
             // 
             // btnRelay
             // 
-            this.btnRelay.Location = new System.Drawing.Point(6, 41);
+            this.btnRelay.Location = new System.Drawing.Point(6, 22);
             this.btnRelay.Name = "btnRelay";
-            this.btnRelay.Size = new System.Drawing.Size(59, 23);
+            this.btnRelay.Size = new System.Drawing.Size(59, 42);
             this.btnRelay.TabIndex = 0;
             this.btnRelay.Text = "On";
             this.btnRelay.UseVisualStyleBackColor = true;
             this.btnRelay.Click += new System.EventHandler(this.btnRelay_Click);
-            // 
-            // txtRL1
-            // 
-            this.txtRL1.Location = new System.Drawing.Point(6, 15);
-            this.txtRL1.Name = "txtRL1";
-            this.txtRL1.Size = new System.Drawing.Size(17, 20);
-            this.txtRL1.TabIndex = 15;
             // 
             // MainForm
             // 
@@ -1089,7 +1080,6 @@
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1161,7 +1151,6 @@
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.Button btnRelay;
-        private System.Windows.Forms.TextBox txtRL1;
     }
 }
 

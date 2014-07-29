@@ -2,6 +2,11 @@ WeatherStation Project
 (c) 2013-2014 by Emchenko Boris
 
 Change log
+1.1.16 (2014-07-29)
+- transition to customizable Sensor collection
+- Heating relay controlling
+- a lot of code optimization
+
 1.0.15 (2014-07-02)
 - more narodmon.ru integration
 - corrected preferences issues

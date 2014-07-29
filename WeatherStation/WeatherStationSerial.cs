@@ -371,7 +371,7 @@ namespace WeatherStation
             SensorsArray[nI].Enabled = true;
             SensorsArray[nI].SendToWebFlag = true;
             SensorsArray[nI].SendToNarodMon = false;
-            SensorsArray[nI].SensorFormField = "txtRL1";
+            SensorsArray[nI].SensorFormField = "";
             SensorsArray[nI].SensorArduinoField = "RL1";
             SensorsArray[nI].WebCustomName="rl1";
             
