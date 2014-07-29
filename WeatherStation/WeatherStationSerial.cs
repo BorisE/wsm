@@ -7,7 +7,7 @@ using System.IO.Ports;
 using System.IO;
 using System.Windows.Forms;
 
-public enum SensorTypeEnum { Temp, Press, Hum, Illum, Wet, RGC };
+public enum SensorTypeEnum { Temp, Press, Hum, Illum, Wet, RGC, Relay };
 
 /// <summary>
 /// Boltwood Data Types
@@ -125,7 +125,8 @@ namespace WeatherStation
             { "Hum", SensorTypeEnum.Hum },
             { "Illum", SensorTypeEnum.Illum },
             { "Wet", SensorTypeEnum.Wet },
-            { "RGC", SensorTypeEnum.RGC }
+            { "RGC", SensorTypeEnum.RGC },
+            { "Relay", SensorTypeEnum.Relay }
         };
         #endregion
 
@@ -362,6 +363,17 @@ namespace WeatherStation
             SensorsArray[nI].SensorArduinoField = "RGC";
             SensorsArray[nI].WebCustomName="rgc";
 
+            //Relay
+            nI++;
+            SensorsArray[nI] = new SensorElement();
+            SensorsArray[nI].SensorName = "RL1";
+            SensorsArray[nI].SensorType = SensorTypeEnum.Relay;
+            SensorsArray[nI].Enabled = true;
+            SensorsArray[nI].SendToWebFlag = true;
+            SensorsArray[nI].SendToNarodMon = false;
+            SensorsArray[nI].SensorFormField = "txtRL1";
+            SensorsArray[nI].SensorArduinoField = "RL1";
+            SensorsArray[nI].WebCustomName="rl1";
             
             //Make hash tables
             int SensIdx=-1;
@@ -883,13 +895,56 @@ namespace WeatherStation
                         return false;
                     break;
                 case SensorTypeEnum.RGC:
-                    if (TagVal <= 0 || TagVal >= 1000) //maximum value I have ever seen was 237
+                    if (TagVal < 0 || TagVal >= 1000) //maximum value I have ever seen was 237
+                        return false;
+                    break;
+                case SensorTypeEnum.Relay:
+                    if (TagVal < 0 || TagVal > 1) //only 2 values allowed: 0 and 1
                         return false;
                     break;
             }
             return true;
         }
-
+        /// <summary>
+        /// Method to check data validity for different sensors type
+        /// Specail for working with SensorArray
+        /// </summary>      
+        public bool CheckData2(SensorElement Sensor)
+        {
+            double TagVal = Sensor.LastValue;
+            switch (Sensor.SensorType)
+            {
+                case SensorTypeEnum.Temp:
+                    if (TagVal < -80 || TagVal > 80)
+                        return false;
+                    break;
+                case SensorTypeEnum.Hum:
+                    if (TagVal <= 0 || TagVal >= 100)
+                        return false;
+                    break;
+                case SensorTypeEnum.Press:
+                    if (TagVal <= 0 || TagVal >= 800)
+                        return false;
+                    break;
+                case SensorTypeEnum.Illum:
+                    if (TagVal < 0 || TagVal >= 100000)
+                        return false;
+                    break;
+                case SensorTypeEnum.Wet:
+                    if (TagVal <= 0 || TagVal >= 1024)
+                        return false;
+                    break;
+                case SensorTypeEnum.RGC:
+                    if (TagVal < 0 || TagVal >= 1000) //maximum value I have ever seen was 237
+                        return false;
+                    break;
+                case SensorTypeEnum.Relay:
+                    if (TagVal < 0 || TagVal > 1) //only 2 values allowed: 0 and 1
+                        return false;
+                    break;
+            }
+            return true;
+        }
         /// <summary>
         /// Calculates Cloud Index by AAG_CloudWatcher methodology
         /// </summary>

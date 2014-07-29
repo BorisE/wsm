@@ -268,8 +268,12 @@ waiting 10000
                 {
                     if (DataSensor.Enabled && DataSensor.SensorFormField != "")
                     {
-                        TextBox SensVal = this.Controls.Find(DataSensor.SensorFormField, true).FirstOrDefault() as TextBox;
-                        SensVal.Text = Convert.ToString(DataSensor.LastValue);
+                        try
+                        {
+                            TextBox SensVal = this.Controls.Find(DataSensor.SensorFormField, true)[0] as TextBox;
+                            SensVal.Text = Convert.ToString(DataSensor.LastValue);
+                        }
+                        catch { }
                     }
                 }
             }
@@ -415,6 +419,9 @@ waiting 10000
             WebServices.sendDataToNetMon(narodmonst);
         }
 
+        /// <summary>
+        /// Refresh graphical data, using data from SensorArray
+        /// </summary>        
         private void refreshGraphs()
         {
             curX = DateTime.Now;
@@ -466,6 +473,10 @@ waiting 10000
             if (Hardware.CheckData(Hardware.IllumVal, SensorTypeEnum.Illum))
             {
                 addGraphicsPoint(chart1, 9, curX, Hardware.IllumVal);
+            }
+            if (Hardware.CheckData2(Hardware.SensorsArray[Hardware.SensorsArrayHash["RL1"]]))
+            {
+                addGraphicsPoint(chart1, 11, curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["RL1"]].LastValue);
             }
 
         }

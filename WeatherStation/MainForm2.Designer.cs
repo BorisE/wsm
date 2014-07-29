@@ -50,6 +50,7 @@
             System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
@@ -121,6 +122,7 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.btnRelay = new System.Windows.Forms.Button();
+            this.txtRL1 = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -690,6 +692,12 @@
             chartArea5.AxisY.LabelAutoFitMinFontSize = 7;
             chartArea5.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
             chartArea5.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea5.AxisY2.LabelStyle.Enabled = false;
+            chartArea5.AxisY2.LineWidth = 0;
+            chartArea5.AxisY2.MajorGrid.Enabled = false;
+            chartArea5.AxisY2.MajorTickMark.Enabled = false;
+            chartArea5.AxisY2.Maximum = 2D;
+            chartArea5.AxisY2.Minimum = 0D;
             chartArea5.BorderColor = System.Drawing.Color.Silver;
             chartArea5.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             chartArea5.CursorY.IsUserEnabled = true;
@@ -795,7 +803,15 @@
             series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series11.Legend = "Legend1";
             series11.Name = "Hum2";
+            series11.ToolTip = "Humidity2 (#VAL{D}% at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{D}%\\nmin:#MIN{" +
+    "D}% max:#MAX{D}% avg:#AVG{D}%\\n\\n";
             series11.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series12.ChartArea = "ChartArea5_illum";
+            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
+            series12.Legend = "Legend1";
+            series12.Name = "RL1";
+            series12.ToolTip = "Relay (#VAL{D}% at #VALX{dd.MM.yyyy HH:mm})\\n";
+            series12.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
             this.chart1.Series.Add(series3);
@@ -807,6 +823,7 @@
             this.chart1.Series.Add(series9);
             this.chart1.Series.Add(series10);
             this.chart1.Series.Add(series11);
+            this.chart1.Series.Add(series12);
             this.chart1.Size = new System.Drawing.Size(526, 577);
             this.chart1.TabIndex = 5;
             this.chart1.Text = "CloudSensor";
@@ -997,6 +1014,7 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.txtRL1);
             this.groupBox10.Controls.Add(this.btnRelay);
             this.groupBox10.Location = new System.Drawing.Point(427, 44);
             this.groupBox10.Name = "groupBox10";
@@ -1007,13 +1025,20 @@
             // 
             // btnRelay
             // 
-            this.btnRelay.Location = new System.Drawing.Point(6, 22);
+            this.btnRelay.Location = new System.Drawing.Point(6, 41);
             this.btnRelay.Name = "btnRelay";
-            this.btnRelay.Size = new System.Drawing.Size(59, 42);
+            this.btnRelay.Size = new System.Drawing.Size(59, 23);
             this.btnRelay.TabIndex = 0;
             this.btnRelay.Text = "On";
             this.btnRelay.UseVisualStyleBackColor = true;
             this.btnRelay.Click += new System.EventHandler(this.btnRelay_Click);
+            // 
+            // txtRL1
+            // 
+            this.txtRL1.Location = new System.Drawing.Point(6, 15);
+            this.txtRL1.Name = "txtRL1";
+            this.txtRL1.Size = new System.Drawing.Size(17, 20);
+            this.txtRL1.TabIndex = 15;
             // 
             // MainForm
             // 
@@ -1064,6 +1089,7 @@
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1135,6 +1161,7 @@
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.Button btnRelay;
+        private System.Windows.Forms.TextBox txtRL1;
     }
 }
 
