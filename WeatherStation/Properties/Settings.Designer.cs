@@ -133,7 +133,7 @@ namespace WeatherStation.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://astromania.info/senddata.php")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://astromania.info/checkconn/putweatherdata2a.php")]
         public string WebDataURL {
             get {
                 return ((string)(this["WebDataURL"]));
@@ -428,6 +428,30 @@ namespace WeatherStation.Properties {
             }
             set {
                 this["SensorWebCustomName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SerialLogFileLocation {
+            get {
+                return ((string)(this["SerialLogFileLocation"]));
+            }
+            set {
+                this["SerialLogFileLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SerialLogFileFlag {
+            get {
+                return ((bool)(this["SerialLogFileFlag"]));
+            }
+            set {
+                this["SerialLogFileFlag"] = value;
             }
         }
     }

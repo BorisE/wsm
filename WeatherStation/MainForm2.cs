@@ -26,12 +26,13 @@ namespace WeatherStation
         /// <summary>
         /// Link to LogForm, to where all communications with Arduino module is output
         /// </summary>
-        private LogWindow LogForm;
+        public LogWindow LogForm;
 
         //For graphs
         private DateTime curX;
         public int maxNumberOfPointsInChart = 8640; //For 24h with 10sec interval
         public int MAX_LOG_LENGTH = 10000;
+        public int MAX_LOG_LINES = 500;
 
         private About aboutForm;
 
@@ -45,7 +46,7 @@ namespace WeatherStation
             InitializeComponent();
 
             LogForm = new LogWindow(this);
-            Hardware = new WeatherStationSerial();
+            Hardware = new WeatherStationSerial(this);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -112,7 +113,7 @@ namespace WeatherStation
                 if (!Hardware.stopReadData())
                 {
                     Logging.Log("Could not close the COM port [" + Hardware.comport.PortName + "]");
-                    LogForm.txtLog.Text += "Could not close the COM port [" + Hardware.comport.PortName + "]\r\n";
+                    LogForm.txtLog.AppendText("Could not close the COM port [" + Hardware.comport.PortName + "]\r\n");
                     MessageBox.Show(this, "Could not close the COM port [" + Hardware.comport.PortName + "]", "COM Port couldn't be closed", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
                 else
@@ -120,7 +121,7 @@ namespace WeatherStation
                     btnStart.Text = "Start";
                     timer1.Enabled = false;
                     Logging.Log("Monitoring on [" + Hardware.comport.PortName + "] was stopped");
-                    LogForm.txtLog.Text += "Monitoring on [" + Hardware.comport.PortName + "] was stopped\r\n";
+                    LogForm.txtLog.AppendText("Monitoring on [" + Hardware.comport.PortName + "] was stopped\r\n");
                     Logging.CloseLogFile();
                 }
             }
@@ -129,7 +130,7 @@ namespace WeatherStation
                 if (!Hardware.startReadData())
                 {
                     Logging.Log("Could not open the COM port [" + Hardware.comport.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.");
-                    LogForm.txtLog.Text += "Could not open the COM port [" + Hardware.comport.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.\r\n";
+                    LogForm.txtLog.AppendText("Could not open the COM port [" + Hardware.comport.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.\r\n");
                     MessageBox.Show(this, "Could not open the COM port [" + Hardware.comport.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.", "COM Port Unavalible", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
                 else 
@@ -195,7 +196,7 @@ Rain Gauge counter: 1
 
 Heating relay state: 0
 [!RL1:" + String.Format("{0:N0}", 0 + rand.NextDouble()) + @"]
-
+Switching relay OFF...
 [!!en:1]
 waiting 10000
 ";
@@ -219,11 +220,17 @@ waiting 10000
             //Logging.Log(Hardware.SerialBuffer);
 
             //output buffer to Log window
-            LogForm.txtLog.Text += Hardware.SerialBuffer;
-            //Cut log window contents if it is greater then MAX_LOG_LENGTH
-            if (LogForm.txtLog.Text.Length > MAX_LOG_LENGTH)
+            LogForm.AppendLogText(Hardware.SerialBuffer);
+
+            //Cut log window contents if it is greater then MAX_LOG_LINES
+            var txtLogLinesArr=LogForm.txtLog.Lines;
+            if (txtLogLinesArr.Count() > MAX_LOG_LINES)
             {
-                LogForm.txtLog.Text = LogForm.txtLog.Text.Substring(LogForm.txtLog.Text.Length - MAX_LOG_LENGTH);
+                int NumOfSkipLines = txtLogLinesArr.Count() - MAX_LOG_LINES;
+                var newLines = txtLogLinesArr.Skip(NumOfSkipLines);
+                LogForm.txtLog.Lines = newLines.ToArray();
+
+                //LogForm.txtLog.Text = LogForm.txtLog.Text.Substring(LogForm.txtLog.Text.Length - MAX_LOG_LENGTH);
             }
             //clear current buffer
             Hardware.SerialBuffer = "";
@@ -439,14 +446,19 @@ waiting 10000
                 addGraphicsPoint(chart1, 2, curX, Hardware.ObjTempVal); 
             }
 
-            //Graph3
+            //Graph3 (Temperature)
             if (Hardware.CheckData(Hardware.BaseTempVal, SensorTypeEnum.Temp)) {
                 addGraphicsPoint(chart1, 3, curX, Hardware.BaseTempVal);
             }
             if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["Temp2"]].LastValue, SensorTypeEnum.Temp)) {
                 addGraphicsPoint(chart1, 4, curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["Temp2"]].LastValue); 
             }
-/*            if (Hardware.CheckData(Convert.ToDouble(txtTemp2.Text), SensorTypeEnum.Temp))
+            if (Hardware.CheckData2(Hardware.SensorsArray[Hardware.SensorsArrayHash["ATemp"]]))
+            {
+                addGraphicsPoint(chart1, 12, curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["ATemp"]].LastValue);
+            }
+
+            /*            if (Hardware.CheckData(Convert.ToDouble(txtTemp2.Text), SensorTypeEnum.Temp))
             {
                 addGraphicsPoint(chart1, 5, curX, Convert.ToDouble(txtATemp.Text));
             }*/

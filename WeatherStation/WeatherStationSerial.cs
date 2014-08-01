@@ -42,6 +42,11 @@ namespace WeatherStation
     public class WeatherStationSerial
     {
         /// <summary>
+        /// Link to MainForm for displaying serial data
+        /// </summary>
+        //private MainForm ParentMainForm=null;
+
+        /// <summary>
         /// Serial Port name
         /// </summary>        
         public string PortName = "COM5";
@@ -206,8 +211,11 @@ namespace WeatherStation
         /// <summary>
         /// Constructor ********************************************************************************
         /// </summary>        
-        public WeatherStationSerial()
+        public WeatherStationSerial(MainForm MF=null)
         {
+            //if calling with parameter - using graphical form for displaying serial data
+            //if (MF != null) ParentMainForm = MF; 
+            
             initSensorArray();
         }
 
@@ -515,7 +523,39 @@ namespace WeatherStation
             string data = comport.ReadExisting();
 
             SerialBuffer += data;
+            //string[] lines = SerialBuffer.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+
+            /// if using with VISUAL INTERFACE
+            //if (ParentMainForm!=null) ParentMainForm.LogForm.AppendLogText(data);
+            
+            //Log serial data if needed
+            if (Logging.SerialLogFileFlag) Logging.LogSerial(data);
+
             if (SerialBuffer.Length > MAX_BUFFER_LEN) 
+            {
+                SerialBuffer = SerialBuffer.Substring((Int16)(SerialBuffer.Length - MAX_BUFFER_LEN));
+            }
+
+            LastTimeDataRead = DateTime.Now;
+        }
+
+        public void port_DataReceived_simulated(object sender, SerialDataReceivedEventArgs e)
+        {
+            // Read arbitrary nyum from predefined buffer
+            Random rnd = new Random();
+            int Len = rnd.Next(1, 10);
+            string data = SerialBuffer.Substring(simBufferReadPos,Len);
+
+            SerialBuffer += data;
+            //string[] lines = SerialBuffer.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+
+            /// if using with VISUAL INTERFACE
+            //if (ParentMainForm!=null) ParentMainForm.LogForm.AppendLogText(data);
+
+            //Log serial data if needed
+            if (Logging.SerialLogFileFlag) Logging.LogSerial(data);
+
+            if (SerialBuffer.Length > MAX_BUFFER_LEN)
             {
                 SerialBuffer = SerialBuffer.Substring((Int16)(SerialBuffer.Length - MAX_BUFFER_LEN));
             }
@@ -585,6 +625,7 @@ namespace WeatherStation
         /// <summary>
         /// Upgraded main method to parse received data
         /// Based on SensorArray
+        /// Mast be called from external. Working asynchronously with data reading
         /// </summary>        
         public void ParseData2(string txtBuffer)
         {

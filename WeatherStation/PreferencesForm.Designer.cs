@@ -62,8 +62,16 @@
             this.btnResetSensorList = new System.Windows.Forms.Button();
             this.btnReadFromSerial = new System.Windows.Forms.Button();
             this.dataGridSensors = new System.Windows.Forms.DataGridView();
+            this.SensorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SensorEnabled = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.SensorType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.SendToWeb = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.SendToNarodmon = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ArduinoName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WebCustomName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnSerialLogPathBrowse = new System.Windows.Forms.Button();
             this.cmbBaseTempSensor = new System.Windows.Forms.ComboBox();
             this.txtNarodmonMAC = new System.Windows.Forms.TextBox();
             this.txtWebDataURL = new System.Windows.Forms.TextBox();
@@ -71,8 +79,10 @@
             this.chkWebData = new System.Windows.Forms.CheckBox();
             this.txtBoltwoodFileLocation = new System.Windows.Forms.TextBox();
             this.txtLogFileLocation = new System.Windows.Forms.TextBox();
+            this.txtSerialLogFileLocation = new System.Windows.Forms.TextBox();
             this.txtCSVFileLocation = new System.Windows.Forms.TextBox();
             this.chkBoltwoodFileFlag = new System.Windows.Forms.CheckBox();
+            this.chkSerialLogFileFlag = new System.Windows.Forms.CheckBox();
             this.chkCSVFileFlag = new System.Windows.Forms.CheckBox();
             this.chkLogFileFlag = new System.Windows.Forms.CheckBox();
             this.txtK7 = new System.Windows.Forms.TextBox();
@@ -91,13 +101,6 @@
             this.chkWatchdog = new System.Windows.Forms.CheckBox();
             this.chkResetArduino = new System.Windows.Forms.CheckBox();
             this.cmbPortList = new System.Windows.Forms.ComboBox();
-            this.SensorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SensorEnabled = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.SensorType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.SendToWeb = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.SendToNarodmon = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ArduinoName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WebCustomName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -138,7 +141,7 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtCloudysky);
             this.groupBox2.Controls.Add(this.txtClearsky);
-            this.groupBox2.Location = new System.Drawing.Point(318, 354);
+            this.groupBox2.Location = new System.Drawing.Point(318, 315);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(307, 65);
             this.groupBox2.TabIndex = 8;
@@ -168,24 +171,27 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.btnBoltwoodPathBrowse);
+            this.groupBox3.Controls.Add(this.btnSerialLogPathBrowse);
             this.groupBox3.Controls.Add(this.btnCSVPathBrowse);
             this.groupBox3.Controls.Add(this.btnLogPathBrowse);
             this.groupBox3.Controls.Add(this.txtBoltwoodFileLocation);
             this.groupBox3.Controls.Add(this.txtLogFileLocation);
+            this.groupBox3.Controls.Add(this.txtSerialLogFileLocation);
             this.groupBox3.Controls.Add(this.txtCSVFileLocation);
             this.groupBox3.Controls.Add(this.chkBoltwoodFileFlag);
+            this.groupBox3.Controls.Add(this.chkSerialLogFileFlag);
             this.groupBox3.Controls.Add(this.chkCSVFileFlag);
             this.groupBox3.Controls.Add(this.chkLogFileFlag);
             this.groupBox3.Location = new System.Drawing.Point(5, 107);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(307, 168);
+            this.groupBox3.Size = new System.Drawing.Size(307, 129);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Write data";
             // 
             // btnBoltwoodPathBrowse
             // 
-            this.btnBoltwoodPathBrowse.Location = new System.Drawing.Point(273, 137);
+            this.btnBoltwoodPathBrowse.Location = new System.Drawing.Point(274, 89);
             this.btnBoltwoodPathBrowse.Name = "btnBoltwoodPathBrowse";
             this.btnBoltwoodPathBrowse.Size = new System.Drawing.Size(27, 20);
             this.btnBoltwoodPathBrowse.TabIndex = 9;
@@ -195,7 +201,7 @@
             // 
             // btnCSVPathBrowse
             // 
-            this.btnCSVPathBrowse.Location = new System.Drawing.Point(273, 87);
+            this.btnCSVPathBrowse.Location = new System.Drawing.Point(274, 65);
             this.btnCSVPathBrowse.Name = "btnCSVPathBrowse";
             this.btnCSVPathBrowse.Size = new System.Drawing.Size(27, 20);
             this.btnCSVPathBrowse.TabIndex = 9;
@@ -205,7 +211,7 @@
             // 
             // btnLogPathBrowse
             // 
-            this.btnLogPathBrowse.Location = new System.Drawing.Point(273, 38);
+            this.btnLogPathBrowse.Location = new System.Drawing.Point(274, 19);
             this.btnLogPathBrowse.Name = "btnLogPathBrowse";
             this.btnLogPathBrowse.Size = new System.Drawing.Size(27, 20);
             this.btnLogPathBrowse.TabIndex = 9;
@@ -240,7 +246,7 @@
             this.groupBox4.Controls.Add(this.txtK3);
             this.groupBox4.Controls.Add(this.txtK2);
             this.groupBox4.Controls.Add(this.txtK1);
-            this.groupBox4.Location = new System.Drawing.Point(318, 281);
+            this.groupBox4.Location = new System.Drawing.Point(318, 242);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(307, 67);
             this.groupBox4.TabIndex = 8;
@@ -324,7 +330,7 @@
             this.groupBox5.Controls.Add(this.label13);
             this.groupBox5.Controls.Add(this.txtWetLimit);
             this.groupBox5.Controls.Add(this.txtRainLimit);
-            this.groupBox5.Location = new System.Drawing.Point(5, 354);
+            this.groupBox5.Location = new System.Drawing.Point(5, 315);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(307, 67);
             this.groupBox5.TabIndex = 8;
@@ -357,7 +363,7 @@
             this.groupBox6.Controls.Add(this.label15);
             this.groupBox6.Controls.Add(this.txtRefreshInterval);
             this.groupBox6.Controls.Add(this.txtMaxPoints);
-            this.groupBox6.Location = new System.Drawing.Point(5, 281);
+            this.groupBox6.Location = new System.Drawing.Point(5, 242);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(307, 67);
             this.groupBox6.TabIndex = 8;
@@ -393,7 +399,7 @@
             this.groupBox7.Controls.Add(this.chkWebData);
             this.groupBox7.Location = new System.Drawing.Point(318, 107);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(307, 168);
+            this.groupBox7.Size = new System.Drawing.Size(307, 129);
             this.groupBox7.TabIndex = 8;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Web server";
@@ -467,6 +473,48 @@
             this.dataGridSensors.Size = new System.Drawing.Size(604, 201);
             this.dataGridSensors.TabIndex = 13;
             // 
+            // SensorName
+            // 
+            this.SensorName.HeaderText = "Sensor";
+            this.SensorName.MinimumWidth = 50;
+            this.SensorName.Name = "SensorName";
+            this.SensorName.Width = 120;
+            // 
+            // SensorEnabled
+            // 
+            this.SensorEnabled.HeaderText = "Enabled";
+            this.SensorEnabled.MinimumWidth = 10;
+            this.SensorEnabled.Name = "SensorEnabled";
+            this.SensorEnabled.Width = 50;
+            // 
+            // SensorType
+            // 
+            this.SensorType.HeaderText = "Type";
+            this.SensorType.MinimumWidth = 50;
+            this.SensorType.Name = "SensorType";
+            this.SensorType.Width = 80;
+            // 
+            // SendToWeb
+            // 
+            this.SendToWeb.HeaderText = "Send to Web";
+            this.SendToWeb.Name = "SendToWeb";
+            // 
+            // SendToNarodmon
+            // 
+            this.SendToNarodmon.HeaderText = "Send to Narodmon";
+            this.SendToNarodmon.Name = "SendToNarodmon";
+            // 
+            // ArduinoName
+            // 
+            this.ArduinoName.HeaderText = "Arduino Name";
+            this.ArduinoName.Name = "ArduinoName";
+            this.ArduinoName.Width = 80;
+            // 
+            // WebCustomName
+            // 
+            this.WebCustomName.HeaderText = "Web VAR name";
+            this.WebCustomName.Name = "WebCustomName";
+            // 
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.btnReadFromSerial);
@@ -474,7 +522,7 @@
             this.groupBox8.Controls.Add(this.label9);
             this.groupBox8.Controls.Add(this.cmbBaseTempSensor);
             this.groupBox8.Controls.Add(this.dataGridSensors);
-            this.groupBox8.Location = new System.Drawing.Point(5, 428);
+            this.groupBox8.Location = new System.Drawing.Point(5, 389);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(620, 256);
             this.groupBox8.TabIndex = 27;
@@ -489,6 +537,16 @@
             this.label9.Size = new System.Drawing.Size(91, 13);
             this.label9.TabIndex = 15;
             this.label9.Text = "Base temp sensor";
+            // 
+            // btnSerialLogPathBrowse
+            // 
+            this.btnSerialLogPathBrowse.Location = new System.Drawing.Point(274, 42);
+            this.btnSerialLogPathBrowse.Name = "btnSerialLogPathBrowse";
+            this.btnSerialLogPathBrowse.Size = new System.Drawing.Size(27, 20);
+            this.btnSerialLogPathBrowse.TabIndex = 9;
+            this.btnSerialLogPathBrowse.Text = "...";
+            this.btnSerialLogPathBrowse.UseVisualStyleBackColor = true;
+            this.btnSerialLogPathBrowse.Click += new System.EventHandler(this.btnLogPathBrowse_Click);
             // 
             // cmbBaseTempSensor
             // 
@@ -550,29 +608,41 @@
             // txtBoltwoodFileLocation
             // 
             this.txtBoltwoodFileLocation.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "BoltwoodFileLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtBoltwoodFileLocation.Location = new System.Drawing.Point(6, 137);
+            this.txtBoltwoodFileLocation.Location = new System.Drawing.Point(110, 90);
             this.txtBoltwoodFileLocation.Name = "txtBoltwoodFileLocation";
-            this.txtBoltwoodFileLocation.Size = new System.Drawing.Size(260, 20);
+            this.txtBoltwoodFileLocation.Size = new System.Drawing.Size(156, 20);
             this.txtBoltwoodFileLocation.TabIndex = 8;
             this.txtBoltwoodFileLocation.Text = global::WeatherStation.Properties.Settings.Default.BoltwoodFileLocation;
-            this.MyToolTip.SetToolTip(this.txtBoltwoodFileLocation, "Path for boltwood data file. If left empty - program directory");
+            this.MyToolTip.SetToolTip(this.txtBoltwoodFileLocation, "Path for boltwood cloud sensor II format data file. If left empty - program direc" +
+        "tory");
             // 
             // txtLogFileLocation
             // 
             this.txtLogFileLocation.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "logFileLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtLogFileLocation.Location = new System.Drawing.Point(7, 38);
+            this.txtLogFileLocation.Location = new System.Drawing.Point(111, 20);
             this.txtLogFileLocation.Name = "txtLogFileLocation";
-            this.txtLogFileLocation.Size = new System.Drawing.Size(260, 20);
+            this.txtLogFileLocation.Size = new System.Drawing.Size(156, 20);
             this.txtLogFileLocation.TabIndex = 4;
             this.txtLogFileLocation.Text = global::WeatherStation.Properties.Settings.Default.logFileLocation;
             this.MyToolTip.SetToolTip(this.txtLogFileLocation, "Path to program log file. If left empty - program directory");
             // 
+            // txtSerialLogFileLocation
+            // 
+            this.txtSerialLogFileLocation.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "SerialLogFileLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtSerialLogFileLocation.Location = new System.Drawing.Point(111, 43);
+            this.txtSerialLogFileLocation.Name = "txtSerialLogFileLocation";
+            this.txtSerialLogFileLocation.Size = new System.Drawing.Size(156, 20);
+            this.txtSerialLogFileLocation.TabIndex = 6;
+            this.txtSerialLogFileLocation.Text = global::WeatherStation.Properties.Settings.Default.SerialLogFileLocation;
+            this.MyToolTip.SetToolTip(this.txtSerialLogFileLocation, "Path to serial data exchange with Arduino log file. If left empty - program direc" +
+        "tory");
+            // 
             // txtCSVFileLocation
             // 
             this.txtCSVFileLocation.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "CSVFileLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtCSVFileLocation.Location = new System.Drawing.Point(6, 87);
+            this.txtCSVFileLocation.Location = new System.Drawing.Point(111, 66);
             this.txtCSVFileLocation.Name = "txtCSVFileLocation";
-            this.txtCSVFileLocation.Size = new System.Drawing.Size(260, 20);
+            this.txtCSVFileLocation.Size = new System.Drawing.Size(156, 20);
             this.txtCSVFileLocation.TabIndex = 6;
             this.txtCSVFileLocation.Text = global::WeatherStation.Properties.Settings.Default.CSVFileLocation;
             this.MyToolTip.SetToolTip(this.txtCSVFileLocation, "Storage path for data files. If left empty - program directory");
@@ -584,12 +654,29 @@
             this.chkBoltwoodFileFlag.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkBoltwoodFileFlag.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "BoltwoodFileFlag", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.chkBoltwoodFileFlag.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkBoltwoodFileFlag.Location = new System.Drawing.Point(7, 114);
+            this.chkBoltwoodFileFlag.Location = new System.Drawing.Point(7, 93);
             this.chkBoltwoodFileFlag.Name = "chkBoltwoodFileFlag";
-            this.chkBoltwoodFileFlag.Size = new System.Drawing.Size(221, 17);
+            this.chkBoltwoodFileFlag.Size = new System.Drawing.Size(103, 17);
             this.chkBoltwoodFileFlag.TabIndex = 7;
-            this.chkBoltwoodFileFlag.Text = "Write Boltwood cloud sensor II file format ";
+            this.chkBoltwoodFileFlag.Text = "Boltwood CS file";
+            this.MyToolTip.SetToolTip(this.chkBoltwoodFileFlag, "Path for boltwood cloud sensor II format data file. If left empty - program direc" +
+        "tory");
             this.chkBoltwoodFileFlag.UseVisualStyleBackColor = true;
+            // 
+            // chkSerialLogFileFlag
+            // 
+            this.chkSerialLogFileFlag.AutoSize = true;
+            this.chkSerialLogFileFlag.Checked = global::WeatherStation.Properties.Settings.Default.SerialLogFileFlag;
+            this.chkSerialLogFileFlag.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "SerialLogFileFlag", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkSerialLogFileFlag.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.chkSerialLogFileFlag.Location = new System.Drawing.Point(7, 46);
+            this.chkSerialLogFileFlag.Name = "chkSerialLogFileFlag";
+            this.chkSerialLogFileFlag.Size = new System.Drawing.Size(85, 17);
+            this.chkSerialLogFileFlag.TabIndex = 5;
+            this.chkSerialLogFileFlag.Text = "Serial log file";
+            this.MyToolTip.SetToolTip(this.chkSerialLogFileFlag, "Path to serial data exchange with Arduino log file. If left empty - program direc" +
+        "tory");
+            this.chkSerialLogFileFlag.UseVisualStyleBackColor = true;
             // 
             // chkCSVFileFlag
             // 
@@ -598,11 +685,11 @@
             this.chkCSVFileFlag.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkCSVFileFlag.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "CSVFileFlag", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.chkCSVFileFlag.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkCSVFileFlag.Location = new System.Drawing.Point(7, 64);
+            this.chkCSVFileFlag.Location = new System.Drawing.Point(7, 69);
             this.chkCSVFileFlag.Name = "chkCSVFileFlag";
-            this.chkCSVFileFlag.Size = new System.Drawing.Size(127, 17);
+            this.chkCSVFileFlag.Size = new System.Drawing.Size(89, 17);
             this.chkCSVFileFlag.TabIndex = 5;
-            this.chkCSVFileFlag.Text = "Write data to CSV file";
+            this.chkCSVFileFlag.Text = "Data CSV file";
             this.chkCSVFileFlag.UseVisualStyleBackColor = true;
             // 
             // chkLogFileFlag
@@ -612,11 +699,12 @@
             this.chkLogFileFlag.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkLogFileFlag.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "logFileFlag", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.chkLogFileFlag.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkLogFileFlag.Location = new System.Drawing.Point(7, 20);
+            this.chkLogFileFlag.Location = new System.Drawing.Point(6, 23);
             this.chkLogFileFlag.Name = "chkLogFileFlag";
-            this.chkLogFileFlag.Size = new System.Drawing.Size(84, 17);
+            this.chkLogFileFlag.Size = new System.Drawing.Size(98, 17);
             this.chkLogFileFlag.TabIndex = 3;
-            this.chkLogFileFlag.Text = "Write log file";
+            this.chkLogFileFlag.Text = "Program log file";
+            this.MyToolTip.SetToolTip(this.chkLogFileFlag, "Path to program log file. If left empty - program directory");
             this.chkLogFileFlag.UseVisualStyleBackColor = true;
             // 
             // txtK7
@@ -808,55 +896,13 @@
             this.cmbPortList.TabIndex = 1;
             this.cmbPortList.Text = global::WeatherStation.Properties.Settings.Default.comport;
             // 
-            // SensorName
-            // 
-            this.SensorName.HeaderText = "Sensor";
-            this.SensorName.MinimumWidth = 50;
-            this.SensorName.Name = "SensorName";
-            this.SensorName.Width = 120;
-            // 
-            // SensorEnabled
-            // 
-            this.SensorEnabled.HeaderText = "Enabled";
-            this.SensorEnabled.MinimumWidth = 10;
-            this.SensorEnabled.Name = "SensorEnabled";
-            this.SensorEnabled.Width = 50;
-            // 
-            // SensorType
-            // 
-            this.SensorType.HeaderText = "Type";
-            this.SensorType.MinimumWidth = 50;
-            this.SensorType.Name = "SensorType";
-            this.SensorType.Width = 80;
-            // 
-            // SendToWeb
-            // 
-            this.SendToWeb.HeaderText = "Send to Web";
-            this.SendToWeb.Name = "SendToWeb";
-            // 
-            // SendToNarodmon
-            // 
-            this.SendToNarodmon.HeaderText = "Send to Narodmon";
-            this.SendToNarodmon.Name = "SendToNarodmon";
-            // 
-            // ArduinoName
-            // 
-            this.ArduinoName.HeaderText = "Arduino Name";
-            this.ArduinoName.Name = "ArduinoName";
-            this.ArduinoName.Width = 80;
-            // 
-            // WebCustomName
-            // 
-            this.WebCustomName.HeaderText = "Web VAR name";
-            this.WebCustomName.Name = "WebCustomName";
-            // 
             // PreferencesForm
             // 
             this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(633, 696);
+            this.ClientSize = new System.Drawing.Size(633, 652);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox3);
@@ -966,5 +1012,8 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn SendToNarodmon;
         private System.Windows.Forms.DataGridViewTextBoxColumn ArduinoName;
         private System.Windows.Forms.DataGridViewTextBoxColumn WebCustomName;
+        private System.Windows.Forms.Button btnSerialLogPathBrowse;
+        private System.Windows.Forms.TextBox txtSerialLogFileLocation;
+        private System.Windows.Forms.CheckBox chkSerialLogFileFlag;
     }
 }

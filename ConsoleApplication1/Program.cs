@@ -12,7 +12,12 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            WeatherStationSerial WS = new WeatherStationSerial();
+            // original:
+            // WeatherStationSerial WS = new WeatherStationSerial();
+            // doesn't working because starting using with forms
+            // so making it just null
+            WeatherStationSerial WS = null;
+
 
             Random rand = new Random();
             string st3=String.Format("{0:N1}", 23.0 + rand.NextDouble() * 5);

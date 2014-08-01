@@ -82,10 +82,12 @@ namespace WeatherStation
 
                 //Store log settings
                 Logging.LogFilePath = txtLogFileLocation.Text;
+                Logging.SerialLogFilePath = txtSerialLogFileLocation.Text;
                 Logging.DataFilePath = txtCSVFileLocation.Text;
                 Logging.BoltwoodFilePath = txtBoltwoodFileLocation.Text;
 
                 Logging.LogFileFlag = chkLogFileFlag.Checked;
+                Logging.SerialLogFileFlag = chkSerialLogFileFlag.Checked;
                 Logging.DataFileFlag = chkCSVFileFlag.Checked;
                 Logging.BoltwoodFileFlag = chkBoltwoodFileFlag.Checked;
 
@@ -163,8 +165,10 @@ namespace WeatherStation
                 if (DialogPath.Substring(DialogPath.Length-1, 1) != "\\") DialogPath = DialogPath + "\\";
 
                 if (bttn.Name == "btnLogPathBrowse") { txtLogFileLocation.Text = DialogPath; }
+                else if (bttn.Name == "btnSerialLogPathBrowse") { txtSerialLogFileLocation.Text = DialogPath; }
                 else if (bttn.Name == "btnCSVPathBrowse") { txtCSVFileLocation.Text = DialogPath; }
                 else if (bttn.Name == "btnBoltwoodPathBrowse") { txtBoltwoodFileLocation.Text = DialogPath; }
+                
                 //Environment.SpecialFolder root = folderDlg.RootFolder;
             }
         }

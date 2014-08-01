@@ -15,6 +15,12 @@ namespace WeatherStation
         public static string LogFilePath = "";
         public static bool LogFileFlag = true;
 
+        private static TextWriter SerialLogFile = null;
+        public static string SerialLogFileName = "weather_station_serial_"; //Serial log file
+        public static string serialLogExt = ".log";
+        public static string SerialLogFilePath = "";
+        public static bool SerialLogFileFlag = true;
+
         private static TextWriter dataLogFile = null;
         public static string dataLogFileName = "weather_station_"; //CSV log data
         public static string dataLogExt = ".csv";
@@ -59,6 +65,44 @@ namespace WeatherStation
 
             LogFile.Write("{0} {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
             LogFile.WriteLine(": {0}", logMessage);
+        }
+        #endregion
+
+        /// <summary>
+        /// Serial log procedures
+        /// </summary>
+        #region Serial log section
+        public static void OpenSerialLogFile()
+        {
+            if (SerialLogFilePath == "") SerialLogFilePath = ApplicationFilePath;
+
+            string FullFileName = SerialLogFilePath + SerialLogFileName + DateTime.Now.ToShortDateString() + serialLogExt;
+
+            if (!File.Exists(FullFileName))
+            {
+                SerialLogFile = File.CreateText(FullFileName);
+            }
+            else
+            {
+                SerialLogFile = File.AppendText(FullFileName);
+            }
+        }
+
+        public static void CloseSerialLogFile()
+        {
+            SerialLogFile.Close();
+            SerialLogFile = null;
+        }
+
+        public static void LogSerial(string logMessage)
+        {
+            if (SerialLogFile == null)
+            {
+                OpenSerialLogFile();
+            }
+
+            SerialLogFile.Write("{0} {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
+            SerialLogFile.WriteLine(": {0}", logMessage);
         }
         #endregion
 

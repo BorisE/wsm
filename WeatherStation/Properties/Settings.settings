@@ -30,7 +30,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="WebDataURL" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://astromania.info/senddata.php</Value>
+      <Value Profile="(Default)">http://astromania.info/checkconn/putweatherdata2a.php</Value>
     </Setting>
     <Setting Name="RefreshInterval" Type="System.String" Scope="User">
       <Value Profile="(Default)">10000</Value>
@@ -103,6 +103,12 @@
     </Setting>
     <Setting Name="SensorWebCustomName" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SerialLogFileLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SerialLogFileFlag" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>
