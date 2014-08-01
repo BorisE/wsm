@@ -119,7 +119,7 @@ namespace WeatherStation
                 else
                 {
                     btnStart.Text = "Start";
-                    timer1.Enabled = false;
+                    main_timer.Enabled = false;
                     Logging.Log("Monitoring on [" + Hardware.comport.PortName + "] was stopped");
                     LogForm.txtLog.AppendText("Monitoring on [" + Hardware.comport.PortName + "] was stopped\r\n");
                     Logging.CloseLogFile();
@@ -135,7 +135,7 @@ namespace WeatherStation
                 }
                 else 
                 {
-                    timer1.Enabled = true;
+                    main_timer.Enabled = true;
                     Logging.Log("Monitoring on [" + Hardware.comport.PortName + "] was started");
                     LogForm.txtLog.Text += "Monitoring on [" + Hardware.comport.PortName + "] was started\r\n";
                     btnStart.Text = "Stop";
@@ -149,7 +149,7 @@ namespace WeatherStation
 
             Random rand = new Random();
 
-            Hardware.SerialBuffer = @"Weather station v0.8sim
+            Hardware.SerialBufferFullSim = @"Weather station v0.8sim
 [!ver:0.8sim]
 IP: 192.168.1.178
 
@@ -202,8 +202,13 @@ waiting 10000
 ";
             //WebServices.sendDataToNetMon("");
             //timer1_Tick(sender,e);
+            Hardware.simBufferReadPos = 0;
         }
 
+        private void timer_debug_portread_Tick(object sender, EventArgs e)
+        {
+            Hardware.port_DataReceived_simulated();
+        }
         
         /// <summary>
         /// Timer ticking - main function in the form interface; used to make data manupalation and displaying every given interval
@@ -544,18 +549,20 @@ waiting 10000
 
         private void btnSimulate_Click(object sender, EventArgs e)
         {
-            if (timer_debug.Enabled)
+            if (timer_debug_changetext.Enabled)
             {
                 btnSimulate.Text = "Simulation start";
-                timer1.Enabled = false;
-                timer_debug.Enabled = false;
+                main_timer.Enabled = false;
+                timer_debug_changetext.Enabled = false;
+                timer_debug_portread.Enabled = false;
                 SimulationMode = false;
                 Logging.Log("Monitoring simulation was stopped");
                 LogForm.txtLog.Text += "Monitoring simulation was stopped\r\n";
                 Logging.CloseLogFile();
             }else{
-                timer1.Enabled = true;
-                timer_debug.Enabled = true;
+                main_timer.Enabled = true;
+                timer_debug_changetext.Enabled = true;
+                timer_debug_portread.Enabled = true;
                 Logging.Log("Monitoring simulation was started");
                 SimulationMode = true;
                 LogForm.txtLog.Text += "Monitoring simulation was started\r\n";
@@ -585,8 +592,8 @@ waiting 10000
             Hardware.RAININDEX_RAIN_LIMIT = Convert.ToDouble(Properties.Settings.Default.RainLimit);
 
             maxNumberOfPointsInChart = Convert.ToInt16(Properties.Settings.Default.MaxPoints);
-            timer1.Interval = Convert.ToInt16(Properties.Settings.Default.RefreshInterval);
-            timer_debug.Interval = Convert.ToInt16(Properties.Settings.Default.RefreshInterval);
+            main_timer.Interval = Convert.ToInt16(Properties.Settings.Default.RefreshInterval);
+            timer_debug_changetext.Interval = Convert.ToInt16(Properties.Settings.Default.RefreshInterval);
 
             WebServices.WebDataFlag = Properties.Settings.Default.WebDataFlag;
             WebServices.siteipURL = Properties.Settings.Default.WebDataURL;
@@ -637,6 +644,8 @@ waiting 10000
             MessageBox.Show(ErrorMsg);
             Logging.Log(ErrorMsg);
         }
+
+
 
     }
 }

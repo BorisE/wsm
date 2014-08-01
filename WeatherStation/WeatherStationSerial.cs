@@ -62,6 +62,12 @@ namespace WeatherStation
         public string SerialBuffer = "";
         public UInt32 MAX_BUFFER_LEN = 10000;
 
+        /// <summary>
+        /// Simulation mode vars
+        /// </summary>
+        public string SerialBufferFullSim="";
+        public int simBufferReadPos = 0;
+
         //Protocol delimeters
         #region Protocol delimeters
         const string DATAPROTOCOL_START = "[!";
@@ -539,28 +545,37 @@ namespace WeatherStation
             LastTimeDataRead = DateTime.Now;
         }
 
-        public void port_DataReceived_simulated(object sender, SerialDataReceivedEventArgs e)
+        public void port_DataReceived_simulated()
         {
-            // Read arbitrary nyum from predefined buffer
-            Random rnd = new Random();
-            int Len = rnd.Next(1, 10);
-            string data = SerialBuffer.Substring(simBufferReadPos,Len);
-
-            SerialBuffer += data;
-            //string[] lines = SerialBuffer.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
-
-            /// if using with VISUAL INTERFACE
-            //if (ParentMainForm!=null) ParentMainForm.LogForm.AppendLogText(data);
-
-            //Log serial data if needed
-            if (Logging.SerialLogFileFlag) Logging.LogSerial(data);
-
-            if (SerialBuffer.Length > MAX_BUFFER_LEN)
+            if (simBufferReadPos < SerialBufferFullSim.Length)
             {
-                SerialBuffer = SerialBuffer.Substring((Int16)(SerialBuffer.Length - MAX_BUFFER_LEN));
-            }
+                // Read arbitrary nyum from predefined buffer
+                Random rnd = new Random();
+                int BuffReadLen = rnd.Next(1, 30);
+                if ((simBufferReadPos + BuffReadLen) > SerialBufferFullSim.Length)
+                {
+                    BuffReadLen = SerialBufferFullSim.Length - simBufferReadPos;
+                }
+                string data = SerialBufferFullSim.Substring(simBufferReadPos, BuffReadLen);
+                simBufferReadPos += BuffReadLen;
 
-            LastTimeDataRead = DateTime.Now;
+                SerialBuffer += data;
+                //string[] lines = SerialBuffer.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+
+                //Log serial data if needed
+                if (Logging.SerialLogFileFlag) Logging.LogSerial(data);
+
+                if (SerialBuffer.Length > MAX_BUFFER_LEN)
+                {
+                    SerialBuffer = SerialBuffer.Substring((Int16)(SerialBuffer.Length - MAX_BUFFER_LEN));
+                }
+
+                LastTimeDataRead = DateTime.Now;
+            }
+            else
+            {
+                ;
+            }
         }
 
         /// <summary>

@@ -70,8 +70,8 @@ namespace WeatherStation
 
                 //Store to vars main interface settings
                 ParentMainForm.maxNumberOfPointsInChart = Convert.ToInt16(txtMaxPoints.Text);
-                ParentMainForm.timer1.Interval = Convert.ToInt16(txtRefreshInterval.Text);
-                ParentMainForm.timer_debug.Interval = Convert.ToInt16(txtRefreshInterval.Text);
+                ParentMainForm.main_timer.Interval = Convert.ToInt16(txtRefreshInterval.Text);
+                ParentMainForm.timer_debug_changetext.Interval = Convert.ToInt16(txtRefreshInterval.Text);
 
                 //Store webservice settings
                 WebServices.WebDataFlag = chkWebData.Checked;

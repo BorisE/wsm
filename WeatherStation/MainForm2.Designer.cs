@@ -60,7 +60,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.btnStart = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.main_timer = new System.Windows.Forms.Timer(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -102,7 +102,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.btnAbout = new System.Windows.Forms.Button();
-            this.timer_debug = new System.Windows.Forms.Timer(this.components);
+            this.timer_debug_changetext = new System.Windows.Forms.Timer(this.components);
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.txtCloudIndex2 = new System.Windows.Forms.TextBox();
             this.txtCloudIndex1 = new System.Windows.Forms.TextBox();
@@ -123,6 +123,7 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.btnRelay = new System.Windows.Forms.Button();
+            this.timer_debug_portread = new System.Windows.Forms.Timer(this.components);
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -146,10 +147,10 @@
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // timer1
+            // main_timer
             // 
-            this.timer1.Interval = 10000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.main_timer.Interval = 10000;
+            this.main_timer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // label3
             // 
@@ -520,10 +521,10 @@
             this.btnAbout.UseVisualStyleBackColor = true;
             this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
-            // timer_debug
+            // timer_debug_changetext
             // 
-            this.timer_debug.Interval = 2000;
-            this.timer_debug.Tick += new System.EventHandler(this.timer_debug_Tick);
+            this.timer_debug_changetext.Interval = 10000;
+            this.timer_debug_changetext.Tick += new System.EventHandler(this.timer_debug_Tick);
             // 
             // chart1
             // 
@@ -1037,6 +1038,10 @@
             this.btnRelay.UseVisualStyleBackColor = true;
             this.btnRelay.Click += new System.EventHandler(this.btnRelay_Click);
             // 
+            // timer_debug_portread
+            // 
+            this.timer_debug_portread.Tick += new System.EventHandler(this.timer_debug_portread_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1151,12 +1156,13 @@
         private System.Windows.Forms.TextBox txtWetflag;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
-        public System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Timer main_timer;
         private System.Windows.Forms.Button btnSimulate;
-        public System.Windows.Forms.Timer timer_debug;
+        public System.Windows.Forms.Timer timer_debug_changetext;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.Button btnRelay;
+        private System.Windows.Forms.Timer timer_debug_portread;
     }
 }
 
