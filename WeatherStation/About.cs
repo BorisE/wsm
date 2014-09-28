@@ -14,10 +14,12 @@ namespace WeatherStation
     public partial class About : Form
     {
         string HardwareVerExt = "";
+        string HardwareVerDateExt = "";
 
-        public About(string _HardwareVer)
+        public About(string _HardwareVer, string _HardwareVerDate)
         {
             HardwareVerExt = _HardwareVer;
+            HardwareVerDateExt = _HardwareVerDate;
             InitializeComponent();
         }
         
@@ -30,11 +32,12 @@ namespace WeatherStation
             Version ver = assemName.Version;
             lblVersion.Text += "Version " + ver.Major.ToString() + "." + ver.Minor.ToString() + "." + ver.Build.ToString() + " rev "+ver.Revision.ToString();
             //MessageBox.Show("Application " + assemName.Name + ", Version " + ver.ToString());
-            lblVersion.Text += "\n"+"Compile time: "+RetrieveLinkerTimestamp();
+            lblVersion.Text += Environment.NewLine+"Compile time: "+RetrieveLinkerTimestamp();
 
             // Put Arduino sketch version
             if (HardwareVerExt == "") HardwareVerExt = "n/a";
-            lblVersion.Text += "\n" + "Hardware sketch version: " + HardwareVerExt;
+            if (HardwareVerDateExt != "") HardwareVerDateExt = " from " + HardwareVerDateExt;
+            lblVersion.Text += Environment.NewLine + "Hardware sketch version: " + HardwareVerExt + HardwareVerDateExt;
             
 
             // Add link

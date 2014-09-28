@@ -36,16 +36,16 @@
       <Value Profile="(Default)">10000</Value>
     </Setting>
     <Setting Name="MaxPoints" Type="System.String" Scope="User">
-      <Value Profile="(Default)">8640</Value>
+      <Value Profile="(Default)">4320</Value>
     </Setting>
     <Setting Name="Clearsky" Type="System.String" Scope="User">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">12</Value>
     </Setting>
     <Setting Name="Cloudysky" Type="System.String" Scope="User">
-      <Value Profile="(Default)">5</Value>
+      <Value Profile="(Default)">8</Value>
     </Setting>
     <Setting Name="WetLimit" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1050</Value>
+      <Value Profile="(Default)">1010</Value>
     </Setting>
     <Setting Name="RainLimit" Type="System.String" Scope="User">
       <Value Profile="(Default)">980</Value>
@@ -109,6 +109,39 @@
     </Setting>
     <Setting Name="SerialLogFileFlag" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LogLevel" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1 - Common messages</Value>
+    </Setting>
+    <Setting Name="SensorFieldName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="HeatingMaxTemp" Type="System.String" Scope="User">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="HeatingMaxDuration" Type="System.String" Scope="User">
+      <Value Profile="(Default)">300</Value>
+    </Setting>
+    <Setting Name="HeatingWetThreshold" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1010</Value>
+    </Setting>
+    <Setting Name="HeatingCSThresholdMin" Type="System.String" Scope="User">
+      <Value Profile="(Default)">13</Value>
+    </Setting>
+    <Setting Name="WetSensorsMode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="HeatingPauseTime" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1800</Value>
+    </Setting>
+    <Setting Name="HeatingCSThresholdMax" Type="System.String" Scope="User">
+      <Value Profile="(Default)">17</Value>
+    </Setting>
+    <Setting Name="HeatingCS_MinDelta" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0.0</Value>
+    </Setting>
+    <Setting Name="HeatingCS_MaxDelta" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2.0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

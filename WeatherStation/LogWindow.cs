@@ -17,16 +17,36 @@ namespace WeatherStation
         private bool AutoScrollLogFlag = true;
         private int caretPos=0;
 
+        public int MAX_LOG_LINES = 500;
+
         public LogWindow(MainForm MF)
         {
             InitializeComponent();
             ParentMainForm = MF;
         }
 
-        public void AppendLogText(string LogText)
+        /// <summary>
+        /// Add log text to output window
+        /// </summary>
+        /// <param name="LogText"></param>
+        public void AppendLogText(string LogText, bool newLineFeed=true)
         {
-            caretPos = txtLog.SelectionStart; 
+            caretPos = txtLog.SelectionStart;
+            txtLog.AppendText(DateTime.Now.ToString("HH:mm:ss dd.MM.yy") +": ");
             txtLog.AppendText(LogText);
+
+            if (newLineFeed) txtLog.AppendText(Environment.NewLine);
+
+            //Cut log window contents if it is greater then MAX_LOG_LINES
+            var txtLogLinesArr = txtLog.Lines;
+            if (txtLogLinesArr.Count() > MAX_LOG_LINES)
+            {
+                int NumOfSkipLines = txtLogLinesArr.Count() - MAX_LOG_LINES;
+                var newLines = txtLogLinesArr.Skip(NumOfSkipLines);
+                txtLog.Lines = newLines.ToArray();
+
+                //LogForm.txtLog.Text = LogForm.txtLog.Text.Substring(LogForm.txtLog.Text.Length - MAX_LOG_LENGTH);
+            }
         }
 
         private void LogWindow_Load(object sender, EventArgs e)
@@ -81,13 +101,12 @@ namespace WeatherStation
             if (AutoScrollLogFlag)
             {
                 ScrollBox.SelectionStart = ScrollBox.Text.Length;
-                ScrollBox.ScrollToCaret();
             }
             else
             {
                 ScrollBox.SelectionStart=caretPos;
-                ScrollBox.ScrollToCaret();
             }
+            ScrollBox.ScrollToCaret();
         }
     }
 

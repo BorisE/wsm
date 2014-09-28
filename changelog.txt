@@ -2,6 +2,20 @@ WeatherStation Project
 (c) 2013-2014 by Emchenko Boris
 
 Change log
+1.1.19 (2014-09-14)
+- improved cloud sensor humidity protection algorithm
+- saving cumulative rain gauge count for narodmon
+1.1.18 (2014-08-31)
+- Cloud sensor humidity protection
+- rain condition calculated based on two or one of two sensors
+
+1.1.17 (2014-08-21)
+- some internal data analyzis implemented
+- fully rewritten simulation mechanism - now it is fully similar with general routines
+- sensor collection mechanizm developed further
+- more working on logging
+- more code optimization
+
 1.1.16 (2014-07-29)
 - transition to customizable Sensor collection
 - Heating relay controlling

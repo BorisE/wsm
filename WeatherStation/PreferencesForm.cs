@@ -25,6 +25,8 @@ namespace WeatherStation
 
         private void PreferencesForm_Load(object sender, EventArgs e)
         {
+            Logging.Log("Preferences Form load starting...", 3);
+            
             //READ COM PORT LIST
             foreach (string s in SerialPort.GetPortNames())
                 cmbPortList.Items.Add(s);
@@ -42,20 +44,57 @@ namespace WeatherStation
             }
             (dataGridSensors.Columns["SensorType"] as DataGridViewComboBoxColumn).DataSource = SensTypesList;
 
+            //FILL IN FormField combobox
+            List<string> SensFormFieldsList = new List<string>();
+            //special value for none
+            SensFormFieldsList.Add("(none)");
+            st = "";
+            string CName = "", CName2="";
+            foreach (Control c in ParentMainForm.Controls)
+            {
+                if (c.HasChildren)
+                {
+                    foreach (Control c2 in c.Controls)
+                    {
+                        CName2 = c2.Name;
+                        if (CName2.Substring(0, 6) == "txtFld")
+                        {
+                            SensFormFieldsList.Add(c2.Name);
+                        }
+                    }
+                }
+                else
+                {
+                    CName = c.Name;
+                    if (CName.Substring(0, 6) == "txtFld")
+                    {
+                        SensFormFieldsList.Add(c.Name);
+                    }
+                }
+            }               
+            (dataGridSensors.Columns["FormFieldName"] as DataGridViewComboBoxColumn).DataSource = SensFormFieldsList;
+
             //POPULATE SENSOR DATAGRID
             PopulateSensorListGrid();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            Logging.Log("Preferences form saving starting...", 3);
+
             try
             {
+                Logging.DEBUG_LEVEL = (byte) (cmbLogLevel.SelectedIndex+1);
+
                 //Store to vars main hardware settings
                 ParentMainForm.Hardware.PortName = cmbPortList.Text;
                 ParentMainForm.Hardware.WatchDog = chkWatchdog.Checked;
+                Logging.Log("Preferences: COMPORT: " + cmbPortList.Text, 2);
 
                 ParentMainForm.Hardware.CLOUDINDEX_CLEAR = Convert.ToDouble(txtClearsky.Text);
                 ParentMainForm.Hardware.CLOUDINDEX_CLOUDY = Convert.ToDouble(txtCloudysky.Text);
+                Logging.Log("Preferences: CLOUDINDEX_CLEAR: " + txtClearsky.Text, 2);
+                Logging.Log("Preferences: CLOUDINDEX_CLOUDY: " + txtCloudysky.Text, 2);
 
                 ParentMainForm.Hardware.K1 = Convert.ToDouble(txtK1.Text);
                 ParentMainForm.Hardware.K2 = Convert.ToDouble(txtK2.Text);
@@ -68,9 +107,27 @@ namespace WeatherStation
                 ParentMainForm.Hardware.RAININDEX_WET_LIMIT = Convert.ToDouble(txtWetLimit.Text);
                 ParentMainForm.Hardware.RAININDEX_RAIN_LIMIT = Convert.ToDouble(txtRainLimit.Text);
 
+                ParentMainForm.Hardware.RainConditionMode = (WetSensorsMode)(cmbWetMode.SelectedIndex);
+
+                Logging.Log("Preferences: RAININDEX_WET_LIMIT: " + txtWetLimit.Text, 2);
+                Logging.Log("Preferences: RAININDEX_RAIN_LIMIT: " + txtRainLimit.Text, 2);
+
+
+                //Store heating settings
+                ParentMainForm.Hardware.HEATER_CLOUDINDEX_MIN = Convert.ToDouble(txtCSHeatingMin.Text);
+                ParentMainForm.Hardware.HEATER_CLOUDINDEX_MAX = Convert.ToDouble(txtCSHeatingMax.Text);
+                ParentMainForm.Hardware.HEATER_CS_PAUSE = Convert.ToInt16(txtCSHeaterPauseTime.Text);
+                ParentMainForm.Hardware.HEATER_MAX_TEMPERATURE_DELTA = Convert.ToDouble(txtHeaterMaxTemp.Text);
+                ParentMainForm.Hardware.HEATER_MAX_DURATION = Convert.ToInt16(txtHeaterMaxDuration.Text);
+                ParentMainForm.Hardware.HEATER_WET_START_THRESHOLD = Convert.ToDouble(txtHeaterWetThreshold.Text);
+                ParentMainForm.Hardware.CS_NEEDHEATING_MAXDELTA = Convert.ToDouble(txtCSDecreasingMaxDelta.Text);
+                ParentMainForm.Hardware.CS_NEEDHEATING_MINDELTA = Convert.ToDouble(txtCSDecreasingMinDelta.Text);
+                ParentMainForm.Hardware.CS_NEEDHEATING_LOOKBACK_CYCLES=(int)Math.Round(Convert.ToInt16(txtCSHeaterPauseTime.Text)/5/60.0-1,0);
+
+
                 //Store to vars main interface settings
                 ParentMainForm.maxNumberOfPointsInChart = Convert.ToInt16(txtMaxPoints.Text);
-                ParentMainForm.main_timer.Interval = Convert.ToInt16(txtRefreshInterval.Text);
+                ParentMainForm.timer_main.Interval = Convert.ToInt16(txtRefreshInterval.Text);
                 ParentMainForm.timer_debug_changetext.Interval = Convert.ToInt16(txtRefreshInterval.Text);
 
                 //Store webservice settings
@@ -106,10 +163,11 @@ namespace WeatherStation
                         }
                     }
                 }
+                Logging.Log("Preferences: Base temperature sensor: " + BaseTempSt, 2);
 
                 //Save datagrid to Properties.Settings
                 //1 - make param strings
-                string SensorName = "", SensorType = "", SensorEnabled = "", SendToWeb = "", SendToNarodmon = "", ArduinoName = "", WebCustomName="";
+                string SensorName = "", SensorType = "", SensorEnabled = "", SendToWeb = "", SendToNarodmon = "", ArduinoName = "", WebCustomName = "", SensorFieldNames="";
                 foreach (DataGridViewRow SensorRow in dataGridSensors.Rows)
                 {
 
@@ -127,7 +185,7 @@ namespace WeatherStation
                     SendToNarodmon += SensorRow.Cells["SendToNarodmon"].Value + ";";
                     ArduinoName += SensorRow.Cells["ArduinoName"].Value + ";";
                     WebCustomName += SensorRow.Cells["WebCustomName"].Value + ";";
-
+                    SensorFieldNames += SensorRow.Cells["FormFieldName"].Value + ";";
 
                 }
                 //2 - store param strings
@@ -138,13 +196,22 @@ namespace WeatherStation
                 Properties.Settings.Default.SensorSendToNarodmon = SendToNarodmon;
                 Properties.Settings.Default.SensorArduinoName = ArduinoName;
                 Properties.Settings.Default.SensorWebCustomName = WebCustomName;
-
+                Properties.Settings.Default.SensorFieldName = SensorFieldNames;
                 //3 - commit changes
                 Properties.Settings.Default.Save();
 
                 //4 - reload data from AppSettings into SensorArray
                 LoadSensorArrayFromSettings();
 
+                Logging.Log("Sensor names: " + SensorName,2);
+                Logging.Log("Sensor types: " + SensorType, 2);
+                Logging.Log("Sensor enabled: " + SensorEnabled, 2);
+                Logging.Log("Sensor SendToWeb: " + SendToWeb, 2);
+                Logging.Log("Sensor SendToNarodmon: " + SendToNarodmon, 2);
+                Logging.Log("Sensor ArduinoName: " + ArduinoName, 2);
+                Logging.Log("Sensor WebCustomName: " + WebCustomName, 2);
+                Logging.Log("Sensor SensorFieldName: " + SensorFieldNames, 2);
+                
                 Logging.Log("Preferences was saved");
 
                 this.Close();
@@ -153,6 +220,12 @@ namespace WeatherStation
             {
                 MessageBox.Show(this, "IOException source: " + ex.Data+" "+ex.Message, "Wrong value", MessageBoxButtons.OK);
             }
+
+            //write settings to Arduino
+            string OutSt = "";
+            ParentMainForm.Hardware.sendParametersToSerial(out OutSt);
+            ParentMainForm.Hardware.getParametersToSerial();
+            ParentMainForm.LogForm.AppendLogText(OutSt);
         }
 
         private void btnLogPathBrowse_Click(object sender, EventArgs e)
@@ -196,8 +269,11 @@ namespace WeatherStation
         /// <summary>
         /// Load sensor data from Application.Settings into SensorsArray
         /// </summary>
-        private void LoadSensorArrayFromSettings()
+        public void LoadSensorArrayFromSettings()
         {
+            Logging.Log("Load sensor data from settings...", 3);
+
+
             //Read sensor parameters from Settings and split them into arrays
             string SensorName = Properties.Settings.Default.SensorName;
             string[] SensorNameArr = SensorName.Split(';');
@@ -220,6 +296,9 @@ namespace WeatherStation
             string WebCustomName = Properties.Settings.Default.SensorWebCustomName;
             string[] WebCustomNameArr = WebCustomName.Split(';');
 
+            string SensorFieldName = Properties.Settings.Default.SensorFieldName;
+            string[] SensorFieldNameArr = SensorFieldName.Split(';');
+
             if (SensorName != "")
             {
                 //Clear default values
@@ -241,9 +320,11 @@ namespace WeatherStation
                         //ParentMainForm.Hardware.SensorsArray[nI].SensorFormField = "";
                         ParentMainForm.Hardware.SensorsArray[nI].SensorArduinoField = ArduinoNameArr[nI];
                         ParentMainForm.Hardware.SensorsArray[nI].WebCustomName = WebCustomNameArr[nI];
+                        ParentMainForm.Hardware.SensorsArray[nI].SensorFormField = SensorFieldNameArr[nI];
                     }
                 }
             }
+            Logging.Log("Preferences: LoadSensorArrayFromSettings(): Sensor data was loaded", 3);
 
         }
 
@@ -268,6 +349,7 @@ namespace WeatherStation
                     dataGridSensors.Rows[curRowIndex].Cells["SendToNarodmon"].Value = DataSensor.SendToNarodMon;
                     dataGridSensors.Rows[curRowIndex].Cells["ArduinoName"].Value = DataSensor.SensorArduinoField;
                     dataGridSensors.Rows[curRowIndex].Cells["WebCustomName"].Value = DataSensor.WebCustomName;
+                    dataGridSensors.Rows[curRowIndex].Cells["FormFieldName"].Value = (DataSensor.SensorFormField != "" ? DataSensor.SensorFormField : "(none)");
                     
 
                     //FILL IN TEMP SENSORS
@@ -277,12 +359,20 @@ namespace WeatherStation
                     }
                 }
             }
+            Logging.Log("Preferences: PopulateSensorListGrid(): ended", 3);
 
         }
 
         private void btnReadFromSerial_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not implemented yet");
+            
         }
+
+        private void PreferencesForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+        }
+
     }
 }

@@ -34,6 +34,12 @@ namespace WeatherStation
         public static string BoltwoodFilePath = "";
         public static bool BoltwoodFileFlag = true;
 
+        //DEBUG LEVEL
+        public static byte DEBUG_LEVEL = 1;
+
+        //RGC value storage
+        private static string RGCFileName = "rgc.dat"; //Text log
+        public static DateTime RGCLastSaved;
 
         private static string ApplicationFilePath
         {
@@ -56,15 +62,20 @@ namespace WeatherStation
             LogFile = null;
         }
 
-        public static void Log(string logMessage)
+        public static void Log(string logMessage, byte LogLevel=1)
         {
-            if (LogFile == null)
+            // if current log level is less then DebugLevel
+            if (LogLevel <= DEBUG_LEVEL)
             {
-                OpenLogFile();
-            }
 
-            LogFile.Write("{0} {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
-            LogFile.WriteLine(": {0}", logMessage);
+                if (LogFile == null)
+                {
+                    OpenLogFile();
+                }
+
+                LogFile.Write("{0} {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
+                LogFile.WriteLine(": {0}", logMessage);
+            }
         }
         #endregion
 
@@ -144,6 +155,106 @@ namespace WeatherStation
             CloseDataLogFile();
 
         }
+
+        public static void SaveRGCValueTxt(int RGCVal)
+        {
+            if (DataFilePath == "") DataFilePath = ApplicationFilePath;
+            using (StreamWriter outfile = new StreamWriter(DataFilePath + RGCFileName))
+            {
+                outfile.Write(RGCVal.ToString());
+            }
+        }
+        public static int LoadRGCValueTxt()
+        {
+            if (DataFilePath == "") DataFilePath = ApplicationFilePath;
+            int RGCVav = 0;
+            try
+            {
+                using (StreamReader sr = new StreamReader(DataFilePath + RGCFileName))
+                {
+                    String RGCValSt = sr.ReadToEnd();
+                    RGCVav = Convert.ToInt16(RGCValSt);
+                }
+            }
+            catch
+            {
+                RGCVav = 0;
+            }
+            return RGCVav;
+        }
+
+        public static bool SaveRGCValue(int RGCVal,DateTime LastReset)
+        {
+            if (DataFilePath == "") DataFilePath = ApplicationFilePath;
+            if (LastReset == DateTime.MinValue) LastReset = DateTime.Now;
+
+            BinaryWriter bw;
+            //create the file
+            try
+            {
+                bw = new BinaryWriter(new FileStream(DataFilePath + RGCFileName, FileMode.Create));
+            }
+            catch
+            {
+                return false;
+            }
+            //writing into the file
+            try
+            {
+                bw.Write(RGCVal);
+                bw.Write(DateTime.Now.ToString());
+                bw.Write(LastReset.ToString());
+            }
+            catch
+            {
+                return false;
+            }
+            bw.Close();
+            return true;
+        }
+
+        public static int LoadRGCValue(out DateTime RGCLastReset)
+        {
+            if (DataFilePath == "") DataFilePath = ApplicationFilePath;
+            int RGCVav = 0;
+            RGCLastSaved = DateTime.MinValue;
+            RGCLastReset = DateTime.MinValue;
+
+            BinaryReader br;
+            //open file
+            try
+            {
+                br = new BinaryReader(new FileStream(DataFilePath + RGCFileName, FileMode.Open));
+            }
+            catch
+            {
+                return 0;
+            }
+            //read file
+            string RGC_LastSavedSt="",RGC_LastResetSt="";
+            try
+            {
+                RGCVav = br.ReadInt32();
+                RGC_LastSavedSt = br.ReadString();
+                RGC_LastResetSt = br.ReadString();
+            }
+            catch
+            {
+                return 0;
+            }
+
+            try
+            {
+                RGCLastSaved = Convert.ToDateTime(RGC_LastSavedSt);
+                RGCLastReset = Convert.ToDateTime(RGC_LastResetSt);
+            }
+            catch { 
+            }
+            br.Close(); 
+            
+            return RGCVav;
+        }
+        
         #endregion
 
         /// <summary>

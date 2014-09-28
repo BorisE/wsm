@@ -28,11 +28,15 @@ namespace WeatherStation
         /// </summary>
         public LogWindow LogForm;
 
+        /// <summary>
+        /// Link to preferences form + functions for loading parameters
+        /// </summary>
+        public PreferencesForm PrefForm;
+
         //For graphs
         private DateTime curX;
         public int maxNumberOfPointsInChart = 8640; //For 24h with 10sec interval
         public int MAX_LOG_LENGTH = 10000;
-        public int MAX_LOG_LINES = 500;
 
         private About aboutForm;
 
@@ -47,14 +51,17 @@ namespace WeatherStation
 
             LogForm = new LogWindow(this);
             Hardware = new WeatherStationSerial(this);
+            PrefForm = new PreferencesForm(this);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             //Load current settings
+
+            PrefForm.LoadSensorArrayFromSettings();
             LoadParams();
 
-            Logging.Log("Program started");
+            Logging.Log("Program started",1);
 
             //INIT GRAPHICS
             //chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.ToOADate();
@@ -113,15 +120,15 @@ namespace WeatherStation
                 if (!Hardware.stopReadData())
                 {
                     Logging.Log("Could not close the COM port [" + Hardware.comport.PortName + "]");
-                    LogForm.txtLog.AppendText("Could not close the COM port [" + Hardware.comport.PortName + "]\r\n");
+                    LogForm.txtLog.AppendText("Could not close the COM port [" + Hardware.comport.PortName + "]");
                     MessageBox.Show(this, "Could not close the COM port [" + Hardware.comport.PortName + "]", "COM Port couldn't be closed", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
                 else
                 {
                     btnStart.Text = "Start";
-                    main_timer.Enabled = false;
+                    timer_main.Enabled = false;
                     Logging.Log("Monitoring on [" + Hardware.comport.PortName + "] was stopped");
-                    LogForm.txtLog.AppendText("Monitoring on [" + Hardware.comport.PortName + "] was stopped\r\n");
+                    LogForm.txtLog.AppendText("Monitoring on [" + Hardware.comport.PortName + "] was stopped");
                     Logging.CloseLogFile();
                 }
             }
@@ -130,15 +137,18 @@ namespace WeatherStation
                 if (!Hardware.startReadData())
                 {
                     Logging.Log("Could not open the COM port [" + Hardware.comport.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.");
-                    LogForm.txtLog.AppendText("Could not open the COM port [" + Hardware.comport.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.\r\n");
+                    LogForm.txtLog.AppendText("Could not open the COM port [" + Hardware.comport.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.");
                     MessageBox.Show(this, "Could not open the COM port [" + Hardware.comport.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.", "COM Port Unavalible", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
                 else 
                 {
-                    main_timer.Enabled = true;
+                    timer_main.Enabled = true;
                     Logging.Log("Monitoring on [" + Hardware.comport.PortName + "] was started");
-                    LogForm.txtLog.Text += "Monitoring on [" + Hardware.comport.PortName + "] was started\r\n";
+                    LogForm.AppendLogText("Monitoring on [" + Hardware.comport.PortName + "] was started");
                     btnStart.Text = "Stop";
+                    
+                    //init Hardware.RGC_Cumulative prev value
+                    Hardware.RGC_Cumulative = Logging.LoadRGCValue(out Hardware.RGC_Cumulative_LastReset);
                 }
 
             }
@@ -147,67 +157,66 @@ namespace WeatherStation
         private void timer_debug_Tick(object sender, EventArgs e)
         {
 
-            Random rand = new Random();
+            Random rand = new Random(DateTime.Now.Millisecond);
+
+            ArduinoSettingsClass El=new ArduinoSettingsClass();
+
+            string ArdSetTD = (Hardware.ArduinoSettings.TryGetValue("TD", out El) ? El.Value : "30");
+            string ArdSetWT = (Hardware.ArduinoSettings.TryGetValue("WT", out El) ? El.Value : "1005");
+            string ArdSetRT = (Hardware.ArduinoSettings.TryGetValue("RT", out El) ? El.Value : "300");
 
             Hardware.SerialBufferFullSim = @"Weather station v0.8sim
 [!ver:0.8sim]
+[!ved:13082014]
 IP: 192.168.1.178
 
 === New cycle ===
 [!!be:1]
-Object/Ambient: -4.5/22.1
-[!Obj:" + String.Format("{0:N1}", -4.5 + rand.NextDouble() * 10) + @"]
+[!Obj:" + String.Format("{0:N1}", -4.5 + rand.NextDouble() * 15) + @"]
 [!Amb:" + String.Format("{0:N1}", 22.5 + rand.NextDouble() * 5) + @"]
 
-Temperature: 26.60C
-Pressure: 100462 Pa   753.53 mmHg  
-Standard Atmosphere: 0.9915
-Altitude: 72.09 M
 [!BTe:" + String.Format("{0:N1}", 24.5 + rand.NextDouble() * 5) + @"]
 [!Pre:" + String.Format("{0:N0}", 730 + rand.NextDouble() * 50) + @"]
 
-Humidity: 1.00 %	
-Temperature: 26.40 C  
-Dew point: -34.05 /fast: -33.96 *C
 [!DT1:" + String.Format("{0:N1}", 22.5 + rand.NextDouble() * 5) + @"]
-[!DH1:" + String.Format("{0:N0}", 30 + rand.NextDouble() * 10) + @"]
+[!DH1:" + String.Format("{0:N0}", 30 + rand.NextDouble() * 60) + @"]
 
-Humidity(2): 42.80 %	
-Temperature(2): 24.80 C  
-Dew point: 11.32 /fast: 11.29 *C
 [!DT2:" + String.Format("{0:N1}", 24.0 + rand.NextDouble() * 5) + @"]
 [!DH2:" + String.Format("{0:N0}", 10 + rand.NextDouble() * 30) + @"]
 
-Illuminance: 1454.8[0.5x] r:17 s:254 wt:572
 [!Lum:" + String.Format("{0:F0}", 1454.8 + rand.NextDouble() * 1000) + @"]
 [!Lur:17]
 [!Lus:254]
 [!Luw:572]
 
-Inside t: 23.00C Outside t: 39.25C 
 [!Te1:" +String.Format("{0:N1}",23.0+rand.NextDouble()*5)+@"]
 [!Te2:" + String.Format("{0:N1}", 26.0 + rand.NextDouble() * 10) + @"]
 
-Wetsensor analog value: 1022     digital value: 1
-[!Wet:" + String.Format("{0:F0}", 1022 - rand.NextDouble() * 10) + @"]
+[!Wet:" + String.Format("{0:F0}", 1022 - rand.NextDouble() * 30) + @"]
 
-Rain Gauge counter: 1
 [!RGC:" + String.Format("{0:N0}", 0 + rand.NextDouble() * 3) + @"]
 
-Heating relay state: 0
 [!RL1:" + String.Format("{0:N0}", 0 + rand.NextDouble()) + @"]
-Switching relay OFF...
+
+[!?TD:" + ArdSetTD + @"]
+[!?WT:" + ArdSetWT + @"]
+[!?RT:" + ArdSetRT + @"]
+
 [!!en:1]
 waiting 10000
 ";
-            //WebServices.sendDataToNetMon("");
-            //timer1_Tick(sender,e);
+            Logging.Log("Simulated text created", 3);
             Hardware.simBufferReadPos = 0;
+            timer_debug_portread.Enabled = true;
         }
 
         private void timer_debug_portread_Tick(object sender, EventArgs e)
         {
-            Hardware.port_DataReceived_simulated();
+            if (Hardware.port_DataReceived_simulated())
+            {
+                timer_debug_portread.Enabled = false;
+                Logging.Log("Simulated text parsed", 3);
+            }
         }
         
         /// <summary>
@@ -215,30 +224,30 @@ waiting 10000
         /// </summary>
         private void timer1_Tick(object sender, EventArgs e)
         {
+            Logging.Log("Main working tick started", 3);
 
             //Check if data receiving (whatchdog)
             if (Hardware.WatchDog && !SimulationMode) Hardware.CheckIfDataReceiving();
-            
-            //Parse data
-            Hardware.ParseData2(Hardware.SerialBuffer);
 
-            //Logging.Log(Hardware.SerialBuffer);
+            //Get current buffer for pasing it and clear it for collecting the new portion
+            string curSerialBuffer = Hardware.SerialBuffer;
+            Hardware.SerialBuffer = "";
+
+            //Parse data
+            Hardware.ParseData2(curSerialBuffer);
+
+            //Write boltwood file
+            if (Properties.Settings.Default.BoltwoodFileFlag) {
+                Hardware.WriteBolwoodFile();
+            }
+            
+            //Write CSV Data file
+            if (Properties.Settings.Default.CSVFileFlag){
+                Hardware.WriteCSV();
+            }
 
             //output buffer to Log window
-            LogForm.AppendLogText(Hardware.SerialBuffer);
-
-            //Cut log window contents if it is greater then MAX_LOG_LINES
-            var txtLogLinesArr=LogForm.txtLog.Lines;
-            if (txtLogLinesArr.Count() > MAX_LOG_LINES)
-            {
-                int NumOfSkipLines = txtLogLinesArr.Count() - MAX_LOG_LINES;
-                var newLines = txtLogLinesArr.Skip(NumOfSkipLines);
-                LogForm.txtLog.Lines = newLines.ToArray();
-
-                //LogForm.txtLog.Text = LogForm.txtLog.Text.Substring(LogForm.txtLog.Text.Length - MAX_LOG_LENGTH);
-            }
-            //clear current buffer
-            Hardware.SerialBuffer = "";
+            LogForm.AppendLogText(curSerialBuffer);
 
             //Refresh form values
             RefreshFormFields2();
@@ -251,6 +260,8 @@ waiting 10000
             
             //Send data to web
             SendDataToWeb2();
+
+            Logging.Log("Main working tick ended", 3);
         }
 
 
@@ -259,16 +270,18 @@ waiting 10000
         /// </summary>
         private void btnPreferences_Click(object sender, EventArgs e)
         {
-            PreferencesForm PrefForm = new PreferencesForm(this);
             PrefForm.ShowDialog();
-            PrefForm.Close();
         }
 
         private void btnLogWindow_Click(object sender, EventArgs e)
         {
             LogForm.Show();
+            LogForm.BringToFront();
         }
 
+        /// <summary>
+        /// Refresh main and aux form fields
+        /// </summary>
         private void RefreshFormFields2()
         {
             //Include all sensor that needed to display
@@ -306,9 +319,140 @@ waiting 10000
                 btnRelay.BackColor = default(Color);
                 btnRelay.UseVisualStyleBackColor = true;
             }
+
+            //For debug
+            try{ txt0min.Text = Convert.ToString(Math.Round(Hardware.SkyIndex5min[0], 1));  }catch { }
+            try{ txt5min.Text = Convert.ToString(Math.Round(Hardware.SkyIndex5min[1], 1));  }catch { }
+            try{ txt10min.Text = Convert.ToString(Math.Round(Hardware.SkyIndex5min[2], 1)); }catch { }
+            try{ txt15min.Text = Convert.ToString(Math.Round(Hardware.SkyIndex5min[3], 1)); }catch { }
+            try{ txt20min.Text = Convert.ToString(Math.Round(Hardware.SkyIndex5min[4], 1)); }catch { }
+
+            //Arduino settings for debug
+            try { txtArdSetTD.Text = Convert.ToString(Hardware.ArduinoSettings["TD"].Value); }
+            catch { }
+            try { txtArdSetWT.Text = Convert.ToString(Hardware.ArduinoSettings["WT"].Value); }
+            catch { }
+            try { txtArdSetRT.Text = Convert.ToString(Hardware.ArduinoSettings["RT"].Value); }
+            catch { }
+
+
+            //Check if sky sensor needed heating
+            Hardware.CheckIfSkySensorHeatingNeeded();
+            try { 
+                txtCSNeedHeating.Text = Convert.ToString(Hardware.CloudSensorNeedHeatingFlag);
+                if (Hardware.CloudSensorNeedHeatingFlag)
+                {
+                    txtCSNeedHeating.BackColor = Color.Cyan;
+                }
+                else
+                {
+                    txtCSNeedHeating.BackColor = Color.Empty;
+                }
+            }
+            catch { }
+
+            //Since laset relay on/off
+            try { 
+                txtSinceHeatingOn.Text = Convert.ToString(Hardware.HeatingOn_SecondsPassed);
+                txtSinceHeatingOff.Text = Convert.ToString(Hardware.HeatingOff_SecondsPassed);
+                if (Hardware.HeatingOn_SecondsPassed < Hardware.HEATER_CS_PAUSE)
+                {
+                    txtSinceHeatingOn.ForeColor = Color.Silver;
+                }
+                else
+                {
+                    txtSinceHeatingOn.ForeColor = Color.Empty;
+                }
+                if (Hardware.HeatingOff_SecondsPassed < Hardware.HEATER_CS_PAUSE)
+                {
+                    txtSinceHeatingOff.ForeColor = Color.Silver;
+                }
+                else
+                {
+                    txtSinceHeatingOff.ForeColor = Color.Empty;
+                }
+            }
+            catch { }
+
+            //Rain flags
+            //RGC sensor
+            try
+            {
+                if (Hardware.RGCRain_Now)
+                {
+                    txtRGCLastMin.Text = "Now";
+                    txtRGCLastMin.BackColor = Color.LightSkyBlue;
+
+                    //Save current RGC cumulative value for narodmon
+                    Logging.SaveRGCValue((int)Hardware.RGC_Cumulative, Hardware.RGC_Cumulative_LastReset);
+                }
+                else if (Hardware.RGCRain_LastMinute)
+                {
+                    txtRGCLastMin.Text = "Rain";
+                    txtRGCLastMin.BackColor = Color.LightSkyBlue;
+                }
+                else
+                {
+                    txtRGCLastMin.Text = "-";
+                    txtRGCLastMin.BackColor = Color.Empty;
+                }
+            }
+            catch { }
+            //Wet sensor
+            try
+            {
+                if (Hardware.WetRain_Now == RainCond.rainRain)
+                {
+                    txtWetLastMin.Text = "Now";
+                    txtWetLastMin.BackColor = Color.LightSkyBlue;
+                }
+                else if (Hardware.WetRain_LastMinute == RainCond.rainRain)
+                {
+                    txtWetLastMin.Text = "Rain";
+                    txtWetLastMin.BackColor = Color.LightSkyBlue;
+                }
+                else if (Hardware.WetRain_LastMinute==RainCond.rainWet)
+                {
+                    txtWetLastMin.Text = "Wet";
+                    txtWetLastMin.BackColor = Color.Cyan;
+                }
+                else
+                {
+                    txtWetLastMin.Text = "-";
+                    txtWetLastMin.BackColor = Color.Empty;
+                }
+            }
+            catch { }
+            
+            //MAIN Rain flag
+            try
+            {
+                if (Hardware.Rain_NowFlag)
+                {
+                    txtRainLastMinute.Text = "Now";
+                    txtRainLastMinute.BackColor = Color.LightSkyBlue;
+                }
+                else if (Hardware.Rain_LastMinuteFlag)
+                {
+                    txtRainLastMinute.Text = "Rain";
+                    txtRainLastMinute.BackColor = Color.LightSkyBlue;
+                }
+                else
+                {
+                    txtRainLastMinute.Text = "-";
+                    txtRainLastMinute.BackColor = Color.Empty;
+                }
+            }
+            catch { }
+
+            //RG cumulative
+            txtFldRGCCumulative.Text = Convert.ToString(Hardware.RGC_Cumulative);
         }
 
 
+        /// <summary>
+        /// Refresh boltwood fields
+        /// </summary>
         private void RefreshBoltwoodFields()
         {
             txtCloudCond.Text = Convert.ToString(Hardware.Bolt_CloudCond);
@@ -416,7 +560,13 @@ waiting 10000
                     {
                         if (Hardware.CheckData(Convert.ToDouble(DataSensor.LastValue), DataSensor.SensorType))
                         {
-                            narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(DataSensor.LastValue);
+                            if (DataSensor.SensorName=="RGC"){
+                                narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(Hardware.RGC_Cumulative_mm);
+                                //Hardware.RGC_Cumulative = 0;
+                                //Hardware.RGC_Cumulative_mm = 0;
+                            }else{
+                                narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(DataSensor.LastValue);
+                            }
                         }
                     }
                                 
@@ -428,7 +578,7 @@ waiting 10000
                 narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + "00" + "=" + Convert.ToString(Hardware.CloudIdx);
             }
 
-            WebServices.sendDataToNetMon(narodmonst);
+            WebServices.sendDataToNarodmon(narodmonst);
         }
 
         /// <summary>
@@ -458,9 +608,9 @@ waiting 10000
             if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["Temp2"]].LastValue, SensorTypeEnum.Temp)) {
                 addGraphicsPoint(chart1, 4, curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["Temp2"]].LastValue); 
             }
-            if (Hardware.CheckData2(Hardware.SensorsArray[Hardware.SensorsArrayHash["ATemp"]]))
+            if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["ATemp"]]))
             {
-                addGraphicsPoint(chart1, 12, curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["ATemp"]].LastValue);
+                addGraphicsPoint(chart1, 11, curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["ATemp"]].LastValue);
             }
 
             /*            if (Hardware.CheckData(Convert.ToDouble(txtTemp2.Text), SensorTypeEnum.Temp))
@@ -481,30 +631,27 @@ waiting 10000
             {
                 addGraphicsPoint(chart1, 8, curX, Hardware.HumidityVal);
             }
-            if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["Hum2"]].LastValue, SensorTypeEnum.Hum))
-            {
-                addGraphicsPoint(chart1, 10, curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["Hum2"]].LastValue);
-            }
+            //if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["Hum2"]].LastValue, SensorTypeEnum.Hum))
+            //{
+            //    addGraphicsPoint(chart1, 10, curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["Hum2"]].LastValue);
+            //}
 
             //Graph5
             if (Hardware.CheckData(Hardware.IllumVal, SensorTypeEnum.Illum))
             {
                 addGraphicsPoint(chart1, 9, curX, Hardware.IllumVal);
             }
-            if (Hardware.CheckData2(Hardware.SensorsArray[Hardware.SensorsArrayHash["RL1"]]))
+            if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["RL1"]]))
             {
-                addGraphicsPoint(chart1, 11, curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["RL1"]].LastValue);
+                addGraphicsPoint(chart1, 10, curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["RL1"]].LastValue);
             }
 
         }
 
-
         private void addGraphicsPoint(Chart CurChart, int seriesNum, DateTime XVal, double YVal)
         {
-
             //curX=DateTime.Now;
             CurChart.Series[seriesNum].Points.AddXY(XVal, YVal);
-
             
             // Keep a constant number of points by removing them from the left
             if (CurChart.Series[seriesNum].Points.Count > maxNumberOfPointsInChart)
@@ -534,16 +681,16 @@ waiting 10000
             if (!Hardware.stopReadData())
             {
                 Logging.Log("Could not close the COM port");
-                LogForm.txtLog.Text += "Could not close the COM port\r\n";
+                LogForm.AppendLogText("Could not close the COM port");
             }
             Logging.Log("Application closed");
             Logging.CloseLogFile();
-            LogForm.txtLog.Text += "Application closed\r\n";
+            LogForm.AppendLogText("Application closed");
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
-            aboutForm = new About(Hardware.SketchVersion);
+            aboutForm = new About(Hardware.SketchVersion, Hardware.SketchVersionDate);
             aboutForm.ShowDialog();
         }
 
@@ -552,69 +699,96 @@ waiting 10000
             if (timer_debug_changetext.Enabled)
             {
                 btnSimulate.Text = "Simulation start";
-                main_timer.Enabled = false;
+                timer_main.Enabled = false;
                 timer_debug_changetext.Enabled = false;
                 timer_debug_portread.Enabled = false;
                 SimulationMode = false;
                 Logging.Log("Monitoring simulation was stopped");
-                LogForm.txtLog.Text += "Monitoring simulation was stopped\r\n";
+                LogForm.AppendLogText("Monitoring simulation was stopped");
                 Logging.CloseLogFile();
             }else{
-                main_timer.Enabled = true;
+                timer_main.Enabled = true;
                 timer_debug_changetext.Enabled = true;
-                timer_debug_portread.Enabled = true;
+                //timer_debug_portread.Enabled = true;
                 Logging.Log("Monitoring simulation was started");
                 SimulationMode = true;
-                LogForm.txtLog.Text += "Monitoring simulation was started\r\n";
+                LogForm.AppendLogText("Monitoring simulation was started");
                 btnSimulate.Text = "Stop simulation";
+
+                //load last value for RGC cumulative
+                Hardware.RGC_Cumulative = Logging.LoadRGCValue(out Hardware.RGC_Cumulative_LastReset);
             }
-            
-            
         }
 
         public void LoadParams()
         {
-            Hardware.PortName = Properties.Settings.Default.comport;
-            Hardware.WatchDog = Properties.Settings.Default.ComWatchdog;
+            Logging.Log("Loading saved parameters",3);
+            try
+            {
+                Hardware.PortName = Properties.Settings.Default.comport;
+                Hardware.WatchDog = Properties.Settings.Default.ComWatchdog;
 
-            Hardware.CLOUDINDEX_CLEAR = Convert.ToDouble(Properties.Settings.Default.Clearsky);
-            Hardware.CLOUDINDEX_CLOUDY = Convert.ToDouble(Properties.Settings.Default.Cloudysky);
+                Hardware.CLOUDINDEX_CLEAR = Convert.ToDouble(Properties.Settings.Default.Clearsky);
+                Hardware.CLOUDINDEX_CLOUDY = Convert.ToDouble(Properties.Settings.Default.Cloudysky);
 
-            Hardware.K1 = Convert.ToDouble(Properties.Settings.Default.K1);
-            Hardware.K2 = Convert.ToDouble(Properties.Settings.Default.K2);
-            Hardware.K3 = Convert.ToDouble(Properties.Settings.Default.K3);
-            Hardware.K4 = Convert.ToDouble(Properties.Settings.Default.K4);
-            Hardware.K5 = Convert.ToDouble(Properties.Settings.Default.K5);
-            Hardware.K6 = Convert.ToDouble(Properties.Settings.Default.K6);
-            Hardware.K7 = Convert.ToDouble(Properties.Settings.Default.K7);
+                Hardware.K1 = Convert.ToDouble(Properties.Settings.Default.K1);
+                Hardware.K2 = Convert.ToDouble(Properties.Settings.Default.K2);
+                Hardware.K3 = Convert.ToDouble(Properties.Settings.Default.K3);
+                Hardware.K4 = Convert.ToDouble(Properties.Settings.Default.K4);
+                Hardware.K5 = Convert.ToDouble(Properties.Settings.Default.K5);
+                Hardware.K6 = Convert.ToDouble(Properties.Settings.Default.K6);
+                Hardware.K7 = Convert.ToDouble(Properties.Settings.Default.K7);
 
-            Hardware.RAININDEX_WET_LIMIT = Convert.ToDouble(Properties.Settings.Default.WetLimit);
-            Hardware.RAININDEX_RAIN_LIMIT = Convert.ToDouble(Properties.Settings.Default.RainLimit);
+                Hardware.RAININDEX_WET_LIMIT = Convert.ToDouble(Properties.Settings.Default.WetLimit);
+                Hardware.RAININDEX_RAIN_LIMIT = Convert.ToDouble(Properties.Settings.Default.RainLimit);
 
-            maxNumberOfPointsInChart = Convert.ToInt16(Properties.Settings.Default.MaxPoints);
-            main_timer.Interval = Convert.ToInt16(Properties.Settings.Default.RefreshInterval);
-            timer_debug_changetext.Interval = Convert.ToInt16(Properties.Settings.Default.RefreshInterval);
+                Hardware.RainConditionMode = (WetSensorsMode)Convert.ToByte(Properties.Settings.Default.WetSensorsMode);
 
-            WebServices.WebDataFlag = Properties.Settings.Default.WebDataFlag;
-            WebServices.siteipURL = Properties.Settings.Default.WebDataURL;
+                Hardware.HEATER_MAX_DURATION = Convert.ToInt16(Properties.Settings.Default.HeatingMaxDuration);
+                Hardware.HEATER_MAX_TEMPERATURE_DELTA = Convert.ToInt16(Properties.Settings.Default.HeatingMaxTemp);
+                Hardware.HEATER_WET_START_THRESHOLD = Convert.ToInt16(Properties.Settings.Default.HeatingWetThreshold);
+                Hardware.HEATER_CLOUDINDEX_MIN = Convert.ToDouble(Properties.Settings.Default.HeatingCSThresholdMin);
+                Hardware.HEATER_CLOUDINDEX_MAX = Convert.ToDouble(Properties.Settings.Default.HeatingCSThresholdMax);
+                Hardware.HEATER_CS_PAUSE = Convert.ToInt16(Properties.Settings.Default.HeatingPauseTime);
 
-            WebServices.SendToNarodmonFlag = Properties.Settings.Default.SendToNarodmon;
-            WebServices.Narodmon_MAC = Properties.Settings.Default.Narodmon_MAC;
+                Hardware.CS_NEEDHEATING_MAXDELTA = Convert.ToDouble(Properties.Settings.Default.HeatingCS_MaxDelta);
+                Hardware.CS_NEEDHEATING_MINDELTA = Convert.ToDouble(Properties.Settings.Default.HeatingCS_MinDelta);
+                Hardware.CS_NEEDHEATING_LOOKBACK_CYCLES = (int)Math.Round(Convert.ToInt16(Properties.Settings.Default.HeatingPauseTime) / 5 / 60.0 - 1, 0);
+                
 
-            Logging.LogFilePath = Properties.Settings.Default.logFileLocation;
-            Logging.DataFilePath = Properties.Settings.Default.CSVFileLocation;
-            Logging.BoltwoodFilePath = Properties.Settings.Default.BoltwoodFileLocation;
+                maxNumberOfPointsInChart = Convert.ToInt16(Properties.Settings.Default.MaxPoints);
+                timer_main.Interval = Convert.ToInt16(Properties.Settings.Default.RefreshInterval);
+                timer_debug_changetext.Interval = Convert.ToInt16(Properties.Settings.Default.RefreshInterval);
 
-            Logging.LogFileFlag = Properties.Settings.Default.logFileFlag;
-            Logging.DataFileFlag = Properties.Settings.Default.CSVFileFlag;
-            Logging.BoltwoodFileFlag = Properties.Settings.Default.BoltwoodFileFlag;
+                WebServices.WebDataFlag = Properties.Settings.Default.WebDataFlag;
+                WebServices.siteipURL = Properties.Settings.Default.WebDataURL;
+
+                WebServices.SendToNarodmonFlag = Properties.Settings.Default.SendToNarodmon;
+                WebServices.Narodmon_MAC = Properties.Settings.Default.Narodmon_MAC;
+
+                Logging.LogFilePath = Properties.Settings.Default.logFileLocation;
+                Logging.DataFilePath = Properties.Settings.Default.CSVFileLocation;
+                Logging.BoltwoodFilePath = Properties.Settings.Default.BoltwoodFileLocation;
+                Logging.SerialLogFilePath = Properties.Settings.Default.SerialLogFileLocation;
+
+                Logging.LogFileFlag = Properties.Settings.Default.logFileFlag;
+                Logging.DataFileFlag = Properties.Settings.Default.CSVFileFlag;
+                Logging.BoltwoodFileFlag = Properties.Settings.Default.BoltwoodFileFlag;
+                Logging.SerialLogFileFlag = Properties.Settings.Default.SerialLogFileFlag;
+
+                Logging.DEBUG_LEVEL = Convert.ToByte(Properties.Settings.Default.LogLevel);
+            }
+            catch (Exception ex)
+            {
+                Logging.Log("Error loading params: " + ex.Data + " " + ex.Message);
+            }
         }
 
         private void btnRelay_Click(object sender, EventArgs e)
         {
             if (btnRelay.Text == "On")
             {
-                if (!Hardware.WriteData("RL1:1"))
+                if (!Hardware.HeatingOn())
                 {
                     ShowError("Couldn't write to COM port [" + Hardware.comport.PortName + "]");
                 }
@@ -626,7 +800,7 @@ waiting 10000
             }
             else if (btnRelay.Text == "Off")
             {
-                if (!Hardware.WriteData("RL1:0"))
+                if (!Hardware.HeatingOff())
                 {
                     ShowError("Couldn't write to COM port [" + Hardware.comport.PortName + "]");
                 }
@@ -641,11 +815,13 @@ waiting 10000
 
         public void ShowError(string ErrorMsg)
         {
-            MessageBox.Show(ErrorMsg);
             Logging.Log(ErrorMsg);
+            MessageBox.Show(ErrorMsg);
         }
 
-
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Hardware.WriteSerialData("(!?S)");
+        }
     }
 }
