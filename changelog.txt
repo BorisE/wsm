@@ -2,6 +2,8 @@ WeatherStation Project
 (c) 2013-2014 by Emchenko Boris
 
 Change log
+1.1.20 (2014-09-29)
+- some usability and tooltip help was added
 1.1.19 (2014-09-14)
 - improved cloud sensor humidity protection algorithm
 - saving cumulative rain gauge count for narodmon

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("WeatherStation")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("WeatherStation windows module for working with Arduino hardware")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("astromania.info")]
 [assembly: AssemblyProduct("WeatherStation")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.19.*")]
-[assembly: AssemblyFileVersion("1.1.19.0")]
+[assembly: AssemblyVersion("1.1.20.*")]
+[assembly: AssemblyFileVersion("1.1.20.0")]

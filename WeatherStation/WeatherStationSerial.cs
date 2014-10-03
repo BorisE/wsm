@@ -202,8 +202,9 @@ namespace WeatherStation
         public bool RGCRain_Now = false;
         public RainCond WetRain_Now = RainCond.rainUnknown;
 
+        /// Array wich holds 5 min average for cloud index every fivth minute of last hour (0:05, 0:10, 0:15, 0:20 etc)
         private const int SKYSENSOR_HISTORY_LENGTH = 12;
-        public List<double> SkyIndex5min = new List<double>(); //5 min
+        public List<double> SkyIndex5min = new List<double>(); 
         private int SkyIndexAlreadyAddedMinute = -1;
         #endregion
 

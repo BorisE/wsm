@@ -120,6 +120,9 @@
   <metadata name="MyToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>349, 17</value>
   </metadata>
+  <metadata name="MyToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>349, 17</value>
+  </metadata>
   <data name="txtK1.ToolTip" xml:space="preserve">
     <value>- The software coefficient K1 mainly affects the slope of the curve in its linear section (i.e. ambient temperature below 25ºC);
 - K2 mainly affects the x-axis crossing point - it shifts the curve upwards as K2 gets smaller and vice-versa;
@@ -204,9 +207,42 @@ K1 = 33.0; K2 = 0.0; K3 = 4.0; K4 = 100.0; K5 = 100.0; K6 = 0.0; K7 = 0.0
 This type of curve appears to work better during the cold season in cold climate regions where the sky temperature is lower than in mild climate regions:
 K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</value>
   </data>
+  <data name="txtRefreshInterval.ToolTip" xml:space="preserve">
+    <value>Data refresh interval in milleseconds. 
+Every refresh cycle program analyse buffer with receieved serial data and then newest sensor data is stored to data files and output to form, charts refresh and all needed data sent to internet.
+Generally it should be equal to Arduino sensor measurement cycle (can me measured manually watching serial log output)</value>
+  </data>
   <metadata name="folderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>186, 17</value>
   </metadata>
+  <data name="txtCSDecreasingMaxDelta.ToolTip" xml:space="preserve">
+    <value>Very advanced settings :)
+Do not change it untill you know what you are doung
+
+Program determines when Cloud Sensor need heating based on some conditions:
+- CS value in "CS threshold switching on" interval see above
+- average CS value for every 5 minutes decreasing in "CS decreasing thershold" values
+- Since previous heating passed more "Heater pause time" seconds
+- There is no rain now</value>
+  </data>
+  <data name="txtCSDecreasingMinDelta.ToolTip" xml:space="preserve">
+    <value>Very advanced settings :)
+Do not change it untill you know what you are doung
+
+Program determines when Cloud Sensor need heating based on some conditions:
+- CS value in "CS threshold switching on" interval see above
+- average CS value for every 5 minutes decreasing in "CS decreasing thershold" values
+- Since previous heating passed more "Heater pause time" seconds
+- There is no rain now</value>
+  </data>
+  <data name="groupBox9.ToolTip" xml:space="preserve">
+    <value>Program determines when Cloud Sensor need heating based on some conditions:
+- CS value in "CS threshold switching on" interval 
+- Average CS value for every 5 minutes decreasing in "CS decreasing thershold" values
+- Since previous heating passed more "Heater pause time" seconds
+- There is no rain now
+- Humidity is 100%</value>
+  </data>
   <metadata name="SensorName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -231,33 +267,6 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <metadata name="FormFieldName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="txtCSDecreasingMaxDelta.ToolTip" xml:space="preserve">
-    <value>Very advanced settings :)
-Do not change it untill you know what you are doung
-
-Program determines when Cloud Sensor need heating based on some conditions:
-- CS value in "CS threshold switching on" interval see above
-- average CS value for every 5 minutes decreasing in "CS decreasing thershold" values
-- Since previous heating passed more "Heater pause time" seconds
-- There is no rain now</value>
-  </data>
-  <data name="txtCSDecreasingMinDelta.ToolTip" xml:space="preserve">
-    <value>Very advanced settings :)
-Do not change it untill you know what you are doung
-
-Program determines when Cloud Sensor need heating based on some conditions:
-- CS value in "CS threshold switching on" interval see above
-- average CS value for every 5 minutes decreasing in "CS decreasing thershold" values
-- Since previous heating passed more "Heater pause time" seconds
-- There is no rain now</value>
-  </data>
-  <data name="groupBox9.ToolTip" xml:space="preserve">
-    <value>Program determines when Cloud Sensor need heating based on some conditions:
-- CS value in "CS threshold switching on" interval see above
-- average CS value for every 5 minutes decreasing in "CS decreasing thershold" values
-- Since previous heating passed more "Heater pause time" seconds
-- There is no rain now</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
