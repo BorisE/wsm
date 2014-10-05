@@ -13,6 +13,8 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.Net;
 using System.Threading;
 
+public enum FormAppearanceMode { MODE_MIN, MODE_MAX };
+
 namespace WeatherStation
 {
  
@@ -42,6 +44,10 @@ namespace WeatherStation
 
         private bool SimulationMode = false;
 
+        private FormAppearanceMode FORM_APPEARANCE_MODE = FormAppearanceMode.MODE_MAX;
+        private int Form_Normal_Width  = 0;
+
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -54,6 +60,9 @@ namespace WeatherStation
             PrefForm = new PreferencesForm(this);
         }
 
+        /// <summary>
+        /// Form loading
+        /// </summary>
         private void MainForm_Load(object sender, EventArgs e)
         {
             //Load current settings
@@ -107,6 +116,27 @@ namespace WeatherStation
                 Logging.Log("Program autostart");
                 btnStart.PerformClick();
             }
+
+            //SWITCH TO MAXIMUM MODE
+            Form_Normal_Width = this.Width;
+            Form_Maximum_Mode();
+        }
+
+        private void btnPreferences_Click(object sender, EventArgs e)
+        {
+            PrefForm.ShowDialog();
+        }
+
+        private void btnLogWindow_Click(object sender, EventArgs e)
+        {
+            LogForm.Show();
+            LogForm.BringToFront();
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            aboutForm = new About(Hardware.SketchVersion, Hardware.SketchVersionDate);
+            aboutForm.ShowDialog();
         }
 
         /// <summary>
@@ -140,13 +170,13 @@ namespace WeatherStation
                     LogForm.txtLog.AppendText("Could not open the COM port [" + Hardware.comport.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.");
                     MessageBox.Show(this, "Could not open the COM port [" + Hardware.comport.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.", "COM Port Unavalible", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
-                else 
+                else
                 {
                     timer_main.Enabled = true;
                     Logging.Log("Monitoring on [" + Hardware.comport.PortName + "] was started");
                     LogForm.AppendLogText("Monitoring on [" + Hardware.comport.PortName + "] was started");
                     btnStart.Text = "Stop";
-                    
+
                     //init Hardware.RGC_Cumulative prev value
                     Hardware.RGC_Cumulative = Logging.LoadRGCValue(out Hardware.RGC_Cumulative_LastReset);
                 }
@@ -154,12 +184,97 @@ namespace WeatherStation
             }
         }
 
+        /// <summary>
+        /// Monitoring Simulation start
+        /// </summary>
+        private void btnSimulate_Click(object sender, EventArgs e)
+        {
+            if (timer_debug_changetext.Enabled)
+            {
+                btnSimulate.Text = "Simulation start";
+                btnStart.Enabled = true;
+                btnStart_min.Enabled = true;
+                timer_main.Enabled = false;
+                timer_debug_changetext.Enabled = false;
+                timer_debug_portread.Enabled = false;
+                SimulationMode = false;
+                Logging.Log("Monitoring simulation was stopped");
+                LogForm.AppendLogText("Monitoring simulation was stopped");
+                Logging.CloseLogFile();
+            }
+            else
+            {
+                timer_main.Enabled = true;
+                timer_debug_changetext.Enabled = true;
+                //timer_debug_portread.Enabled = true;
+                Logging.Log("Monitoring simulation was started");
+                SimulationMode = true;
+                LogForm.AppendLogText("Monitoring simulation was started");
+                btnSimulate.Text = "Stop simulation";
+                btnStart.Enabled = false;
+                btnStart_min.Enabled = false;
+
+                //load last value for RGC cumulative
+                Hardware.RGC_Cumulative = Logging.LoadRGCValue(out Hardware.RGC_Cumulative_LastReset);
+            }
+        }
+
+        /// <summary>
+        /// Timer ticking - used to make all data manupalation and visualization at given interval
+        /// </summary>
+        private void timer_main_Tick(object sender, EventArgs e)
+        {
+            Logging.Log("Main working tick started", 3);
+
+            //Check if data receiving (whatchdog)
+            if (Hardware.WatchDog && !SimulationMode) Hardware.CheckIfDataReceiving();
+
+            //Get current buffer for pasing it and clear it for collecting the new portion
+            string curSerialBuffer = Hardware.SerialBuffer;
+            Hardware.SerialBuffer = "";
+
+            //Parse data
+            Hardware.ParseData2(curSerialBuffer);
+
+            //Write boltwood file
+            if (Properties.Settings.Default.BoltwoodFileFlag)
+            {
+                Hardware.WriteBolwoodFile();
+            }
+
+            //Write CSV Data file
+            if (Properties.Settings.Default.CSVFileFlag)
+            {
+                Hardware.WriteCSV();
+            }
+
+            //output buffer to Log window
+            LogForm.AppendLogText(curSerialBuffer);
+
+            //Refresh form values
+            RefreshFormFields2();
+
+            //Refresh form values
+            RefreshBoltwoodFields();
+
+            //Refresh graph
+            refreshGraphs();
+
+            //Send data to web
+            SendDataToWeb2();
+
+            Logging.Log("Main working tick ended", 3);
+        }
+
+        /// <summary>
+        /// Sumulation timer 1 - it genereates contents which is later read in portions in timer 2
+        /// </summary>
         private void timer_debug_Tick(object sender, EventArgs e)
         {
 
             Random rand = new Random(DateTime.Now.Millisecond);
 
-            ArduinoSettingsClass El=new ArduinoSettingsClass();
+            ArduinoSettingsClass El = new ArduinoSettingsClass();
 
             string ArdSetTD = (Hardware.ArduinoSettings.TryGetValue("TD", out El) ? El.Value : "30");
             string ArdSetWT = (Hardware.ArduinoSettings.TryGetValue("WT", out El) ? El.Value : "1005");
@@ -189,7 +304,7 @@ IP: 192.168.1.178
 [!Lus:254]
 [!Luw:572]
 
-[!Te1:" +String.Format("{0:N1}",23.0+rand.NextDouble()*5)+@"]
+[!Te1:" + String.Format("{0:N1}", 23.0 + rand.NextDouble() * 5) + @"]
 [!Te2:" + String.Format("{0:N1}", 26.0 + rand.NextDouble() * 10) + @"]
 
 [!Wet:" + String.Format("{0:F0}", 1022 - rand.NextDouble() * 30) + @"]
@@ -210,6 +325,9 @@ waiting 10000
             timer_debug_portread.Enabled = true;
         }
 
+        /// <summary>
+        /// Sumulation timer 2 - it simulates reading data from serial in portions
+        /// </summary>
         private void timer_debug_portread_Tick(object sender, EventArgs e)
         {
             if (Hardware.port_DataReceived_simulated())
@@ -219,66 +337,6 @@ waiting 10000
             }
         }
         
-        /// <summary>
-        /// Timer ticking - main function in the form interface; used to make data manupalation and displaying every given interval
-        /// </summary>
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            Logging.Log("Main working tick started", 3);
-
-            //Check if data receiving (whatchdog)
-            if (Hardware.WatchDog && !SimulationMode) Hardware.CheckIfDataReceiving();
-
-            //Get current buffer for pasing it and clear it for collecting the new portion
-            string curSerialBuffer = Hardware.SerialBuffer;
-            Hardware.SerialBuffer = "";
-
-            //Parse data
-            Hardware.ParseData2(curSerialBuffer);
-
-            //Write boltwood file
-            if (Properties.Settings.Default.BoltwoodFileFlag) {
-                Hardware.WriteBolwoodFile();
-            }
-            
-            //Write CSV Data file
-            if (Properties.Settings.Default.CSVFileFlag){
-                Hardware.WriteCSV();
-            }
-
-            //output buffer to Log window
-            LogForm.AppendLogText(curSerialBuffer);
-
-            //Refresh form values
-            RefreshFormFields2();
-
-            //Refresh form values
-            RefreshBoltwoodFields();
-            
-            //Refresh graph
-            refreshGraphs();
-            
-            //Send data to web
-            SendDataToWeb2();
-
-            Logging.Log("Main working tick ended", 3);
-        }
-
-
-        /// <summary>
-        /// Show preferences form
-        /// </summary>
-        private void btnPreferences_Click(object sender, EventArgs e)
-        {
-            PrefForm.ShowDialog();
-        }
-
-        private void btnLogWindow_Click(object sender, EventArgs e)
-        {
-            LogForm.Show();
-            LogForm.BringToFront();
-        }
-
         /// <summary>
         /// Refresh main and aux form fields
         /// </summary>
@@ -312,12 +370,15 @@ waiting 10000
             {
                 btnRelay.Text = "Off";
                 btnRelay.BackColor = Color.Red;
+                btnIndRelay.BackColor = Color.Red;
             }
             else if (Hardware.Relay1 == 0 && btnRelay.Text == "Off")
             {
                 btnRelay.Text = "On";
                 btnRelay.BackColor = default(Color);
                 btnRelay.UseVisualStyleBackColor = true;
+                btnIndRelay.BackColor = default(Color);
+                btnIndRelay.UseVisualStyleBackColor = true;
             }
 
             //For debug
@@ -431,24 +492,48 @@ waiting 10000
                 {
                     txtRainLastMinute.Text = "Now";
                     txtRainLastMinute.BackColor = Color.LightSkyBlue;
+                    btnIndRain.BackColor = Color.Red;
                 }
                 else if (Hardware.Rain_LastMinuteFlag)
                 {
                     txtRainLastMinute.Text = "Rain";
                     txtRainLastMinute.BackColor = Color.LightSkyBlue;
+                    btnIndRain.BackColor = Color.MistyRose;
                 }
                 else
                 {
                     txtRainLastMinute.Text = "-";
                     txtRainLastMinute.BackColor = Color.Empty;
+                    btnIndRain.BackColor = Color.PaleGreen;
                 }
             }
             catch { }
 
             //RG cumulative
             txtFldRGCCumulative.Text = Convert.ToString(Hardware.RGC_Cumulative);
-        }
 
+            //Cloud index coloring
+            Color CS_color = Color.Blue;
+            string[] CS_Colors_arr = new String[9] {"#FF2200", "#DF2F20","#BF3C40", "#9F4860", "#805580", "#60629F", "#406FBF", "#207BDF", "#0088FF"};
+            int CS_coloridx = 0;
+            if (Hardware.CloudIdx > 20)
+            {
+                CS_coloridx=8;
+            }
+            else
+            {
+                CS_coloridx =  Convert.ToInt16(Math.Max(Math.Floor(Hardware.CloudIdx/3)+1,0));
+            }
+            CS_color = System.Drawing.ColorTranslator.FromHtml(CS_Colors_arr[CS_coloridx]);
+            btnIndCloud.BackColor = CS_color;
+            txtCloudIndex1.BackColor = CS_color;
+
+            ///////////////////////////////////////////////////////////////////////////////////////////
+            //MINIMUN DATA FIELDS
+            txtMinCloudIdx.Text = Convert.ToString(Hardware.CloudIdx);
+            txtMinRainIdx.Text = Convert.ToString(Hardware.WetVal);
+            txtMinTemp.Text = Convert.ToString(Hardware.BaseTempVal);
+        }
 
         /// <summary>
         /// Refresh boltwood fields
@@ -514,7 +599,7 @@ waiting 10000
         }
 
         /// <summary>
-        /// SEND DATA TO CUSTOM WEBSITE
+        /// SEND DATA TO CUSTOM WEBSITE (called from SendDataToWeb2())
         /// Using SensorArray
         /// </summary>
         private void SendDataToCustomSite()
@@ -539,9 +624,8 @@ waiting 10000
             WebServices.sendToServer(queryst);
         }
 
-
         /// <summary>
-        /// SEND DATA TO NARODMON WEBSITE
+        /// SEND DATA TO NARODMON WEBSITE  (called from SendDataToWeb2())
         /// Using SensorArray
         /// </summary>
         private void SendDataToNarodmon()
@@ -646,6 +730,13 @@ waiting 10000
                 addGraphicsPoint(chart1, 10, curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["RL1"]].LastValue);
             }
 
+
+            ///////////////////////////////////////////////////////////////////////////////////////////
+            //MINIMUN GRAPH
+            if (Hardware.CheckData(Hardware.CloudIdx, SensorTypeEnum.Temp))
+            {
+                addGraphicsPoint(chart2, 0, curX, Hardware.CloudIdx);
+            }
         }
 
         private void addGraphicsPoint(Chart CurChart, int seriesNum, DateTime XVal, double YVal)
@@ -688,38 +779,9 @@ waiting 10000
             LogForm.AppendLogText("Application closed");
         }
 
-        private void btnAbout_Click(object sender, EventArgs e)
-        {
-            aboutForm = new About(Hardware.SketchVersion, Hardware.SketchVersionDate);
-            aboutForm.ShowDialog();
-        }
-
-        private void btnSimulate_Click(object sender, EventArgs e)
-        {
-            if (timer_debug_changetext.Enabled)
-            {
-                btnSimulate.Text = "Simulation start";
-                timer_main.Enabled = false;
-                timer_debug_changetext.Enabled = false;
-                timer_debug_portread.Enabled = false;
-                SimulationMode = false;
-                Logging.Log("Monitoring simulation was stopped");
-                LogForm.AppendLogText("Monitoring simulation was stopped");
-                Logging.CloseLogFile();
-            }else{
-                timer_main.Enabled = true;
-                timer_debug_changetext.Enabled = true;
-                //timer_debug_portread.Enabled = true;
-                Logging.Log("Monitoring simulation was started");
-                SimulationMode = true;
-                LogForm.AppendLogText("Monitoring simulation was started");
-                btnSimulate.Text = "Stop simulation";
-
-                //load last value for RGC cumulative
-                Hardware.RGC_Cumulative = Logging.LoadRGCValue(out Hardware.RGC_Cumulative_LastReset);
-            }
-        }
-
+        /// <summary>
+        /// Used to load all prameters during startup
+        /// </summary>
         public void LoadParams()
         {
             Logging.Log("Loading saved parameters",3);
@@ -784,6 +846,9 @@ waiting 10000
             }
         }
 
+        /// <summary>
+        /// Relay on/off switch
+        /// </summary>
         private void btnRelay_Click(object sender, EventArgs e)
         {
             if (btnRelay.Text == "On")
@@ -813,15 +878,140 @@ waiting 10000
              }
         }
 
+        /// <summary>
+        /// Service function to display and log errors
+        /// </summary>
+        /// <param name="ErrorMsg">Error message</param>
         public void ShowError(string ErrorMsg)
         {
             Logging.Log(ErrorMsg);
             MessageBox.Show(ErrorMsg);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Query Arduino settings
+        /// </summary>
+        private void btnQueryArduinoSettings_Click(object sender, EventArgs e)
         {
             Hardware.WriteSerialData("(!?S)");
+        }        
+
+        private void btnStart_min_Click(object sender, EventArgs e)
+        {
+            btnSimulate_Click(sender, e);
         }
+
+        /*********************************************************************************************************************
+         * Changing form appearence mode 
+        *********************************************************************************************************************/
+        #region FORM_APPEREANCE_MODE
+
+        /// <summary>
+        /// MINIMUM mode
+        /// </summary>
+        private void Form_Minimum_Mode()
+        {
+            FORM_APPEARANCE_MODE = FormAppearanceMode.MODE_MIN;
+
+            //hide default pannel
+            pannelMaximum.Visible = false;
+
+            //show minimum pannel
+            pannelMinimum.Location = new Point(0, 0);
+            pannelMinimum.Visible = true;
+            
+            //change window size
+            int borderWidth = (this.Width - this.ClientSize.Width) / 2;
+            int titleBarHeight = this.Height - this.ClientSize.Height - 2 * borderWidth;
+
+            this.MinimumSize = new Size(Form_Normal_Width, pannelMinimum.Size.Height + titleBarHeight + borderWidth * 2); ;
+            this.MaximumSize = new Size(Form_Normal_Width, pannelMinimum.Size.Height + titleBarHeight + borderWidth*2);
+            this.ClientSize = new Size(pannelMinimum.Size.Width, pannelMinimum.Size.Height);
+
+            //change window behaviour
+            this.TopMost = true;
+            this.Opacity = 1;
+
+        }
+
+        /// <summary>
+        /// MAXIMUM mode
+        /// </summary>
+        private void Form_Maximum_Mode()
+        {
+            FORM_APPEARANCE_MODE = FormAppearanceMode.MODE_MAX;
+
+            //hide min pannel
+            pannelMinimum.Visible = false;
+
+            //show maximum pannel
+            pannelMaximum.Visible = true;
+
+            //change window size
+            int borderWidth = (this.Width - this.ClientSize.Width) / 2;
+            int titleBarHeight = this.Height - this.ClientSize.Height - 2 * borderWidth;
+
+            this.MinimumSize = new Size(pannelMaximum.Size.Width + borderWidth * 2, pannelMaximum.Size.Height + titleBarHeight + borderWidth * 2);
+            this.MaximumSize = new Size(Screen.FromControl(this).WorkingArea.Width, this.MinimumSize.Height);
+            this.ClientSize = new Size(this.ClientSize.Width, pannelMaximum.Size.Height);
+
+            //change window behaviour
+            this.TopMost = false;
+            this.Opacity = 1;
+        }
+
+        /// <summary>
+        /// Capture events for Minimize / Maximize event for changing FORM MODE
+        /// </summary>
+        /// <param name="m"></param>
+        protected override void WndProc(ref Message m)
+        {
+            bool stopEvents = false;
+
+            if (m.Msg == 0x0112) // WM_SYSCOMMAND
+            {
+                // Check your window state here
+                if (m.WParam == new IntPtr(0xF030)) // Maximize event - SC_MAXIMIZE from Winuser.h
+                {
+                    if (FORM_APPEARANCE_MODE == FormAppearanceMode.MODE_MIN)
+                    {
+                        Form_Maximum_Mode();
+                        stopEvents = true;
+                    };
+
+                }
+                else if (m.WParam == new IntPtr(0xF020)) // Minimize event - SC_MINIMIZE from Winuser.h
+                {
+                    if (FORM_APPEARANCE_MODE == FormAppearanceMode.MODE_MAX)
+                    {
+                        Form_Minimum_Mode();
+                        stopEvents = true;
+                    };
+                }
+            }
+
+            if (!stopEvents)
+            {
+                base.WndProc(ref m);
+            }
+        }
+
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            if (FORM_APPEARANCE_MODE == FormAppearanceMode.MODE_MIN)
+            {
+                this.Opacity = 1;
+            }
+        }
+
+        private void MainForm_Deactivate(object sender, EventArgs e)
+        {
+            if (FORM_APPEARANCE_MODE == FormAppearanceMode.MODE_MIN)
+            {
+                this.Opacity = 0.8;
+            }
+        }
+        #endregion
+
     }
 }

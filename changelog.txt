@@ -2,6 +2,9 @@ WeatherStation Project
 (c) 2013-2014 by Emchenko Boris
 
 Change log
+1.2.21 (2014-10-06)
+- minimalistic form appearance mode
+
 1.1.20 (2014-09-29)
 - some usability and tooltip help was added
 1.1.19 (2014-09-14)
