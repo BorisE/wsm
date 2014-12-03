@@ -351,7 +351,7 @@ namespace WeatherStation
             SensorsArray[nI].SensorType = SensorTypeEnum.Temp;
             SensorsArray[nI].Enabled = true;
             SensorsArray[nI].SendToWebFlag = true;
-            SensorsArray[nI].SendToNarodMon = false;
+            SensorsArray[nI].SendToNarodMon = true;
             SensorsArray[nI].SensorFormField = "txtFldATemp";
             SensorsArray[nI].SensorArduinoField = "Amb";
             SensorsArray[nI].WebCustomName="at";
@@ -487,7 +487,7 @@ namespace WeatherStation
             SensorsArray[nI].SensorType = SensorTypeEnum.Relay;
             SensorsArray[nI].Enabled = true;
             SensorsArray[nI].SendToWebFlag = true;
-            SensorsArray[nI].SendToNarodMon = false;
+            SensorsArray[nI].SendToNarodMon = true;
             SensorsArray[nI].SensorFormField = "";
             SensorsArray[nI].SensorArduinoField = "RL1";
             SensorsArray[nI].WebCustomName="rl1";
@@ -1022,50 +1022,56 @@ namespace WeatherStation
         /// </summary>
         public void CheckIfSkySensorHeatingNeeded()
         {
-            // Check - if heating sensor needed heating?
-            CloudSensorNeedHeatingFlag = false;            
-            if (CloudIdx > HEATER_CLOUDINDEX_MIN && CloudIdx < HEATER_CLOUDINDEX_MAX)
-            {
-                // Test if CS temp monotonous decreasing
-                double deltaCur = -100.0;
-                for (int i = 1; i < Math.Min(SkyIndex5min.Count, CS_NEEDHEATING_LOOKBACK_CYCLES); i++)
-                {
-                    deltaCur = SkyIndex5min[i] - SkyIndex5min[i-1];
-                    if (deltaCur >= CS_NEEDHEATING_MINDELTA && deltaCur <= CS_NEEDHEATING_MAXDELTA)
-                    {
-                        //condition is met on this interval
-                        CloudSensorNeedHeatingFlag = true;
-                    }
-                    else
-                    {
-                        //condition is broken on this interval. No need to heat, exit
-                        CloudSensorNeedHeatingFlag = false;
-                        break;
-                    }
-                }
-                if (CloudSensorNeedHeatingFlag) Logging.Log("Cloud sensor heating narrow condition is met, but need to test other", 2);
-            }
-            else
-            {
-                CloudSensorNeedHeatingFlag = false;
-            }
+            CloudSensorNeedHeatingFlag = false;
 
+            // Check - if cloud sensor values are in given interval?
+            bool CSNeedsHeating_CSIntervalMet = (CloudIdx > HEATER_CLOUDINDEX_MIN && CloudIdx < HEATER_CLOUDINDEX_MAX);
+
+            // Ckeck - if CS temp monotonous decreasing
+            double deltaCur = -100.0;
+            bool CSNeedsHeating_CSDecreasingTempMet=false;
+            for (int i = 1; i < Math.Min(SkyIndex5min.Count, CS_NEEDHEATING_LOOKBACK_CYCLES); i++)
+            {
+                deltaCur = SkyIndex5min[i] - SkyIndex5min[i-1];
+                if (deltaCur >= CS_NEEDHEATING_MINDELTA && deltaCur <= CS_NEEDHEATING_MAXDELTA)
+                {
+                    //condition is met on this interval
+                    CSNeedsHeating_CSDecreasingTempMet = true;
+                }
+                else
+                {
+                    //condition is broken on this interval. No need to heat, exit
+                    CSNeedsHeating_CSDecreasingTempMet = false;
+                    break;
+                }
+            }
+            //for auxiliary calculations
+            CloudSensorNeedHeatingFlag=(CSNeedsHeating_CSIntervalMet && CSNeedsHeating_CSDecreasingTempMet);
+            if (CloudSensorNeedHeatingFlag) Logging.Log("Cloud sensor heating narrow condition is met, but need to test other", 2);
+ 
             // Check - how long has been passed since last switch on
             TimeSpan SinceLastHeatingMF = DateTime.Now.Subtract(LastHeatingSwitchOff);
             HeatingOff_SecondsPassed = (int)Math.Round(SinceLastHeatingMF.TotalSeconds, 0);
             SinceLastHeatingMF = DateTime.Now.Subtract(LastHeatingSwitchOn);
             HeatingOn_SecondsPassed = (int)Math.Round(SinceLastHeatingMF.TotalSeconds, 0);
             SinceLastHeating = Math.Min(HeatingOff_SecondsPassed, HeatingOn_SecondsPassed);
+            bool CSNeedsHeating_SinceLastHeatingMet = (SinceLastHeating > HEATER_CS_PAUSE); //since last heating session passed enough time
+            //Relay off now?
+            bool CSNeedsHeating_RelayOffNow = (SensorsArray[SensorsArrayHash["RL1"]].LastValue == 0); //heating not engaged already
 
-            // Check - if there is a rain?
+            //Check - humidity is high?
+            bool CSNeedsHeating_HumidityMet = (SensorsArray[SensorsArrayHash["Hum1"]].LastValue >= 99.9); //high humidity
 
-            if (
-                SensorsArray[SensorsArrayHash["Hum1"]].LastValue >= 99.9 && //high humidity
-                ( !Rain_LastMinuteFlag ) && //no rain
-                SensorsArray[SensorsArrayHash["RL1"]].LastValue == 0 && //heating not engaged already
-                SinceLastHeating > HEATER_CS_PAUSE && //since last heating session passed enough time
-                CloudSensorNeedHeatingFlag //cloud sensor are degrading
-                )
+            //Check - is it raining now?
+            bool CSNeedsHeating_NotRainingMet = ( !Rain_LastMinuteFlag ); //no rain in last minute
+
+            //Check - is it dark?
+            bool CSNeedsHeating_DarknessMet = (IllumVal <= DAYLIGHT_DARK_LIMIT && IllumVal >= 0); //is it dark now?
+
+             
+            //GENERAL CHECK
+            if (CloudSensorNeedHeatingFlag && CSNeedsHeating_SinceLastHeatingMet && CSNeedsHeating_RelayOffNow && CSNeedsHeating_HumidityMet
+                && CSNeedsHeating_NotRainingMet && CSNeedsHeating_DarknessMet )
             {
                 //Switch on
                 HeatingOn();

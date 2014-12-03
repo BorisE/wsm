@@ -2,6 +2,13 @@ WeatherStation Project
 (c) 2013-2014 by Emchenko Boris
 
 Change log
+1.2.23 (2014-12-04)
+- added validation in preferences dialog
+- some bugs (log date for outher culture, base temp wrong calc)
+
+1.2.22 (2014-10-30)
+- some cloud sensor algorithm tunning
+
 1.2.21 (2014-10-06)
 - minimalistic form appearance mode
 

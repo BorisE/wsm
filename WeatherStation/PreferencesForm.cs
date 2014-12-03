@@ -11,6 +11,9 @@ using System.IO.Ports;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Configuration;
+using System.Diagnostics;
+using System.Reflection;
+using System.Globalization;
 
 namespace WeatherStation
 {
@@ -150,7 +153,7 @@ namespace WeatherStation
 
                 //Store to vars base temp sensor settings
                 string BaseTempSt = (string)cmbBaseTempSensor.SelectedItem;
-                int curSensIndex = 0;
+                int curSensIndex = -1;
                 foreach (SensorElement DataSensor in ParentMainForm.Hardware.SensorsArray)
                 {
                     if (DataSensor != null)
@@ -218,7 +221,21 @@ namespace WeatherStation
             }
             catch (FormatException ex)
             {
-                MessageBox.Show(this, "IOException source: " + ex.Data+" "+ex.Message, "Wrong value", MessageBoxButtons.OK);
+                StackTrace st = new StackTrace(ex, true);
+                StackFrame[] frames = st.GetFrames();
+                string messstr="";
+
+                // Iterate over the frames extracting the information you need
+                foreach (StackFrame frame in frames)
+                {
+                    messstr+=String.Format("{0}:{1}({2},{3})", frame.GetFileName(), frame.GetMethod().Name, frame.GetFileLineNumber(), frame.GetFileColumnNumber());
+                }
+                
+                string FullMessage="Some of the fields has invalid values" + Environment.NewLine + Environment.NewLine + "Debug information:" + Environment.NewLine + "IOException source: " + ex.Data + " " + ex.Message
+                        + Environment.NewLine + Environment.NewLine + messstr;
+                MessageBox.Show(this, FullMessage, "Invalid value", MessageBoxButtons.OK);
+
+                Logging.Log(FullMessage);
             }
 
             //write settings to Arduino
@@ -373,6 +390,99 @@ namespace WeatherStation
             e.Cancel = true;
             this.Hide();
         }
+
+        private void txtCheckIntPos_Validating(object sender, CancelEventArgs e)
+        {
+            txtCheckIntPos_TextChanged(sender, e);
+        }
+        private void txtCheckIntPos_TextChanged(object sender, EventArgs e)
+        {
+
+            TextBox CheckingTB = sender as TextBox;
+            // Determine if the TextBox has a digit character.
+            string text = CheckingTB.Text;
+            bool hasMoreThanDigit = false;
+            foreach (char letter in text)
+            {
+                if (!char.IsDigit(letter))
+                {
+                    hasMoreThanDigit = true;
+                    break;
+                }
+            }
+            // Call SetError or Clear on the ErrorProvider.
+            if (hasMoreThanDigit)
+            {
+                errorProvider1.SetError(CheckingTB, "Needs to be only a digit");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void txtCheckInt_Validating(object sender, CancelEventArgs e)
+        {
+            txtCheckInt_TextChanged(sender, e);
+        }        
+        private void txtCheckInt_TextChanged(object sender, EventArgs e)
+        {
+
+            TextBox CheckingTB = sender as TextBox;
+            // Determine if the TextBox has a digit character.
+            string text = CheckingTB.Text;
+            bool hasMoreThanDigit = false;
+            foreach (char letter in text)
+            {
+                if (!char.IsDigit(letter) && !(letter == '-' && text.Substring(0,1)=="-" && (text.Split('-').Length - 1)==1))
+
+                {
+                    hasMoreThanDigit = true;
+                    break;
+                }
+            }
+            // Call SetError or Clear on the ErrorProvider.
+            if (hasMoreThanDigit)
+            {
+                errorProvider1.SetError(CheckingTB, "Needs to be only a digit");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void txtCheckFloatPos_Validating(object sender, CancelEventArgs e)
+        {
+            txtCheckFloatPos_TextChanged(sender, e);
+        }
+        private void txtCheckFloatPos_TextChanged(object sender, EventArgs e)
+        {
+
+            TextBox CheckingTB = sender as TextBox;
+            // Determine if the TextBox has a digit character.
+            string text = CheckingTB.Text;
+            bool hasMoreThanDigit = false;
+            char decSep = Convert.ToChar(CultureInfo.CurrentUICulture.NumberFormat.NumberDecimalSeparator);
+            foreach (char letter in text)
+            {
+                if (!char.IsDigit(letter) && !(letter == decSep && (text.Split(decSep).Length - 1) == 1))
+                {
+                    hasMoreThanDigit = true;
+                    break;
+                }
+            }
+            // Call SetError or Clear on the ErrorProvider.
+            if (hasMoreThanDigit)
+            {
+                errorProvider1.SetError(CheckingTB,"Needs to be only a digit or decimal point ["+CultureInfo.CurrentUICulture.NumberFormat.NumberDecimalSeparator+"]");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
 
     }
 }

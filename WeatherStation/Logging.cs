@@ -87,7 +87,7 @@ namespace WeatherStation
         {
             if (SerialLogFilePath == "") SerialLogFilePath = ApplicationFilePath;
 
-            string FullFileName = SerialLogFilePath + SerialLogFileName + DateTime.Now.ToShortDateString() + serialLogExt;
+            string FullFileName = SerialLogFilePath + SerialLogFileName + DateTime.Now.ToString("yyyy-MM-dd") + serialLogExt;
 
             if (!File.Exists(FullFileName))
             {
@@ -125,7 +125,9 @@ namespace WeatherStation
         {
             if (DataFilePath == "") DataFilePath = ApplicationFilePath;
 
-            string FullFileName = DataFilePath + dataLogFileName + DateTime.Now.ToShortDateString()+dataLogExt;
+            //string FullFileName = DataFilePath + dataLogFileName + DateTime.Now.ToShortDateString()+dataLogExt; //bad for 
+            string FullFileName = DataFilePath + dataLogFileName + DateTime.Now.ToString("yyyy-MM-dd") +dataLogExt;
+
 
             if (!File.Exists(FullFileName))
             {

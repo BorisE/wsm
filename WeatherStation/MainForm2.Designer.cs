@@ -1148,6 +1148,7 @@
             // 
             // btnRelay
             // 
+            this.btnRelay.Enabled = false;
             this.btnRelay.Location = new System.Drawing.Point(6, 15);
             this.btnRelay.Name = "btnRelay";
             this.btnRelay.Size = new System.Drawing.Size(88, 29);

@@ -141,14 +141,15 @@
     <value>217, 17</value>
   </metadata>
   <data name="txtCSNeedHeating.ToolTip" xml:space="preserve">
-    <value>Cloud sensor need heating flag.
+    <value>Cloud sensor needs heating flag.
 
 This is only narrow condition test - if cloud index in given interval and steadily decreasign during last 5 5min cylcles (exact settings are set in Preferences in "CS auto heating settings" group)
 
-But for heating switching on also another two conditions must be met:
+But for heating switching on also another conditions must be met:
 - since last relay switching on passed at least ... minutes (set in "CS auto heating settings")
 - humidity is 100%
 - there is no rain now
+- it is dark now
 
 </value>
   </data>

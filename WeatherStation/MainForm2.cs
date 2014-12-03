@@ -161,6 +161,7 @@ namespace WeatherStation
                     LogForm.txtLog.AppendText("Monitoring on [" + Hardware.comport.PortName + "] was stopped");
                     Logging.CloseLogFile();
                 }
+                btnRelay.Enabled = false;
             }
             else
             {
@@ -169,6 +170,7 @@ namespace WeatherStation
                     Logging.Log("Could not open the COM port [" + Hardware.comport.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.");
                     LogForm.txtLog.AppendText("Could not open the COM port [" + Hardware.comport.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.");
                     MessageBox.Show(this, "Could not open the COM port [" + Hardware.comport.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.", "COM Port Unavalible", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    btnRelay.Enabled = false;
                 }
                 else
                 {
@@ -179,6 +181,9 @@ namespace WeatherStation
 
                     //init Hardware.RGC_Cumulative prev value
                     Hardware.RGC_Cumulative = Logging.LoadRGCValue(out Hardware.RGC_Cumulative_LastReset);
+
+                    btnRelay.Enabled = true;
+
                 }
 
             }
