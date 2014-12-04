@@ -52,17 +52,31 @@ namespace WeatherStation
             //special value for none
             SensFormFieldsList.Add("(none)");
             st = "";
-            string CName = "", CName2="";
+            string CName = "", CName2 = "", CName3 = "";
             foreach (Control c in ParentMainForm.Controls)
             {
                 if (c.HasChildren)
                 {
                     foreach (Control c2 in c.Controls)
                     {
-                        CName2 = c2.Name;
-                        if (CName2.Substring(0, 6) == "txtFld")
+                        if (c2.HasChildren)
                         {
-                            SensFormFieldsList.Add(c2.Name);
+                            foreach (Control c3 in c2.Controls)
+                            {
+                                CName3 = c3.Name;
+                                if (CName3.Substring(0, 6) == "txtFld")
+                                {
+                                    SensFormFieldsList.Add(c3.Name);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            CName2 = c2.Name;
+                            if (CName2.Substring(0, 6) == "txtFld")
+                            {
+                                SensFormFieldsList.Add(c2.Name);
+                            }
                         }
                     }
                 }

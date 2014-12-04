@@ -2,6 +2,9 @@ WeatherStation Project
 (c) 2013-2014 by Emchenko Boris
 
 Change log
+1.2.24 (2014-12-05)
+- bugfixes found by Dimaz
+
 1.2.23 (2014-12-04)
 - added validation in preferences dialog
 - some bugs (log date for outher culture, base temp wrong calc)
