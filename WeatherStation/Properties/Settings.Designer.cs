@@ -586,5 +586,41 @@ namespace WeatherStation.Properties {
                 this["HeatingCS_MaxDelta"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool MinModeEnabled {
+            get {
+                return ((bool)(this["MinModeEnabled"]));
+            }
+            set {
+                this["MinModeEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool MinimizeToSystemTray {
+            get {
+                return ((bool)(this["MinimizeToSystemTray"]));
+            }
+            set {
+                this["MinimizeToSystemTray"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowDebugPannels {
+            get {
+                return ((bool)(this["ShowDebugPannels"]));
+            }
+            set {
+                this["ShowDebugPannels"] = value;
+            }
+        }
     }
 }

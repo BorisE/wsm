@@ -29,10 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreferencesForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnOk = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkWatchdog = new System.Windows.Forms.CheckBox();
+            this.chkResetArduino = new System.Windows.Forms.CheckBox();
+            this.cmbPortList = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.K7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,30 +43,64 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtCloudysky = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtClearsky = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtK1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtK2 = new System.Windows.Forms.TextBox();
+            this.txtK7 = new System.Windows.Forms.TextBox();
+            this.txtK3 = new System.Windows.Forms.TextBox();
+            this.txtK6 = new System.Windows.Forms.TextBox();
+            this.txtK4 = new System.Windows.Forms.TextBox();
+            this.txtK5 = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.cmbLogLevel = new System.Windows.Forms.ComboBox();
             this.btnBoltwoodPathBrowse = new System.Windows.Forms.Button();
             this.btnSerialLogPathBrowse = new System.Windows.Forms.Button();
             this.btnCSVPathBrowse = new System.Windows.Forms.Button();
             this.btnLogPathBrowse = new System.Windows.Forms.Button();
+            this.txtBoltwoodFileLocation = new System.Windows.Forms.TextBox();
+            this.txtLogFileLocation = new System.Windows.Forms.TextBox();
+            this.txtSerialLogFileLocation = new System.Windows.Forms.TextBox();
+            this.txtCSVFileLocation = new System.Windows.Forms.TextBox();
+            this.chkBoltwoodFileFlag = new System.Windows.Forms.CheckBox();
+            this.chkSerialLogFileFlag = new System.Windows.Forms.CheckBox();
+            this.chkCSVFileFlag = new System.Windows.Forms.CheckBox();
+            this.chkLogFileFlag = new System.Windows.Forms.CheckBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.cmbWetMode = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.txtWetLimit = new System.Windows.Forms.TextBox();
+            this.txtRainLimit = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.txtRefreshInterval = new System.Windows.Forms.TextBox();
+            this.txtMaxPoints = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.btnGenerateMac = new System.Windows.Forms.Button();
+            this.txtNarodmonMAC = new System.Windows.Forms.TextBox();
+            this.txtWebDataURL = new System.Windows.Forms.TextBox();
+            this.chkNarodMon = new System.Windows.Forms.CheckBox();
+            this.chkWebData = new System.Windows.Forms.CheckBox();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnResetSensorList = new System.Windows.Forms.Button();
             this.btnReadFromSerial = new System.Windows.Forms.Button();
+            this.txtCSHeaterPauseTime = new System.Windows.Forms.TextBox();
+            this.txtCSDecreasingMaxDelta = new System.Windows.Forms.TextBox();
+            this.txtCSHeatingMax = new System.Windows.Forms.TextBox();
+            this.txtCSDecreasingMinDelta = new System.Windows.Forms.TextBox();
+            this.txtCSHeatingMin = new System.Windows.Forms.TextBox();
+            this.txtHeaterWetThreshold = new System.Windows.Forms.TextBox();
+            this.txtHeaterMaxTemp = new System.Windows.Forms.TextBox();
+            this.txtHeaterMaxDuration = new System.Windows.Forms.TextBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -81,49 +118,12 @@
             this.FormFieldName = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.cmbBaseTempSensor = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cmbBaseTempSensor = new System.Windows.Forms.ComboBox();
-            this.txtNarodmonMAC = new System.Windows.Forms.TextBox();
-            this.txtWebDataURL = new System.Windows.Forms.TextBox();
-            this.chkNarodMon = new System.Windows.Forms.CheckBox();
-            this.chkWebData = new System.Windows.Forms.CheckBox();
-            this.cmbLogLevel = new System.Windows.Forms.ComboBox();
-            this.txtBoltwoodFileLocation = new System.Windows.Forms.TextBox();
-            this.txtLogFileLocation = new System.Windows.Forms.TextBox();
-            this.txtSerialLogFileLocation = new System.Windows.Forms.TextBox();
-            this.txtCSVFileLocation = new System.Windows.Forms.TextBox();
-            this.chkBoltwoodFileFlag = new System.Windows.Forms.CheckBox();
-            this.chkSerialLogFileFlag = new System.Windows.Forms.CheckBox();
-            this.chkCSVFileFlag = new System.Windows.Forms.CheckBox();
-            this.chkLogFileFlag = new System.Windows.Forms.CheckBox();
-            this.txtCSHeaterPauseTime = new System.Windows.Forms.TextBox();
-            this.txtCSDecreasingMaxDelta = new System.Windows.Forms.TextBox();
-            this.txtCSHeatingMax = new System.Windows.Forms.TextBox();
-            this.txtCSDecreasingMinDelta = new System.Windows.Forms.TextBox();
-            this.txtCSHeatingMin = new System.Windows.Forms.TextBox();
-            this.txtHeaterWetThreshold = new System.Windows.Forms.TextBox();
-            this.txtHeaterMaxTemp = new System.Windows.Forms.TextBox();
-            this.txtHeaterMaxDuration = new System.Windows.Forms.TextBox();
-            this.txtRefreshInterval = new System.Windows.Forms.TextBox();
-            this.txtMaxPoints = new System.Windows.Forms.TextBox();
-            this.txtWetLimit = new System.Windows.Forms.TextBox();
-            this.txtRainLimit = new System.Windows.Forms.TextBox();
-            this.txtCloudysky = new System.Windows.Forms.TextBox();
-            this.txtClearsky = new System.Windows.Forms.TextBox();
-            this.txtK1 = new System.Windows.Forms.TextBox();
-            this.txtK2 = new System.Windows.Forms.TextBox();
-            this.txtK7 = new System.Windows.Forms.TextBox();
-            this.txtK3 = new System.Windows.Forms.TextBox();
-            this.txtK6 = new System.Windows.Forms.TextBox();
-            this.txtK4 = new System.Windows.Forms.TextBox();
-            this.txtK5 = new System.Windows.Forms.TextBox();
-            this.chkWatchdog = new System.Windows.Forms.CheckBox();
-            this.chkResetArduino = new System.Windows.Forms.CheckBox();
-            this.cmbPortList = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -159,6 +159,46 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Serial port";
+            // 
+            // chkWatchdog
+            // 
+            this.chkWatchdog.AutoSize = true;
+            this.chkWatchdog.Checked = global::WeatherStation.Properties.Settings.Default.ComWatchdog;
+            this.chkWatchdog.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkWatchdog.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "ComWatchdog", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkWatchdog.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.chkWatchdog.Location = new System.Drawing.Point(7, 46);
+            this.chkWatchdog.Name = "chkWatchdog";
+            this.chkWatchdog.Size = new System.Drawing.Size(130, 17);
+            this.chkWatchdog.TabIndex = 2;
+            this.chkWatchdog.Text = "Connection watchdog";
+            this.chkWatchdog.UseVisualStyleBackColor = true;
+            // 
+            // chkResetArduino
+            // 
+            this.chkResetArduino.AutoSize = true;
+            this.chkResetArduino.Checked = global::WeatherStation.Properties.Settings.Default.resetArduino;
+            this.chkResetArduino.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkResetArduino.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "resetArduino", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkResetArduino.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.chkResetArduino.Location = new System.Drawing.Point(103, 21);
+            this.chkResetArduino.Name = "chkResetArduino";
+            this.chkResetArduino.Size = new System.Drawing.Size(194, 17);
+            this.chkResetArduino.TabIndex = 1;
+            this.chkResetArduino.Text = "Reset Arduino board on connection";
+            this.MyToolTip.SetToolTip(this.chkResetArduino, "If set, will restart Arduino board on connection.\r\nHighly recomended to leave it " +
+        "enabled");
+            this.chkResetArduino.UseVisualStyleBackColor = true;
+            // 
+            // cmbPortList
+            // 
+            this.cmbPortList.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "comport", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cmbPortList.FormattingEnabled = true;
+            this.cmbPortList.Location = new System.Drawing.Point(7, 19);
+            this.cmbPortList.Name = "cmbPortList";
+            this.cmbPortList.Size = new System.Drawing.Size(91, 21);
+            this.cmbPortList.TabIndex = 0;
+            this.cmbPortList.Text = global::WeatherStation.Properties.Settings.Default.comport;
             // 
             // groupBox2
             // 
@@ -247,6 +287,20 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "K4";
             // 
+            // txtCloudysky
+            // 
+            this.txtCloudysky.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "Cloudysky", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtCloudysky.Location = new System.Drawing.Point(148, 39);
+            this.txtCloudysky.Name = "txtCloudysky";
+            this.txtCloudysky.Size = new System.Drawing.Size(53, 20);
+            this.txtCloudysky.TabIndex = 1;
+            this.txtCloudysky.Text = global::WeatherStation.Properties.Settings.Default.Cloudysky;
+            this.txtCloudysky.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.MyToolTip.SetToolTip(this.txtCloudysky, "Cloudy sky threshold limit. All values higher then this will be treated as a clou" +
+        "dy sky and lower - as a very cloudy");
+            this.txtCloudysky.TextChanged += new System.EventHandler(this.txtCheckIntPos_TextChanged);
+            this.txtCloudysky.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -256,6 +310,20 @@
             this.label5.Size = new System.Drawing.Size(20, 13);
             this.label5.TabIndex = 1;
             this.label5.Text = "K3";
+            // 
+            // txtClearsky
+            // 
+            this.txtClearsky.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "Clearsky", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtClearsky.Location = new System.Drawing.Point(148, 16);
+            this.txtClearsky.Name = "txtClearsky";
+            this.txtClearsky.Size = new System.Drawing.Size(53, 20);
+            this.txtClearsky.TabIndex = 0;
+            this.txtClearsky.Text = global::WeatherStation.Properties.Settings.Default.Clearsky;
+            this.txtClearsky.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.MyToolTip.SetToolTip(this.txtClearsky, "Clear sky threshold limit. All values higher then this will be treated as a clear" +
+        " sky");
+            this.txtClearsky.TextChanged += new System.EventHandler(this.txtCheckIntPos_TextChanged);
+            this.txtClearsky.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
             // label4
             // 
@@ -267,6 +335,19 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "K2";
             // 
+            // txtK1
+            // 
+            this.txtK1.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K1", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtK1.Location = new System.Drawing.Point(9, 90);
+            this.txtK1.Name = "txtK1";
+            this.txtK1.Size = new System.Drawing.Size(26, 20);
+            this.txtK1.TabIndex = 2;
+            this.txtK1.Text = global::WeatherStation.Properties.Settings.Default.K1;
+            this.txtK1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.MyToolTip.SetToolTip(this.txtK1, resources.GetString("txtK1.ToolTip"));
+            this.txtK1.TextChanged += new System.EventHandler(this.txtCheckInt_TextChanged);
+            this.txtK1.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -277,6 +358,84 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "K1";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtK2
+            // 
+            this.txtK2.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K2", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtK2.Location = new System.Drawing.Point(41, 90);
+            this.txtK2.Name = "txtK2";
+            this.txtK2.Size = new System.Drawing.Size(24, 20);
+            this.txtK2.TabIndex = 3;
+            this.txtK2.Text = global::WeatherStation.Properties.Settings.Default.K2;
+            this.txtK2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.MyToolTip.SetToolTip(this.txtK2, resources.GetString("txtK2.ToolTip"));
+            this.txtK2.TextChanged += new System.EventHandler(this.txtCheckInt_TextChanged);
+            this.txtK2.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
+            // 
+            // txtK7
+            // 
+            this.txtK7.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K7", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtK7.Location = new System.Drawing.Point(191, 90);
+            this.txtK7.Name = "txtK7";
+            this.txtK7.Size = new System.Drawing.Size(24, 20);
+            this.txtK7.TabIndex = 8;
+            this.txtK7.Text = global::WeatherStation.Properties.Settings.Default.K7;
+            this.txtK7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.MyToolTip.SetToolTip(this.txtK7, resources.GetString("txtK7.ToolTip"));
+            this.txtK7.TextChanged += new System.EventHandler(this.txtCheckInt_TextChanged);
+            this.txtK7.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
+            // 
+            // txtK3
+            // 
+            this.txtK3.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K3", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtK3.Location = new System.Drawing.Point(71, 90);
+            this.txtK3.Name = "txtK3";
+            this.txtK3.Size = new System.Drawing.Size(24, 20);
+            this.txtK3.TabIndex = 4;
+            this.txtK3.Text = global::WeatherStation.Properties.Settings.Default.K3;
+            this.txtK3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.MyToolTip.SetToolTip(this.txtK3, resources.GetString("txtK3.ToolTip"));
+            this.txtK3.TextChanged += new System.EventHandler(this.txtCheckInt_TextChanged);
+            this.txtK3.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
+            // 
+            // txtK6
+            // 
+            this.txtK6.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K6", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtK6.Location = new System.Drawing.Point(161, 90);
+            this.txtK6.Name = "txtK6";
+            this.txtK6.Size = new System.Drawing.Size(24, 20);
+            this.txtK6.TabIndex = 7;
+            this.txtK6.Text = global::WeatherStation.Properties.Settings.Default.K6;
+            this.txtK6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.MyToolTip.SetToolTip(this.txtK6, resources.GetString("txtK6.ToolTip"));
+            this.txtK6.TextChanged += new System.EventHandler(this.txtCheckInt_TextChanged);
+            this.txtK6.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
+            // 
+            // txtK4
+            // 
+            this.txtK4.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K4", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtK4.Location = new System.Drawing.Point(101, 90);
+            this.txtK4.Name = "txtK4";
+            this.txtK4.Size = new System.Drawing.Size(24, 20);
+            this.txtK4.TabIndex = 5;
+            this.txtK4.Text = global::WeatherStation.Properties.Settings.Default.K4;
+            this.txtK4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.MyToolTip.SetToolTip(this.txtK4, resources.GetString("txtK4.ToolTip"));
+            this.txtK4.TextChanged += new System.EventHandler(this.txtCheckInt_TextChanged);
+            this.txtK4.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
+            // 
+            // txtK5
+            // 
+            this.txtK5.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K5", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtK5.Location = new System.Drawing.Point(131, 90);
+            this.txtK5.Name = "txtK5";
+            this.txtK5.Size = new System.Drawing.Size(24, 20);
+            this.txtK5.TabIndex = 6;
+            this.txtK5.Text = global::WeatherStation.Properties.Settings.Default.K5;
+            this.txtK5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.MyToolTip.SetToolTip(this.txtK5, resources.GetString("txtK5.ToolTip"));
+            this.txtK5.TextChanged += new System.EventHandler(this.txtCheckInt_TextChanged);
+            this.txtK5.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
             // 
             // groupBox3
             // 
@@ -310,6 +469,22 @@
             this.label10.Size = new System.Drawing.Size(70, 13);
             this.label10.TabIndex = 11;
             this.label10.Text = "Logging level";
+            // 
+            // cmbLogLevel
+            // 
+            this.cmbLogLevel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "LogLevel", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cmbLogLevel.FormattingEnabled = true;
+            this.cmbLogLevel.Items.AddRange(new object[] {
+            "1 - Common messages",
+            "2 - Prog activity",
+            "3 - All debug info"});
+            this.cmbLogLevel.Location = new System.Drawing.Point(112, 45);
+            this.cmbLogLevel.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbLogLevel.Name = "cmbLogLevel";
+            this.cmbLogLevel.Size = new System.Drawing.Size(129, 21);
+            this.cmbLogLevel.TabIndex = 3;
+            this.cmbLogLevel.Text = global::WeatherStation.Properties.Settings.Default.LogLevel;
+            this.MyToolTip.SetToolTip(this.cmbLogLevel, "Logging level. 1 - recomended");
             // 
             // btnBoltwoodPathBrowse
             // 
@@ -350,466 +525,6 @@
             this.btnLogPathBrowse.Text = "...";
             this.btnLogPathBrowse.UseVisualStyleBackColor = true;
             this.btnLogPathBrowse.Click += new System.EventHandler(this.btnLogPathBrowse_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCancel.Location = new System.Drawing.Point(540, 49);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(79, 24);
-            this.btnCancel.TabIndex = 10;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.label12);
-            this.groupBox5.Controls.Add(this.cmbWetMode);
-            this.groupBox5.Controls.Add(this.label19);
-            this.groupBox5.Controls.Add(this.label13);
-            this.groupBox5.Controls.Add(this.txtWetLimit);
-            this.groupBox5.Controls.Add(this.txtRainLimit);
-            this.groupBox5.Location = new System.Drawing.Point(318, 347);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(307, 123);
-            this.groupBox5.TabIndex = 8;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Rain sensor model";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label12.Location = new System.Drawing.Point(6, 19);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 13);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Wet threshold";
-            // 
-            // cmbWetMode
-            // 
-            this.cmbWetMode.FormattingEnabled = true;
-            this.cmbWetMode.Items.AddRange(new object[] {
-            "Use both",
-            "Wet only",
-            "RGC only"});
-            this.cmbWetMode.Location = new System.Drawing.Point(148, 61);
-            this.cmbWetMode.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbWetMode.Name = "cmbWetMode";
-            this.cmbWetMode.Size = new System.Drawing.Size(129, 21);
-            this.cmbWetMode.TabIndex = 2;
-            this.cmbWetMode.Text = "Use both";
-            this.MyToolTip.SetToolTip(this.cmbWetMode, "Which sensor program should use to measure rain condition if more then one presen" +
-        "t (wet sensor and optical rain gauge counter)\r\nIf you have two of them - use \"Bo" +
-        "th\" unless you face problems");
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label19.Location = new System.Drawing.Point(7, 63);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(97, 13);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "Rain sensors mode";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label13.Location = new System.Drawing.Point(7, 41);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(75, 13);
-            this.label13.TabIndex = 1;
-            this.label13.Text = "Rain threshold";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.label14);
-            this.groupBox6.Controls.Add(this.label15);
-            this.groupBox6.Controls.Add(this.txtRefreshInterval);
-            this.groupBox6.Controls.Add(this.txtMaxPoints);
-            this.groupBox6.Location = new System.Drawing.Point(5, 225);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(307, 62);
-            this.groupBox6.TabIndex = 2;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Gragh settings";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label14.Location = new System.Drawing.Point(6, 19);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(81, 13);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "Refresh interval";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label15.Location = new System.Drawing.Point(7, 41);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(103, 13);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "Max points on graph";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.btnGenerateMac);
-            this.groupBox7.Controls.Add(this.txtNarodmonMAC);
-            this.groupBox7.Controls.Add(this.txtWebDataURL);
-            this.groupBox7.Controls.Add(this.chkNarodMon);
-            this.groupBox7.Controls.Add(this.chkWebData);
-            this.groupBox7.Location = new System.Drawing.Point(318, 80);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(307, 139);
-            this.groupBox7.TabIndex = 6;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Web server";
-            // 
-            // btnGenerateMac
-            // 
-            this.btnGenerateMac.Location = new System.Drawing.Point(132, 93);
-            this.btnGenerateMac.Name = "btnGenerateMac";
-            this.btnGenerateMac.Size = new System.Drawing.Size(59, 23);
-            this.btnGenerateMac.TabIndex = 2;
-            this.btnGenerateMac.Text = "Generate";
-            this.MyToolTip.SetToolTip(this.btnGenerateMac, "Press to generate ID based on computer MAC address");
-            this.btnGenerateMac.UseVisualStyleBackColor = true;
-            this.btnGenerateMac.Click += new System.EventHandler(this.btnGenerateMac_Click);
-            // 
-            // folderBrowserDialog
-            // 
-            this.folderBrowserDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
-            // 
-            // MyToolTip
-            // 
-            this.MyToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            // 
-            // btnResetSensorList
-            // 
-            this.btnResetSensorList.Location = new System.Drawing.Point(475, 224);
-            this.btnResetSensorList.Name = "btnResetSensorList";
-            this.btnResetSensorList.Size = new System.Drawing.Size(139, 23);
-            this.btnResetSensorList.TabIndex = 16;
-            this.btnResetSensorList.Text = "Reset sensor list to default";
-            this.MyToolTip.SetToolTip(this.btnResetSensorList, "Will delete all your entries in sensor list and fill with default values");
-            this.btnResetSensorList.UseVisualStyleBackColor = true;
-            this.btnResetSensorList.Click += new System.EventHandler(this.btnResetSensorList_Click);
-            // 
-            // btnReadFromSerial
-            // 
-            this.btnReadFromSerial.Location = new System.Drawing.Point(332, 224);
-            this.btnReadFromSerial.Name = "btnReadFromSerial";
-            this.btnReadFromSerial.Size = new System.Drawing.Size(139, 23);
-            this.btnReadFromSerial.TabIndex = 16;
-            this.btnReadFromSerial.Text = "Read from serial port";
-            this.MyToolTip.SetToolTip(this.btnReadFromSerial, "Not implemented yet");
-            this.btnReadFromSerial.UseVisualStyleBackColor = true;
-            this.btnReadFromSerial.Click += new System.EventHandler(this.btnReadFromSerial_Click);
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.label20);
-            this.groupBox9.Controls.Add(this.label22);
-            this.groupBox9.Controls.Add(this.label24);
-            this.groupBox9.Controls.Add(this.label18);
-            this.groupBox9.Controls.Add(this.label25);
-            this.groupBox9.Controls.Add(this.txtCSHeaterPauseTime);
-            this.groupBox9.Controls.Add(this.txtCSDecreasingMaxDelta);
-            this.groupBox9.Controls.Add(this.txtCSHeatingMax);
-            this.groupBox9.Controls.Add(this.txtCSDecreasingMinDelta);
-            this.groupBox9.Controls.Add(this.txtCSHeatingMin);
-            this.groupBox9.Location = new System.Drawing.Point(5, 385);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(307, 85);
-            this.groupBox9.TabIndex = 4;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "CS auto heater settings";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(205, 64);
-            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(10, 13);
-            this.label20.TabIndex = 13;
-            this.label20.Text = "-";
-            this.label20.TextChanged += new System.EventHandler(this.txtCheckFloatPos_TextChanged);
-            this.label20.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckFloatPos_Validating);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(205, 16);
-            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(10, 13);
-            this.label22.TabIndex = 13;
-            this.label22.Text = "-";
-            this.label22.TextChanged += new System.EventHandler(this.txtCheckIntPos_TextChanged);
-            this.label22.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label24.Location = new System.Drawing.Point(6, 40);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(93, 13);
-            this.label24.TabIndex = 1;
-            this.label24.Text = "Heater pause time";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label18.Location = new System.Drawing.Point(7, 64);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(122, 13);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "CS decreasing threshold";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label25.Location = new System.Drawing.Point(6, 16);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(129, 13);
-            this.label25.TabIndex = 1;
-            this.label25.Text = "CS threshold switching on";
-            // 
-            // dataGridSensors
-            // 
-            this.dataGridSensors.AllowUserToAddRows = false;
-            this.dataGridSensors.AllowUserToDeleteRows = false;
-            this.dataGridSensors.AllowUserToOrderColumns = true;
-            this.dataGridSensors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridSensors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridSensors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridSensors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SensorName,
-            this.SensorEnabled,
-            this.SensorType,
-            this.SendToWeb,
-            this.SendToNarodmon,
-            this.ArduinoName,
-            this.WebCustomName,
-            this.FormFieldName});
-            this.dataGridSensors.Location = new System.Drawing.Point(9, 19);
-            this.dataGridSensors.Name = "dataGridSensors";
-            this.dataGridSensors.RowHeadersVisible = false;
-            this.dataGridSensors.Size = new System.Drawing.Size(604, 201);
-            this.dataGridSensors.TabIndex = 13;
-            // 
-            // SensorName
-            // 
-            this.SensorName.HeaderText = "Sensor";
-            this.SensorName.MinimumWidth = 50;
-            this.SensorName.Name = "SensorName";
-            this.SensorName.Width = 120;
-            // 
-            // SensorEnabled
-            // 
-            this.SensorEnabled.HeaderText = "Enabled";
-            this.SensorEnabled.MinimumWidth = 10;
-            this.SensorEnabled.Name = "SensorEnabled";
-            this.SensorEnabled.Width = 50;
-            // 
-            // SensorType
-            // 
-            this.SensorType.HeaderText = "Type";
-            this.SensorType.MinimumWidth = 50;
-            this.SensorType.Name = "SensorType";
-            this.SensorType.Width = 80;
-            // 
-            // SendToWeb
-            // 
-            this.SendToWeb.HeaderText = "Send to Web";
-            this.SendToWeb.Name = "SendToWeb";
-            // 
-            // SendToNarodmon
-            // 
-            this.SendToNarodmon.HeaderText = "Send to Narodmon";
-            this.SendToNarodmon.Name = "SendToNarodmon";
-            // 
-            // ArduinoName
-            // 
-            this.ArduinoName.HeaderText = "Arduino Name";
-            this.ArduinoName.Name = "ArduinoName";
-            this.ArduinoName.Width = 80;
-            // 
-            // WebCustomName
-            // 
-            this.WebCustomName.HeaderText = "Web VAR name";
-            this.WebCustomName.Name = "WebCustomName";
-            // 
-            // FormFieldName
-            // 
-            this.FormFieldName.HeaderText = "TextField name";
-            this.FormFieldName.Name = "FormFieldName";
-            this.FormFieldName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.FormFieldName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.btnReadFromSerial);
-            this.groupBox8.Controls.Add(this.btnResetSensorList);
-            this.groupBox8.Controls.Add(this.label9);
-            this.groupBox8.Controls.Add(this.cmbBaseTempSensor);
-            this.groupBox8.Controls.Add(this.dataGridSensors);
-            this.groupBox8.Location = new System.Drawing.Point(5, 470);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(620, 252);
-            this.groupBox8.TabIndex = 5;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Sensors";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(19, 229);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(91, 13);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Base temp sensor";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.label17);
-            this.groupBox4.Controls.Add(this.label16);
-            this.groupBox4.Controls.Add(this.txtHeaterWetThreshold);
-            this.groupBox4.Controls.Add(this.txtHeaterMaxTemp);
-            this.groupBox4.Controls.Add(this.txtHeaterMaxDuration);
-            this.groupBox4.Location = new System.Drawing.Point(5, 288);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(307, 91);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Heater settings";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label11.Location = new System.Drawing.Point(6, 19);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(112, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Max temperature delta";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label17.Location = new System.Drawing.Point(7, 67);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(135, 13);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "Wet threshold switching on";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label16.Location = new System.Drawing.Point(7, 43);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(96, 13);
-            this.label16.TabIndex = 1;
-            this.label16.Text = "Max cycle duration";
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // cmbBaseTempSensor
-            // 
-            this.cmbBaseTempSensor.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "BaseTempSensor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.cmbBaseTempSensor.FormattingEnabled = true;
-            this.cmbBaseTempSensor.Location = new System.Drawing.Point(145, 226);
-            this.cmbBaseTempSensor.Name = "cmbBaseTempSensor";
-            this.cmbBaseTempSensor.Size = new System.Drawing.Size(121, 21);
-            this.cmbBaseTempSensor.TabIndex = 14;
-            this.cmbBaseTempSensor.Text = global::WeatherStation.Properties.Settings.Default.BaseTempSensor;
-            // 
-            // txtNarodmonMAC
-            // 
-            this.txtNarodmonMAC.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "Narodmon_MAC", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtNarodmonMAC.Location = new System.Drawing.Point(7, 95);
-            this.txtNarodmonMAC.Name = "txtNarodmonMAC";
-            this.txtNarodmonMAC.Size = new System.Drawing.Size(119, 20);
-            this.txtNarodmonMAC.TabIndex = 1;
-            this.txtNarodmonMAC.Text = global::WeatherStation.Properties.Settings.Default.Narodmon_MAC;
-            // 
-            // txtWebDataURL
-            // 
-            this.txtWebDataURL.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "WebDataURL", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtWebDataURL.Location = new System.Drawing.Point(7, 38);
-            this.txtWebDataURL.Name = "txtWebDataURL";
-            this.txtWebDataURL.Size = new System.Drawing.Size(294, 20);
-            this.txtWebDataURL.TabIndex = 0;
-            this.txtWebDataURL.Text = global::WeatherStation.Properties.Settings.Default.WebDataURL;
-            this.MyToolTip.SetToolTip(this.txtWebDataURL, "Full URL for script, which handle GET query with data");
-            // 
-            // chkNarodMon
-            // 
-            this.chkNarodMon.AutoSize = true;
-            this.chkNarodMon.Checked = global::WeatherStation.Properties.Settings.Default.SendToNarodmon;
-            this.chkNarodMon.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkNarodMon.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "SendToNarodmon", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkNarodMon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkNarodMon.Location = new System.Drawing.Point(7, 72);
-            this.chkNarodMon.Name = "chkNarodMon";
-            this.chkNarodMon.Size = new System.Drawing.Size(173, 17);
-            this.chkNarodMon.TabIndex = 9;
-            this.chkNarodMon.Text = "Send data to NARODMON.RU";
-            this.MyToolTip.SetToolTip(this.chkNarodMon, "Send data to NARODMON.RU service flag.\r\nThis is happened not often then 5 minutes" +
-        " (narodmon limitation)");
-            this.chkNarodMon.UseVisualStyleBackColor = true;
-            // 
-            // chkWebData
-            // 
-            this.chkWebData.AutoSize = true;
-            this.chkWebData.Checked = global::WeatherStation.Properties.Settings.Default.WebDataFlag;
-            this.chkWebData.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkWebData.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "WebDataFlag", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkWebData.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkWebData.Location = new System.Drawing.Point(7, 20);
-            this.chkWebData.Name = "chkWebData";
-            this.chkWebData.Size = new System.Drawing.Size(142, 17);
-            this.chkWebData.TabIndex = 9;
-            this.chkWebData.Text = "Send data to web server";
-            this.chkWebData.UseVisualStyleBackColor = true;
-            // 
-            // cmbLogLevel
-            // 
-            this.cmbLogLevel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "LogLevel", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.cmbLogLevel.FormattingEnabled = true;
-            this.cmbLogLevel.Items.AddRange(new object[] {
-            "1 - Common messages",
-            "2 - Prog activity",
-            "3 - All debug info"});
-            this.cmbLogLevel.Location = new System.Drawing.Point(112, 45);
-            this.cmbLogLevel.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbLogLevel.Name = "cmbLogLevel";
-            this.cmbLogLevel.Size = new System.Drawing.Size(129, 21);
-            this.cmbLogLevel.TabIndex = 3;
-            this.cmbLogLevel.Text = global::WeatherStation.Properties.Settings.Default.LogLevel;
-            this.MyToolTip.SetToolTip(this.cmbLogLevel, "Logging level. 1 - recomended");
             // 
             // txtBoltwoodFileLocation
             // 
@@ -912,6 +627,271 @@
             this.chkLogFileFlag.Text = "Program log file";
             this.MyToolTip.SetToolTip(this.chkLogFileFlag, "Path to program log file. If left empty - program directory");
             this.chkLogFileFlag.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnCancel.Location = new System.Drawing.Point(540, 49);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(79, 24);
+            this.btnCancel.TabIndex = 10;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label12);
+            this.groupBox5.Controls.Add(this.cmbWetMode);
+            this.groupBox5.Controls.Add(this.label19);
+            this.groupBox5.Controls.Add(this.label13);
+            this.groupBox5.Controls.Add(this.txtWetLimit);
+            this.groupBox5.Controls.Add(this.txtRainLimit);
+            this.groupBox5.Location = new System.Drawing.Point(318, 347);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(307, 123);
+            this.groupBox5.TabIndex = 8;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Rain sensor model";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label12.Location = new System.Drawing.Point(6, 19);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 13);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Wet threshold";
+            // 
+            // cmbWetMode
+            // 
+            this.cmbWetMode.FormattingEnabled = true;
+            this.cmbWetMode.Items.AddRange(new object[] {
+            "Use both",
+            "Wet only",
+            "RGC only"});
+            this.cmbWetMode.Location = new System.Drawing.Point(148, 61);
+            this.cmbWetMode.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbWetMode.Name = "cmbWetMode";
+            this.cmbWetMode.Size = new System.Drawing.Size(129, 21);
+            this.cmbWetMode.TabIndex = 2;
+            this.cmbWetMode.Text = "Use both";
+            this.MyToolTip.SetToolTip(this.cmbWetMode, "Which sensor program should use to measure rain condition if more then one presen" +
+        "t (wet sensor and optical rain gauge counter)\r\nIf you have two of them - use \"Bo" +
+        "th\" unless you face problems");
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label19.Location = new System.Drawing.Point(7, 63);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(97, 13);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "Rain sensors mode";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label13.Location = new System.Drawing.Point(7, 41);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(75, 13);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Rain threshold";
+            // 
+            // txtWetLimit
+            // 
+            this.txtWetLimit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "WetLimit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtWetLimit.Location = new System.Drawing.Point(148, 16);
+            this.txtWetLimit.Name = "txtWetLimit";
+            this.txtWetLimit.Size = new System.Drawing.Size(53, 20);
+            this.txtWetLimit.TabIndex = 0;
+            this.txtWetLimit.Text = global::WeatherStation.Properties.Settings.Default.WetLimit;
+            this.txtWetLimit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.MyToolTip.SetToolTip(this.txtWetLimit, "Wet threshold limit. All values higher then this will be treated as a dry conditi" +
+        "on");
+            this.txtWetLimit.TextChanged += new System.EventHandler(this.txtCheckIntPos_TextChanged);
+            this.txtWetLimit.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
+            // 
+            // txtRainLimit
+            // 
+            this.txtRainLimit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "RainLimit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtRainLimit.Location = new System.Drawing.Point(148, 38);
+            this.txtRainLimit.Name = "txtRainLimit";
+            this.txtRainLimit.Size = new System.Drawing.Size(53, 20);
+            this.txtRainLimit.TabIndex = 1;
+            this.txtRainLimit.Text = global::WeatherStation.Properties.Settings.Default.RainLimit;
+            this.txtRainLimit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.MyToolTip.SetToolTip(this.txtRainLimit, "Rain threshold limit. All values higher then this will be treated as a wet condit" +
+        "ion, and lower as a rain condition");
+            this.txtRainLimit.TextChanged += new System.EventHandler(this.txtCheckIntPos_TextChanged);
+            this.txtRainLimit.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label14);
+            this.groupBox6.Controls.Add(this.label15);
+            this.groupBox6.Controls.Add(this.txtRefreshInterval);
+            this.groupBox6.Controls.Add(this.txtMaxPoints);
+            this.groupBox6.Location = new System.Drawing.Point(5, 225);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(307, 62);
+            this.groupBox6.TabIndex = 2;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Gragh settings";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label14.Location = new System.Drawing.Point(6, 19);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(81, 13);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Refresh interval";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label15.Location = new System.Drawing.Point(7, 41);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(103, 13);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Max points on graph";
+            // 
+            // txtRefreshInterval
+            // 
+            this.txtRefreshInterval.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "RefreshInterval", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtRefreshInterval.Location = new System.Drawing.Point(148, 16);
+            this.txtRefreshInterval.Name = "txtRefreshInterval";
+            this.txtRefreshInterval.Size = new System.Drawing.Size(53, 20);
+            this.txtRefreshInterval.TabIndex = 0;
+            this.txtRefreshInterval.Text = global::WeatherStation.Properties.Settings.Default.RefreshInterval;
+            this.txtRefreshInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.MyToolTip.SetToolTip(this.txtRefreshInterval, resources.GetString("txtRefreshInterval.ToolTip"));
+            this.txtRefreshInterval.TextChanged += new System.EventHandler(this.txtCheckIntPos_TextChanged);
+            this.txtRefreshInterval.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
+            // 
+            // txtMaxPoints
+            // 
+            this.txtMaxPoints.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "MaxPoints", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtMaxPoints.Location = new System.Drawing.Point(148, 38);
+            this.txtMaxPoints.Name = "txtMaxPoints";
+            this.txtMaxPoints.Size = new System.Drawing.Size(53, 20);
+            this.txtMaxPoints.TabIndex = 1;
+            this.txtMaxPoints.Text = global::WeatherStation.Properties.Settings.Default.MaxPoints;
+            this.txtMaxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.MyToolTip.SetToolTip(this.txtMaxPoints, "Max number of points displaying on charts. Too big values will leed to large memo" +
+        "ry consumption");
+            this.txtMaxPoints.TextChanged += new System.EventHandler(this.txtCheckIntPos_TextChanged);
+            this.txtMaxPoints.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.btnGenerateMac);
+            this.groupBox7.Controls.Add(this.txtNarodmonMAC);
+            this.groupBox7.Controls.Add(this.txtWebDataURL);
+            this.groupBox7.Controls.Add(this.chkNarodMon);
+            this.groupBox7.Controls.Add(this.chkWebData);
+            this.groupBox7.Location = new System.Drawing.Point(318, 80);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(307, 139);
+            this.groupBox7.TabIndex = 6;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Web server";
+            // 
+            // btnGenerateMac
+            // 
+            this.btnGenerateMac.Location = new System.Drawing.Point(132, 93);
+            this.btnGenerateMac.Name = "btnGenerateMac";
+            this.btnGenerateMac.Size = new System.Drawing.Size(59, 23);
+            this.btnGenerateMac.TabIndex = 2;
+            this.btnGenerateMac.Text = "Generate";
+            this.MyToolTip.SetToolTip(this.btnGenerateMac, "Press to generate ID based on computer MAC address");
+            this.btnGenerateMac.UseVisualStyleBackColor = true;
+            this.btnGenerateMac.Click += new System.EventHandler(this.btnGenerateMac_Click);
+            // 
+            // txtNarodmonMAC
+            // 
+            this.txtNarodmonMAC.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "Narodmon_MAC", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtNarodmonMAC.Location = new System.Drawing.Point(7, 95);
+            this.txtNarodmonMAC.Name = "txtNarodmonMAC";
+            this.txtNarodmonMAC.Size = new System.Drawing.Size(119, 20);
+            this.txtNarodmonMAC.TabIndex = 1;
+            this.txtNarodmonMAC.Text = global::WeatherStation.Properties.Settings.Default.Narodmon_MAC;
+            // 
+            // txtWebDataURL
+            // 
+            this.txtWebDataURL.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "WebDataURL", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtWebDataURL.Location = new System.Drawing.Point(7, 38);
+            this.txtWebDataURL.Name = "txtWebDataURL";
+            this.txtWebDataURL.Size = new System.Drawing.Size(294, 20);
+            this.txtWebDataURL.TabIndex = 0;
+            this.txtWebDataURL.Text = global::WeatherStation.Properties.Settings.Default.WebDataURL;
+            this.MyToolTip.SetToolTip(this.txtWebDataURL, "Full URL for script, which handle GET query with data");
+            // 
+            // chkNarodMon
+            // 
+            this.chkNarodMon.AutoSize = true;
+            this.chkNarodMon.Checked = global::WeatherStation.Properties.Settings.Default.SendToNarodmon;
+            this.chkNarodMon.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkNarodMon.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "SendToNarodmon", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkNarodMon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.chkNarodMon.Location = new System.Drawing.Point(7, 72);
+            this.chkNarodMon.Name = "chkNarodMon";
+            this.chkNarodMon.Size = new System.Drawing.Size(173, 17);
+            this.chkNarodMon.TabIndex = 9;
+            this.chkNarodMon.Text = "Send data to NARODMON.RU";
+            this.MyToolTip.SetToolTip(this.chkNarodMon, "Send data to NARODMON.RU service flag.\r\nThis is happened not often then 5 minutes" +
+        " (narodmon limitation)");
+            this.chkNarodMon.UseVisualStyleBackColor = true;
+            // 
+            // chkWebData
+            // 
+            this.chkWebData.AutoSize = true;
+            this.chkWebData.Checked = global::WeatherStation.Properties.Settings.Default.WebDataFlag;
+            this.chkWebData.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkWebData.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "WebDataFlag", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkWebData.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.chkWebData.Location = new System.Drawing.Point(7, 20);
+            this.chkWebData.Name = "chkWebData";
+            this.chkWebData.Size = new System.Drawing.Size(142, 17);
+            this.chkWebData.TabIndex = 9;
+            this.chkWebData.Text = "Send data to web server";
+            this.chkWebData.UseVisualStyleBackColor = true;
+            // 
+            // folderBrowserDialog
+            // 
+            this.folderBrowserDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
+            // 
+            // MyToolTip
+            // 
+            this.MyToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
+            // btnResetSensorList
+            // 
+            this.btnResetSensorList.Location = new System.Drawing.Point(475, 224);
+            this.btnResetSensorList.Name = "btnResetSensorList";
+            this.btnResetSensorList.Size = new System.Drawing.Size(139, 23);
+            this.btnResetSensorList.TabIndex = 16;
+            this.btnResetSensorList.Text = "Reset sensor list to default";
+            this.MyToolTip.SetToolTip(this.btnResetSensorList, "Will delete all your entries in sensor list and fill with default values");
+            this.btnResetSensorList.UseVisualStyleBackColor = true;
+            this.btnResetSensorList.Click += new System.EventHandler(this.btnResetSensorList_Click);
+            // 
+            // btnReadFromSerial
+            // 
+            this.btnReadFromSerial.Location = new System.Drawing.Point(332, 224);
+            this.btnReadFromSerial.Name = "btnReadFromSerial";
+            this.btnReadFromSerial.Size = new System.Drawing.Size(139, 23);
+            this.btnReadFromSerial.TabIndex = 16;
+            this.btnReadFromSerial.Text = "Read from serial port";
+            this.MyToolTip.SetToolTip(this.btnReadFromSerial, "Not implemented yet");
+            this.btnReadFromSerial.UseVisualStyleBackColor = true;
+            this.btnReadFromSerial.Click += new System.EventHandler(this.btnReadFromSerial_Click);
             // 
             // txtCSHeaterPauseTime
             // 
@@ -1022,219 +1002,239 @@
             this.txtHeaterMaxDuration.TextChanged += new System.EventHandler(this.txtCheckIntPos_TextChanged);
             this.txtHeaterMaxDuration.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
-            // txtRefreshInterval
+            // groupBox9
             // 
-            this.txtRefreshInterval.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "RefreshInterval", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtRefreshInterval.Location = new System.Drawing.Point(148, 16);
-            this.txtRefreshInterval.Name = "txtRefreshInterval";
-            this.txtRefreshInterval.Size = new System.Drawing.Size(53, 20);
-            this.txtRefreshInterval.TabIndex = 0;
-            this.txtRefreshInterval.Text = global::WeatherStation.Properties.Settings.Default.RefreshInterval;
-            this.txtRefreshInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtRefreshInterval, resources.GetString("txtRefreshInterval.ToolTip"));
-            this.txtRefreshInterval.TextChanged += new System.EventHandler(this.txtCheckIntPos_TextChanged);
-            this.txtRefreshInterval.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
+            this.groupBox9.Controls.Add(this.label20);
+            this.groupBox9.Controls.Add(this.label22);
+            this.groupBox9.Controls.Add(this.label24);
+            this.groupBox9.Controls.Add(this.label18);
+            this.groupBox9.Controls.Add(this.label25);
+            this.groupBox9.Controls.Add(this.txtCSHeaterPauseTime);
+            this.groupBox9.Controls.Add(this.txtCSDecreasingMaxDelta);
+            this.groupBox9.Controls.Add(this.txtCSHeatingMax);
+            this.groupBox9.Controls.Add(this.txtCSDecreasingMinDelta);
+            this.groupBox9.Controls.Add(this.txtCSHeatingMin);
+            this.groupBox9.Location = new System.Drawing.Point(5, 385);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(307, 85);
+            this.groupBox9.TabIndex = 4;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "CS auto heater settings";
             // 
-            // txtMaxPoints
+            // label20
             // 
-            this.txtMaxPoints.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "MaxPoints", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtMaxPoints.Location = new System.Drawing.Point(148, 38);
-            this.txtMaxPoints.Name = "txtMaxPoints";
-            this.txtMaxPoints.Size = new System.Drawing.Size(53, 20);
-            this.txtMaxPoints.TabIndex = 1;
-            this.txtMaxPoints.Text = global::WeatherStation.Properties.Settings.Default.MaxPoints;
-            this.txtMaxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtMaxPoints, "Max number of points displaying on charts. Too big values will leed to large memo" +
-        "ry consumption");
-            this.txtMaxPoints.TextChanged += new System.EventHandler(this.txtCheckIntPos_TextChanged);
-            this.txtMaxPoints.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(205, 64);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(10, 13);
+            this.label20.TabIndex = 13;
+            this.label20.Text = "-";
+            this.label20.TextChanged += new System.EventHandler(this.txtCheckFloatPos_TextChanged);
+            this.label20.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckFloatPos_Validating);
             // 
-            // txtWetLimit
+            // label22
             // 
-            this.txtWetLimit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "WetLimit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtWetLimit.Location = new System.Drawing.Point(148, 16);
-            this.txtWetLimit.Name = "txtWetLimit";
-            this.txtWetLimit.Size = new System.Drawing.Size(53, 20);
-            this.txtWetLimit.TabIndex = 0;
-            this.txtWetLimit.Text = global::WeatherStation.Properties.Settings.Default.WetLimit;
-            this.txtWetLimit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtWetLimit, "Wet threshold limit. All values higher then this will be treated as a dry conditi" +
-        "on");
-            this.txtWetLimit.TextChanged += new System.EventHandler(this.txtCheckIntPos_TextChanged);
-            this.txtWetLimit.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(205, 16);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(10, 13);
+            this.label22.TabIndex = 13;
+            this.label22.Text = "-";
+            this.label22.TextChanged += new System.EventHandler(this.txtCheckIntPos_TextChanged);
+            this.label22.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
-            // txtRainLimit
+            // label24
             // 
-            this.txtRainLimit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "RainLimit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtRainLimit.Location = new System.Drawing.Point(148, 38);
-            this.txtRainLimit.Name = "txtRainLimit";
-            this.txtRainLimit.Size = new System.Drawing.Size(53, 20);
-            this.txtRainLimit.TabIndex = 1;
-            this.txtRainLimit.Text = global::WeatherStation.Properties.Settings.Default.RainLimit;
-            this.txtRainLimit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtRainLimit, "Rain threshold limit. All values higher then this will be treated as a wet condit" +
-        "ion, and lower as a rain condition");
-            this.txtRainLimit.TextChanged += new System.EventHandler(this.txtCheckIntPos_TextChanged);
-            this.txtRainLimit.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
+            this.label24.AutoSize = true;
+            this.label24.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label24.Location = new System.Drawing.Point(6, 40);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(93, 13);
+            this.label24.TabIndex = 1;
+            this.label24.Text = "Heater pause time";
             // 
-            // txtCloudysky
+            // label18
             // 
-            this.txtCloudysky.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "Cloudysky", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtCloudysky.Location = new System.Drawing.Point(148, 39);
-            this.txtCloudysky.Name = "txtCloudysky";
-            this.txtCloudysky.Size = new System.Drawing.Size(53, 20);
-            this.txtCloudysky.TabIndex = 1;
-            this.txtCloudysky.Text = global::WeatherStation.Properties.Settings.Default.Cloudysky;
-            this.txtCloudysky.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtCloudysky, "Cloudy sky threshold limit. All values higher then this will be treated as a clou" +
-        "dy sky and lower - as a very cloudy");
-            this.txtCloudysky.TextChanged += new System.EventHandler(this.txtCheckIntPos_TextChanged);
-            this.txtCloudysky.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
+            this.label18.AutoSize = true;
+            this.label18.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label18.Location = new System.Drawing.Point(7, 64);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(122, 13);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "CS decreasing threshold";
             // 
-            // txtClearsky
+            // label25
             // 
-            this.txtClearsky.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "Clearsky", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtClearsky.Location = new System.Drawing.Point(148, 16);
-            this.txtClearsky.Name = "txtClearsky";
-            this.txtClearsky.Size = new System.Drawing.Size(53, 20);
-            this.txtClearsky.TabIndex = 0;
-            this.txtClearsky.Text = global::WeatherStation.Properties.Settings.Default.Clearsky;
-            this.txtClearsky.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtClearsky, "Clear sky threshold limit. All values higher then this will be treated as a clear" +
-        " sky");
-            this.txtClearsky.TextChanged += new System.EventHandler(this.txtCheckIntPos_TextChanged);
-            this.txtClearsky.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
+            this.label25.AutoSize = true;
+            this.label25.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label25.Location = new System.Drawing.Point(6, 16);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(129, 13);
+            this.label25.TabIndex = 1;
+            this.label25.Text = "CS threshold switching on";
             // 
-            // txtK1
+            // dataGridSensors
             // 
-            this.txtK1.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K1", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtK1.Location = new System.Drawing.Point(9, 90);
-            this.txtK1.Name = "txtK1";
-            this.txtK1.Size = new System.Drawing.Size(26, 20);
-            this.txtK1.TabIndex = 2;
-            this.txtK1.Text = global::WeatherStation.Properties.Settings.Default.K1;
-            this.txtK1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtK1, resources.GetString("txtK1.ToolTip"));
-            this.txtK1.TextChanged += new System.EventHandler(this.txtCheckInt_TextChanged);
-            this.txtK1.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
+            this.dataGridSensors.AllowUserToAddRows = false;
+            this.dataGridSensors.AllowUserToDeleteRows = false;
+            this.dataGridSensors.AllowUserToOrderColumns = true;
+            this.dataGridSensors.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridSensors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridSensors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridSensors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SensorName,
+            this.SensorEnabled,
+            this.SensorType,
+            this.SendToWeb,
+            this.SendToNarodmon,
+            this.ArduinoName,
+            this.WebCustomName,
+            this.FormFieldName});
+            this.dataGridSensors.Location = new System.Drawing.Point(9, 19);
+            this.dataGridSensors.Name = "dataGridSensors";
+            this.dataGridSensors.RowHeadersVisible = false;
+            this.dataGridSensors.Size = new System.Drawing.Size(604, 201);
+            this.dataGridSensors.TabIndex = 13;
             // 
-            // txtK2
+            // SensorName
             // 
-            this.txtK2.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K2", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtK2.Location = new System.Drawing.Point(41, 90);
-            this.txtK2.Name = "txtK2";
-            this.txtK2.Size = new System.Drawing.Size(24, 20);
-            this.txtK2.TabIndex = 3;
-            this.txtK2.Text = global::WeatherStation.Properties.Settings.Default.K2;
-            this.txtK2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtK2, resources.GetString("txtK2.ToolTip"));
-            this.txtK2.TextChanged += new System.EventHandler(this.txtCheckInt_TextChanged);
-            this.txtK2.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
+            this.SensorName.HeaderText = "Sensor";
+            this.SensorName.MinimumWidth = 50;
+            this.SensorName.Name = "SensorName";
+            this.SensorName.Width = 120;
             // 
-            // txtK7
+            // SensorEnabled
             // 
-            this.txtK7.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K7", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtK7.Location = new System.Drawing.Point(191, 90);
-            this.txtK7.Name = "txtK7";
-            this.txtK7.Size = new System.Drawing.Size(24, 20);
-            this.txtK7.TabIndex = 8;
-            this.txtK7.Text = global::WeatherStation.Properties.Settings.Default.K7;
-            this.txtK7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtK7, resources.GetString("txtK7.ToolTip"));
-            this.txtK7.TextChanged += new System.EventHandler(this.txtCheckInt_TextChanged);
-            this.txtK7.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
+            this.SensorEnabled.HeaderText = "Enabled";
+            this.SensorEnabled.MinimumWidth = 10;
+            this.SensorEnabled.Name = "SensorEnabled";
+            this.SensorEnabled.Width = 50;
             // 
-            // txtK3
+            // SensorType
             // 
-            this.txtK3.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K3", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtK3.Location = new System.Drawing.Point(71, 90);
-            this.txtK3.Name = "txtK3";
-            this.txtK3.Size = new System.Drawing.Size(24, 20);
-            this.txtK3.TabIndex = 4;
-            this.txtK3.Text = global::WeatherStation.Properties.Settings.Default.K3;
-            this.txtK3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtK3, resources.GetString("txtK3.ToolTip"));
-            this.txtK3.TextChanged += new System.EventHandler(this.txtCheckInt_TextChanged);
-            this.txtK3.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
+            this.SensorType.HeaderText = "Type";
+            this.SensorType.MinimumWidth = 50;
+            this.SensorType.Name = "SensorType";
+            this.SensorType.Width = 80;
             // 
-            // txtK6
+            // SendToWeb
             // 
-            this.txtK6.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K6", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtK6.Location = new System.Drawing.Point(161, 90);
-            this.txtK6.Name = "txtK6";
-            this.txtK6.Size = new System.Drawing.Size(24, 20);
-            this.txtK6.TabIndex = 7;
-            this.txtK6.Text = global::WeatherStation.Properties.Settings.Default.K6;
-            this.txtK6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtK6, resources.GetString("txtK6.ToolTip"));
-            this.txtK6.TextChanged += new System.EventHandler(this.txtCheckInt_TextChanged);
-            this.txtK6.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
+            this.SendToWeb.HeaderText = "Send to Web";
+            this.SendToWeb.Name = "SendToWeb";
             // 
-            // txtK4
+            // SendToNarodmon
             // 
-            this.txtK4.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K4", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtK4.Location = new System.Drawing.Point(101, 90);
-            this.txtK4.Name = "txtK4";
-            this.txtK4.Size = new System.Drawing.Size(24, 20);
-            this.txtK4.TabIndex = 5;
-            this.txtK4.Text = global::WeatherStation.Properties.Settings.Default.K4;
-            this.txtK4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtK4, resources.GetString("txtK4.ToolTip"));
-            this.txtK4.TextChanged += new System.EventHandler(this.txtCheckInt_TextChanged);
-            this.txtK4.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
+            this.SendToNarodmon.HeaderText = "Send to Narodmon";
+            this.SendToNarodmon.Name = "SendToNarodmon";
             // 
-            // txtK5
+            // ArduinoName
             // 
-            this.txtK5.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K5", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtK5.Location = new System.Drawing.Point(131, 90);
-            this.txtK5.Name = "txtK5";
-            this.txtK5.Size = new System.Drawing.Size(24, 20);
-            this.txtK5.TabIndex = 6;
-            this.txtK5.Text = global::WeatherStation.Properties.Settings.Default.K5;
-            this.txtK5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtK5, resources.GetString("txtK5.ToolTip"));
-            this.txtK5.TextChanged += new System.EventHandler(this.txtCheckInt_TextChanged);
-            this.txtK5.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
+            this.ArduinoName.HeaderText = "Arduino Name";
+            this.ArduinoName.Name = "ArduinoName";
+            this.ArduinoName.Width = 80;
             // 
-            // chkWatchdog
+            // WebCustomName
             // 
-            this.chkWatchdog.AutoSize = true;
-            this.chkWatchdog.Checked = global::WeatherStation.Properties.Settings.Default.ComWatchdog;
-            this.chkWatchdog.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkWatchdog.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "ComWatchdog", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkWatchdog.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkWatchdog.Location = new System.Drawing.Point(7, 46);
-            this.chkWatchdog.Name = "chkWatchdog";
-            this.chkWatchdog.Size = new System.Drawing.Size(130, 17);
-            this.chkWatchdog.TabIndex = 2;
-            this.chkWatchdog.Text = "Connection watchdog";
-            this.chkWatchdog.UseVisualStyleBackColor = true;
+            this.WebCustomName.HeaderText = "Web VAR name";
+            this.WebCustomName.Name = "WebCustomName";
             // 
-            // chkResetArduino
+            // FormFieldName
             // 
-            this.chkResetArduino.AutoSize = true;
-            this.chkResetArduino.Checked = global::WeatherStation.Properties.Settings.Default.resetArduino;
-            this.chkResetArduino.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkResetArduino.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "resetArduino", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkResetArduino.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkResetArduino.Location = new System.Drawing.Point(103, 21);
-            this.chkResetArduino.Name = "chkResetArduino";
-            this.chkResetArduino.Size = new System.Drawing.Size(194, 17);
-            this.chkResetArduino.TabIndex = 1;
-            this.chkResetArduino.Text = "Reset Arduino board on connection";
-            this.MyToolTip.SetToolTip(this.chkResetArduino, "If set, will restart Arduino board on connection.\r\nHighly recomended to leave it " +
-        "enabled");
-            this.chkResetArduino.UseVisualStyleBackColor = true;
+            this.FormFieldName.HeaderText = "TextField name";
+            this.FormFieldName.Name = "FormFieldName";
+            this.FormFieldName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.FormFieldName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // cmbPortList
+            // groupBox8
             // 
-            this.cmbPortList.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "comport", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.cmbPortList.FormattingEnabled = true;
-            this.cmbPortList.Location = new System.Drawing.Point(7, 19);
-            this.cmbPortList.Name = "cmbPortList";
-            this.cmbPortList.Size = new System.Drawing.Size(91, 21);
-            this.cmbPortList.TabIndex = 0;
-            this.cmbPortList.Text = global::WeatherStation.Properties.Settings.Default.comport;
+            this.groupBox8.Controls.Add(this.btnReadFromSerial);
+            this.groupBox8.Controls.Add(this.btnResetSensorList);
+            this.groupBox8.Controls.Add(this.label9);
+            this.groupBox8.Controls.Add(this.cmbBaseTempSensor);
+            this.groupBox8.Controls.Add(this.dataGridSensors);
+            this.groupBox8.Location = new System.Drawing.Point(5, 470);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(620, 252);
+            this.groupBox8.TabIndex = 5;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Sensors";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(19, 229);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(91, 13);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Base temp sensor";
+            // 
+            // cmbBaseTempSensor
+            // 
+            this.cmbBaseTempSensor.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "BaseTempSensor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cmbBaseTempSensor.FormattingEnabled = true;
+            this.cmbBaseTempSensor.Location = new System.Drawing.Point(145, 226);
+            this.cmbBaseTempSensor.Name = "cmbBaseTempSensor";
+            this.cmbBaseTempSensor.Size = new System.Drawing.Size(121, 21);
+            this.cmbBaseTempSensor.TabIndex = 14;
+            this.cmbBaseTempSensor.Text = global::WeatherStation.Properties.Settings.Default.BaseTempSensor;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.txtHeaterWetThreshold);
+            this.groupBox4.Controls.Add(this.txtHeaterMaxTemp);
+            this.groupBox4.Controls.Add(this.txtHeaterMaxDuration);
+            this.groupBox4.Location = new System.Drawing.Point(5, 288);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(307, 91);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Heater settings";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label11.Location = new System.Drawing.Point(6, 19);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(112, 13);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Max temperature delta";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label17.Location = new System.Drawing.Point(7, 67);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(135, 13);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Wet threshold switching on";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label16.Location = new System.Drawing.Point(7, 43);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(96, 13);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "Max cycle duration";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // PreferencesForm
             // 

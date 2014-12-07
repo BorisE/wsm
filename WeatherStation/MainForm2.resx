@@ -118,16 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="serialPort1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>15, 9</value>
   </metadata>
   <metadata name="timer_main.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>126, 17</value>
+    <value>128, 12</value>
   </metadata>
   <metadata name="mainToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>550, 7</value>
-  </metadata>
-  <metadata name="mainToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>550, 7</value>
+    <value>578, 9</value>
   </metadata>
   <data name="txtWetLastMin.ToolTip" xml:space="preserve">
     <value>Wet sensor status:
@@ -138,7 +135,7 @@
 </value>
   </data>
   <metadata name="timer_debug_changetext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>217, 17</value>
+    <value>229, 12</value>
   </metadata>
   <data name="txtCSNeedHeating.ToolTip" xml:space="preserve">
     <value>Cloud sensor needs heating flag.
@@ -154,7 +151,7 @@ But for heating switching on also another conditions must be met:
 </value>
   </data>
   <metadata name="timer_debug_portread.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>362, 17</value>
+    <value>404, 11</value>
   </metadata>
   <data name="txt0min.ToolTip" xml:space="preserve">
     <value>Average cloud index value for 5 min intervals every fifth minute of last 60 minutes (e.g. if now 20:56, then fields hold average values for 20:50-20:55, 20:45-20:50 etc)
@@ -182,7 +179,40 @@ This field holds data for 5th interval (approx. 25..30 minute ago)
 
 </value>
   </data>
+  <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>697, 9</value>
+  </metadata>
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>810, 9</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="notifyIcon1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAAAAABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAD///8AAAAAAAAAAAAAAAAAp1IyUKdSMv+nUjL/AAAAAP///wD///8AAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAACnUjL/p1IyUAAAAAD///8A////AAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAAAAAAAAp1Iy/6dSMoAAAAAA////AP//
+        /wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8AAAAAAAAAAAAAAAAAp1Iy/6dSMv+nUjL/AAAAAP//
+        /wD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAAKdSMv+nUjL/p1Iy/6dS
+        MlD///8A////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wAAAAAAp1IygAAAAACnUjKxp1Iy/6dS
+        Mv+nUjKA////AP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8AAAAAAKdSMoCnUjJQp1IyUKdS
+        Mv+nUjL/p1IygP///wD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AAAAAACnUjJQp1Iy/6dS
+        Mv+nUjL/p1Iy/6dSMoD///8A////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wAAAAAAAAAAAKdS
+        Mv+nUjL/p1Iy/6dSMv+nUjJQ////AP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8Ap1IyJqdS
+        MiYAAAANp1Iy/6dSMv+nUjJQAAAAAP///wD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKdS
+        MrGnUjL/p1Iy/6dSMv+nUjL/AAAAAAAAAAD///8A////AAAAAAAAAAAAAAAAAKdSMv8AAAAAAAAAAAAA
+        AACnUjL/p1Iy/6dSMv+nUjL/p1Iy/wAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAp1Iy/6dSMv+nUjKAAAAAAKdSMv+nUjKxAAAAAP///wAAAAAAp1Iy/wAAAAAAAAAAAAAAAAAA
+        AAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAp1Iy/wAAAAD///8AAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAKdSMrGnUjKxAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAp1Iy/wAAAAD///8AAAAAAAAAAAAAAAAAAAAAAKdSMrEAAAAAAAAAAAAAAAAAAAAAAAAAAKdS
+        Mv8AAAAA/z8AAP9/AAD/PwAA/j8AAP4/AAD6HwAA+x8AAPwfAAD8PwAA/n8AAPB/AABwfwAA8TsAAP+/
+        AAD/nwAAv30AAA==
+</value>
+  </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>44</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAEBAAAAAAAABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA

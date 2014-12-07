@@ -15,21 +15,29 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Globalization;
 
+///////////////////////////////////////////
+// How to add new settigs:
+// 1. Add form element
+// 2. Add in element Data/ApplicationSetting/text (or checked, or ...) reference to setting provider element
+// 2. Add writing from element to var in btnOk_Click event
+// 3. Add to LoadParams() in MainForm initial var setting from setting provider
+///////////////////////////////////////////
+
 namespace WeatherStation
 {
-    public partial class PreferencesForm : Form
+    public partial class SettingsForm : Form
     {
         private MainForm ParentMainForm;
-        public PreferencesForm(MainForm MF)
+        public SettingsForm(MainForm MF)
         {
             InitializeComponent();
             ParentMainForm = MF;
         }
 
-        private void PreferencesForm_Load(object sender, EventArgs e)
+        private void SettingsForm_Load(object sender, EventArgs e)
         {
             Logging.Log("Preferences Form load starting...", 3);
-            
+
             //READ COM PORT LIST
             foreach (string s in SerialPort.GetPortNames())
                 cmbPortList.Items.Add(s);
@@ -88,12 +96,20 @@ namespace WeatherStation
                         SensFormFieldsList.Add(c.Name);
                     }
                 }
-            }               
+            }
             (dataGridSensors.Columns["FormFieldName"] as DataGridViewComboBoxColumn).DataSource = SensFormFieldsList;
 
             //POPULATE SENSOR DATAGRID
             PopulateSensorListGrid();
+
+            //Workaround about "Controls contained in a TabPage are not created until the tab page is shown, and any data bindings in these controls are not activated until the tab page is shown."
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                tp.Show();
+            }
+
         }
+
 
         private void btnOk_Click(object sender, EventArgs e)
         {
@@ -101,7 +117,7 @@ namespace WeatherStation
 
             try
             {
-                Logging.DEBUG_LEVEL = (byte) (cmbLogLevel.SelectedIndex+1);
+                Logging.DEBUG_LEVEL = (byte)(cmbLogLevel.SelectedIndex + 1);
 
                 //Store to vars main hardware settings
                 ParentMainForm.Hardware.PortName = cmbPortList.Text;
@@ -139,13 +155,17 @@ namespace WeatherStation
                 ParentMainForm.Hardware.HEATER_WET_START_THRESHOLD = Convert.ToDouble(txtHeaterWetThreshold.Text);
                 ParentMainForm.Hardware.CS_NEEDHEATING_MAXDELTA = Convert.ToDouble(txtCSDecreasingMaxDelta.Text);
                 ParentMainForm.Hardware.CS_NEEDHEATING_MINDELTA = Convert.ToDouble(txtCSDecreasingMinDelta.Text);
-                ParentMainForm.Hardware.CS_NEEDHEATING_LOOKBACK_CYCLES=(int)Math.Round(Convert.ToInt16(txtCSHeaterPauseTime.Text)/5/60.0-1,0);
+                ParentMainForm.Hardware.CS_NEEDHEATING_LOOKBACK_CYCLES = (int)Math.Round(Convert.ToInt16(txtCSHeaterPauseTime.Text) / 5 / 60.0 - 1, 0);
 
 
                 //Store to vars main interface settings
                 ParentMainForm.maxNumberOfPointsInChart = Convert.ToInt32(txtMaxPoints.Text);
                 ParentMainForm.timer_main.Interval = Convert.ToInt32(txtRefreshInterval.Text);
                 ParentMainForm.timer_debug_changetext.Interval = Convert.ToInt16(txtRefreshInterval.Text);
+
+                ParentMainForm.bMinModeEnabled = chkMinMode.Checked;
+                ParentMainForm.bMinimizeToTray = chkTrayIcon.Checked;
+                ParentMainForm.bDebugPannels = chkShowDebugPannels.Checked;
 
                 //Store webservice settings
                 WebServices.WebDataFlag = chkWebData.Checked;
@@ -184,17 +204,17 @@ namespace WeatherStation
 
                 //Save datagrid to Properties.Settings
                 //1 - make param strings
-                string SensorName = "", SensorType = "", SensorEnabled = "", SendToWeb = "", SendToNarodmon = "", ArduinoName = "", WebCustomName = "", SensorFieldNames="";
+                string SensorName = "", SensorType = "", SensorEnabled = "", SendToWeb = "", SendToNarodmon = "", ArduinoName = "", WebCustomName = "", SensorFieldNames = "";
                 foreach (DataGridViewRow SensorRow in dataGridSensors.Rows)
                 {
 
-/*                    dataGridSensors.Rows[curRowIndex].Cells["SensorName"].Value = DataSensor.SensorName;
-                    dataGridSensors.Rows[curRowIndex].Cells["SensorType"].Value = DataSensor.SensorType.ToString();
-                    dataGridSensors.Rows[curRowIndex].Cells["SensorEnabled"].Value = DataSensor.Enabled;
-                    dataGridSensors.Rows[curRowIndex].Cells["SendToWeb"].Value = DataSensor.SendToWebFlag;
-                    dataGridSensors.Rows[curRowIndex].Cells["SendToNarodmon"].Value = DataSensor.SendToNarodMon;
-                    dataGridSensors.Rows[curRowIndex].Cells["ArduinoName"].Value = DataSensor.SensorArduinoField;
-*/
+                    /*                    dataGridSensors.Rows[curRowIndex].Cells["SensorName"].Value = DataSensor.SensorName;
+                                        dataGridSensors.Rows[curRowIndex].Cells["SensorType"].Value = DataSensor.SensorType.ToString();
+                                        dataGridSensors.Rows[curRowIndex].Cells["SensorEnabled"].Value = DataSensor.Enabled;
+                                        dataGridSensors.Rows[curRowIndex].Cells["SendToWeb"].Value = DataSensor.SendToWebFlag;
+                                        dataGridSensors.Rows[curRowIndex].Cells["SendToNarodmon"].Value = DataSensor.SendToNarodMon;
+                                        dataGridSensors.Rows[curRowIndex].Cells["ArduinoName"].Value = DataSensor.SensorArduinoField;
+                    */
                     SensorName += SensorRow.Cells["SensorName"].Value + ";";
                     SensorType += SensorRow.Cells["SensorType"].Value + ";";
                     SensorEnabled += SensorRow.Cells["SensorEnabled"].Value + ";";
@@ -220,7 +240,7 @@ namespace WeatherStation
                 //4 - reload data from AppSettings into SensorArray
                 LoadSensorArrayFromSettings();
 
-                Logging.Log("Sensor names: " + SensorName,2);
+                Logging.Log("Sensor names: " + SensorName, 2);
                 Logging.Log("Sensor types: " + SensorType, 2);
                 Logging.Log("Sensor enabled: " + SensorEnabled, 2);
                 Logging.Log("Sensor SendToWeb: " + SendToWeb, 2);
@@ -228,7 +248,7 @@ namespace WeatherStation
                 Logging.Log("Sensor ArduinoName: " + ArduinoName, 2);
                 Logging.Log("Sensor WebCustomName: " + WebCustomName, 2);
                 Logging.Log("Sensor SensorFieldName: " + SensorFieldNames, 2);
-                
+
                 Logging.Log("Preferences was saved");
 
                 this.Close();
@@ -237,15 +257,15 @@ namespace WeatherStation
             {
                 StackTrace st = new StackTrace(ex, true);
                 StackFrame[] frames = st.GetFrames();
-                string messstr="";
+                string messstr = "";
 
                 // Iterate over the frames extracting the information you need
                 foreach (StackFrame frame in frames)
                 {
-                    messstr+=String.Format("{0}:{1}({2},{3})", frame.GetFileName(), frame.GetMethod().Name, frame.GetFileLineNumber(), frame.GetFileColumnNumber());
+                    messstr += String.Format("{0}:{1}({2},{3})", frame.GetFileName(), frame.GetMethod().Name, frame.GetFileLineNumber(), frame.GetFileColumnNumber());
                 }
-                
-                string FullMessage="Some of the fields has invalid values" + Environment.NewLine + Environment.NewLine + "Debug information:" + Environment.NewLine + "IOException source: " + ex.Data + " " + ex.Message
+
+                string FullMessage = "Some of the fields has invalid values" + Environment.NewLine + Environment.NewLine + "Debug information:" + Environment.NewLine + "IOException source: " + ex.Data + " " + ex.Message
                         + Environment.NewLine + Environment.NewLine + messstr;
                 MessageBox.Show(this, FullMessage, "Invalid value", MessageBoxButtons.OK);
 
@@ -257,7 +277,9 @@ namespace WeatherStation
             ParentMainForm.Hardware.sendParametersToSerial(out OutSt);
             ParentMainForm.Hardware.getParametersToSerial();
             ParentMainForm.LogForm.AppendLogText(OutSt);
+
         }
+
 
         private void btnLogPathBrowse_Click(object sender, EventArgs e)
         {
@@ -266,13 +288,13 @@ namespace WeatherStation
             {
                 Button bttn = (Button)sender;
                 string DialogPath = folderBrowserDialog.SelectedPath;
-                if (DialogPath.Substring(DialogPath.Length-1, 1) != "\\") DialogPath = DialogPath + "\\";
+                if (DialogPath.Substring(DialogPath.Length - 1, 1) != "\\") DialogPath = DialogPath + "\\";
 
                 if (bttn.Name == "btnLogPathBrowse") { txtLogFileLocation.Text = DialogPath; }
                 else if (bttn.Name == "btnSerialLogPathBrowse") { txtSerialLogFileLocation.Text = DialogPath; }
                 else if (bttn.Name == "btnCSVPathBrowse") { txtCSVFileLocation.Text = DialogPath; }
                 else if (bttn.Name == "btnBoltwoodPathBrowse") { txtBoltwoodFileLocation.Text = DialogPath; }
-                
+
                 //Environment.SpecialFolder root = folderDlg.RootFolder;
             }
         }
@@ -281,7 +303,7 @@ namespace WeatherStation
         private void btnGenerateMac_Click(object sender, EventArgs e)
         {
             string myString = WebServices.GetMacAddress();
-            myString=Regex.Replace(myString, ".{2}", "$0-");
+            myString = Regex.Replace(myString, ".{2}", "$0-");
             txtNarodmonMAC.Text = (myString.Substring(myString.Length - 1, 1) == "-" ? myString.Substring(0, myString.Length - 1) : myString);
         }
 
@@ -366,6 +388,7 @@ namespace WeatherStation
         private void PopulateSensorListGrid()
         {
             int curRowIndex = 0;
+            cmbBaseTempSensor.Items.Clear();
             dataGridSensors.Rows.Clear();
             foreach (SensorElement DataSensor in ParentMainForm.Hardware.SensorsArray)
             {
@@ -381,7 +404,7 @@ namespace WeatherStation
                     dataGridSensors.Rows[curRowIndex].Cells["ArduinoName"].Value = DataSensor.SensorArduinoField;
                     dataGridSensors.Rows[curRowIndex].Cells["WebCustomName"].Value = DataSensor.WebCustomName;
                     dataGridSensors.Rows[curRowIndex].Cells["FormFieldName"].Value = (DataSensor.SensorFormField != "" ? DataSensor.SensorFormField : "(none)");
-                    
+
 
                     //FILL IN TEMP SENSORS
                     if (DataSensor.SensorType == SensorTypeEnum.Temp)
@@ -392,17 +415,6 @@ namespace WeatherStation
             }
             Logging.Log("Preferences: PopulateSensorListGrid(): ended", 3);
 
-        }
-
-        private void btnReadFromSerial_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void PreferencesForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            e.Cancel = true;
-            this.Hide();
         }
 
         private void txtCheckIntPos_Validating(object sender, CancelEventArgs e)
@@ -439,7 +451,7 @@ namespace WeatherStation
         private void txtCheckInt_Validating(object sender, CancelEventArgs e)
         {
             txtCheckInt_TextChanged(sender, e);
-        }        
+        }
         private void txtCheckInt_TextChanged(object sender, EventArgs e)
         {
 
@@ -449,8 +461,7 @@ namespace WeatherStation
             bool hasMoreThanDigit = false;
             foreach (char letter in text)
             {
-                if (!char.IsDigit(letter) && !(letter == '-' && text.Substring(0,1)=="-" && (text.Split('-').Length - 1)==1))
-
+                if (!char.IsDigit(letter) && !(letter == '-' && text.Substring(0, 1) == "-" && (text.Split('-').Length - 1) == 1))
                 {
                     hasMoreThanDigit = true;
                     break;
@@ -490,12 +501,33 @@ namespace WeatherStation
             // Call SetError or Clear on the ErrorProvider.
             if (hasMoreThanDigit)
             {
-                errorProvider1.SetError(CheckingTB,"Needs to be only a digit or decimal point ["+CultureInfo.CurrentUICulture.NumberFormat.NumberDecimalSeparator+"]");
+                errorProvider1.SetError(CheckingTB, "Needs to be only a digit or decimal point [" + CultureInfo.CurrentUICulture.NumberFormat.NumberDecimalSeparator + "]");
             }
             else
             {
                 errorProvider1.Clear();
             }
+        }
+
+        private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //I forgot why i use this, so i comment it :)
+            //e.Cancel = true;
+            //this.Hide();
+        }
+
+        private void SettingsForm_Shown(object sender, EventArgs e)
+        {
+            //Workaround about "Controls contained in a TabPage are not created until the tab page is shown, and any data bindings in these controls are not activated until the tab page is shown."
+            foreach (TabPage tp in tabControl1.TabPages)
+            {
+                tp.Show();
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
 
 

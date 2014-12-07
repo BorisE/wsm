@@ -33,7 +33,12 @@ namespace WeatherStation
         /// <summary>
         /// Link to preferences form + functions for loading parameters
         /// </summary>
-        public PreferencesForm PrefForm;
+        //public PreferencesForm PrefForm;
+
+        /// <summary>
+        /// Link to preferences form + functions for loading parameters
+        /// </summary>
+        public SettingsForm SetForm;
 
         //For graphs
         private DateTime curX;
@@ -47,6 +52,9 @@ namespace WeatherStation
         private FormAppearanceMode FORM_APPEARANCE_MODE = FormAppearanceMode.MODE_MAX;
         private int Form_Normal_Width  = 0;
 
+        public bool bMinModeEnabled = true;
+        public bool bMinimizeToTray = true;
+        public bool bDebugPannels = true;
 
         /// <summary>
         /// Constructor
@@ -57,7 +65,8 @@ namespace WeatherStation
 
             LogForm = new LogWindow(this);
             Hardware = new WeatherStationSerial(this);
-            PrefForm = new PreferencesForm(this);
+            //PrefForm = new PreferencesForm(this);
+            SetForm = new SettingsForm(this);
         }
 
         /// <summary>
@@ -67,7 +76,7 @@ namespace WeatherStation
         {
             //Load current settings
 
-            PrefForm.LoadSensorArrayFromSettings();
+            SetForm.LoadSensorArrayFromSettings();
             LoadParams();
 
             Logging.Log("Program started",1);
@@ -117,14 +126,21 @@ namespace WeatherStation
                 btnStart.PerformClick();
             }
 
+            //Debug pannels
+            if (!bDebugPannels)
+            {
+                panelDebug.Visible = false;
+            }
+
             //SWITCH TO MAXIMUM MODE
             Form_Normal_Width = this.Width;
-            Form_Maximum_Mode();
+            Form_SwitchTo_Maximum_Mode();
         }
 
         private void btnPreferences_Click(object sender, EventArgs e)
         {
-            PrefForm.ShowDialog();
+            //PrefForm.ShowDialog();
+            SetForm.ShowDialog();
         }
 
         private void btnLogWindow_Click(object sender, EventArgs e)
@@ -827,6 +843,10 @@ waiting 10000
                 timer_main.Interval = Convert.ToInt16(Properties.Settings.Default.RefreshInterval);
                 timer_debug_changetext.Interval = Convert.ToInt16(Properties.Settings.Default.RefreshInterval);
 
+                bMinModeEnabled = Properties.Settings.Default.MinModeEnabled;
+                bMinimizeToTray = Properties.Settings.Default.MinimizeToSystemTray;
+                bDebugPannels = Properties.Settings.Default.ShowDebugPannels;
+
                 WebServices.WebDataFlag = Properties.Settings.Default.WebDataFlag;
                 WebServices.siteipURL = Properties.Settings.Default.WebDataURL;
 
@@ -914,8 +934,10 @@ waiting 10000
         /// <summary>
         /// MINIMUM mode
         /// </summary>
-        private void Form_Minimum_Mode()
+        private void Form_SwitchTo_Minimum_Mode()
         {
+            if (!bMinModeEnabled) return;
+
             FORM_APPEARANCE_MODE = FormAppearanceMode.MODE_MIN;
 
             //hide default pannel
@@ -942,8 +964,10 @@ waiting 10000
         /// <summary>
         /// MAXIMUM mode
         /// </summary>
-        private void Form_Maximum_Mode()
+        private void Form_SwitchTo_Maximum_Mode()
         {
+            if (!bMinModeEnabled) return;
+
             FORM_APPEARANCE_MODE = FormAppearanceMode.MODE_MAX;
 
             //hide min pannel
@@ -973,14 +997,14 @@ waiting 10000
         {
             bool stopEvents = false;
 
-            if (m.Msg == 0x0112) // WM_SYSCOMMAND
+            if (m.Msg == 0x0112 && bMinModeEnabled) // WM_SYSCOMMAND and Min mode enabled in settings
             {
                 // Check your window state here
                 if (m.WParam == new IntPtr(0xF030)) // Maximize event - SC_MAXIMIZE from Winuser.h
                 {
                     if (FORM_APPEARANCE_MODE == FormAppearanceMode.MODE_MIN)
                     {
-                        Form_Maximum_Mode();
+                        Form_SwitchTo_Maximum_Mode();
                         stopEvents = true;
                     };
 
@@ -989,7 +1013,7 @@ waiting 10000
                 {
                     if (FORM_APPEARANCE_MODE == FormAppearanceMode.MODE_MAX)
                     {
-                        Form_Minimum_Mode();
+                        Form_SwitchTo_Minimum_Mode();
                         stopEvents = true;
                     };
                 }
@@ -1001,6 +1025,7 @@ waiting 10000
             }
         }
 
+        //Make form in MIN MODE a bit transparent when not in focus
         private void MainForm_Activated(object sender, EventArgs e)
         {
             if (FORM_APPEARANCE_MODE == FormAppearanceMode.MODE_MIN)
@@ -1008,7 +1033,6 @@ waiting 10000
                 this.Opacity = 1;
             }
         }
-
         private void MainForm_Deactivate(object sender, EventArgs e)
         {
             if (FORM_APPEARANCE_MODE == FormAppearanceMode.MODE_MIN)
@@ -1017,6 +1041,31 @@ waiting 10000
             }
         }
         #endregion
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            if (FormWindowState.Minimized == this.WindowState && bMinimizeToTray)
+            {
+                notifyIcon1.Visible = true;
+                notifyIcon1.ShowBalloonTip(500);
+                this.Hide();
+            }
+            else if (FormWindowState.Normal == this.WindowState && bMinimizeToTray)
+            {
+                notifyIcon1.Visible = false;
+            }
+        }
+
+        private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void notifyIcon1_Click(object sender, EventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+        }
 
     }
 }

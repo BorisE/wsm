@@ -39,14 +39,11 @@ namespace WeatherStation
             if (HardwareVerExt == "") HardwareVerExt = "n/a";
             if (HardwareVerDateExt != "") HardwareVerDateExt = " from " + HardwareVerDateExt;
             lblVersion.Text += Environment.NewLine + "Hardware sketch version: " + HardwareVerExt + HardwareVerDateExt;
-            
 
             // Add link
             LinkLabel.Link link = new LinkLabel.Link();
             link.LinkData = "http://www.astromania.info/";
             linkAstromania.Links.Add(link);
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
