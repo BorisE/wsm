@@ -152,13 +152,16 @@
             this.pannelMaximum = new System.Windows.Forms.Panel();
             this.panelDebug = new System.Windows.Forms.Panel();
             this.pannelMinimum = new System.Windows.Forms.Panel();
+            this.btnIndRelay = new System.Windows.Forms.Panel();
+            this.label29 = new System.Windows.Forms.Label();
+            this.btnIndRain = new System.Windows.Forms.Panel();
+            this.label28 = new System.Windows.Forms.Label();
+            this.btnIndCloud = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.btnStart_min = new System.Windows.Forms.Button();
-            this.btnIndRelay = new System.Windows.Forms.Button();
-            this.btnIndRain = new System.Windows.Forms.Button();
-            this.btnIndCloud = new System.Windows.Forms.Button();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -179,6 +182,9 @@
             this.pannelMaximum.SuspendLayout();
             this.panelDebug.SuspendLayout();
             this.pannelMinimum.SuspendLayout();
+            this.btnIndRelay.SuspendLayout();
+            this.btnIndRain.SuspendLayout();
+            this.btnIndCloud.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -1363,6 +1369,9 @@
             // 
             this.pannelMinimum.AutoSize = true;
             this.pannelMinimum.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pannelMinimum.Controls.Add(this.btnIndRelay);
+            this.pannelMinimum.Controls.Add(this.btnIndRain);
+            this.pannelMinimum.Controls.Add(this.btnIndCloud);
             this.pannelMinimum.Controls.Add(this.label26);
             this.pannelMinimum.Controls.Add(this.label25);
             this.pannelMinimum.Controls.Add(this.label24);
@@ -1370,14 +1379,65 @@
             this.pannelMinimum.Controls.Add(this.txtMinRainIdx);
             this.pannelMinimum.Controls.Add(this.txtMinCloudIdx);
             this.pannelMinimum.Controls.Add(this.btnStart_min);
-            this.pannelMinimum.Controls.Add(this.btnIndRelay);
-            this.pannelMinimum.Controls.Add(this.btnIndRain);
-            this.pannelMinimum.Controls.Add(this.btnIndCloud);
             this.pannelMinimum.Controls.Add(this.chart2);
             this.pannelMinimum.Location = new System.Drawing.Point(0, 705);
             this.pannelMinimum.Name = "pannelMinimum";
             this.pannelMinimum.Size = new System.Drawing.Size(764, 109);
             this.pannelMinimum.TabIndex = 1;
+            // 
+            // btnIndRelay
+            // 
+            this.btnIndRelay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btnIndRelay.Controls.Add(this.label29);
+            this.btnIndRelay.Location = new System.Drawing.Point(4, 54);
+            this.btnIndRelay.Name = "btnIndRelay";
+            this.btnIndRelay.Size = new System.Drawing.Size(50, 21);
+            this.btnIndRelay.TabIndex = 31;
+            // 
+            // label29
+            // 
+            this.label29.Location = new System.Drawing.Point(1, 3);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(46, 13);
+            this.label29.TabIndex = 0;
+            this.label29.Text = "Relay";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnIndRain
+            // 
+            this.btnIndRain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btnIndRain.Controls.Add(this.label28);
+            this.btnIndRain.Location = new System.Drawing.Point(4, 28);
+            this.btnIndRain.Name = "btnIndRain";
+            this.btnIndRain.Size = new System.Drawing.Size(50, 21);
+            this.btnIndRain.TabIndex = 31;
+            // 
+            // label28
+            // 
+            this.label28.Location = new System.Drawing.Point(1, 3);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(46, 13);
+            this.label28.TabIndex = 0;
+            this.label28.Text = "Rain";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnIndCloud
+            // 
+            this.btnIndCloud.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btnIndCloud.Controls.Add(this.label27);
+            this.btnIndCloud.Location = new System.Drawing.Point(4, 3);
+            this.btnIndCloud.Name = "btnIndCloud";
+            this.btnIndCloud.Size = new System.Drawing.Size(50, 21);
+            this.btnIndCloud.TabIndex = 31;
+            // 
+            // label27
+            // 
+            this.label27.Location = new System.Drawing.Point(1, 3);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(46, 13);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "Cloud";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label26
             // 
@@ -1415,42 +1475,6 @@
             this.btnStart_min.Text = "Start";
             this.btnStart_min.UseVisualStyleBackColor = true;
             this.btnStart_min.Click += new System.EventHandler(this.btnStart_min_Click);
-            // 
-            // btnIndRelay
-            // 
-            this.btnIndRelay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIndRelay.Location = new System.Drawing.Point(4, 55);
-            this.btnIndRelay.Name = "btnIndRelay";
-            this.btnIndRelay.Size = new System.Drawing.Size(50, 23);
-            this.btnIndRelay.TabIndex = 2;
-            this.btnIndRelay.Text = "Relay";
-            this.btnIndRelay.UseVisualStyleBackColor = true;
-            // 
-            // btnIndRain
-            // 
-            this.btnIndRain.BackColor = System.Drawing.SystemColors.Control;
-            this.btnIndRain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIndRain.Location = new System.Drawing.Point(4, 29);
-            this.btnIndRain.Name = "btnIndRain";
-            this.btnIndRain.Size = new System.Drawing.Size(50, 23);
-            this.btnIndRain.TabIndex = 1;
-            this.btnIndRain.Text = "Rain";
-            this.btnIndRain.UseVisualStyleBackColor = false;
-            // 
-            // btnIndCloud
-            // 
-            this.btnIndCloud.BackColor = System.Drawing.SystemColors.Control;
-            this.btnIndCloud.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIndCloud.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnIndCloud.Location = new System.Drawing.Point(4, 3);
-            this.btnIndCloud.Margin = new System.Windows.Forms.Padding(0);
-            this.btnIndCloud.Name = "btnIndCloud";
-            this.btnIndCloud.Size = new System.Drawing.Size(50, 23);
-            this.btnIndCloud.TabIndex = 0;
-            this.btnIndCloud.Text = "Cloud";
-            this.btnIndCloud.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnIndCloud.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnIndCloud.UseVisualStyleBackColor = false;
             // 
             // chart2
             // 
@@ -1607,6 +1631,9 @@
             this.panelDebug.PerformLayout();
             this.pannelMinimum.ResumeLayout(false);
             this.pannelMinimum.PerformLayout();
+            this.btnIndRelay.ResumeLayout(false);
+            this.btnIndRain.ResumeLayout(false);
+            this.btnIndCloud.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1698,10 +1725,7 @@
         private System.Windows.Forms.ToolTip mainToolTip;
         private System.Windows.Forms.Panel pannelMaximum;
         private System.Windows.Forms.Panel pannelMinimum;
-        private System.Windows.Forms.Button btnIndCloud;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private System.Windows.Forms.Button btnIndRelay;
-        private System.Windows.Forms.Button btnIndRain;
         private System.Windows.Forms.Button btnStart_min;
         private System.Windows.Forms.TextBox txtMinTemp;
         private System.Windows.Forms.TextBox txtMinRainIdx;
@@ -1720,6 +1744,12 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_open;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_exit;
+        private System.Windows.Forms.Panel btnIndCloud;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Panel btnIndRain;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Panel btnIndRelay;
+        private System.Windows.Forms.Label label29;
     }
 }
 

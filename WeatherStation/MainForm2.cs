@@ -172,6 +172,7 @@ namespace WeatherStation
                 else
                 {
                     btnStart.Text = "Start";
+                    btnStart_min.Text = "Start";
                     timer_main.Enabled = false;
                     Logging.Log("Monitoring on [" + Hardware.comport.PortName + "] was stopped");
                     LogForm.txtLog.AppendText("Monitoring on [" + Hardware.comport.PortName + "] was stopped");
@@ -194,6 +195,7 @@ namespace WeatherStation
                     Logging.Log("Monitoring on [" + Hardware.comport.PortName + "] was started");
                     LogForm.AppendLogText("Monitoring on [" + Hardware.comport.PortName + "] was started");
                     btnStart.Text = "Stop";
+                    btnStart_min.Text = "Stop";
 
                     //init Hardware.RGC_Cumulative prev value
                     Hardware.RGC_Cumulative = Logging.LoadRGCValue(out Hardware.RGC_Cumulative_LastReset);
@@ -214,7 +216,7 @@ namespace WeatherStation
             {
                 btnSimulate.Text = "Simulation start";
                 btnStart.Enabled = true;
-                btnStart_min.Enabled = true;
+                btnStart_min.Text = "Start";
                 timer_main.Enabled = false;
                 timer_debug_changetext.Enabled = false;
                 timer_debug_portread.Enabled = false;
@@ -232,8 +234,8 @@ namespace WeatherStation
                 SimulationMode = true;
                 LogForm.AppendLogText("Monitoring simulation was started");
                 btnSimulate.Text = "Stop simulation";
+                btnStart_min.Text = "Stop";
                 btnStart.Enabled = false;
-                btnStart_min.Enabled = false;
 
                 //load last value for RGC cumulative
                 Hardware.RGC_Cumulative = Logging.LoadRGCValue(out Hardware.RGC_Cumulative_LastReset);
@@ -399,7 +401,7 @@ waiting 10000
                 btnRelay.BackColor = default(Color);
                 btnRelay.UseVisualStyleBackColor = true;
                 btnIndRelay.BackColor = default(Color);
-                btnIndRelay.UseVisualStyleBackColor = true;
+                //btnIndRelay.UseVisualStyleBackColor = true;
             }
 
             //For debug
@@ -923,7 +925,14 @@ waiting 10000
 
         private void btnStart_min_Click(object sender, EventArgs e)
         {
-            btnSimulate_Click(sender, e);
+            if (SimulationMode)
+            {
+                btnSimulate_Click(sender, e);
+            }
+            else
+            {
+                btnStart_Click(sender, e);
+            }
         }
 
         /*********************************************************************************************************************
@@ -937,6 +946,9 @@ waiting 10000
         private void Form_SwitchTo_Minimum_Mode()
         {
             if (!bMinModeEnabled) return;
+
+            //if maximized - switch to normal first
+            if (this.WindowState == FormWindowState.Maximized) this.WindowState = FormWindowState.Normal;
 
             FORM_APPEARANCE_MODE = FormAppearanceMode.MODE_MIN;
 
@@ -1066,6 +1078,8 @@ waiting 10000
             this.Show();
             this.WindowState = FormWindowState.Normal;
         }
+
+
 
     }
 }
