@@ -151,6 +151,7 @@
             this.txtHeaterWetThreshold = new System.Windows.Forms.TextBox();
             this.txtHeaterMaxTemp = new System.Windows.Forms.TextBox();
             this.txtHeaterMaxDuration = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -204,6 +205,7 @@
             // 
             // groupBox11
             // 
+            this.groupBox11.Controls.Add(this.label35);
             this.groupBox11.Controls.Add(this.label34);
             this.groupBox11.Controls.Add(this.label31);
             this.groupBox11.Controls.Add(this.label33);
@@ -264,7 +266,7 @@
             // 
             // btnGenerateMac
             // 
-            this.btnGenerateMac.Location = new System.Drawing.Point(132, 119);
+            this.btnGenerateMac.Location = new System.Drawing.Point(159, 119);
             this.btnGenerateMac.Name = "btnGenerateMac";
             this.btnGenerateMac.Size = new System.Drawing.Size(59, 23);
             this.btnGenerateMac.TabIndex = 2;
@@ -1000,11 +1002,14 @@
             // txtNarodmonMAC
             // 
             this.txtNarodmonMAC.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "Narodmon_MAC", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtNarodmonMAC.Location = new System.Drawing.Point(7, 122);
+            this.txtNarodmonMAC.Location = new System.Drawing.Point(34, 122);
             this.txtNarodmonMAC.Name = "txtNarodmonMAC";
             this.txtNarodmonMAC.Size = new System.Drawing.Size(119, 20);
             this.txtNarodmonMAC.TabIndex = 1;
             this.txtNarodmonMAC.Text = global::WeatherStation.Properties.Settings.Default.Narodmon_MAC;
+            this.MyToolTip.SetToolTip(this.txtNarodmonMAC, "ID for Narodmon, must be unique\r\n\r\nThe service recommend to use Ethernet MAC addr" +
+        "ess. Pressing \"Genereate\" button will put use your default Ethernet adapter MAC " +
+        "address.");
             // 
             // txtWebDataURL
             // 
@@ -1570,6 +1575,15 @@
             this.MyToolTip.SetToolTip(this.txtHeaterMaxDuration, "Maximum heating cycle duration, sec");
             this.txtHeaterMaxDuration.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(3, 125);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(18, 13);
+            this.label35.TabIndex = 11;
+            this.label35.Text = "ID";
+            // 
             // SettingsForm
             // 
             this.AcceptButton = this.btnOk;
@@ -1748,5 +1762,6 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox txtRefreshNarodmonInterval;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label35;
     }
 }

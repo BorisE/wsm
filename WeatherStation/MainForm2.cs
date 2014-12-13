@@ -1073,7 +1073,7 @@ waiting 10000
         /// </summary>
         private void Form_SwitchTo_Maximum_Mode()
         {
-            if (!bMinModeEnabled) return;
+            //if (!bMinModeEnabled) return;
 
             FORM_APPEARANCE_MODE = FormAppearanceMode.MODE_MAX;
 
