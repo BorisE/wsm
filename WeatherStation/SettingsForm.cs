@@ -137,6 +137,8 @@ namespace WeatherStation
                 ParentMainForm.Hardware.K6 = Convert.ToDouble(txtK6.Text);
                 ParentMainForm.Hardware.K7 = Convert.ToDouble(txtK7.Text);
 
+                ParentMainForm.Hardware.WindSpeed_ZeroSpeedValue = Convert.ToInt16(txtWSpeedZero.Text);
+
                 ParentMainForm.Hardware.RAININDEX_WET_LIMIT = Convert.ToDouble(txtWetLimit.Text);
                 ParentMainForm.Hardware.RAININDEX_RAIN_LIMIT = Convert.ToDouble(txtRainLimit.Text);
 
@@ -145,6 +147,10 @@ namespace WeatherStation
                 Logging.Log("Preferences: RAININDEX_WET_LIMIT: " + txtWetLimit.Text, 2);
                 Logging.Log("Preferences: RAININDEX_RAIN_LIMIT: " + txtRainLimit.Text, 2);
 
+                ParentMainForm.Hardware.WINDSPEED_WINDY = Convert.ToDouble(txtWindyLimit.Text);
+                ParentMainForm.Hardware.WINDSPEED_VERYWINDY = Convert.ToDouble(txtVeryWindyLimit.Text);
+                Logging.Log("Preferences: WINDSPEED_WINDY: " + txtWindyLimit.Text, 2);
+                Logging.Log("Preferences: WINDSPEED_VERYWINDY: " + txtVeryWindyLimit.Text, 2);
 
                 //Store heating settings
                 ParentMainForm.Hardware.HEATER_CLOUDINDEX_MIN = Convert.ToDouble(txtCSHeatingMin.Text);
@@ -155,13 +161,14 @@ namespace WeatherStation
                 ParentMainForm.Hardware.HEATER_WET_START_THRESHOLD = Convert.ToDouble(txtHeaterWetThreshold.Text);
                 ParentMainForm.Hardware.CS_NEEDHEATING_MAXDELTA = Convert.ToDouble(txtCSDecreasingMaxDelta.Text);
                 ParentMainForm.Hardware.CS_NEEDHEATING_MINDELTA = Convert.ToDouble(txtCSDecreasingMinDelta.Text);
-                ParentMainForm.Hardware.CS_NEEDHEATING_LOOKBACK_CYCLES = (int)Math.Round(Convert.ToInt16(txtCSHeaterPauseTime.Text) / 5 / 60.0 - 1, 0);
-
 
                 //Store to vars main interface settings
                 ParentMainForm.maxNumberOfPointsInChart = Convert.ToInt32(txtMaxPoints.Text);
                 ParentMainForm.timer_main.Interval = Convert.ToInt32(txtRefreshInterval.Text);
                 ParentMainForm.timer_debug_changetext.Interval = Convert.ToInt16(txtRefreshInterval.Text);
+
+                WebServices.LIMIT_WEB_SEND_INTERVAL = Convert.ToUInt32(txtRefreshWebDataInterval.Text);
+                WebServices.LIMIT_NARODMON_SEND_INTERVAL = Convert.ToUInt32(txtRefreshNarodmonInterval.Text);
 
                 ParentMainForm.bMinModeEnabled = chkMinMode.Checked;
                 ParentMainForm.bMinimizeToTray = chkTrayIcon.Checked;
@@ -265,7 +272,10 @@ namespace WeatherStation
                     messstr += String.Format("{0}:{1}({2},{3})", frame.GetFileName(), frame.GetMethod().Name, frame.GetFileLineNumber(), frame.GetFileColumnNumber());
                 }
 
-                string FullMessage = "Some of the fields has invalid values" + Environment.NewLine + Environment.NewLine + "Debug information:" + Environment.NewLine + "IOException source: " + ex.Data + " " + ex.Message
+                string FullMessage = "Some of the fields has invalid values" + Environment.NewLine;
+                FullMessage += Environment.NewLine + "Hint: look for incorrect decimal point ( \".\" instead of \",\" ) or a accidential letter in textbox";
+                FullMessage += Environment.NewLine + "Hint 2: clicking in every field could help";
+                FullMessage += Environment.NewLine + Environment.NewLine + "Debug information:" + Environment.NewLine + "IOException source: " + ex.Data + " " + ex.Message
                         + Environment.NewLine + Environment.NewLine + messstr;
                 MessageBox.Show(this, FullMessage, "Invalid value", MessageBoxButtons.OK);
 

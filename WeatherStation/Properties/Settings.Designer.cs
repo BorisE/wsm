@@ -529,7 +529,7 @@ namespace WeatherStation.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Use both")]
         public string WetSensorsMode {
             get {
                 return ((string)(this["WetSensorsMode"]));
@@ -620,6 +620,78 @@ namespace WeatherStation.Properties {
             }
             set {
                 this["ShowDebugPannels"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("83")]
+        public string WindSpeed_Zero {
+            get {
+                return ((string)(this["WindSpeed_Zero"]));
+            }
+            set {
+                this["WindSpeed_Zero"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool UpgradeRequired {
+            get {
+                return ((bool)(this["UpgradeRequired"]));
+            }
+            set {
+                this["UpgradeRequired"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4.4")]
+        public string WindyLimit {
+            get {
+                return ((string)(this["WindyLimit"]));
+            }
+            set {
+                this["WindyLimit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        public string VeryWindyLimit {
+            get {
+                return ((string)(this["VeryWindyLimit"]));
+            }
+            set {
+                this["VeryWindyLimit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
+        public string RefreshWebInterval {
+            get {
+                return ((string)(this["RefreshWebInterval"]));
+            }
+            set {
+                this["RefreshWebInterval"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("300")]
+        public string RefreshNarodmonInterval {
+            get {
+                return ((string)(this["RefreshNarodmonInterval"]));
+            }
+            set {
+                this["RefreshNarodmonInterval"] = value;
             }
         }
     }

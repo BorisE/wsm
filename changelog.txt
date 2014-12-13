@@ -2,6 +2,20 @@ WeatherStation Project
 (c) 2013-2014 by Emchenko Boris
 
 Change log
+1.4.30 (2014-12-13)
+- Rain condtition signaling changed a bit
+- Some bugs found by Dimaz
+
+1.4.29 (2014-12-12)
+- Custom send data to web intervals
+- Program automatically loads settings from previous version
+
+1.4.28 (2014-12-09)
+- Wind sensor support added
+
+1.3.27 (2014-12-08)
+- Increaded logging information
+
 1.3.26 (2014-12-07)
 - Min mode indicators switched from TButton to TPannel
 - Min mode start button corrected

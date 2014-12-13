@@ -52,6 +52,7 @@
             System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
@@ -60,7 +61,7 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.StripLine stripLine5 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
             System.Windows.Forms.DataVisualization.Charting.StripLine stripLine6 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
-            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.btnStart = new System.Windows.Forms.Button();
             this.timer_main = new System.Windows.Forms.Timer(this.components);
@@ -80,12 +81,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txtFldLumWTime = new System.Windows.Forms.TextBox();
-            this.txtFldLumSen = new System.Windows.Forms.TextBox();
             this.txtFldIllum = new System.Windows.Forms.TextBox();
-            this.txtFldLumRes = new System.Windows.Forms.TextBox();
-            this.txtFldIllumRes = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.txtFldObj = new System.Windows.Forms.TextBox();
@@ -151,6 +147,9 @@
             this.txt20min = new System.Windows.Forms.TextBox();
             this.pannelMaximum = new System.Windows.Forms.Panel();
             this.panelDebug = new System.Windows.Forms.Panel();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.txtFldWSpeed = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
             this.pannelMinimum = new System.Windows.Forms.Panel();
             this.btnIndRelay = new System.Windows.Forms.Panel();
             this.label29 = new System.Windows.Forms.Label();
@@ -168,6 +167,10 @@
             this.toolStripMenuItem_open = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem_exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtMinWind = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtWindCond = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -181,6 +184,7 @@
             this.groupBox10.SuspendLayout();
             this.pannelMaximum.SuspendLayout();
             this.panelDebug.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.pannelMinimum.SuspendLayout();
             this.btnIndRelay.SuspendLayout();
             this.btnIndRain.SuspendLayout();
@@ -191,9 +195,10 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(8, 10);
+            this.btnStart.Location = new System.Drawing.Point(11, 12);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.Size = new System.Drawing.Size(100, 28);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -207,18 +212,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 45);
+            this.label3.Location = new System.Drawing.Point(11, 55);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.Size = new System.Drawing.Size(48, 17);
             this.label3.TabIndex = 3;
             this.label3.Text = "Press:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 22);
+            this.label4.Location = new System.Drawing.Point(11, 27);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.Size = new System.Drawing.Size(57, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "BTemp:";
             // 
@@ -228,25 +235,29 @@
             this.groupBox2.Controls.Add(this.txtFldPress);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(2, 198);
+            this.groupBox2.Location = new System.Drawing.Point(3, 244);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(136, 73);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(181, 90);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PressureSensor";
             // 
             // txtFldBTemp
             // 
-            this.txtFldBTemp.Location = new System.Drawing.Point(60, 19);
+            this.txtFldBTemp.Location = new System.Drawing.Point(80, 23);
+            this.txtFldBTemp.Margin = new System.Windows.Forms.Padding(4);
             this.txtFldBTemp.Name = "txtFldBTemp";
-            this.txtFldBTemp.Size = new System.Drawing.Size(63, 20);
+            this.txtFldBTemp.Size = new System.Drawing.Size(83, 22);
             this.txtFldBTemp.TabIndex = 0;
             // 
             // txtFldPress
             // 
-            this.txtFldPress.Location = new System.Drawing.Point(60, 45);
+            this.txtFldPress.Location = new System.Drawing.Point(80, 55);
+            this.txtFldPress.Margin = new System.Windows.Forms.Padding(4);
             this.txtFldPress.Name = "txtFldPress";
-            this.txtFldPress.Size = new System.Drawing.Size(63, 20);
+            this.txtFldPress.Size = new System.Drawing.Size(83, 22);
             this.txtFldPress.TabIndex = 1;
             // 
             // groupBox3
@@ -255,42 +266,48 @@
             this.groupBox3.Controls.Add(this.txtFldDTemp1);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Location = new System.Drawing.Point(2, 277);
+            this.groupBox3.Location = new System.Drawing.Point(3, 341);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(136, 73);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(181, 90);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "HumiditySensor";
             // 
             // txtFldHum1
             // 
-            this.txtFldHum1.Location = new System.Drawing.Point(60, 19);
+            this.txtFldHum1.Location = new System.Drawing.Point(80, 23);
+            this.txtFldHum1.Margin = new System.Windows.Forms.Padding(4);
             this.txtFldHum1.Name = "txtFldHum1";
-            this.txtFldHum1.Size = new System.Drawing.Size(63, 20);
+            this.txtFldHum1.Size = new System.Drawing.Size(83, 22);
             this.txtFldHum1.TabIndex = 0;
             // 
             // txtFldDTemp1
             // 
-            this.txtFldDTemp1.Location = new System.Drawing.Point(60, 45);
+            this.txtFldDTemp1.Location = new System.Drawing.Point(80, 55);
+            this.txtFldDTemp1.Margin = new System.Windows.Forms.Padding(4);
             this.txtFldDTemp1.Name = "txtFldDTemp1";
-            this.txtFldDTemp1.Size = new System.Drawing.Size(63, 20);
+            this.txtFldDTemp1.Size = new System.Drawing.Size(83, 22);
             this.txtFldDTemp1.TabIndex = 1;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 45);
+            this.label7.Location = new System.Drawing.Point(11, 55);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 13);
+            this.label7.Size = new System.Drawing.Size(58, 17);
             this.label7.TabIndex = 3;
             this.label7.Text = "DTemp:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 22);
+            this.label8.Location = new System.Drawing.Point(11, 27);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(32, 13);
+            this.label8.Size = new System.Drawing.Size(41, 17);
             this.label8.TabIndex = 3;
             this.label8.Text = "Hum:";
             // 
@@ -300,111 +317,79 @@
             this.groupBox4.Controls.Add(this.txtFldDTemp2);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Location = new System.Drawing.Point(2, 356);
+            this.groupBox4.Location = new System.Drawing.Point(3, 438);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(136, 73);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox4.Size = new System.Drawing.Size(181, 90);
             this.groupBox4.TabIndex = 20;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "HumiditySensor2";
             // 
             // txtFldHum2
             // 
-            this.txtFldHum2.Location = new System.Drawing.Point(60, 19);
+            this.txtFldHum2.Location = new System.Drawing.Point(80, 23);
+            this.txtFldHum2.Margin = new System.Windows.Forms.Padding(4);
             this.txtFldHum2.Name = "txtFldHum2";
-            this.txtFldHum2.Size = new System.Drawing.Size(63, 20);
+            this.txtFldHum2.Size = new System.Drawing.Size(83, 22);
             this.txtFldHum2.TabIndex = 0;
             // 
             // txtFldDTemp2
             // 
-            this.txtFldDTemp2.Location = new System.Drawing.Point(60, 45);
+            this.txtFldDTemp2.Location = new System.Drawing.Point(80, 55);
+            this.txtFldDTemp2.Margin = new System.Windows.Forms.Padding(4);
             this.txtFldDTemp2.Name = "txtFldDTemp2";
-            this.txtFldDTemp2.Size = new System.Drawing.Size(63, 20);
+            this.txtFldDTemp2.Size = new System.Drawing.Size(83, 22);
             this.txtFldDTemp2.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 45);
+            this.label5.Location = new System.Drawing.Point(11, 55);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.Size = new System.Drawing.Size(58, 17);
             this.label5.TabIndex = 3;
             this.label5.Text = "DTemp:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 22);
+            this.label6.Location = new System.Drawing.Point(11, 27);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 13);
+            this.label6.Size = new System.Drawing.Size(41, 17);
             this.label6.TabIndex = 3;
             this.label6.Text = "Hum:";
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.txtFldLumWTime);
-            this.groupBox5.Controls.Add(this.txtFldLumSen);
             this.groupBox5.Controls.Add(this.txtFldIllum);
-            this.groupBox5.Controls.Add(this.txtFldLumRes);
-            this.groupBox5.Controls.Add(this.txtFldIllumRes);
-            this.groupBox5.Controls.Add(this.label9);
             this.groupBox5.Controls.Add(this.label10);
-            this.groupBox5.Location = new System.Drawing.Point(2, 435);
+            this.groupBox5.Location = new System.Drawing.Point(3, 536);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(136, 100);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox5.Size = new System.Drawing.Size(181, 56);
             this.groupBox5.TabIndex = 21;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "IlluminanceSensor";
             // 
-            // txtFldLumWTime
-            // 
-            this.txtFldLumWTime.Location = new System.Drawing.Point(89, 71);
-            this.txtFldLumWTime.Name = "txtFldLumWTime";
-            this.txtFldLumWTime.Size = new System.Drawing.Size(34, 20);
-            this.txtFldLumWTime.TabIndex = 4;
-            // 
-            // txtFldLumSen
-            // 
-            this.txtFldLumSen.Location = new System.Drawing.Point(50, 71);
-            this.txtFldLumSen.Name = "txtFldLumSen";
-            this.txtFldLumSen.Size = new System.Drawing.Size(34, 20);
-            this.txtFldLumSen.TabIndex = 3;
-            // 
             // txtFldIllum
             // 
-            this.txtFldIllum.Location = new System.Drawing.Point(60, 19);
+            this.txtFldIllum.Location = new System.Drawing.Point(80, 23);
+            this.txtFldIllum.Margin = new System.Windows.Forms.Padding(4);
             this.txtFldIllum.Name = "txtFldIllum";
-            this.txtFldIllum.Size = new System.Drawing.Size(63, 20);
+            this.txtFldIllum.Size = new System.Drawing.Size(83, 22);
             this.txtFldIllum.TabIndex = 0;
-            // 
-            // txtFldLumRes
-            // 
-            this.txtFldLumRes.Location = new System.Drawing.Point(11, 71);
-            this.txtFldLumRes.Name = "txtFldLumRes";
-            this.txtFldLumRes.Size = new System.Drawing.Size(34, 20);
-            this.txtFldLumRes.TabIndex = 2;
-            // 
-            // txtFldIllumRes
-            // 
-            this.txtFldIllumRes.Location = new System.Drawing.Point(60, 45);
-            this.txtFldIllumRes.Name = "txtFldIllumRes";
-            this.txtFldIllumRes.Size = new System.Drawing.Size(63, 20);
-            this.txtFldIllumRes.TabIndex = 1;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 45);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(29, 13);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Res:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 22);
+            this.label10.Location = new System.Drawing.Point(11, 27);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(31, 13);
+            this.label10.Size = new System.Drawing.Size(40, 17);
             this.label10.TabIndex = 3;
             this.label10.Text = "Illum:";
             // 
@@ -414,50 +399,57 @@
             this.groupBox6.Controls.Add(this.txtFldATemp);
             this.groupBox6.Controls.Add(this.label11);
             this.groupBox6.Controls.Add(this.label12);
-            this.groupBox6.Location = new System.Drawing.Point(2, 120);
+            this.groupBox6.Location = new System.Drawing.Point(3, 148);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(136, 73);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox6.Size = new System.Drawing.Size(181, 90);
             this.groupBox6.TabIndex = 17;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "SkySensor";
             // 
             // txtFldObj
             // 
-            this.txtFldObj.Location = new System.Drawing.Point(60, 19);
+            this.txtFldObj.Location = new System.Drawing.Point(80, 23);
+            this.txtFldObj.Margin = new System.Windows.Forms.Padding(4);
             this.txtFldObj.Name = "txtFldObj";
-            this.txtFldObj.Size = new System.Drawing.Size(63, 20);
+            this.txtFldObj.Size = new System.Drawing.Size(83, 22);
             this.txtFldObj.TabIndex = 0;
             // 
             // txtFldATemp
             // 
-            this.txtFldATemp.Location = new System.Drawing.Point(60, 45);
+            this.txtFldATemp.Location = new System.Drawing.Point(80, 55);
+            this.txtFldATemp.Margin = new System.Windows.Forms.Padding(4);
             this.txtFldATemp.Name = "txtFldATemp";
-            this.txtFldATemp.Size = new System.Drawing.Size(63, 20);
+            this.txtFldATemp.Size = new System.Drawing.Size(83, 22);
             this.txtFldATemp.TabIndex = 1;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 45);
+            this.label11.Location = new System.Drawing.Point(11, 55);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 13);
+            this.label11.Size = new System.Drawing.Size(57, 17);
             this.label11.TabIndex = 3;
             this.label11.Text = "ATemp:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 22);
+            this.label12.Location = new System.Drawing.Point(11, 27);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 13);
+            this.label12.Size = new System.Drawing.Size(70, 17);
             this.label12.TabIndex = 3;
             this.label12.Text = "ObjTemp:";
             // 
             // btnPreferences
             // 
-            this.btnPreferences.Location = new System.Drawing.Point(90, 10);
+            this.btnPreferences.Location = new System.Drawing.Point(120, 12);
+            this.btnPreferences.Margin = new System.Windows.Forms.Padding(4);
             this.btnPreferences.Name = "btnPreferences";
-            this.btnPreferences.Size = new System.Drawing.Size(79, 22);
+            this.btnPreferences.Size = new System.Drawing.Size(105, 27);
             this.btnPreferences.TabIndex = 1;
             this.btnPreferences.Text = "Settings";
             this.btnPreferences.UseVisualStyleBackColor = true;
@@ -465,9 +457,10 @@
             // 
             // btnLogWindow
             // 
-            this.btnLogWindow.Location = new System.Drawing.Point(175, 10);
+            this.btnLogWindow.Location = new System.Drawing.Point(233, 12);
+            this.btnLogWindow.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogWindow.Name = "btnLogWindow";
-            this.btnLogWindow.Size = new System.Drawing.Size(74, 22);
+            this.btnLogWindow.Size = new System.Drawing.Size(99, 27);
             this.btnLogWindow.TabIndex = 2;
             this.btnLogWindow.Text = "Show Log";
             this.btnLogWindow.UseVisualStyleBackColor = true;
@@ -482,27 +475,31 @@
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.txtFldWet);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(2, 541);
+            this.groupBox1.Location = new System.Drawing.Point(3, 666);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(136, 76);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(181, 94);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Wet Sensor";
             // 
             // txtFldRGCCumulative
             // 
-            this.txtFldRGCCumulative.Location = new System.Drawing.Point(72, 45);
+            this.txtFldRGCCumulative.Location = new System.Drawing.Point(96, 55);
+            this.txtFldRGCCumulative.Margin = new System.Windows.Forms.Padding(4);
             this.txtFldRGCCumulative.Name = "txtFldRGCCumulative";
-            this.txtFldRGCCumulative.Size = new System.Drawing.Size(37, 20);
+            this.txtFldRGCCumulative.Size = new System.Drawing.Size(48, 22);
             this.txtFldRGCCumulative.TabIndex = 5;
             this.mainToolTip.SetToolTip(this.txtFldRGCCumulative, "Incremental (from the very begining) RG-11 rain sensor value. Used for narodmon s" +
         "ervice");
             // 
             // txtFldRGC
             // 
-            this.txtFldRGC.Location = new System.Drawing.Point(37, 45);
+            this.txtFldRGC.Location = new System.Drawing.Point(49, 55);
+            this.txtFldRGC.Margin = new System.Windows.Forms.Padding(4);
             this.txtFldRGC.Name = "txtFldRGC";
-            this.txtFldRGC.Size = new System.Drawing.Size(30, 20);
+            this.txtFldRGC.Size = new System.Drawing.Size(39, 22);
             this.txtFldRGC.TabIndex = 4;
             this.mainToolTip.SetToolTip(this.txtFldRGC, "Current RG-11 rain sensor value");
             // 
@@ -510,11 +507,11 @@
             // 
             this.txtRGCLastMin.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtRGCLastMin.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.txtRGCLastMin.Location = new System.Drawing.Point(114, 45);
-            this.txtRGCLastMin.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRGCLastMin.Location = new System.Drawing.Point(152, 55);
+            this.txtRGCLastMin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRGCLastMin.Name = "txtRGCLastMin";
             this.txtRGCLastMin.ReadOnly = true;
-            this.txtRGCLastMin.Size = new System.Drawing.Size(18, 20);
+            this.txtRGCLastMin.Size = new System.Drawing.Size(23, 22);
             this.txtRGCLastMin.TabIndex = 6;
             this.mainToolTip.SetToolTip(this.txtRGCLastMin, "Rain RG-11 sensor status:\r\n\"-\" none\r\n\"now\" - rain was detected during last measur" +
         "e cycle\r\n\"rain\" - rain was detected during last minute (but not during current c" +
@@ -524,37 +521,40 @@
             // 
             this.txtWetLastMin.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtWetLastMin.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.txtWetLastMin.Location = new System.Drawing.Point(114, 19);
-            this.txtWetLastMin.Margin = new System.Windows.Forms.Padding(2);
+            this.txtWetLastMin.Location = new System.Drawing.Point(152, 23);
+            this.txtWetLastMin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtWetLastMin.Name = "txtWetLastMin";
             this.txtWetLastMin.ReadOnly = true;
-            this.txtWetLastMin.Size = new System.Drawing.Size(18, 20);
+            this.txtWetLastMin.Size = new System.Drawing.Size(23, 22);
             this.txtWetLastMin.TabIndex = 2;
             this.mainToolTip.SetToolTip(this.txtWetLastMin, resources.GetString("txtWetLastMin.ToolTip"));
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(8, 48);
+            this.label14.Location = new System.Drawing.Point(11, 59);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(23, 13);
+            this.label14.Size = new System.Drawing.Size(29, 17);
             this.label14.TabIndex = 3;
             this.label14.Text = "RG";
             // 
             // txtFldWet
             // 
-            this.txtFldWet.Location = new System.Drawing.Point(60, 19);
+            this.txtFldWet.Location = new System.Drawing.Point(80, 23);
+            this.txtFldWet.Margin = new System.Windows.Forms.Padding(4);
             this.txtFldWet.Name = "txtFldWet";
-            this.txtFldWet.Size = new System.Drawing.Size(50, 20);
+            this.txtFldWet.Size = new System.Drawing.Size(65, 22);
             this.txtFldWet.TabIndex = 1;
             this.mainToolTip.SetToolTip(this.txtFldWet, "Current wet sensor value");
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 22);
+            this.label2.Location = new System.Drawing.Point(11, 27);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 13);
+            this.label2.Size = new System.Drawing.Size(37, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "Wet:";
             // 
@@ -564,51 +564,58 @@
             this.groupBox7.Controls.Add(this.txtFldTemp2);
             this.groupBox7.Controls.Add(this.label1);
             this.groupBox7.Controls.Add(this.label13);
-            this.groupBox7.Location = new System.Drawing.Point(4, 623);
+            this.groupBox7.Location = new System.Drawing.Point(5, 767);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(134, 74);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox7.Size = new System.Drawing.Size(179, 91);
             this.groupBox7.TabIndex = 23;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Temp sensors";
             // 
             // txtFldTemp1
             // 
-            this.txtFldTemp1.Location = new System.Drawing.Point(60, 19);
+            this.txtFldTemp1.Location = new System.Drawing.Point(80, 23);
+            this.txtFldTemp1.Margin = new System.Windows.Forms.Padding(4);
             this.txtFldTemp1.Name = "txtFldTemp1";
-            this.txtFldTemp1.Size = new System.Drawing.Size(63, 20);
+            this.txtFldTemp1.Size = new System.Drawing.Size(83, 22);
             this.txtFldTemp1.TabIndex = 0;
             // 
             // txtFldTemp2
             // 
-            this.txtFldTemp2.Location = new System.Drawing.Point(60, 45);
+            this.txtFldTemp2.Location = new System.Drawing.Point(80, 55);
+            this.txtFldTemp2.Margin = new System.Windows.Forms.Padding(4);
             this.txtFldTemp2.Name = "txtFldTemp2";
-            this.txtFldTemp2.Size = new System.Drawing.Size(63, 20);
+            this.txtFldTemp2.Size = new System.Drawing.Size(83, 22);
             this.txtFldTemp2.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 45);
+            this.label1.Location = new System.Drawing.Point(11, 55);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(56, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "Temp2:";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(8, 22);
+            this.label13.Location = new System.Drawing.Point(11, 27);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(43, 13);
+            this.label13.Size = new System.Drawing.Size(56, 17);
             this.label13.TabIndex = 3;
             this.label13.Text = "Temp1:";
             // 
             // btnAbout
             // 
             this.btnAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAbout.Location = new System.Drawing.Point(675, 9);
+            this.btnAbout.Location = new System.Drawing.Point(1004, 11);
+            this.btnAbout.Margin = new System.Windows.Forms.Padding(4);
             this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(75, 23);
+            this.btnAbout.Size = new System.Drawing.Size(100, 28);
             this.btnAbout.TabIndex = 13;
             this.btnAbout.Text = "About";
             this.btnAbout.UseVisualStyleBackColor = true;
@@ -664,7 +671,7 @@
             chartArea1.InnerPlotPosition.Auto = false;
             chartArea1.InnerPlotPosition.Height = 80F;
             chartArea1.InnerPlotPosition.Width = 91.87197F;
-            chartArea1.InnerPlotPosition.X = 6.520894F;
+            chartArea1.InnerPlotPosition.X = 5F;
             chartArea1.InnerPlotPosition.Y = 7F;
             chartArea1.IsSameFontSizeForAllAxes = true;
             chartArea1.Name = "ChartArea1_cloud";
@@ -794,7 +801,7 @@
             chartArea5.AxisY2.LineWidth = 0;
             chartArea5.AxisY2.MajorGrid.Enabled = false;
             chartArea5.AxisY2.MajorTickMark.Enabled = false;
-            chartArea5.AxisY2.Maximum = 2D;
+            chartArea5.AxisY2.Maximum = 10D;
             chartArea5.AxisY2.Minimum = 0D;
             chartArea5.BorderColor = System.Drawing.Color.Silver;
             chartArea5.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
@@ -822,7 +829,7 @@
             legend1.IsDockedInsideChartArea = false;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(149, 126);
+            this.chart1.Location = new System.Drawing.Point(188, 155);
             this.chart1.Margin = new System.Windows.Forms.Padding(0);
             this.chart1.Name = "chart1";
             series1.BorderWidth = 3;
@@ -899,9 +906,10 @@
     "IN{D} max:#MAX{D} avg:#AVG{D}\\n";
             series11.ChartArea = "ChartArea5_illum";
             series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series11.Color = System.Drawing.Color.Black;
             series11.Legend = "Legend1";
             series11.Name = "RL1";
-            series11.ToolTip = "Relay (#VAL{D}% at #VALX{dd.MM.yyyy HH:mm})\\n";
+            series11.ToolTip = "Relay (#VAL{D} at #VALX{dd.MM.yyyy HH:mm})\\n";
             series11.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
             series12.ChartArea = "ChartArea3_temp";
             series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
@@ -909,6 +917,14 @@
             series12.Name = "ATemp";
             series12.ToolTip = "Case temp (#VAL{F1} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{F1} \\nmin:#MIN" +
     "{F1} max:#MAX{F1} avg:#AVG{F1}\\n";
+            series13.BorderWidth = 2;
+            series13.ChartArea = "ChartArea5_illum";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series13.Legend = "Legend1";
+            series13.Name = "WindSpeed";
+            series13.ToolTip = "Illuminance (#VAL{D} m/s at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{D} \\nmin:" +
+    "#MIN{D} max:#MAX{D} avg:#AVG{D}\\n";
+            series13.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
             this.chart1.Series.Add(series3);
@@ -921,7 +937,8 @@
             this.chart1.Series.Add(series10);
             this.chart1.Series.Add(series11);
             this.chart1.Series.Add(series12);
-            this.chart1.Size = new System.Drawing.Size(615, 571);
+            this.chart1.Series.Add(series13);
+            this.chart1.Size = new System.Drawing.Size(935, 703);
             this.chart1.TabIndex = 24;
             this.chart1.Text = "CloudSensor";
             title1.DockedToChartArea = "ChartArea1_cloud";
@@ -948,7 +965,7 @@
             title5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             title5.ForeColor = System.Drawing.Color.LightGray;
             title5.Name = "Title5";
-            title5.Text = "Illumination";
+            title5.Text = "Illumination and Wind Speed";
             this.chart1.Titles.Add(title1);
             this.chart1.Titles.Add(title2);
             this.chart1.Titles.Add(title3);
@@ -957,67 +974,77 @@
             // 
             // txtCloudIndex2
             // 
-            this.txtCloudIndex2.Location = new System.Drawing.Point(91, 15);
+            this.txtCloudIndex2.Location = new System.Drawing.Point(121, 18);
+            this.txtCloudIndex2.Margin = new System.Windows.Forms.Padding(4);
             this.txtCloudIndex2.Name = "txtCloudIndex2";
-            this.txtCloudIndex2.Size = new System.Drawing.Size(54, 20);
+            this.txtCloudIndex2.Size = new System.Drawing.Size(71, 22);
             this.txtCloudIndex2.TabIndex = 1;
             // 
             // txtCloudIndex1
             // 
-            this.txtCloudIndex1.Location = new System.Drawing.Point(91, 47);
+            this.txtCloudIndex1.Location = new System.Drawing.Point(121, 58);
+            this.txtCloudIndex1.Margin = new System.Windows.Forms.Padding(4);
             this.txtCloudIndex1.Name = "txtCloudIndex1";
-            this.txtCloudIndex1.Size = new System.Drawing.Size(54, 20);
+            this.txtCloudIndex1.Size = new System.Drawing.Size(71, 22);
             this.txtCloudIndex1.TabIndex = 2;
             // 
             // txtRainCond
             // 
-            this.txtRainCond.Location = new System.Drawing.Point(89, 47);
+            this.txtRainCond.Location = new System.Drawing.Point(119, 58);
+            this.txtRainCond.Margin = new System.Windows.Forms.Padding(4);
             this.txtRainCond.Name = "txtRainCond";
-            this.txtRainCond.Size = new System.Drawing.Size(75, 20);
+            this.txtRainCond.Size = new System.Drawing.Size(99, 22);
             this.txtRainCond.TabIndex = 1;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 25);
+            this.label15.Location = new System.Drawing.Point(4, 31);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(83, 13);
+            this.label15.Size = new System.Drawing.Size(109, 17);
             this.label15.TabIndex = 6;
             this.label15.Text = "Cloud condition:";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(90, 25);
+            this.label16.Location = new System.Drawing.Point(120, 31);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(78, 13);
+            this.label16.Size = new System.Drawing.Size(102, 17);
             this.label16.TabIndex = 11;
             this.label16.Text = "Rain condition:";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(170, 25);
+            this.label17.Location = new System.Drawing.Point(227, 31);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(75, 13);
+            this.label17.Size = new System.Drawing.Size(98, 17);
             this.label17.TabIndex = 11;
             this.label17.Text = "Day condition:";
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.label30);
             this.groupBox8.Controls.Add(this.label19);
             this.groupBox8.Controls.Add(this.label18);
             this.groupBox8.Controls.Add(this.label17);
             this.groupBox8.Controls.Add(this.label16);
             this.groupBox8.Controls.Add(this.label15);
+            this.groupBox8.Controls.Add(this.txtWindCond);
             this.groupBox8.Controls.Add(this.txtWetflag);
             this.groupBox8.Controls.Add(this.txtRainflag);
             this.groupBox8.Controls.Add(this.txtDayCond);
             this.groupBox8.Controls.Add(this.txtCloudCond);
             this.groupBox8.Controls.Add(this.txtRainCond);
-            this.groupBox8.Location = new System.Drawing.Point(2, 41);
+            this.groupBox8.Location = new System.Drawing.Point(3, 50);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(416, 73);
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox8.Size = new System.Drawing.Size(659, 90);
             this.groupBox8.TabIndex = 14;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Boltwood cloud sensor flags state";
@@ -1025,73 +1052,82 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(329, 25);
+            this.label19.Location = new System.Drawing.Point(439, 31);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(50, 13);
+            this.label19.Size = new System.Drawing.Size(64, 17);
             this.label19.TabIndex = 11;
             this.label19.Text = "Wet flag:";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(251, 25);
+            this.label18.Location = new System.Drawing.Point(335, 31);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(52, 13);
+            this.label18.Size = new System.Drawing.Size(68, 17);
             this.label18.TabIndex = 11;
             this.label18.Text = "Rain flag:";
             // 
             // txtWetflag
             // 
-            this.txtWetflag.Location = new System.Drawing.Point(332, 47);
+            this.txtWetflag.Location = new System.Drawing.Point(443, 58);
+            this.txtWetflag.Margin = new System.Windows.Forms.Padding(4);
             this.txtWetflag.Name = "txtWetflag";
-            this.txtWetflag.Size = new System.Drawing.Size(75, 20);
+            this.txtWetflag.Size = new System.Drawing.Size(99, 22);
             this.txtWetflag.TabIndex = 4;
             // 
             // txtRainflag
             // 
-            this.txtRainflag.Location = new System.Drawing.Point(251, 47);
+            this.txtRainflag.Location = new System.Drawing.Point(335, 58);
+            this.txtRainflag.Margin = new System.Windows.Forms.Padding(4);
             this.txtRainflag.Name = "txtRainflag";
-            this.txtRainflag.Size = new System.Drawing.Size(75, 20);
+            this.txtRainflag.Size = new System.Drawing.Size(99, 22);
             this.txtRainflag.TabIndex = 3;
             // 
             // txtDayCond
             // 
-            this.txtDayCond.Location = new System.Drawing.Point(170, 47);
+            this.txtDayCond.Location = new System.Drawing.Point(227, 58);
+            this.txtDayCond.Margin = new System.Windows.Forms.Padding(4);
             this.txtDayCond.Name = "txtDayCond";
-            this.txtDayCond.Size = new System.Drawing.Size(75, 20);
+            this.txtDayCond.Size = new System.Drawing.Size(99, 22);
             this.txtDayCond.TabIndex = 2;
             // 
             // txtCloudCond
             // 
-            this.txtCloudCond.Location = new System.Drawing.Point(6, 47);
+            this.txtCloudCond.Location = new System.Drawing.Point(8, 58);
+            this.txtCloudCond.Margin = new System.Windows.Forms.Padding(4);
             this.txtCloudCond.Name = "txtCloudCond";
-            this.txtCloudCond.Size = new System.Drawing.Size(75, 20);
+            this.txtCloudCond.Size = new System.Drawing.Size(99, 22);
             this.txtCloudCond.TabIndex = 0;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(6, 50);
+            this.label21.Location = new System.Drawing.Point(8, 62);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(76, 13);
+            this.label21.Size = new System.Drawing.Size(99, 17);
             this.label21.TabIndex = 12;
             this.label21.Text = "CloudIdx usual";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(6, 18);
+            this.label20.Location = new System.Drawing.Point(8, 22);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(87, 13);
+            this.label20.Size = new System.Drawing.Size(113, 17);
             this.label20.TabIndex = 0;
             this.label20.Text = "CloudIdx by AAG";
             // 
             // btnSimulate
             // 
             this.btnSimulate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSimulate.Location = new System.Drawing.Point(569, 9);
+            this.btnSimulate.Location = new System.Drawing.Point(863, 11);
+            this.btnSimulate.Margin = new System.Windows.Forms.Padding(4);
             this.btnSimulate.Name = "btnSimulate";
-            this.btnSimulate.Size = new System.Drawing.Size(100, 23);
+            this.btnSimulate.Size = new System.Drawing.Size(133, 28);
             this.btnSimulate.TabIndex = 12;
             this.btnSimulate.Text = "Simulation";
             this.btnSimulate.UseVisualStyleBackColor = true;
@@ -1104,9 +1140,11 @@
             this.groupBox9.Controls.Add(this.label21);
             this.groupBox9.Controls.Add(this.txtCloudIndex2);
             this.groupBox9.Controls.Add(this.label20);
-            this.groupBox9.Location = new System.Drawing.Point(588, 41);
+            this.groupBox9.Location = new System.Drawing.Point(901, 50);
+            this.groupBox9.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(176, 73);
+            this.groupBox9.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox9.Size = new System.Drawing.Size(222, 90);
             this.groupBox9.TabIndex = 16;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Cloud index";
@@ -1120,9 +1158,11 @@
             this.groupBox10.Controls.Add(this.txtSinceHeatingOn);
             this.groupBox10.Controls.Add(this.txtRainLastMinute);
             this.groupBox10.Controls.Add(this.txtSinceHeatingOff);
-            this.groupBox10.Location = new System.Drawing.Point(427, 41);
+            this.groupBox10.Location = new System.Drawing.Point(670, 50);
+            this.groupBox10.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(167, 73);
+            this.groupBox10.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox10.Size = new System.Drawing.Size(223, 90);
             this.groupBox10.TabIndex = 15;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Heating";
@@ -1130,40 +1170,39 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(103, 53);
-            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label22.Location = new System.Drawing.Point(137, 65);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(21, 13);
+            this.label22.Size = new System.Drawing.Size(26, 17);
             this.label22.TabIndex = 4;
             this.label22.Text = "CS";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(103, 15);
-            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label23.Location = new System.Drawing.Point(137, 18);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(29, 13);
+            this.label23.Size = new System.Drawing.Size(37, 17);
             this.label23.TabIndex = 3;
             this.label23.Text = "Rain";
             // 
             // txtCSNeedHeating
             // 
             this.txtCSNeedHeating.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCSNeedHeating.Location = new System.Drawing.Point(132, 50);
-            this.txtCSNeedHeating.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCSNeedHeating.Location = new System.Drawing.Point(176, 62);
+            this.txtCSNeedHeating.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCSNeedHeating.Name = "txtCSNeedHeating";
             this.txtCSNeedHeating.ReadOnly = true;
-            this.txtCSNeedHeating.Size = new System.Drawing.Size(31, 20);
+            this.txtCSNeedHeating.Size = new System.Drawing.Size(40, 22);
             this.txtCSNeedHeating.TabIndex = 6;
             this.mainToolTip.SetToolTip(this.txtCSNeedHeating, resources.GetString("txtCSNeedHeating.ToolTip"));
             // 
             // btnRelay
             // 
             this.btnRelay.Enabled = false;
-            this.btnRelay.Location = new System.Drawing.Point(6, 15);
+            this.btnRelay.Location = new System.Drawing.Point(8, 18);
+            this.btnRelay.Margin = new System.Windows.Forms.Padding(4);
             this.btnRelay.Name = "btnRelay";
-            this.btnRelay.Size = new System.Drawing.Size(88, 29);
+            this.btnRelay.Size = new System.Drawing.Size(117, 36);
             this.btnRelay.TabIndex = 0;
             this.btnRelay.Text = "On";
             this.mainToolTip.SetToolTip(this.btnRelay, "Switch heating relay on");
@@ -1173,33 +1212,33 @@
             // txtSinceHeatingOn
             // 
             this.txtSinceHeatingOn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtSinceHeatingOn.Location = new System.Drawing.Point(6, 50);
-            this.txtSinceHeatingOn.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSinceHeatingOn.Location = new System.Drawing.Point(8, 62);
+            this.txtSinceHeatingOn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSinceHeatingOn.Name = "txtSinceHeatingOn";
             this.txtSinceHeatingOn.ReadOnly = true;
-            this.txtSinceHeatingOn.Size = new System.Drawing.Size(43, 20);
+            this.txtSinceHeatingOn.Size = new System.Drawing.Size(56, 22);
             this.txtSinceHeatingOn.TabIndex = 1;
             this.mainToolTip.SetToolTip(this.txtSinceHeatingOn, "Seconds since last heating relay switching on");
             // 
             // txtRainLastMinute
             // 
             this.txtRainLastMinute.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtRainLastMinute.Location = new System.Drawing.Point(133, 14);
-            this.txtRainLastMinute.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRainLastMinute.Location = new System.Drawing.Point(177, 17);
+            this.txtRainLastMinute.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRainLastMinute.Name = "txtRainLastMinute";
             this.txtRainLastMinute.ReadOnly = true;
-            this.txtRainLastMinute.Size = new System.Drawing.Size(30, 20);
+            this.txtRainLastMinute.Size = new System.Drawing.Size(39, 22);
             this.txtRainLastMinute.TabIndex = 5;
             this.mainToolTip.SetToolTip(this.txtRainLastMinute, "Rain last minute (calcluated on both wet and rain RG-11 sensors)");
             // 
             // txtSinceHeatingOff
             // 
             this.txtSinceHeatingOff.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtSinceHeatingOff.Location = new System.Drawing.Point(52, 50);
-            this.txtSinceHeatingOff.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSinceHeatingOff.Location = new System.Drawing.Point(69, 62);
+            this.txtSinceHeatingOff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSinceHeatingOff.Name = "txtSinceHeatingOff";
             this.txtSinceHeatingOff.ReadOnly = true;
-            this.txtSinceHeatingOff.Size = new System.Drawing.Size(43, 20);
+            this.txtSinceHeatingOff.Size = new System.Drawing.Size(56, 22);
             this.txtSinceHeatingOff.TabIndex = 2;
             this.mainToolTip.SetToolTip(this.txtSinceHeatingOff, "Seconds since last heating relay switching off");
             // 
@@ -1209,117 +1248,126 @@
             // 
             // txtArdSetTD
             // 
-            this.txtArdSetTD.Location = new System.Drawing.Point(234, 0);
-            this.txtArdSetTD.Margin = new System.Windows.Forms.Padding(2);
+            this.txtArdSetTD.Location = new System.Drawing.Point(312, 0);
+            this.txtArdSetTD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtArdSetTD.Name = "txtArdSetTD";
             this.txtArdSetTD.ReadOnly = true;
-            this.txtArdSetTD.Size = new System.Drawing.Size(36, 20);
+            this.txtArdSetTD.Size = new System.Drawing.Size(47, 22);
             this.txtArdSetTD.TabIndex = 8;
             this.mainToolTip.SetToolTip(this.txtArdSetTD, "Actual maximum temperature delta setting as it was read from Arduino ");
             // 
             // txtArdSetWT
             // 
-            this.txtArdSetWT.Location = new System.Drawing.Point(271, 0);
-            this.txtArdSetWT.Margin = new System.Windows.Forms.Padding(2);
+            this.txtArdSetWT.Location = new System.Drawing.Point(361, 0);
+            this.txtArdSetWT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtArdSetWT.Name = "txtArdSetWT";
             this.txtArdSetWT.ReadOnly = true;
-            this.txtArdSetWT.Size = new System.Drawing.Size(36, 20);
+            this.txtArdSetWT.Size = new System.Drawing.Size(47, 22);
             this.txtArdSetWT.TabIndex = 9;
             this.mainToolTip.SetToolTip(this.txtArdSetWT, "Actual heating starting wet threshold setting as it was read from Arduino ");
             // 
             // txtArdSetRT
             // 
-            this.txtArdSetRT.Location = new System.Drawing.Point(235, 20);
-            this.txtArdSetRT.Margin = new System.Windows.Forms.Padding(2);
+            this.txtArdSetRT.Location = new System.Drawing.Point(313, 25);
+            this.txtArdSetRT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtArdSetRT.Name = "txtArdSetRT";
             this.txtArdSetRT.ReadOnly = true;
-            this.txtArdSetRT.Size = new System.Drawing.Size(47, 20);
+            this.txtArdSetRT.Size = new System.Drawing.Size(61, 22);
             this.txtArdSetRT.TabIndex = 10;
             this.mainToolTip.SetToolTip(this.txtArdSetRT, "Actual maximum heating cycle duration setting as it was read from Arduino \r\n");
             // 
             // btnQueryArduinoSettings
             // 
-            this.btnQueryArduinoSettings.Location = new System.Drawing.Point(286, 21);
-            this.btnQueryArduinoSettings.Margin = new System.Windows.Forms.Padding(2);
+            this.btnQueryArduinoSettings.Location = new System.Drawing.Point(381, 26);
+            this.btnQueryArduinoSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnQueryArduinoSettings.Name = "btnQueryArduinoSettings";
-            this.btnQueryArduinoSettings.Size = new System.Drawing.Size(21, 20);
+            this.btnQueryArduinoSettings.Size = new System.Drawing.Size(28, 25);
             this.btnQueryArduinoSettings.TabIndex = 11;
             this.btnQueryArduinoSettings.Text = "?";
             this.mainToolTip.SetToolTip(this.btnQueryArduinoSettings, "Query actual settings from Arduino ");
             this.btnQueryArduinoSettings.UseVisualStyleBackColor = true;
             this.btnQueryArduinoSettings.Click += new System.EventHandler(this.btnQueryArduinoSettings_Click);
             // 
+            // mainToolTip
+            // 
+            this.mainToolTip.AutoPopDelay = 7000;
+            this.mainToolTip.InitialDelay = 500;
+            this.mainToolTip.ReshowDelay = 100;
+            // 
             // txtMinCloudIdx
             // 
-            this.txtMinCloudIdx.Location = new System.Drawing.Point(219, 86);
+            this.txtMinCloudIdx.Location = new System.Drawing.Point(292, 105);
+            this.txtMinCloudIdx.Margin = new System.Windows.Forms.Padding(4);
             this.txtMinCloudIdx.Name = "txtMinCloudIdx";
-            this.txtMinCloudIdx.Size = new System.Drawing.Size(38, 20);
+            this.txtMinCloudIdx.Size = new System.Drawing.Size(49, 22);
             this.txtMinCloudIdx.TabIndex = 4;
             this.mainToolTip.SetToolTip(this.txtMinCloudIdx, "Cloud index");
             // 
             // txtMinRainIdx
             // 
-            this.txtMinRainIdx.Location = new System.Drawing.Point(300, 86);
+            this.txtMinRainIdx.Location = new System.Drawing.Point(400, 105);
+            this.txtMinRainIdx.Margin = new System.Windows.Forms.Padding(4);
             this.txtMinRainIdx.Name = "txtMinRainIdx";
-            this.txtMinRainIdx.Size = new System.Drawing.Size(38, 20);
+            this.txtMinRainIdx.Size = new System.Drawing.Size(49, 22);
             this.txtMinRainIdx.TabIndex = 5;
             this.mainToolTip.SetToolTip(this.txtMinRainIdx, "Wet index");
             // 
             // txtMinTemp
             // 
-            this.txtMinTemp.Location = new System.Drawing.Point(380, 86);
+            this.txtMinTemp.Location = new System.Drawing.Point(509, 105);
+            this.txtMinTemp.Margin = new System.Windows.Forms.Padding(4);
             this.txtMinTemp.Name = "txtMinTemp";
-            this.txtMinTemp.Size = new System.Drawing.Size(38, 20);
+            this.txtMinTemp.Size = new System.Drawing.Size(49, 22);
             this.txtMinTemp.TabIndex = 6;
             this.mainToolTip.SetToolTip(this.txtMinTemp, "Current temperature");
             // 
             // txt0min
             // 
-            this.txt0min.Location = new System.Drawing.Point(2, 9);
-            this.txt0min.Margin = new System.Windows.Forms.Padding(2);
+            this.txt0min.Location = new System.Drawing.Point(3, 11);
+            this.txt0min.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt0min.Name = "txt0min";
             this.txt0min.ReadOnly = true;
-            this.txt0min.Size = new System.Drawing.Size(43, 20);
+            this.txt0min.Size = new System.Drawing.Size(56, 22);
             this.txt0min.TabIndex = 3;
             this.mainToolTip.SetToolTip(this.txt0min, resources.GetString("txt0min.ToolTip"));
             // 
             // txt5min
             // 
-            this.txt5min.Location = new System.Drawing.Point(49, 9);
-            this.txt5min.Margin = new System.Windows.Forms.Padding(2);
+            this.txt5min.Location = new System.Drawing.Point(65, 11);
+            this.txt5min.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt5min.Name = "txt5min";
             this.txt5min.ReadOnly = true;
-            this.txt5min.Size = new System.Drawing.Size(43, 20);
+            this.txt5min.Size = new System.Drawing.Size(56, 22);
             this.txt5min.TabIndex = 4;
             this.mainToolTip.SetToolTip(this.txt5min, resources.GetString("txt5min.ToolTip"));
             // 
             // txt10min
             // 
-            this.txt10min.Location = new System.Drawing.Point(95, 9);
-            this.txt10min.Margin = new System.Windows.Forms.Padding(2);
+            this.txt10min.Location = new System.Drawing.Point(127, 11);
+            this.txt10min.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt10min.Name = "txt10min";
             this.txt10min.ReadOnly = true;
-            this.txt10min.Size = new System.Drawing.Size(43, 20);
+            this.txt10min.Size = new System.Drawing.Size(56, 22);
             this.txt10min.TabIndex = 5;
             this.mainToolTip.SetToolTip(this.txt10min, resources.GetString("txt10min.ToolTip"));
             // 
             // txt15min
             // 
-            this.txt15min.Location = new System.Drawing.Point(142, 9);
-            this.txt15min.Margin = new System.Windows.Forms.Padding(2);
+            this.txt15min.Location = new System.Drawing.Point(189, 11);
+            this.txt15min.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt15min.Name = "txt15min";
             this.txt15min.ReadOnly = true;
-            this.txt15min.Size = new System.Drawing.Size(43, 20);
+            this.txt15min.Size = new System.Drawing.Size(56, 22);
             this.txt15min.TabIndex = 6;
             this.mainToolTip.SetToolTip(this.txt15min, resources.GetString("txt15min.ToolTip"));
             // 
             // txt20min
             // 
-            this.txt20min.Location = new System.Drawing.Point(188, 9);
-            this.txt20min.Margin = new System.Windows.Forms.Padding(2);
+            this.txt20min.Location = new System.Drawing.Point(251, 11);
+            this.txt20min.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt20min.Name = "txt20min";
             this.txt20min.ReadOnly = true;
-            this.txt20min.Size = new System.Drawing.Size(43, 20);
+            this.txt20min.Size = new System.Drawing.Size(56, 22);
             this.txt20min.TabIndex = 7;
             this.mainToolTip.SetToolTip(this.txt20min, resources.GetString("txt20min.ToolTip"));
             // 
@@ -1335,6 +1383,7 @@
             this.pannelMaximum.Controls.Add(this.btnPreferences);
             this.pannelMaximum.Controls.Add(this.btnAbout);
             this.pannelMaximum.Controls.Add(this.btnStart);
+            this.pannelMaximum.Controls.Add(this.groupBox11);
             this.pannelMaximum.Controls.Add(this.groupBox5);
             this.pannelMaximum.Controls.Add(this.groupBox1);
             this.pannelMaximum.Controls.Add(this.groupBox7);
@@ -1345,8 +1394,9 @@
             this.pannelMaximum.Controls.Add(this.groupBox2);
             this.pannelMaximum.Dock = System.Windows.Forms.DockStyle.Top;
             this.pannelMaximum.Location = new System.Drawing.Point(0, 0);
+            this.pannelMaximum.Margin = new System.Windows.Forms.Padding(4);
             this.pannelMaximum.Name = "pannelMaximum";
-            this.pannelMaximum.Size = new System.Drawing.Size(768, 700);
+            this.pannelMaximum.Size = new System.Drawing.Size(1128, 862);
             this.pannelMaximum.TabIndex = 0;
             // 
             // panelDebug
@@ -1360,45 +1410,81 @@
             this.panelDebug.Controls.Add(this.txt10min);
             this.panelDebug.Controls.Add(this.txt5min);
             this.panelDebug.Controls.Add(this.txt0min);
-            this.panelDebug.Location = new System.Drawing.Point(253, 0);
+            this.panelDebug.Location = new System.Drawing.Point(337, 0);
+            this.panelDebug.Margin = new System.Windows.Forms.Padding(4);
             this.panelDebug.Name = "panelDebug";
-            this.panelDebug.Size = new System.Drawing.Size(309, 41);
+            this.panelDebug.Size = new System.Drawing.Size(412, 50);
             this.panelDebug.TabIndex = 25;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.txtFldWSpeed);
+            this.groupBox11.Controls.Add(this.label31);
+            this.groupBox11.Location = new System.Drawing.Point(3, 600);
+            this.groupBox11.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox11.Size = new System.Drawing.Size(181, 58);
+            this.groupBox11.TabIndex = 21;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "WindSensor";
+            // 
+            // txtFldWSpeed
+            // 
+            this.txtFldWSpeed.Location = new System.Drawing.Point(80, 24);
+            this.txtFldWSpeed.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFldWSpeed.Name = "txtFldWSpeed";
+            this.txtFldWSpeed.Size = new System.Drawing.Size(83, 22);
+            this.txtFldWSpeed.TabIndex = 0;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(11, 27);
+            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(53, 17);
+            this.label31.TabIndex = 3;
+            this.label31.Text = "Speed:";
             // 
             // pannelMinimum
             // 
-            this.pannelMinimum.AutoSize = true;
             this.pannelMinimum.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pannelMinimum.Controls.Add(this.btnIndRelay);
             this.pannelMinimum.Controls.Add(this.btnIndRain);
             this.pannelMinimum.Controls.Add(this.btnIndCloud);
+            this.pannelMinimum.Controls.Add(this.label9);
             this.pannelMinimum.Controls.Add(this.label26);
             this.pannelMinimum.Controls.Add(this.label25);
+            this.pannelMinimum.Controls.Add(this.txtMinWind);
             this.pannelMinimum.Controls.Add(this.label24);
             this.pannelMinimum.Controls.Add(this.txtMinTemp);
             this.pannelMinimum.Controls.Add(this.txtMinRainIdx);
             this.pannelMinimum.Controls.Add(this.txtMinCloudIdx);
             this.pannelMinimum.Controls.Add(this.btnStart_min);
             this.pannelMinimum.Controls.Add(this.chart2);
-            this.pannelMinimum.Location = new System.Drawing.Point(0, 705);
+            this.pannelMinimum.Location = new System.Drawing.Point(0, 868);
+            this.pannelMinimum.Margin = new System.Windows.Forms.Padding(4);
             this.pannelMinimum.Name = "pannelMinimum";
-            this.pannelMinimum.Size = new System.Drawing.Size(764, 109);
+            this.pannelMinimum.Size = new System.Drawing.Size(1128, 134);
             this.pannelMinimum.TabIndex = 1;
             // 
             // btnIndRelay
             // 
             this.btnIndRelay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.btnIndRelay.Controls.Add(this.label29);
-            this.btnIndRelay.Location = new System.Drawing.Point(4, 54);
+            this.btnIndRelay.Location = new System.Drawing.Point(5, 66);
+            this.btnIndRelay.Margin = new System.Windows.Forms.Padding(4);
             this.btnIndRelay.Name = "btnIndRelay";
-            this.btnIndRelay.Size = new System.Drawing.Size(50, 21);
+            this.btnIndRelay.Size = new System.Drawing.Size(66, 25);
             this.btnIndRelay.TabIndex = 31;
             // 
             // label29
             // 
-            this.label29.Location = new System.Drawing.Point(1, 3);
+            this.label29.Location = new System.Drawing.Point(1, 4);
+            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(46, 13);
+            this.label29.Size = new System.Drawing.Size(61, 16);
             this.label29.TabIndex = 0;
             this.label29.Text = "Relay";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1407,16 +1493,18 @@
             // 
             this.btnIndRain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.btnIndRain.Controls.Add(this.label28);
-            this.btnIndRain.Location = new System.Drawing.Point(4, 28);
+            this.btnIndRain.Location = new System.Drawing.Point(5, 34);
+            this.btnIndRain.Margin = new System.Windows.Forms.Padding(4);
             this.btnIndRain.Name = "btnIndRain";
-            this.btnIndRain.Size = new System.Drawing.Size(50, 21);
+            this.btnIndRain.Size = new System.Drawing.Size(66, 25);
             this.btnIndRain.TabIndex = 31;
             // 
             // label28
             // 
-            this.label28.Location = new System.Drawing.Point(1, 3);
+            this.label28.Location = new System.Drawing.Point(1, 4);
+            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(46, 13);
+            this.label28.Size = new System.Drawing.Size(61, 16);
             this.label28.TabIndex = 0;
             this.label28.Text = "Rain";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1425,16 +1513,18 @@
             // 
             this.btnIndCloud.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.btnIndCloud.Controls.Add(this.label27);
-            this.btnIndCloud.Location = new System.Drawing.Point(4, 3);
+            this.btnIndCloud.Location = new System.Drawing.Point(5, 4);
+            this.btnIndCloud.Margin = new System.Windows.Forms.Padding(4);
             this.btnIndCloud.Name = "btnIndCloud";
-            this.btnIndCloud.Size = new System.Drawing.Size(50, 21);
+            this.btnIndCloud.Size = new System.Drawing.Size(66, 25);
             this.btnIndCloud.TabIndex = 31;
             // 
             // label27
             // 
-            this.label27.Location = new System.Drawing.Point(1, 3);
+            this.label27.Location = new System.Drawing.Point(1, 4);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(46, 13);
+            this.label27.Size = new System.Drawing.Size(61, 16);
             this.label27.TabIndex = 0;
             this.label27.Text = "Cloud";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1442,35 +1532,39 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(344, 89);
+            this.label26.Location = new System.Drawing.Point(458, 108);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(37, 13);
+            this.label26.Size = new System.Drawing.Size(48, 17);
             this.label26.TabIndex = 30;
             this.label26.Text = "Temp:";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(264, 89);
+            this.label25.Location = new System.Drawing.Point(355, 108);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(30, 13);
+            this.label25.Size = new System.Drawing.Size(37, 17);
             this.label25.TabIndex = 30;
             this.label25.Text = "Wet:";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(166, 89);
+            this.label24.Location = new System.Drawing.Point(219, 108);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(51, 13);
+            this.label24.Size = new System.Drawing.Size(65, 17);
             this.label24.TabIndex = 30;
             this.label24.Text = "CloudIdx:";
             // 
             // btnStart_min
             // 
-            this.btnStart_min.Location = new System.Drawing.Point(4, 84);
+            this.btnStart_min.Location = new System.Drawing.Point(5, 103);
+            this.btnStart_min.Margin = new System.Windows.Forms.Padding(4);
             this.btnStart_min.Name = "btnStart_min";
-            this.btnStart_min.Size = new System.Drawing.Size(60, 22);
+            this.btnStart_min.Size = new System.Drawing.Size(80, 27);
             this.btnStart_min.TabIndex = 3;
             this.btnStart_min.Text = "Start";
             this.btnStart_min.UseVisualStyleBackColor = true;
@@ -1478,6 +1572,8 @@
             // 
             // chart2
             // 
+            this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chart2.BackColor = System.Drawing.Color.Transparent;
             this.chart2.BorderlineColor = System.Drawing.Color.LightGray;
             this.chart2.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
@@ -1536,18 +1632,18 @@
             chartArea6.Position.X = 1F;
             chartArea6.Position.Y = 1F;
             this.chart2.ChartAreas.Add(chartArea6);
-            this.chart2.Location = new System.Drawing.Point(64, 0);
+            this.chart2.Location = new System.Drawing.Point(85, 0);
             this.chart2.Margin = new System.Windows.Forms.Padding(0);
             this.chart2.Name = "chart2";
-            series13.BorderWidth = 3;
-            series13.ChartArea = "ChartArea1_cloud";
-            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series13.Name = "CloudIndex";
-            series13.ToolTip = "Cloud index (#VAL{F1} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{F1} \\nmin:#M" +
+            series14.BorderWidth = 3;
+            series14.ChartArea = "ChartArea1_cloud";
+            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series14.Name = "CloudIndex";
+            series14.ToolTip = "Cloud index (#VAL{F1} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{F1} \\nmin:#M" +
     "IN{F1} max:#MAX{F1} avg:#AVG{F1}";
-            series13.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            this.chart2.Series.Add(series13);
-            this.chart2.Size = new System.Drawing.Size(700, 78);
+            series14.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            this.chart2.Series.Add(series14);
+            this.chart2.Size = new System.Drawing.Size(1034, 96);
             this.chart2.TabIndex = 7;
             this.chart2.Text = "CloudSensor";
             // 
@@ -1566,37 +1662,74 @@
             this.toolStripSeparator1,
             this.toolStripMenuItem_exit});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(104, 54);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(115, 58);
             // 
             // toolStripMenuItem_open
             // 
             this.toolStripMenuItem_open.Name = "toolStripMenuItem_open";
-            this.toolStripMenuItem_open.Size = new System.Drawing.Size(103, 22);
+            this.toolStripMenuItem_open.Size = new System.Drawing.Size(114, 24);
             this.toolStripMenuItem_open.Text = "Open";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(100, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(111, 6);
             // 
             // toolStripMenuItem_exit
             // 
             this.toolStripMenuItem_exit.Name = "toolStripMenuItem_exit";
-            this.toolStripMenuItem_exit.Size = new System.Drawing.Size(103, 22);
+            this.toolStripMenuItem_exit.Size = new System.Drawing.Size(114, 24);
             this.toolStripMenuItem_exit.Text = "Exit";
+            // 
+            // txtMinWind
+            // 
+            this.txtMinWind.Location = new System.Drawing.Point(633, 105);
+            this.txtMinWind.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMinWind.Name = "txtMinWind";
+            this.txtMinWind.Size = new System.Drawing.Size(49, 22);
+            this.txtMinWind.TabIndex = 6;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(585, 108);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 17);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Wind:";
+            // 
+            // txtWindCond
+            // 
+            this.txtWindCond.Location = new System.Drawing.Point(550, 58);
+            this.txtWindCond.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWindCond.Name = "txtWindCond";
+            this.txtWindCond.Size = new System.Drawing.Size(99, 22);
+            this.txtWindCond.TabIndex = 4;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(547, 31);
+            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(105, 17);
+            this.label30.TabIndex = 11;
+            this.label30.Text = "Wind condition:";
             // 
             // MainForm
             // 
             this.AcceptButton = this.btnStart;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(768, 832);
+            this.ClientSize = new System.Drawing.Size(1128, 1024);
             this.Controls.Add(this.pannelMinimum);
             this.Controls.Add(this.pannelMaximum);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(1920, 940);
-            this.MinimumSize = new System.Drawing.Size(702, 740);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(2554, 1146);
+            this.MinimumSize = new System.Drawing.Size(930, 900);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Weather Staion";
@@ -1629,6 +1762,8 @@
             this.pannelMaximum.ResumeLayout(false);
             this.panelDebug.ResumeLayout(false);
             this.panelDebug.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.pannelMinimum.ResumeLayout(false);
             this.pannelMinimum.PerformLayout();
             this.btnIndRelay.ResumeLayout(false);
@@ -1662,9 +1797,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox txtFldIllum;
-        private System.Windows.Forms.TextBox txtFldLumRes;
-        private System.Windows.Forms.TextBox txtFldIllumRes;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox txtFldObj;
@@ -1681,8 +1813,6 @@
         private System.Windows.Forms.TextBox txtFldTemp2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtFldLumWTime;
-        private System.Windows.Forms.TextBox txtFldLumSen;
         private System.Windows.Forms.Button btnAbout;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.TextBox txtFldRGC;
@@ -1750,6 +1880,13 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Panel btnIndRelay;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.TextBox txtFldWSpeed;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtMinWind;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox txtWindCond;
     }
 }
 

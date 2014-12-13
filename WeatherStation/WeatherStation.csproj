@@ -74,6 +74,12 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\SQLite.NET\bin\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\SQLite.NET\bin\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -91,6 +97,7 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="Datastorage.cs" />
     <Compile Include="MainForm2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +196,9 @@
     <Content Include="favicon.ico" />
     <None Include="Resources\favicon.ico" />
     <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

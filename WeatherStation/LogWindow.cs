@@ -31,6 +31,8 @@ namespace WeatherStation
         /// <param name="LogText"></param>
         public void AppendLogText(string LogText, bool newLineFeed=true)
         {
+            Logging.Log("Main.AppendLogText enter", 3);
+
             caretPos = txtLog.SelectionStart;
             txtLog.AppendText(DateTime.Now.ToString("HH:mm:ss dd.MM.yy") +": ");
             txtLog.AppendText(LogText);
@@ -46,6 +48,7 @@ namespace WeatherStation
                 txtLog.Lines = newLines.ToArray();
 
                 //LogForm.txtLog.Text = LogForm.txtLog.Text.Substring(LogForm.txtLog.Text.Length - MAX_LOG_LENGTH);
+                Logging.Log("Main.AppendLogText exit", 3);
             }
         }
 

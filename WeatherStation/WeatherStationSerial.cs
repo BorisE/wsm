@@ -7,7 +7,12 @@ using System.IO.Ports;
 using System.IO;
 using System.Windows.Forms;
 
-public enum SensorTypeEnum { Temp, Press, Hum, Illum, Wet, RGC, Relay };
+/// <summary>
+/// Custom data types
+/// </summary>
+#region Custom data types for Sensors, Boltwood and so on
+
+public enum SensorTypeEnum { Temp, Press, Hum, Illum, Wet, RGC, Relay, WSp };
 
 /// <summary>
 /// Boltwood Data Types
@@ -78,6 +83,8 @@ public class ArduinoSettingsClass
     public DateTime ReadTime = new DateTime();
 }
 
+#endregion
+
 namespace WeatherStation
 {
     public class WeatherStationSerial
@@ -117,36 +124,28 @@ namespace WeatherStation
         #endregion
 
         /// <summary>
-        /// Fields for sensor data (almost obsolete...)
+        /// OBSOLETE Fields for sensor data
         /// </summary>        
-        #region SensorData Fields 
+        #region Obsolete SensorData Fields 
         public double ObjTemp_ = -100.0;
         public double ATemp_ = -100.0; 
-       
-        public double CloudIdx = -100.0;
-        public double CloudIdxCorr = -100.0;
 
         public double BTemp_ = -100.0;
         public double Press_ = 0.0;
 
         public double Hum1_ = -1.0;
-        public double DTemp1 = -100.0;
+        public double DTemp1_ = -100.0;
 
         public double Hum2_ = -1.0;
         public double DTemp2_ = -100.0;
 
         public double Illum_ = -1.0;
-        public int LumRes = 0;
-        public int LumSens = 0;
-        public int LumWTime = 0;
+
 
         public double Temp1_ = -100.0;
         public double Temp2_ = -100.0;
 
         public int Wet_ = 1025;
-        public int RGCVal = 0;
-
-        public double WindSpeed = 0.0;
         #endregion
 
         /// <summary>
@@ -169,19 +168,34 @@ namespace WeatherStation
             { "Illum", SensorTypeEnum.Illum },
             { "Wet", SensorTypeEnum.Wet },
             { "RGC", SensorTypeEnum.RGC },
+            { "WSp", SensorTypeEnum.WSp },
             { "Relay", SensorTypeEnum.Relay }
         };
         #endregion
 
         /// <summary>
-        /// Different sensors settings
+        /// Sensors vars and misc settings
         /// </summary>        
         #region Different sensor settings
+        public double CloudIdx = -100.0;
+        public double CloudIdxCorr = -100.0;        
+        
         public double IllumVal = -1.0;
         public double ObjTempVal = -100.0;
         public double SensorCaseTempVal = -100.0;
         public double HumidityVal = -1.0;
+
+        public int LumRes = 0;
+        public int LumSens = 0;
+        public int LumWTime = 0;
+        
+        public int WindSensorVal = 0;
+        public double WindSpeedVal = 0;
+
+        public Int16 WindSpeed_ZeroSpeedValue = 83;
+
         public int WetVal = 1025;
+        public int RGCVal = 0;
         public double RainIntensityVal = 0.0;
 
         public double RGC_Cumulative = 0;
@@ -194,13 +208,19 @@ namespace WeatherStation
         public string SketchVersion = "";
         public string SketchVersionDate = "";
 
-        public WetSensorsMode RainConditionMode = WetSensorsMode.wetSensBoth;
-        public bool Rain_LastMinuteFlag = false;
-        public bool RGCRain_LastMinute = false;
-        public RainCond WetRain_LastMinute = RainCond.rainUnknown;
-        public bool Rain_NowFlag = false;
-        public bool RGCRain_Now = false;
-        public RainCond WetRain_Now = RainCond.rainUnknown;
+        public WetSensorsMode RainConditionMode = WetSensorsMode.wetSensBoth; //Rain condition determining
+        public Dictionary<string, WetSensorsMode> WetSensorsModeDictionary = new Dictionary<string, WetSensorsMode>(){
+                {"Use both", WetSensorsMode.wetSensBoth     },
+                {"Wet only", WetSensorsMode.wetSensWetOnly  },
+                {"RGC only", WetSensorsMode.wetSensRGCOnly  }
+          };
+
+        public bool RainLastMinute_Flag = false;
+            public bool RainLastMinute_RGC_Flag = false;
+            public RainCond RainLastMinute_WetS_FlagC = RainCond.rainUnknown;
+        public bool RainNow_Flag = false;
+            public bool RainNow_RGC_Flag = false;
+            public RainCond RainNow_WetS_FlagC = RainCond.rainUnknown;
 
         /// Array wich holds 5 min average for cloud index every fivth minute of last hour (0:05, 0:10, 0:15, 0:20 etc)
         private const int SKYSENSOR_HISTORY_LENGTH = 12;
@@ -286,6 +306,14 @@ namespace WeatherStation
         #endregion
 
         /// <summary>
+        /// Limits for wins speed
+        /// </summary>        
+        #region Windspeed sensor limits
+        public double WINDSPEED_WINDY = 15 / 3.6; //15 kph - 4.2 m/s
+        public double WINDSPEED_VERYWINDY = 30 / 3.6; //30 kph - 8.3 m/s
+        #endregion
+        
+        /// <summary>
         /// Coefficients for AAG cloud index model
         /// </summary>        
         #region Coefficients for AAG cloud index model
@@ -333,7 +361,9 @@ namespace WeatherStation
         /// </summary>     
         public void initSensorArray()
         {
-            Int16 nI=-1;
+            Logging.Log("initSensorArray enter", 3);
+
+            Int16 nI = -1;
             //MLX
             nI++;
             SensorsArray[nI] = new SensorElement();
@@ -491,6 +521,19 @@ namespace WeatherStation
             SensorsArray[nI].SensorFormField = "";
             SensorsArray[nI].SensorArduinoField = "RL1";
             SensorsArray[nI].WebCustomName="rl1";
+
+            //Wind Speed
+            nI++;
+            SensorsArray[nI] = new SensorElement();
+            SensorsArray[nI].SensorName = "WSp";
+            SensorsArray[nI].SensorType = SensorTypeEnum.WSp;
+            SensorsArray[nI].Enabled = true;
+            SensorsArray[nI].SendToWebFlag = true;
+            SensorsArray[nI].SendToNarodMon = true;
+            SensorsArray[nI].SensorFormField = "";
+            SensorsArray[nI].SensorArduinoField = "WnV";
+            SensorsArray[nI].WebCustomName = "wns";
+            
             
             //Make hash tables
             int SensIdx=-1;
@@ -514,6 +557,9 @@ namespace WeatherStation
 /*
             public double WindSpeed = 0.0;
 */
+
+            Logging.Log("initSensorArray exit", 3);
+        
         }
 
         /// <summary>
@@ -521,12 +567,15 @@ namespace WeatherStation
         /// </summary>        
         public void searchSensors()
         {
+            Logging.Log("searchSensors enter", 3);
+
             foreach (SensorElement DataSensor in SensorsArray)
             {
                 if (DataSensor != null)
                 {
                 }
             }
+            Logging.Log("searchSensors exit", 3);
         }
 
         /// <summary>
@@ -536,6 +585,8 @@ namespace WeatherStation
         {
             comport.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
             //comport.PinChanged += new SerialPinChangedEventHandler(comport_PinChanged);
+            Logging.Log("Comport DataReceived event handler was set", 2);
+
         }
 
         /// <summary>
@@ -553,6 +604,9 @@ namespace WeatherStation
             comport.DtrEnable = true; //to reset Arduino on connect
 
             LastTimeDataRead = DateTime.Now;
+
+            Logging.Log("Comport settings were set", 2);
+
         }
 
         /// <summary>
@@ -561,6 +615,7 @@ namespace WeatherStation
         public bool startReadData()
         {
             bool error = false;
+            Logging.Log("startReadData command issued", 2);
 
             // If the port is not open
             if (!comport.IsOpen)
@@ -572,6 +627,7 @@ namespace WeatherStation
 
                     // Open the port
                     comport.Open();
+                    Logging.Log("Comport was opened", 2);
 
                     sendParametersToSerial();
                     getParametersToSerial();
@@ -583,6 +639,7 @@ namespace WeatherStation
             }
             if (error)
             {
+                Logging.Log("Couldn't open comport", 2);
                 return false;
             }
             else
@@ -597,6 +654,7 @@ namespace WeatherStation
         public bool stopReadData()
         {
             bool error=false;
+            Logging.Log("stopReadData command issued", 2);
             
             // If the port is open, close it.
             if (comport.IsOpen)
@@ -605,6 +663,7 @@ namespace WeatherStation
                 {
                     // Close the port
                     comport.Close();
+                    Logging.Log("Comport was closed", 2);
                 }
                 catch (UnauthorizedAccessException) { error = true; }
                 catch (IOException) { error = true; }
@@ -613,6 +672,7 @@ namespace WeatherStation
             }
             if (error)
             {
+                Logging.Log("Couldn't close comport", 2);
                 return false;
             }
             else
@@ -646,8 +706,11 @@ namespace WeatherStation
             if (SerialBuffer.Length > MAX_BUFFER_LEN) 
             {
                 SerialBuffer = SerialBuffer.Substring((Int16)(SerialBuffer.Length - MAX_BUFFER_LEN));
+                Logging.Log("SerialBuffer was cut to " + MAX_BUFFER_LEN, 3);
+
             }
 
+            Logging.Log("SerialBuffer data was received", 3);
             LastTimeDataRead = DateTime.Now;
         }
 
@@ -675,8 +738,10 @@ namespace WeatherStation
                 if (SerialBuffer.Length > MAX_BUFFER_LEN)
                 {
                     SerialBuffer = SerialBuffer.Substring((Int16)(SerialBuffer.Length - MAX_BUFFER_LEN));
+                    Logging.Log("SerialBuffer was cut to " + MAX_BUFFER_LEN, 3);
                 }
 
+                Logging.Log("SerialBuffer data was received", 3);
                 LastTimeDataRead = DateTime.Now;
                 
                 return false;
@@ -702,7 +767,7 @@ namespace WeatherStation
             }
             catch
             {
-                Logging.Log("Error writing command " + "(" + CommandSt + ") to to serial");
+                Logging.Log("Error writing command " + "(" + CommandSt + ") to serial");
                 return false;
             }
         }
@@ -723,6 +788,9 @@ namespace WeatherStation
             St = "(!RT:" + Convert.ToString(HEATER_MAX_DURATION) + ")" + Environment.NewLine;
             CommandStr += "out: " + St;
             bool retval3 = WriteSerialData(St);
+
+            Logging.Log("sendParametersToSerial (overload) was sent", 3);
+            
             return (retval1 && retval2 && retval3);
         }
         /// <summary>
@@ -741,6 +809,9 @@ namespace WeatherStation
             St = "(!RT:" + Convert.ToString(HEATER_MAX_DURATION) + ")" + Environment.NewLine;
             StAll += St;
             bool retval3 = WriteSerialData(St);
+
+            Logging.Log("sendParametersToSerial was sent", 3);
+
             return (retval1 && retval2 && retval3);
         }
 
@@ -751,6 +822,8 @@ namespace WeatherStation
         public bool getParametersToSerial()
         {
             bool retval1 = WriteSerialData("(!?S)"+Environment.NewLine);
+
+            Logging.Log("getParametersToSerial command was sent", 3);
 
             return retval1;
         }
@@ -782,13 +855,18 @@ namespace WeatherStation
         /// </summary>        
         public void CheckIfDataReceiving()
         {
-            if (SinceLastDataReceived() > MAX_WAIT_DATA_INTERVAL)
+            uint PassedSinceReceiving = SinceLastDataReceived();
+            if (PassedSinceReceiving > MAX_WAIT_DATA_INTERVAL)
             {
                 //restart connection
-                Logging.Log("Waiting too long for data (" + MAX_WAIT_DATA_INTERVAL+"). Restarting connection to COM port...");
+                Logging.Log("Waiting too long for data (" + PassedSinceReceiving + "). Restarting connection to COM port...");
                 stopReadData();
                 System.Threading.Thread.Sleep(2000);
                 startReadData();
+            }
+            else
+            {
+                Logging.Log("CheckIfDataReceiving is ok. Passed since last receive: " + PassedSinceReceiving + "", 3);
             }
         }
 
@@ -860,7 +938,7 @@ namespace WeatherStation
 
                             //BASE TEMP SENSOR SETTING
                             try{
-                                if (SensorsArray[SensorsArrayHashArduino[tagName]].SensorName == BaseTempName)
+                                if (SensorsArrayHashArduino.ContainsKey(tagName) && SensorsArray[SensorsArrayHashArduino[tagName]].SensorName == BaseTempName)
                                 {
                                     if (CheckData(SensorsArray[BaseTempIdx].LastValue, SensorTypeEnum.Temp))
                                     {
@@ -885,7 +963,11 @@ namespace WeatherStation
                                     LastHeatingSwitchOff = DateTime.Now;
                                 }
                                 Relay1=Relay1_n;
-
+                            }
+                            else if (tagName == "WnV")
+                            {
+                                WindSensorVal = Convert.ToInt16(tagValue);
+                                WindSpeedVal = CalcWindSpeed(WindSensorVal);
                             }
                             else if (tagName == "Lur")
                             {
@@ -963,6 +1045,8 @@ namespace WeatherStation
         /// </summary>
         private void MakeSensorsCalculations()
         {
+            Logging.Log("MakeSensorsCalculations enter", 3);
+
             //FIX THE MOMENT OF MEASURE FOR BOLWOOD CS DATA SINCE LAST MEASURE
             LastMeasure = DateTime.Now;
 
@@ -1015,6 +1099,9 @@ namespace WeatherStation
             
             //CALC RAIN STATUS
             GetRainingCondition();
+
+            Logging.Log("MakeSensorsCalculations exit", 3);
+
         }
 
         /// <summary>
@@ -1022,6 +1109,8 @@ namespace WeatherStation
         /// </summary>
         public void CheckIfSkySensorHeatingNeeded()
         {
+            Logging.Log("CheckIfSkySensorHeatingNeeded enter", 3);
+
             CloudSensorNeedHeatingFlag = false;
 
             // Check - if cloud sensor values are in given interval?
@@ -1063,7 +1152,7 @@ namespace WeatherStation
             bool CSNeedsHeating_HumidityMet = (SensorsArray[SensorsArrayHash["Hum1"]].LastValue >= 99.9); //high humidity
 
             //Check - is it raining now?
-            bool CSNeedsHeating_NotRainingMet = ( !Rain_LastMinuteFlag ); //no rain in last minute
+            bool CSNeedsHeating_NotRainingMet = ( !RainLastMinute_Flag ); //no rain in last minute
 
             //Check - is it dark?
             bool CSNeedsHeating_DarknessMet = (IllumVal <= DAYLIGHT_DARK_LIMIT && IllumVal >= 0); //is it dark now?
@@ -1076,6 +1165,8 @@ namespace WeatherStation
                 //Switch on
                 HeatingOn();
             }
+
+            Logging.Log("CheckIfSkySensorHeatingNeeded exit", 3);
         }
 
         /// <summary>
@@ -1104,8 +1195,13 @@ namespace WeatherStation
         /// </summary>
         public void WriteBolwoodFile()
         {
+            Logging.Log("WriteBolwoodFile enter", 3);
+
             //Сохранение Boltwood файла
             Logging.WirteBoltwoodData(getBoltwoodString());
+
+            Logging.Log("WriteBolwoodFile exit", 3);
+
         }
 
         /// <summary>
@@ -1113,8 +1209,12 @@ namespace WeatherStation
         /// </summary>
         public void WriteCSV()
         {
+            Logging.Log("WriteCSV enter", 3);
+
             //Сохранение CSV файла
             Logging.LogData(getCSVline(), getCSVHeaderline());
+
+            Logging.Log("WriteCSV exit", 3);
         }
 
         /// <summary>
@@ -1122,6 +1222,8 @@ namespace WeatherStation
         /// </summary>   
         public string getBoltwoodString_old()
         {
+            Logging.Log("getBoltwoodString_old enter. This should never happened!", 3);
+
             //Calculations for boltwood
             Bolt_DewPoint = DewPoint(BaseTempVal, HumidityVal);
 
@@ -1206,7 +1308,7 @@ namespace WeatherStation
 
             //Making boltwood string
             string bold_st = String.Format("{0,10} {1,11} C K {2,6:N1} {3,6:N1} {4,6:N1} {5,6:N1} {6,3:N0} {7,6:N1} {8,3:N0} {9,1:N0} {10,1:N0} {11,5:N0} {12,12:F5} {13,1:N0} {14,1:N0} {15,1:N0} {16,1:N0} {17,1:N0} {18,1:N0}",
-                Bolt_date, Bolt_time, ObjTempVal, BaseTempVal, SensorCaseTempVal, WindSpeed, HumidityVal, Bolt_DewPoint, Bolt_Heater,
+                Bolt_date, Bolt_time, ObjTempVal, BaseTempVal, SensorCaseTempVal, WindSpeedVal, HumidityVal, Bolt_DewPoint, Bolt_Heater,
                 (int)Bolt_RainFlag, (int)Bolt_WetFlag, Bolt_SinceLastMeasure.ToString("00000"), Bolt_now.ToString("000000.#####"),
                 (int)Bolt_CloudCond, (int)Bolt_WindCond, (int)Bolt_RainCond, (int)Bolt_DaylighCond, (int)Bolt_RoofCloseFlag, (int)Bolt_AlertFlag);
 
@@ -1219,6 +1321,8 @@ namespace WeatherStation
         /// </summary>   
         public string getBoltwoodString()
         {
+            Logging.Log("getBoltwoodString enter", 3);
+
             //Calculations for boltwood
             Bolt_DewPoint = DewPoint(BaseTempVal, HumidityVal);
 
@@ -1239,8 +1343,11 @@ namespace WeatherStation
             else if (CloudIdx >= CLOUDINDEX_CLOUDY_BAD) { Bolt_CloudCond = CloudCond.cloudVeryCloudy; }
 
             //Bolt_WindCond: windCalm, windWindy, windVeryWindy
-            //not implemented yet
             Bolt_WindCond = WindCond.windUnknown;
+            if (WindSpeedVal >= WINDSPEED_VERYWINDY) { Bolt_WindCond = WindCond.windVeryWindy; }
+            else if (WindSpeedVal >= WINDSPEED_WINDY) { Bolt_WindCond = WindCond.windWindy; }
+            else if (WindSpeedVal < 0) { Bolt_WindCond = WindCond.windUnknown; }
+            else { Bolt_WindCond = WindCond.windCalm; }
 
             TimeSpan MeasureIntervalWF = DateTime.Now.Subtract(Bolt_WetFlag_LastDetected);
             Bolt_WetFlag_sinceLastDetected = (ushort)Math.Round(MeasureIntervalWF.TotalSeconds, 0);
@@ -1248,7 +1355,7 @@ namespace WeatherStation
             Bolt_RainFlag_sinceLastDetected = (ushort)Math.Round(MeasureIntervalRF.TotalSeconds, 0);
 
             //Rain condition & Bolt_RainFlag + Bolt_WetFlag
-            if (Rain_NowFlag)
+            if (RainNow_Flag)
             {
             //RAIN
                 Bolt_RainCond = RainCond.rainRain;
@@ -1259,14 +1366,14 @@ namespace WeatherStation
                 Bolt_WetFlag = WetFlag.wetFlagRightnow;
                 Bolt_WetFlag_LastDetected = DateTime.Now;
             }
-            else if (WetRain_Now == RainCond.rainWet)
+            else if (!RainNow_Flag && RainNow_WetS_FlagC == RainCond.rainWet)
             {
             //WET
                 Bolt_RainCond = RainCond.rainWet;
                 Bolt_WetFlag = WetFlag.wetFlagRightnow;
                 Bolt_WetFlag_LastDetected = DateTime.Now;
             }
-            else if (WetRain_Now == RainCond.rainDry)
+            else
             {
             //DRY
                 Bolt_RainCond = RainCond.rainDry;
@@ -1290,9 +1397,11 @@ namespace WeatherStation
 
             //Making boltwood string
             string bold_st = String.Format("{0,10} {1,11} C K {2,6:N1} {3,6:N1} {4,6:N1} {5,6:N1} {6,3:N0} {7,6:N1} {8,3:N0} {9,1:N0} {10,1:N0} {11,5:N0} {12,12:F5} {13,1:N0} {14,1:N0} {15,1:N0} {16,1:N0} {17,1:N0} {18,1:N0}",
-                Bolt_date, Bolt_time, ObjTempVal, BaseTempVal, SensorCaseTempVal, WindSpeed, HumidityVal, Bolt_DewPoint, Bolt_Heater,
+                Bolt_date, Bolt_time, ObjTempVal, BaseTempVal, SensorCaseTempVal, WindSpeedVal, HumidityVal, Bolt_DewPoint, Bolt_Heater,
                 (int)Bolt_RainFlag, (int)Bolt_WetFlag, Bolt_SinceLastMeasure.ToString("00000"), Bolt_now.ToString("000000.#####"),
                 (int)Bolt_CloudCond, (int)Bolt_WindCond, (int)Bolt_RainCond, (int)Bolt_DaylighCond, (int)Bolt_RoofCloseFlag, (int)Bolt_AlertFlag);
+
+            Logging.Log("getBoltwoodString exit", 3);
 
             return bold_st;
         }
@@ -1303,6 +1412,8 @@ namespace WeatherStation
         /// </summary>   
         public string getCSVline()
         {
+            Logging.Log("getCSVline enter", 3);
+
             //Строка CSV файла
             string st = "";
 
@@ -1318,7 +1429,8 @@ namespace WeatherStation
                     }
                 }
             }
-            
+
+            Logging.Log("getCSVline exit", 3);
             return st;
         }
 
@@ -1327,6 +1439,8 @@ namespace WeatherStation
         /// </summary>   
         public string getCSVHeaderline()
         {
+            Logging.Log("getCSVHeaderline enter", 3);
+
             //Строка CSV файла
             string st = "Date" + Logging.CSVseparator;
 
@@ -1343,6 +1457,7 @@ namespace WeatherStation
                 }
             }
 
+            Logging.Log("getCSVHeaderline exit", 3);
             return st;
         }
 
@@ -1379,6 +1494,10 @@ namespace WeatherStation
                     break;
                 case SensorTypeEnum.Relay:
                     if (TagVal < 0 || TagVal > 1) //only 2 values allowed: 0 and 1
+                        return false;
+                    break;
+                case SensorTypeEnum.WSp:
+                    if (TagVal < 0 || TagVal > 100) //FYI - >32 it is hurricane
                         return false;
                     break;
             }
@@ -1483,48 +1602,49 @@ namespace WeatherStation
         /// <returns>true - if rains now</returns>
         public bool GetRainingCondition()
         {
+            Logging.Log("GetRainingCondition enter", 3);
             /*  Calculate RAIN RIGHT NOW CONDITION */
             
-            //Calculate Wet Sensor value 
+            /* Calculate Wet Sensor value */
             
             if (WetVal > RAININDEX_WET_LIMIT)
             {
                 //DRY
-                WetRain_Now=RainCond.rainDry;
+                RainNow_WetS_FlagC=RainCond.rainDry;
             }
             else if (WetVal > RAININDEX_RAIN_LIMIT)
             {
                 if (Bolt_CloudCond == CloudCond.cloudCloudy || Bolt_CloudCond == CloudCond.cloudVeryCloudy)
                 {
                     //WET
-                    WetRain_Now = RainCond.rainWet;
+                    RainNow_WetS_FlagC = RainCond.rainWet;
                     Logging.Log("Wet sensor is wet now",3);
                 }
                 else
                 {
                     //DRY: if not cloudy - don't set as wet
-                    WetRain_Now = RainCond.rainDry;
+                    RainNow_WetS_FlagC = RainCond.rainDry;
                 }
             }
             else if (WetVal >= RAININDEX_BAD_LIMIT)
             {
                 //RAIN
-                WetRain_Now = RainCond.rainRain;
+                RainNow_WetS_FlagC = RainCond.rainRain;
                 Logging.Log("Wet sensor detects rain now",3);
             }
             if (! SensorsArray[SensorsArrayHash["Wet"]].Enabled)
-                WetRain_Now = RainCond.rainUnknown;
+                RainNow_WetS_FlagC = RainCond.rainUnknown;
 
-            // Calculate RGC Sensor value 
+            /* Calculate RGC Sensor value */
 
             if (RGCVal > 0)
             {
-                RGCRain_Now = true;
+                RainNow_RGC_Flag = true;
                 Logging.Log("RGC sensed rain now",3);
             }
             else
             {
-                RGCRain_Now = false;
+                RainNow_RGC_Flag = false;
             }
 
             /*  Calculate RAIN IN LAST MINUTE CONDITION */
@@ -1545,12 +1665,12 @@ namespace WeatherStation
             }
             if (countRRainCylcles > 0 && SensorsArray[SensorsArrayHash["RGC"]].Enabled) //
             {
-                RGCRain_LastMinute = true;
+                RainLastMinute_RGC_Flag = true;
                 Logging.Log("RGC sensed rain last minute",2);
             }
             else
             {
-                RGCRain_LastMinute = false;
+                RainLastMinute_RGC_Flag = false;
             }
 
              // Calculate rain last minute for WET sensor 
@@ -1563,21 +1683,21 @@ namespace WeatherStation
             }
             if (countWRainCylcles > 0 && SensorsArray[SensorsArrayHash["Wet"]].Enabled) //
             {
-                WetRain_LastMinute = RainCond.rainRain;
+                RainLastMinute_WetS_FlagC = RainCond.rainRain;
                 Logging.Log("Wet sensed rain last minute", 3);
             }
             else if (countWWetCylcles > 0  && SensorsArray[SensorsArrayHash["Wet"]].Enabled) //
             {
-                WetRain_LastMinute = RainCond.rainWet;
+                RainLastMinute_WetS_FlagC = RainCond.rainWet;
                 Logging.Log("Wet sensed wet last minute", 3);
             }
             else if (SensorsArray[SensorsArrayHash["Wet"]].Enabled) //
             {
-                WetRain_LastMinute = RainCond.rainDry;
+                RainLastMinute_WetS_FlagC = RainCond.rainDry;
             }
             else
             {
-                WetRain_LastMinute = RainCond.rainUnknown;
+                RainLastMinute_WetS_FlagC = RainCond.rainUnknown;
             }
 
             /*  Rain now conditions when using both sensors
@@ -1592,15 +1712,15 @@ namespace WeatherStation
             switch (RainConditionMode)
             {
                 case WetSensorsMode.wetSensBoth:
-                    if ((RGCRain_Now && ( WetRain_Now == RainCond.rainUnknown || WetRain_Now == RainCond.rainWet || WetRain_Now == RainCond.rainRain ))
-                        || (RGCRain_Now && RGCRain_LastMinute)
-                        || (!RGCRain_Now && RGCRain_LastMinute && (WetRain_Now == RainCond.rainRain))) 
+                    if ((RainNow_RGC_Flag && ( RainNow_WetS_FlagC == RainCond.rainUnknown || RainNow_WetS_FlagC == RainCond.rainWet || RainNow_WetS_FlagC == RainCond.rainRain ))
+                        || (RainNow_RGC_Flag && RainLastMinute_RGC_Flag)
+                        || (!RainNow_RGC_Flag && RainLastMinute_RGC_Flag && (RainNow_WetS_FlagC == RainCond.rainRain))) 
                     {
-                        Rain_NowFlag = true;
+                        RainNow_Flag = true;
                     }
                     else 
                     {
-                        Rain_NowFlag = false;
+                        RainNow_Flag = false;
                     }
 
                     /*  Rain last minute conditions when using both sensors
@@ -1611,34 +1731,37 @@ namespace WeatherStation
                      *  RGCLM-         |               |           |           |           |
                      *  --------------------------------------------------------------------
                      */
-                    if ((RGCRain_LastMinute && (WetRain_LastMinute == RainCond.rainUnknown || WetRain_LastMinute == RainCond.rainWet || WetRain_LastMinute == RainCond.rainRain))
-                        || (countRRainCylcles>=2 && ( WetRain_LastMinute == RainCond.rainDry )))
+                    if ((RainLastMinute_RGC_Flag && (RainLastMinute_WetS_FlagC == RainCond.rainUnknown || RainLastMinute_WetS_FlagC == RainCond.rainWet || RainLastMinute_WetS_FlagC == RainCond.rainRain))
+                        || (countRRainCylcles>=2 && ( RainLastMinute_WetS_FlagC == RainCond.rainDry )))
                     {
-                        Rain_LastMinuteFlag = true;
+                        RainLastMinute_Flag = true;
                     }
                     else 
                     {
-                        Rain_LastMinuteFlag = false;
+                        RainLastMinute_Flag = false;
                     }
                     break;
                 case WetSensorsMode.wetSensRGCOnly:
-                    if (RGCRain_LastMinute) { Rain_LastMinuteFlag = true; }
-                    else { Rain_LastMinuteFlag = false; }
+                    if (RainLastMinute_RGC_Flag) { RainLastMinute_Flag = true; }
+                    else { RainLastMinute_Flag = false; }
 
-                    if (RGCRain_Now) { Rain_NowFlag = true; }
-                    else { Rain_NowFlag = false; }
+                    if (RainNow_RGC_Flag) { RainNow_Flag = true; }
+                    else { RainNow_Flag = false; }
                     
                     break;
                 case WetSensorsMode.wetSensWetOnly:
-                    if (WetRain_LastMinute == RainCond.rainRain) { Rain_LastMinuteFlag = true; }
-                    else { Rain_LastMinuteFlag = false; }
+                    if (RainLastMinute_WetS_FlagC == RainCond.rainRain) { RainLastMinute_Flag = true; }
+                    else { RainLastMinute_Flag = false; }
 
-                    if (WetRain_Now==RainCond.rainRain ) {Rain_NowFlag = true;}
-                    else {Rain_NowFlag = true;}
+                    if (RainNow_WetS_FlagC==RainCond.rainRain ) {RainNow_Flag = true;}
+                    else {RainNow_Flag = false;}
 
                     break;
             }
-            return Rain_NowFlag;
+
+            Logging.Log("GetRainingCondition exit", 3);
+
+            return RainNow_Flag;
         }
 
 
@@ -1659,6 +1782,28 @@ namespace WeatherStation
             return Td;
 
         }
-    
+
+
+        /// <summary>
+        /// Calculates wind speed in m/s for a given windspeed sensor value
+        /// </summary>
+        /// <param name="WSVal">Wind speed sensor value</param>
+        /// <returns>Wind speed in m/s</returns>
+        public double CalcWindSpeed(int WSVal)
+        {
+
+            double minVoltage= WindSpeed_ZeroSpeedValue * 5.0 / 1023.0; // minVoltage = minValue * 5 / 1023
+
+
+            double WindSensorVoltage = WSVal * (5.0 / 1023.0);
+            double windspeed_raw = (WindSensorVoltage - minVoltage) / 1.6 * 32.4;
+            if (windspeed_raw > -1) { windspeed_raw = Math.Max(windspeed_raw, 0.0); } //deal with negative values
+            //if too negative (-7.8) then there is no input voltage on sensor and leave the value as is
+
+            double RVal = Math.Round(windspeed_raw, 1); //round value to 0.1
+
+            return RVal;
+        }
+
     }
 }

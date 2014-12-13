@@ -12,6 +12,9 @@ using System.IO;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Net;
 using System.Threading;
+using System.Diagnostics;
+using System.Reflection;
+
 
 public enum FormAppearanceMode { MODE_MIN, MODE_MAX };
 
@@ -55,6 +58,9 @@ namespace WeatherStation
         public bool bMinModeEnabled = true;
         public bool bMinimizeToTray = true;
         public bool bDebugPannels = true;
+
+        public int RefreshWebInterval=60;
+        public int RefreshNarodmonInterval = 60;
 
         /// <summary>
         /// Constructor
@@ -201,7 +207,6 @@ namespace WeatherStation
                     Hardware.RGC_Cumulative = Logging.LoadRGCValue(out Hardware.RGC_Cumulative_LastReset);
 
                     btnRelay.Enabled = true;
-
                 }
 
             }
@@ -259,7 +264,7 @@ namespace WeatherStation
             //Parse data
             Hardware.ParseData2(curSerialBuffer);
 
-            //Write boltwood file
+            //Write boltwood file (and calculate boltwood fields values)
             if (Properties.Settings.Default.BoltwoodFileFlag)
             {
                 Hardware.WriteBolwoodFile();
@@ -303,6 +308,9 @@ namespace WeatherStation
             string ArdSetWT = (Hardware.ArduinoSettings.TryGetValue("WT", out El) ? El.Value : "1005");
             string ArdSetRT = (Hardware.ArduinoSettings.TryGetValue("RT", out El) ? El.Value : "300");
 
+            int WindSensorVal_sim = rand.Next(83,200);
+            double WindSpeedVal_sim = Hardware.CalcWindSpeed(WindSensorVal_sim);
+
             Hardware.SerialBufferFullSim = @"Weather station v0.8sim
 [!ver:0.8sim]
 [!ved:13082014]
@@ -323,9 +331,9 @@ IP: 192.168.1.178
 [!DH2:" + String.Format("{0:N0}", 10 + rand.NextDouble() * 30) + @"]
 
 [!Lum:" + String.Format("{0:F0}", 1454.8 + rand.NextDouble() * 1000) + @"]
-[!Lur:17]
-[!Lus:254]
-[!Luw:572]
+[!Lur:" + String.Format("{0:N0}", 17) + @"]
+[!Lus:" + String.Format("{0:N0}", 254) + @"]
+[!Luw:" + String.Format("{0:N0}", 572 )+ @"]
 
 [!Te1:" + String.Format("{0:N1}", 23.0 + rand.NextDouble() * 5) + @"]
 [!Te2:" + String.Format("{0:N1}", 26.0 + rand.NextDouble() * 10) + @"]
@@ -333,6 +341,9 @@ IP: 192.168.1.178
 [!Wet:" + String.Format("{0:F0}", 1022 - rand.NextDouble() * 30) + @"]
 
 [!RGC:" + String.Format("{0:N0}", 0 + rand.NextDouble() * 3) + @"]
+
+[!WnV:" + String.Format("{0:N0}", WindSensorVal_sim) + @"]
+[!WnS:" + String.Format("{0:N1}", WindSpeedVal_sim) + @"]
 
 [!RL1:" + String.Format("{0:N0}", 0 + rand.NextDouble()) + @"]
 
@@ -365,6 +376,8 @@ waiting 10000
         /// </summary>
         private void RefreshFormFields2()
         {
+            Logging.Log("Main.RefreshFormFields2 enter", 3);
+
             //Include all sensor that needed to display
             int SensIdx = -1;
             foreach (SensorElement DataSensor in Hardware.SensorsArray)
@@ -384,10 +397,11 @@ waiting 10000
                 }
             }
 
-            //Calculated fields
+            //Calculated fields (custom fields)
             txtCloudIndex1.Text = Convert.ToString(Hardware.CloudIdx);
             txtCloudIndex2.Text = Convert.ToString(Math.Round(Hardware.CloudIdxCorr, 2));
-
+            txtFldWSpeed.Text = Convert.ToString(Hardware.WindSpeedVal);//WindSpeed
+            
             //Heating button
             if (Hardware.Relay1==1 && btnRelay.Text == "On")
             {
@@ -462,7 +476,7 @@ waiting 10000
             //RGC sensor
             try
             {
-                if (Hardware.RGCRain_Now)
+                if (Hardware.RainNow_RGC_Flag)
                 {
                     txtRGCLastMin.Text = "Now";
                     txtRGCLastMin.BackColor = Color.LightSkyBlue;
@@ -470,7 +484,7 @@ waiting 10000
                     //Save current RGC cumulative value for narodmon
                     Logging.SaveRGCValue((int)Hardware.RGC_Cumulative, Hardware.RGC_Cumulative_LastReset);
                 }
-                else if (Hardware.RGCRain_LastMinute)
+                else if (Hardware.RainLastMinute_RGC_Flag)
                 {
                     txtRGCLastMin.Text = "Rain";
                     txtRGCLastMin.BackColor = Color.LightSkyBlue;
@@ -485,17 +499,17 @@ waiting 10000
             //Wet sensor
             try
             {
-                if (Hardware.WetRain_Now == RainCond.rainRain)
+                if (Hardware.RainNow_WetS_FlagC == RainCond.rainRain)
                 {
                     txtWetLastMin.Text = "Now";
                     txtWetLastMin.BackColor = Color.LightSkyBlue;
                 }
-                else if (Hardware.WetRain_LastMinute == RainCond.rainRain)
+                else if (Hardware.RainLastMinute_WetS_FlagC == RainCond.rainRain)
                 {
                     txtWetLastMin.Text = "Rain";
                     txtWetLastMin.BackColor = Color.LightSkyBlue;
                 }
-                else if (Hardware.WetRain_LastMinute==RainCond.rainWet)
+                else if (Hardware.RainLastMinute_WetS_FlagC==RainCond.rainWet)
                 {
                     txtWetLastMin.Text = "Wet";
                     txtWetLastMin.BackColor = Color.Cyan;
@@ -511,13 +525,13 @@ waiting 10000
             //MAIN Rain flag
             try
             {
-                if (Hardware.Rain_NowFlag)
+                if (Hardware.RainNow_Flag)
                 {
                     txtRainLastMinute.Text = "Now";
                     txtRainLastMinute.BackColor = Color.LightSkyBlue;
                     btnIndRain.BackColor = Color.Red;
                 }
-                else if (Hardware.Rain_LastMinuteFlag)
+                else if (Hardware.RainLastMinute_Flag)
                 {
                     txtRainLastMinute.Text = "Rain";
                     txtRainLastMinute.BackColor = Color.LightSkyBlue;
@@ -556,6 +570,9 @@ waiting 10000
             txtMinCloudIdx.Text = Convert.ToString(Hardware.CloudIdx);
             txtMinRainIdx.Text = Convert.ToString(Hardware.WetVal);
             txtMinTemp.Text = Convert.ToString(Hardware.BaseTempVal);
+            txtMinWind.Text = Convert.ToString(Hardware.WindSpeedVal);//WindSpeed
+
+            Logging.Log("Main.RefreshFormFields2 exit", 3);
         }
 
         /// <summary>
@@ -568,6 +585,7 @@ waiting 10000
             txtDayCond.Text = Convert.ToString(Hardware.Bolt_DaylighCond);
             txtRainflag.Text = Convert.ToString(Hardware.Bolt_RainFlag);
             txtWetflag.Text = Convert.ToString(Hardware.Bolt_WetFlag);
+            txtWindCond.Text = Convert.ToString(Hardware.Bolt_WindCond);
 
             if (Hardware.Bolt_CloudCond == CloudCond.cloudClear)
             {
@@ -610,15 +628,17 @@ waiting 10000
         /// </summary>
         private void SendDataToWeb2()
         {
-            if (WebServices.WebDataFlag)
+            Logging.Log("Main.SendDataToWeb2 enter", 3);
+            if (WebServices.WebDataFlag && WebServices.SinceLastDataSent(WebServices.LastWebDataSent) > WebServices.LIMIT_WEB_SEND_INTERVAL)
             {
                 SendDataToCustomSite();
             }
 
-            if (WebServices.SendToNarodmonFlag && WebServices.SinceLastNarodMonDataSent() > WebServices.LIMIT_NARODMON_SEND_INTERVAL)
+            if (WebServices.SendToNarodmonFlag && WebServices.SinceLastDataSent(WebServices.LastNarodMonDataSent) > WebServices.LIMIT_NARODMON_SEND_INTERVAL)
             {
                 SendDataToNarodmon();
             }
+            Logging.Log("Main.SendDataToWeb2 exit", 3);
         }
 
         /// <summary>
@@ -693,6 +713,8 @@ waiting 10000
         /// </summary>        
         private void refreshGraphs()
         {
+            Logging.Log("Main.refreshGraphs enter", 3);
+
             curX = DateTime.Now;
             //Graph1 & 2
             if (Hardware.CheckData(Hardware.CloudIdx, SensorTypeEnum.Temp))
@@ -752,6 +774,10 @@ waiting 10000
             {
                 addGraphicsPoint(chart1, 10, curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["RL1"]].LastValue);
             }
+            if (Hardware.CheckData(Hardware.WindSpeedVal, SensorTypeEnum.WSp))
+            {
+                addGraphicsPoint(chart1, "WindSpeed", curX, Hardware.WindSpeedVal);
+            }
 
 
             ///////////////////////////////////////////////////////////////////////////////////////////
@@ -760,6 +786,8 @@ waiting 10000
             {
                 addGraphicsPoint(chart2, 0, curX, Hardware.CloudIdx);
             }
+
+            Logging.Log("Main.refreshGraphs exit", 3);
         }
 
         private void addGraphicsPoint(Chart CurChart, int seriesNum, DateTime XVal, double YVal)
@@ -788,6 +816,44 @@ waiting 10000
             CurChart.Invalidate();
         }
 
+        /// <summary>
+        /// Add graphics point overload method - Series Name instead of Series Num
+        /// </summary>
+        /// <param name="CurChart"></param>
+        /// <param name="serName">Series name</param>
+        /// <param name="XVal"></param>
+        /// <param name="YVal"></param>
+        private void addGraphicsPoint(Chart CurChart, string serName, DateTime XVal, double YVal)
+        {
+            //curX=DateTime.Now;
+            CurChart.Series[serName].Points.AddXY(XVal, YVal);
+
+            // Keep a constant number of points by removing them from the left
+            if (CurChart.Series[serName].Points.Count > maxNumberOfPointsInChart)
+            {
+                // Remove data points on the left side
+                while (CurChart.Series[serName].Points.Count > maxNumberOfPointsInChart)
+                {
+                    CurChart.Series[serName].Points.RemoveAt(0);
+                }
+
+                // Adjust X axis scale
+                //CurChart.ChartAreas[0].AxisX.Minimum = curX - maxNumberOfPointsInChart;
+                //CurChart.ChartAreas[0].AxisX.Maximum = CurChart.ChartAreas[0].AxisX.Minimum + maxNumberOfPointsInChart;
+            }
+
+            // Adjust Y & X axis scale
+            CurChart.ResetAutoValues();
+
+            // Invalidate chart
+            CurChart.Invalidate();
+        }
+
+
+
+        /// <summary>
+        /// Run on Form closing
+        /// </summary>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             //MessageBox.Show(this, "Exit", "Exit", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -824,10 +890,19 @@ waiting 10000
                 Hardware.K6 = Convert.ToDouble(Properties.Settings.Default.K6);
                 Hardware.K7 = Convert.ToDouble(Properties.Settings.Default.K7);
 
+                Hardware.WindSpeed_ZeroSpeedValue = Convert.ToInt16(Properties.Settings.Default.WindSpeed_Zero);
+
                 Hardware.RAININDEX_WET_LIMIT = Convert.ToDouble(Properties.Settings.Default.WetLimit);
                 Hardware.RAININDEX_RAIN_LIMIT = Convert.ToDouble(Properties.Settings.Default.RainLimit);
 
-                Hardware.RainConditionMode = (WetSensorsMode)Convert.ToByte(Properties.Settings.Default.WetSensorsMode);
+                //Colors color = (Colors)System.Enum.Parse(typeof(Colors), "Green");
+                //Hardware.RainConditionMode = (WetSensorsMode)Convert.ToByte(Properties.Settings.Default.WetSensorsMode);
+                //Hardware.RainConditionMode = (WetSensorsMode)Enum.Parse(typeof(WetSensorsMode), Properties.Settings.Default.WetSensorsMode);
+                Hardware.RainConditionMode = Hardware.WetSensorsModeDictionary[Properties.Settings.Default.WetSensorsMode];
+
+                Hardware.WINDSPEED_WINDY = Convert.ToDouble(Properties.Settings.Default.WindyLimit);
+                Hardware.WINDSPEED_VERYWINDY = Convert.ToDouble(Properties.Settings.Default.VeryWindyLimit);
+
 
                 Hardware.HEATER_MAX_DURATION = Convert.ToInt16(Properties.Settings.Default.HeatingMaxDuration);
                 Hardware.HEATER_MAX_TEMPERATURE_DELTA = Convert.ToInt16(Properties.Settings.Default.HeatingMaxTemp);
@@ -844,6 +919,8 @@ waiting 10000
                 maxNumberOfPointsInChart = Convert.ToInt16(Properties.Settings.Default.MaxPoints);
                 timer_main.Interval = Convert.ToInt16(Properties.Settings.Default.RefreshInterval);
                 timer_debug_changetext.Interval = Convert.ToInt16(Properties.Settings.Default.RefreshInterval);
+                WebServices.LIMIT_WEB_SEND_INTERVAL = Convert.ToUInt32(Properties.Settings.Default.RefreshWebInterval);
+                WebServices.LIMIT_NARODMON_SEND_INTERVAL = Convert.ToUInt32(Properties.Settings.Default.RefreshNarodmonInterval);
 
                 bMinModeEnabled = Properties.Settings.Default.MinModeEnabled;
                 bMinimizeToTray = Properties.Settings.Default.MinimizeToSystemTray;
@@ -869,8 +946,22 @@ waiting 10000
             }
             catch (Exception ex)
             {
-                Logging.Log("Error loading params: " + ex.Data + " " + ex.Message);
+                StackTrace st = new StackTrace(ex, true);
+                StackFrame[] frames = st.GetFrames();
+                string messstr = "";
+
+                // Iterate over the frames extracting the information you need
+                foreach (StackFrame frame in frames)
+                {
+                    messstr += String.Format("{0}:{1}({2},{3})", frame.GetFileName(), frame.GetMethod().Name, frame.GetFileLineNumber(), frame.GetFileColumnNumber());
+                }
+
+                string FullMessage = "Error loading params. ";
+                FullMessage += "IOException source: " + ex.Data + " | " + ex.Message + " | " + messstr;
+
+                Logging.Log(FullMessage);
             }
+            Logging.Log("Loading saved parameters end", 3);
         }
 
         /// <summary>
@@ -878,6 +969,7 @@ waiting 10000
         /// </summary>
         private void btnRelay_Click(object sender, EventArgs e)
         {
+            Logging.Log("btnRelay_Click enter", 3);
             if (btnRelay.Text == "On")
             {
                 if (!Hardware.HeatingOn())
@@ -903,6 +995,7 @@ waiting 10000
                     btnRelay.UseVisualStyleBackColor = true;
                 }
              }
+            Logging.Log("btnRelay_Click exit", 3);
         }
 
         /// <summary>
@@ -920,7 +1013,9 @@ waiting 10000
         /// </summary>
         private void btnQueryArduinoSettings_Click(object sender, EventArgs e)
         {
+            Logging.Log("btnQueryArduinoSettings_Click enter", 3);
             Hardware.WriteSerialData("(!?S)");
+            Logging.Log("btnQueryArduinoSettings_Click exit", 3);
         }        
 
         private void btnStart_min_Click(object sender, EventArgs e)

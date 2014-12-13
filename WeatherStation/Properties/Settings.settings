@@ -129,7 +129,7 @@
       <Value Profile="(Default)">13</Value>
     </Setting>
     <Setting Name="WetSensorsMode" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">Use both</Value>
     </Setting>
     <Setting Name="HeatingPauseTime" Type="System.String" Scope="User">
       <Value Profile="(Default)">1800</Value>
@@ -151,6 +151,24 @@
     </Setting>
     <Setting Name="ShowDebugPannels" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="WindSpeed_Zero" Type="System.String" Scope="User">
+      <Value Profile="(Default)">83</Value>
+    </Setting>
+    <Setting Name="UpgradeRequired" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="WindyLimit" Type="System.String" Scope="User">
+      <Value Profile="(Default)">4.4</Value>
+    </Setting>
+    <Setting Name="VeryWindyLimit" Type="System.String" Scope="User">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="RefreshWebInterval" Type="System.String" Scope="User">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="RefreshNarodmonInterval" Type="System.String" Scope="User">
+      <Value Profile="(Default)">300</Value>
     </Setting>
   </Settings>
 </SettingsFile>

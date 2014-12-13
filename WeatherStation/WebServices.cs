@@ -16,8 +16,13 @@ namespace WeatherStation
 
         public static bool WebDataFlag = true;
         public static string siteipURL = "http://astromania.info/checkconn/putweatherdata2.php";
+        public static UInt32 LIMIT_WEB_SEND_INTERVAL = 1 * 60 + 5; //how often to send data, sec
+        public static DateTime LastWebDataSent;
+        
         //FOR DEBUGGING
         //private static siteipURL = "http://localhost/checkconn/putweatherdata2.php";
+
+
 
         public static bool SendToNarodmonFlag = true;
         public static string Narodmon_MAC = "";
@@ -25,12 +30,11 @@ namespace WeatherStation
         public static DateTime LastNarodMonDataSent;
         
         /// <summary>
-        /// Send data to server asynchroneous
+        /// Send data to server asynchroneously
         /// </summary>
         /// <param name="queryst">Get query string in the from "param1=1&param2=2&..."</param>
         public static void sendToServer(string queryst)
         {
-
             // Send http query
             try
             {
@@ -63,6 +67,7 @@ namespace WeatherStation
             {
                 string downloadedData = Encoding.Default.GetString(e.Result);
                 Logging.Log("Web query return string: " + downloadedData,2);
+                LastWebDataSent = DateTime.Now;
                 //MessageBox.Show(downloadedData);
             }
             else
@@ -153,13 +158,14 @@ namespace WeatherStation
         /// <summary>
         /// External method to check when was the last communication
         /// </summary>        
-        public static UInt32 SinceLastNarodMonDataSent()
+        public static UInt32 SinceLastDataSent(DateTime LastSent)
         {
-            TimeSpan SinceLastRead = DateTime.Now.Subtract(LastNarodMonDataSent);
+            TimeSpan SinceLastRead = DateTime.Now.Subtract(LastSent);
             UInt32 SinceLastRead_sec = (UInt32)Math.Round(SinceLastRead.TotalSeconds, 0);
 
             return SinceLastRead_sec;
         }
+
 
 
         /// <summary>

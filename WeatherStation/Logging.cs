@@ -252,7 +252,9 @@ namespace WeatherStation
             }
             catch { 
             }
-            br.Close(); 
+            br.Close();
+
+            Logging.Log("LoadRGCValue = " + RGCVav + "",3);
             
             return RGCVav;
         }
