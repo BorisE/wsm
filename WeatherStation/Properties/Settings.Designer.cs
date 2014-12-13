@@ -649,7 +649,7 @@ namespace WeatherStation.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4.4")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4,4")]
         public string WindyLimit {
             get {
                 return ((string)(this["WindyLimit"]));

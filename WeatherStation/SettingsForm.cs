@@ -540,6 +540,24 @@ namespace WeatherStation
 
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Reload(); 
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to reset all settings to their default values (this can't be undone)?" , "Reset to default values", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            Properties.Settings.Default.Reset(); 
+        }
+
+        private void btnGenerateMac_Click_1(object sender, EventArgs e)
+        {
+            string myString = WebServices.GetMacAddress();
+            myString = Regex.Replace(myString, ".{2}", "$0-");
+            txtNarodmonMAC.Text = (myString.Substring(myString.Length - 1, 1) == "-" ? myString.Substring(0, myString.Length - 1) : myString);
+        }
+
 
     }
 }

@@ -120,10 +120,71 @@
   <metadata name="MyToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>14, 4</value>
   </metadata>
+  <metadata name="MyToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>14, 4</value>
+  </metadata>
   <data name="txtRefreshWebDataInterval.ToolTip" xml:space="preserve">
     <value>Specify how ofter data should be sent to web server
 
 Note that data actualy could be sent only at multiples of Refresh interval setting (so if your "Refresh interval" set at 60 sec, and "Send data" at 75 sec, actualy data would be sent every 120 sec)
+</value>
+  </data>
+  <metadata name="SensorName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="SensorEnabled.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="SensorType.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="SendToWeb.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="SendToNarodmon.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ArduinoName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="WebCustomName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="FormFieldName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="folderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>123, 8</value>
+  </metadata>
+  <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>293, 3</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>34</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAAAAABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAD///8AAAAAAAAAAAAAAAAAp1IyUKdSMv+nUjL/AAAAAP///wD///8AAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAACnUjL/p1IyUAAAAAD///8A////AAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAAAAAAAAp1Iy/6dSMoAAAAAA////AP//
+        /wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8AAAAAAAAAAAAAAAAAp1Iy/6dSMv+nUjL/AAAAAP//
+        /wD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAAKdSMv+nUjL/p1Iy/6dS
+        MlD///8A////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wAAAAAAp1IygAAAAACnUjKxp1Iy/6dS
+        Mv+nUjKA////AP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8AAAAAAKdSMoCnUjJQp1IyUKdS
+        Mv+nUjL/p1IygP///wD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AAAAAACnUjJQp1Iy/6dS
+        Mv+nUjL/p1Iy/6dSMoD///8A////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wAAAAAAAAAAAKdS
+        Mv+nUjL/p1Iy/6dSMv+nUjJQ////AP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8Ap1IyJqdS
+        MiYAAAANp1Iy/6dSMv+nUjJQAAAAAP///wD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKdS
+        MrGnUjL/p1Iy/6dSMv+nUjL/AAAAAAAAAAD///8A////AAAAAAAAAAAAAAAAAKdSMv8AAAAAAAAAAAAA
+        AACnUjL/p1Iy/6dSMv+nUjL/p1Iy/wAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAp1Iy/6dSMv+nUjKAAAAAAKdSMv+nUjKxAAAAAP///wAAAAAAp1Iy/wAAAAAAAAAAAAAAAAAA
+        AAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAp1Iy/wAAAAD///8AAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAKdSMrGnUjKxAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAp1Iy/wAAAAD///8AAAAAAAAAAAAAAAAAAAAAAKdSMrEAAAAAAAAAAAAAAAAAAAAAAAAAAKdS
+        Mv8AAAAA/z8AAP9/AAD/PwAA/j8AAP4/AAD6HwAA+x8AAPwfAAD8PwAA/n8AAPB/AABwfwAA8TsAAP+/
+        AAD/nwAAv30AAA==
 </value>
   </data>
   <data name="txtRefreshInterval.ToolTip" xml:space="preserve">
@@ -227,30 +288,6 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
 
 IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software like CCDAutopilot or CCDCommander could stop imaging run, "Wet" signal is never set up during Sky Clear condition (remains "Dry").</value>
   </data>
-  <metadata name="SensorName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="SensorEnabled.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="SensorType.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="SendToWeb.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="SendToNarodmon.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ArduinoName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="WebCustomName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="FormFieldName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="txtCSDecreasingMaxDelta.ToolTip" xml:space="preserve">
     <value>Very advanced settings :)
 Do not change it untill you know what you are doing
@@ -275,39 +312,5 @@ Program determines when Cloud Sensor need heating based on some conditions:
 - There is no rain now
 - There is 100% humidity
 - It is dark now</value>
-  </data>
-  <metadata name="folderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>123, 8</value>
-  </metadata>
-  <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>293, 3</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>34</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAEAEBAAAAAAAABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAD///8AAAAAAAAAAAAAAAAAp1IyUKdSMv+nUjL/AAAAAP///wD///8AAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAACnUjL/p1IyUAAAAAD///8A////AAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAAAAAAAAp1Iy/6dSMoAAAAAA////AP//
-        /wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8AAAAAAAAAAAAAAAAAp1Iy/6dSMv+nUjL/AAAAAP//
-        /wD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAAKdSMv+nUjL/p1Iy/6dS
-        MlD///8A////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wAAAAAAp1IygAAAAACnUjKxp1Iy/6dS
-        Mv+nUjKA////AP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8AAAAAAKdSMoCnUjJQp1IyUKdS
-        Mv+nUjL/p1IygP///wD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AAAAAACnUjJQp1Iy/6dS
-        Mv+nUjL/p1Iy/6dSMoD///8A////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wAAAAAAAAAAAKdS
-        Mv+nUjL/p1Iy/6dSMv+nUjJQ////AP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8Ap1IyJqdS
-        MiYAAAANp1Iy/6dSMv+nUjJQAAAAAP///wD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKdS
-        MrGnUjL/p1Iy/6dSMv+nUjL/AAAAAAAAAAD///8A////AAAAAAAAAAAAAAAAAKdSMv8AAAAAAAAAAAAA
-        AACnUjL/p1Iy/6dSMv+nUjL/p1Iy/wAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAp1Iy/6dSMv+nUjKAAAAAAKdSMv+nUjKxAAAAAP///wAAAAAAp1Iy/wAAAAAAAAAAAAAAAAAA
-        AAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAp1Iy/wAAAAD///8AAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAKdSMrGnUjKxAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAp1Iy/wAAAAD///8AAAAAAAAAAAAAAAAAAAAAAKdSMrEAAAAAAAAAAAAAAAAAAAAAAAAAAKdS
-        Mv8AAAAA/z8AAP9/AAD/PwAA/j8AAP4/AAD6HwAA+x8AAPwfAAD8PwAA/n8AAPB/AABwfwAA8TsAAP+/
-        AAD/nwAAv30AAA==
-</value>
   </data>
 </root>

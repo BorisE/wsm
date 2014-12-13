@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabGeneral = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.label35 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
@@ -104,6 +105,7 @@
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnReset = new System.Windows.Forms.Button();
             this.txtRefreshNarodmonInterval = new System.Windows.Forms.TextBox();
             this.txtRefreshWebDataInterval = new System.Windows.Forms.TextBox();
             this.txtNarodmonMAC = new System.Windows.Forms.TextBox();
@@ -151,7 +153,6 @@
             this.txtHeaterWetThreshold = new System.Windows.Forms.TextBox();
             this.txtHeaterMaxTemp = new System.Windows.Forms.TextBox();
             this.txtHeaterMaxDuration = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -197,7 +198,7 @@
             this.tabGeneral.Controls.Add(this.groupBox1);
             this.tabGeneral.Location = new System.Drawing.Point(4, 22);
             this.tabGeneral.Name = "tabGeneral";
-            this.tabGeneral.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabGeneral.Padding = new System.Windows.Forms.Padding(3);
             this.tabGeneral.Size = new System.Drawing.Size(619, 331);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
@@ -223,6 +224,15 @@
             this.groupBox11.TabIndex = 7;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Web server";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(3, 125);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(18, 13);
+            this.label35.TabIndex = 11;
+            this.label35.Text = "ID";
             // 
             // label34
             // 
@@ -273,6 +283,7 @@
             this.btnGenerateMac.Text = "Generate";
             this.MyToolTip.SetToolTip(this.btnGenerateMac, "Press to generate ID based on computer MAC address");
             this.btnGenerateMac.UseVisualStyleBackColor = true;
+            this.btnGenerateMac.Click += new System.EventHandler(this.btnGenerateMac_Click_1);
             // 
             // groupBox8
             // 
@@ -689,7 +700,7 @@
             this.tabSensors.Controls.Add(this.btnReadFromSerial);
             this.tabSensors.Location = new System.Drawing.Point(4, 22);
             this.tabSensors.Name = "tabSensors";
-            this.tabSensors.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabSensors.Padding = new System.Windows.Forms.Padding(3);
             this.tabSensors.Size = new System.Drawing.Size(619, 331);
             this.tabSensors.TabIndex = 1;
             this.tabSensors.Text = "Sensors";
@@ -701,14 +712,14 @@
             this.dataGridSensors.AllowUserToDeleteRows = false;
             this.dataGridSensors.AllowUserToOrderColumns = true;
             this.dataGridSensors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridSensors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridSensors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridSensors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridSensors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SensorName,
@@ -945,7 +956,7 @@
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnOk.Location = new System.Drawing.Point(437, 368);
+            this.btnOk.Location = new System.Drawing.Point(426, 368);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(79, 24);
             this.btnOk.TabIndex = 10;
@@ -964,6 +975,7 @@
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // folderBrowserDialog
             // 
@@ -972,6 +984,18 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnReset.Location = new System.Drawing.Point(7, 368);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(110, 24);
+            this.btnReset.TabIndex = 11;
+            this.btnReset.Text = "Reset to Defaults";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // txtRefreshNarodmonInterval
             // 
@@ -1575,15 +1599,6 @@
             this.MyToolTip.SetToolTip(this.txtHeaterMaxDuration, "Maximum heating cycle duration, sec");
             this.txtHeaterMaxDuration.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(3, 125);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(18, 13);
-            this.label35.TabIndex = 11;
-            this.label35.Text = "ID";
-            // 
             // SettingsForm
             // 
             this.AcceptButton = this.btnOk;
@@ -1591,6 +1606,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(627, 399);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.tabControl1);
@@ -1763,5 +1779,6 @@
         private System.Windows.Forms.TextBox txtRefreshNarodmonInterval;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Button btnReset;
     }
 }

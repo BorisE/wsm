@@ -2,6 +2,10 @@ WeatherStation Project
 (c) 2013-2014 by Emchenko Boris
 
 Change log
+1.4.31 (2014-12-13)
+- Settings reset to default
+- Settings cancel button now cancels all settings changes
+
 1.4.30 (2014-12-13)
 - Rain condtition signaling changed a bit
 - Some bugs found by Dimaz
