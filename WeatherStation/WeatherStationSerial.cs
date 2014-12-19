@@ -549,7 +549,6 @@ namespace WeatherStation
                 }
             }
 
-
             //set base temp
             BaseTempIdx = SensorsArrayHash[BaseTempName];
             BaseTempVal=SensorsArray[SensorsArrayHash[BaseTempName]].LastValue;
@@ -714,6 +713,11 @@ namespace WeatherStation
             LastTimeDataRead = DateTime.Now;
         }
 
+        /// <summary>
+        /// Simulated read in arbitrary portions from previously formed SerialBufferFullSim data into main Serial Buffer
+        /// Full simulation! :)
+        /// </summary>
+        /// <returns></returns>
         public bool port_DataReceived_simulated()
         {
             if (simBufferReadPos < SerialBufferFullSim.Length)
@@ -759,15 +763,16 @@ namespace WeatherStation
         /// <param name="CommandSt">string with command, which should be sent to Arduino</param>
         public bool WriteSerialData(string CommandSt)
         {
+            string FullCommandSt = "(" + CommandSt + ")";
             try
             {
-                comport.WriteLine("(" + CommandSt + ")");
-                Logging.Log("Command to serial sent: " + "(" + CommandSt + ")");
+                comport.WriteLine(FullCommandSt);
+                Logging.Log("Command to serial sent: " + FullCommandSt);
                 return true;
             }
             catch
             {
-                Logging.Log("Error writing command " + "(" + CommandSt + ") to serial");
+                Logging.Log("Error writing command " + FullCommandSt + " to serial");
                 return false;
             }
         }
@@ -778,14 +783,16 @@ namespace WeatherStation
         /// <returns>true - if all data was sent</returns>
         public bool sendParametersToSerial(out string CommandStr)
         {
+            Logging.Log("sendParametersToSerial(overload) enter", 3);
+            
             String St = ""; CommandStr = "";
-            St = "(!TD:" + Convert.ToString(HEATER_MAX_TEMPERATURE_DELTA) + ")" + Environment.NewLine;
+            St = "!TD:" + Convert.ToString(HEATER_MAX_TEMPERATURE_DELTA);
             CommandStr += "out: " + St;
             bool retval1 = WriteSerialData(St);
-            St = "(!WT:" + Convert.ToString(HEATER_WET_START_THRESHOLD) + ")" + Environment.NewLine;
+            St = "!WT:" + Convert.ToString(HEATER_WET_START_THRESHOLD);
             CommandStr += "out: " + St;
             bool retval2 = WriteSerialData(St);
-            St = "(!RT:" + Convert.ToString(HEATER_MAX_DURATION) + ")" + Environment.NewLine;
+            St = "!RT:" + Convert.ToString(HEATER_MAX_DURATION);
             CommandStr += "out: " + St;
             bool retval3 = WriteSerialData(St);
 
@@ -799,14 +806,16 @@ namespace WeatherStation
         /// <returns>true - if all data was sent</returns>
         public bool sendParametersToSerial()
         {
+            Logging.Log("sendParametersToSerial enter", 3);
+
             String St = ""; string StAll = "";
-            St = "(!TD:" + Convert.ToString(HEATER_MAX_TEMPERATURE_DELTA) + ")" + Environment.NewLine;
+            St = "!TD:" + Convert.ToString(HEATER_MAX_TEMPERATURE_DELTA); //Earlier: + ")" + Environment.NewLine
             StAll += St;
             bool retval1 = WriteSerialData(St);
-            St = "(!WT:" + Convert.ToString(HEATER_WET_START_THRESHOLD) + ")" + Environment.NewLine;
+            St = "!WT:" + Convert.ToString(HEATER_WET_START_THRESHOLD) ;
             StAll += St;
             bool retval2 = WriteSerialData(St);
-            St = "(!RT:" + Convert.ToString(HEATER_MAX_DURATION) + ")" + Environment.NewLine;
+            St = "!RT:" + Convert.ToString(HEATER_MAX_DURATION); 
             StAll += St;
             bool retval3 = WriteSerialData(St);
 
@@ -821,7 +830,7 @@ namespace WeatherStation
         /// <returns></returns>
         public bool getParametersToSerial()
         {
-            bool retval1 = WriteSerialData("(!?S)"+Environment.NewLine);
+            bool retval1 = WriteSerialData("!?S");
 
             Logging.Log("getParametersToSerial command was sent", 3);
 
@@ -829,16 +838,17 @@ namespace WeatherStation
         }
 
         /// <summary>
-        /// Send command to Arduino to print current settings. Override with return string
+        /// Send command to Arduino to print current settings. Overload with return string
         /// </summary>
         /// <returns></returns>
         public bool getParametersToSerial(out string CommandStr)
         {
-            String St = "(!?S)"; CommandStr = St;
-            bool retval1 = WriteSerialData(St + Environment.NewLine);
+            String St = "!?S"; CommandStr = St;
+            bool retval1 = WriteSerialData(St);
 
             return retval1;
         }
+
         /// <summary>
         /// External method to check when was the last communication
         /// </summary>        
@@ -887,14 +897,28 @@ namespace WeatherStation
         }
 
         /// <summary>
+        /// External method for parsing buffer data and then make all needed calculations
+        /// </summary>        
+        public void Loop_Cycle()
+        {
+            //1. PARSE BUFFER
+            ParseBufferData();
+            //Clear buffer after parsing
+            SerialBuffer = "";
+
+            //2. MAKE CALCULATIONS
+            MakeSensorsCalculations();
+        }
+            
+        /// <summary>
         /// Upgraded main method to parse received data
         /// Based on SensorArray
         /// Mast be called from external. Working asynchronously with data reading
         /// </summary>        
-        public void ParseData2(string txtBuffer)
+        internal void ParseBufferData()
         {
             string aLine = null;
-            StringReader strReader = new StringReader(txtBuffer);
+            StringReader strReader = new StringReader(SerialBuffer);
             while (true)
             {
                 aLine = strReader.ReadLine();
@@ -922,7 +946,9 @@ namespace WeatherStation
 
                             string tagValue = tagValue_raw.Replace(BadSeparator, Separator);
 
-                            //SET SENSOR VALUE
+                            //LINE PARSED TO tagName AND tagValue
+                            
+                            //1. WRITE IT TO SENSOR VALUE
                             int SensIdx = -1;
                             foreach (SensorElement DataSensor in SensorsArray)
                             {
@@ -936,19 +962,7 @@ namespace WeatherStation
                                 }
                             }
 
-                            //BASE TEMP SENSOR SETTING
-                            try{
-                                if (SensorsArrayHashArduino.ContainsKey(tagName) && SensorsArray[SensorsArrayHashArduino[tagName]].SensorName == BaseTempName)
-                                {
-                                    if (CheckData(SensorsArray[BaseTempIdx].LastValue, SensorTypeEnum.Temp))
-                                    {
-                                        BaseTempVal = SensorsArray[BaseTempIdx].LastValue;
-                                    }
-                                }
-                            }
-                            catch { Logging.Log("Base temp calculation exception",2); }
-
-                            //PARSING PARTICLUAR CASES
+                            //2. PARSING PARTICLUAR CASES
                             if (tagName == "Obj")
                             {
                             }
@@ -967,7 +981,7 @@ namespace WeatherStation
                             else if (tagName == "WnV")
                             {
                                 WindSensorVal = Convert.ToInt16(tagValue);
-                                WindSpeedVal = CalcWindSpeed(WindSensorVal);
+                                WindSpeedVal = calcWindSpeed(WindSensorVal);
                             }
                             else if (tagName == "Lur")
                             {
@@ -1035,9 +1049,6 @@ namespace WeatherStation
                     break;
                 }
             }
-
-            //After parsing make additional calculations
-            MakeSensorsCalculations();
         }
 
         /// <summary>
@@ -1047,10 +1058,23 @@ namespace WeatherStation
         {
             Logging.Log("MakeSensorsCalculations enter", 3);
 
-            //FIX THE MOMENT OF MEASURE FOR BOLWOOD CS DATA SINCE LAST MEASURE
+            //1. FIX THE MOMENT OF MEASURE FOR BOLWOOD CS DATA SINCE LAST MEASURE
             LastMeasure = DateTime.Now;
 
-            //CALCULATED AND AUXILIARY SENSOR FIELDS
+            //2. BASE TEMP SENSOR SETTING
+            try
+            {
+                if (SensorsArrayHash.ContainsKey(BaseTempName))
+                {
+                    if (CheckData(SensorsArray[BaseTempIdx].LastValue, SensorTypeEnum.Temp))
+                    {
+                        BaseTempVal = SensorsArray[BaseTempIdx].LastValue;
+                    }
+                }
+            }
+            catch { Logging.Log("Base temp calculation exception", 2); }
+
+            //3. AUXILIARY SENSOR FIELDS
             IllumVal = SensorsArray[SensorsArrayHash["Illum"]].LastValue;
             ObjTempVal = SensorsArray[SensorsArrayHash["ObjTemp"]].LastValue;
             SensorCaseTempVal = SensorsArray[SensorsArrayHash["ATemp"]].LastValue;
@@ -1061,20 +1085,18 @@ namespace WeatherStation
             RGC_Cumulative += (RGCVal >= 0 ? RGCVal : 0);
             RGC_Cumulative_mm += (RGCVal >= 0 ? RGCVal : 0) * RGC_ONETICK_VALUE;
 
-
-            //CLOUD INDEX CALCULATIONS
-            ObjTempVal = SensorsArray[SensorsArrayHash["ObjTemp"]].LastValue;
-
+            //4. CALCULATED SENSOR FIELDS
+            //4.1. CLOUD INDEX CALCULATIONS
             if (CheckData(ObjTempVal, SensorTypeEnum.Temp) && CheckData(BaseTempVal, SensorTypeEnum.Temp))
             {
                 if (Relay1 == 0 && (SensorCaseTempVal < (BaseTempVal + HEATER_MAX_TEMPERATURE_DELTA * 0.7))) //0.7 - need to try
                 {
-                    CloudIdx = CloudIndex(ObjTempVal, BaseTempVal);
-                    CloudIdxCorr = CloudIndexCorr(ObjTempVal, BaseTempVal);
+                    CloudIdx = calcCloudIndex(ObjTempVal, BaseTempVal);
+                    CloudIdxCorr = calcCloudIndexCorr(ObjTempVal, BaseTempVal);
                 }
             }
-
-            //Calc if needed average of last 5 min (more precisely - 25 by default) values
+            
+            //4.2. Calc if needed average of last 5 min (more precisely - 25 by default) values
             if (LastMeasure.Minute % 5 == 0 && LastMeasure.Minute != SkyIndexAlreadyAddedMinute)
             {
                 SkyIndexAlreadyAddedMinute = LastMeasure.Minute;
@@ -1093,12 +1115,11 @@ namespace WeatherStation
                 {
                     SkyIndex5min[i + 1] = SkyIndex5min[i];
                 }
-                SkyIndex5min[0] = CloudIndex(SensorsArray[SensorsArrayHash["ObjTemp"]].AverageHistoryValues, SensorsArray[SensorsArrayHash[BaseTempName]].AverageHistoryValues);
+                SkyIndex5min[0] = calcCloudIndex(SensorsArray[SensorsArrayHash["ObjTemp"]].AverageHistoryValues, SensorsArray[SensorsArrayHash[BaseTempName]].AverageHistoryValues);
             }
 
-            
-            //CALC RAIN STATUS
-            GetRainingCondition();
+            //4.3. CALC RAIN STATUS
+            calcRainingCondition();
 
             Logging.Log("MakeSensorsCalculations exit", 3);
 
@@ -1225,7 +1246,7 @@ namespace WeatherStation
             Logging.Log("getBoltwoodString_old enter. This should never happened!", 3);
 
             //Calculations for boltwood
-            Bolt_DewPoint = DewPoint(BaseTempVal, HumidityVal);
+            Bolt_DewPoint = calcDewPoint(BaseTempVal, HumidityVal);
 
             //Bolt_Heater
             //not implemented yet
@@ -1324,7 +1345,7 @@ namespace WeatherStation
             Logging.Log("getBoltwoodString enter", 3);
 
             //Calculations for boltwood
-            Bolt_DewPoint = DewPoint(BaseTempVal, HumidityVal);
+            Bolt_DewPoint = calcDewPoint(BaseTempVal, HumidityVal);
 
             //Bolt_Heater
             //not implemented yet
@@ -1430,6 +1451,9 @@ namespace WeatherStation
                 }
             }
 
+            st += Convert.ToString(CloudIdx) + Logging.CSVseparator;
+            st += Convert.ToString(CloudIdxCorr) + Logging.CSVseparator;
+
             Logging.Log("getCSVline exit", 3);
             return st;
         }
@@ -1452,10 +1476,19 @@ namespace WeatherStation
                 {
                     if (DataSensor.Enabled)
                     {
-                        st += Convert.ToString(DataSensor.SensorName) + Logging.CSVseparator;
+                        if (DataSensor.SensorName == BaseTempName)
+                        {
+                            st += "[" + Convert.ToString(DataSensor.SensorName) + "]" + Logging.CSVseparator;
+                        }
+                        else
+                        {
+                            st += Convert.ToString(DataSensor.SensorName) + Logging.CSVseparator;
+                        }
                     }
                 }
             }
+            st += "CloudIdx" + Logging.CSVseparator;
+            st += "CloudIdxCorr" + Logging.CSVseparator;
 
             Logging.Log("getCSVHeaderline exit", 3);
             return st;
@@ -1551,7 +1584,7 @@ namespace WeatherStation
         /// <param name="Tsky">Measured sky temperature</param>
         /// <param name="Tamb">Ambient temperature</param>
         /// <returns>Corrected sky temperature which is used as index</returns>
-        public double CloudIndex(double Tsky, double Tamb, double Tcase=-100.0)
+        public double calcCloudIndex(double Tsky, double Tamb, double Tcase=-100.0)
         {
             double Tclidx = -100.0;
             if (CheckData(Tcase, SensorTypeEnum.Temp))
@@ -1573,7 +1606,7 @@ namespace WeatherStation
         /// <param name="Tsky">Measured sky temperature</param>
         /// <param name="Tamb">Ambient temperature</param>
         /// <returns>Corrected sky temperature which is used as index</returns>
-        public double CloudIndexCorr(double Tsky, double Tamb)
+        public double calcCloudIndexCorr(double Tsky, double Tamb)
         {
             double T67 = 0.0;
 
@@ -1600,7 +1633,7 @@ namespace WeatherStation
         /// United rain flag is set based on both sensors values and parameter RainConditionMode (see below)
         /// </summary>
         /// <returns>true - if rains now</returns>
-        public bool GetRainingCondition()
+        public bool calcRainingCondition()
         {
             Logging.Log("GetRainingCondition enter", 3);
             /*  Calculate RAIN RIGHT NOW CONDITION */
@@ -1772,7 +1805,7 @@ namespace WeatherStation
         /// <param name="Temp">Ambient temperature</param>
         /// <param name="Hum">Current humidity</param>
         /// <returns></returns>
-        public double DewPoint(double Temp, double Hum)
+        public double calcDewPoint(double Temp, double Hum)
         {
             double a = 17.271;
             double b = 237.7;
@@ -1789,7 +1822,7 @@ namespace WeatherStation
         /// </summary>
         /// <param name="WSVal">Wind speed sensor value</param>
         /// <returns>Wind speed in m/s</returns>
-        public double CalcWindSpeed(int WSVal)
+        public double calcWindSpeed(int WSVal)
         {
 
             double minVoltage= WindSpeed_ZeroSpeedValue * 5.0 / 1023.0; // minVoltage = minValue * 5 / 1023

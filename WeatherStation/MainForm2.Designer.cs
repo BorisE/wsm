@@ -113,8 +113,10 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.label30 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.txtWindCond = new System.Windows.Forms.TextBox();
             this.txtWetflag = new System.Windows.Forms.TextBox();
             this.txtRainflag = new System.Windows.Forms.TextBox();
             this.txtDayCond = new System.Windows.Forms.TextBox();
@@ -157,8 +159,10 @@
             this.label28 = new System.Windows.Forms.Label();
             this.btnIndCloud = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
+            this.txtMinWind = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.btnStart_min = new System.Windows.Forms.Button();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -167,10 +171,6 @@
             this.toolStripMenuItem_open = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem_exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtMinWind = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtWindCond = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -1049,6 +1049,16 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Boltwood cloud sensor flags state";
             // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(547, 31);
+            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(105, 17);
+            this.label30.TabIndex = 11;
+            this.label30.Text = "Wind condition:";
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -1068,6 +1078,14 @@
             this.label18.Size = new System.Drawing.Size(68, 17);
             this.label18.TabIndex = 11;
             this.label18.Text = "Rain flag:";
+            // 
+            // txtWindCond
+            // 
+            this.txtWindCond.Location = new System.Drawing.Point(550, 58);
+            this.txtWindCond.Margin = new System.Windows.Forms.Padding(4);
+            this.txtWindCond.Name = "txtWindCond";
+            this.txtWindCond.Size = new System.Drawing.Size(99, 22);
+            this.txtWindCond.TabIndex = 4;
             // 
             // txtWetflag
             // 
@@ -1529,6 +1547,16 @@
             this.label27.Text = "Cloud";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(585, 108);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 17);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Wind:";
+            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -1548,6 +1576,14 @@
             this.label25.Size = new System.Drawing.Size(37, 17);
             this.label25.TabIndex = 30;
             this.label25.Text = "Wet:";
+            // 
+            // txtMinWind
+            // 
+            this.txtMinWind.Location = new System.Drawing.Point(633, 105);
+            this.txtMinWind.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMinWind.Name = "txtMinWind";
+            this.txtMinWind.Size = new System.Drawing.Size(49, 22);
+            this.txtMinWind.TabIndex = 6;
             // 
             // label24
             // 
@@ -1680,42 +1716,6 @@
             this.toolStripMenuItem_exit.Name = "toolStripMenuItem_exit";
             this.toolStripMenuItem_exit.Size = new System.Drawing.Size(114, 24);
             this.toolStripMenuItem_exit.Text = "Exit";
-            // 
-            // txtMinWind
-            // 
-            this.txtMinWind.Location = new System.Drawing.Point(633, 105);
-            this.txtMinWind.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMinWind.Name = "txtMinWind";
-            this.txtMinWind.Size = new System.Drawing.Size(49, 22);
-            this.txtMinWind.TabIndex = 6;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(585, 108);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 17);
-            this.label9.TabIndex = 30;
-            this.label9.Text = "Wind:";
-            // 
-            // txtWindCond
-            // 
-            this.txtWindCond.Location = new System.Drawing.Point(550, 58);
-            this.txtWindCond.Margin = new System.Windows.Forms.Padding(4);
-            this.txtWindCond.Name = "txtWindCond";
-            this.txtWindCond.Size = new System.Drawing.Size(99, 22);
-            this.txtWindCond.TabIndex = 4;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(547, 31);
-            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(105, 17);
-            this.label30.TabIndex = 11;
-            this.label30.Text = "Wind condition:";
             // 
             // MainForm
             // 

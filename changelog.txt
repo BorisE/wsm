@@ -2,9 +2,25 @@ WeatherStation Project
 (c) 2013-2014 by Emchenko Boris
 
 Change log
+
+1.4.35 (2014-12-20)
+- Minor changes in chase for elusive BaseTemp bug
+
+1.4.34 (2014-12-19)
+- Internal changes for more clear code
+- Some errors in sending commands to Arduino
+
+1.4.33 (2014-12-18)
+- Combobox settings saving mechanizm changed
+- Basetemp field is now highlighted
+
+1.4.32 (2014-12-18)
+- Basetemp bug found by Dimaz
+- More quality icons
+
 1.4.31 (2014-12-13)
 - Settings reset to default
-- Settings cancel button now cancels all settings changes
+- Settings cancel button now cancels all settings changes made (as it should be)
 
 1.4.30 (2014-12-13)
 - Rain condtition signaling changed a bit

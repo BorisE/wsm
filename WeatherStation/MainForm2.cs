@@ -15,7 +15,6 @@ using System.Threading;
 using System.Diagnostics;
 using System.Reflection;
 
-
 public enum FormAppearanceMode { MODE_MIN, MODE_MAX };
 
 namespace WeatherStation
@@ -214,6 +213,11 @@ namespace WeatherStation
 
         /// <summary>
         /// Monitoring Simulation start
+        /// Starts two timer ticks:
+        /// 1. Simulation of asynchroneous serial data read to buffer:
+        ///     - first by timer_debug_changetext tick form BUFFER TEXT in SerialBufferFullSim
+        ///     - then start fast timer_debug_portread tick, which emulates arbitrary number of bytes read to Serail Buffer
+        /// 2. Working (as in case of productive cycle) with data from Serial Buffer
         /// </summary>
         private void btnSimulate_Click(object sender, EventArgs e)
         {
@@ -234,7 +238,7 @@ namespace WeatherStation
             {
                 timer_main.Enabled = true;
                 timer_debug_changetext.Enabled = true;
-                //timer_debug_portread.Enabled = true;
+                //timer_debug_portread.Enabled = true; //this timer is started by timer_debug_changetext tick
                 Logging.Log("Monitoring simulation was started");
                 SimulationMode = true;
                 LogForm.AppendLogText("Monitoring simulation was started");
@@ -257,12 +261,10 @@ namespace WeatherStation
             //Check if data receiving (whatchdog)
             if (Hardware.WatchDog && !SimulationMode) Hardware.CheckIfDataReceiving();
 
-            //Get current buffer for pasing it and clear it for collecting the new portion
+            //Get current buffer for logging
             string curSerialBuffer = Hardware.SerialBuffer;
-            Hardware.SerialBuffer = "";
-
-            //Parse data
-            Hardware.ParseData2(curSerialBuffer);
+            //Parse data and make all calculation
+            Hardware.Loop_Cycle();
 
             //Write boltwood file (and calculate boltwood fields values)
             if (Properties.Settings.Default.BoltwoodFileFlag)
@@ -309,7 +311,7 @@ namespace WeatherStation
             string ArdSetRT = (Hardware.ArduinoSettings.TryGetValue("RT", out El) ? El.Value : "300");
 
             int WindSensorVal_sim = rand.Next(83,200);
-            double WindSpeedVal_sim = Hardware.CalcWindSpeed(WindSensorVal_sim);
+            double WindSpeedVal_sim = Hardware.calcWindSpeed(WindSensorVal_sim);
 
             Hardware.SerialBufferFullSim = @"Weather station v0.8sim
 [!ver:0.8sim]
@@ -356,11 +358,11 @@ waiting 10000
 ";
             Logging.Log("Simulated text created", 3);
             Hardware.simBufferReadPos = 0;
-            timer_debug_portread.Enabled = true;
+            timer_debug_portread.Enabled = true; //starts read in portions timer ticks
         }
 
         /// <summary>
-        /// Sumulation timer 2 - it simulates reading data from serial in portions
+        /// Sumulation timer 2 - it simulates reading data from serial in arbitrary portions into Serial Buffer
         /// </summary>
         private void timer_debug_portread_Tick(object sender, EventArgs e)
         {
@@ -391,6 +393,15 @@ waiting 10000
                         {
                             TextBox SensVal = this.Controls.Find(DataSensor.SensorFormField, true)[0] as TextBox;
                             SensVal.Text = Convert.ToString(DataSensor.LastValue);
+
+                            if (DataSensor.SensorName == Hardware.BaseTempName)
+                            {
+                                SensVal.BorderStyle = BorderStyle.FixedSingle;
+                            }
+                            else
+                            {
+                                SensVal.BorderStyle = BorderStyle.Fixed3D;
+                            }
                         }
                         catch { }
                     }
@@ -896,9 +907,10 @@ waiting 10000
                 Hardware.RAININDEX_RAIN_LIMIT = Convert.ToDouble(Properties.Settings.Default.RainLimit);
 
                 //Colors color = (Colors)System.Enum.Parse(typeof(Colors), "Green");
-                //Hardware.RainConditionMode = (WetSensorsMode)Convert.ToByte(Properties.Settings.Default.WetSensorsMode);
+                Hardware.RainConditionMode = (WetSensorsMode)Convert.ToByte(Properties.Settings.Default.WetSensorsMode);
                 //Hardware.RainConditionMode = (WetSensorsMode)Enum.Parse(typeof(WetSensorsMode), Properties.Settings.Default.WetSensorsMode);
-                Hardware.RainConditionMode = Hardware.WetSensorsModeDictionary[Properties.Settings.Default.WetSensorsMode];
+                //Hardware.RainConditionMode = Hardware.WetSensorsModeDictionary[Properties.Settings.Default.WetSensorsMode];
+                //Hardware.RainConditionMode = Hardware.WetSensorsModeDictionary[Properties.Settings.Default.WetSensorsMode];
 
                 Hardware.WINDSPEED_WINDY = Convert.ToDouble(Properties.Settings.Default.WindyLimit);
                 Hardware.WINDSPEED_VERYWINDY = Convert.ToDouble(Properties.Settings.Default.VeryWindyLimit);
@@ -942,7 +954,20 @@ waiting 10000
                 Logging.BoltwoodFileFlag = Properties.Settings.Default.BoltwoodFileFlag;
                 Logging.SerialLogFileFlag = Properties.Settings.Default.SerialLogFileFlag;
 
-                Logging.DEBUG_LEVEL = Convert.ToByte(Properties.Settings.Default.LogLevel);
+                string tempSt = Properties.Settings.Default.LogLevel;
+                Logging.DEBUG_LEVEL = Convert.ToByte(tempSt);
+
+                //Load base temp sensor settings
+                string BaseTempSt = Properties.Settings.Default.BaseTempSensor;
+                if (Hardware.SensorsArrayHash.ContainsKey(BaseTempSt))
+                {
+                    Hardware.BaseTempName = BaseTempSt;
+                    Hardware.BaseTempIdx = Hardware.SensorsArrayHash[BaseTempSt];
+                }
+                else
+                {
+                    Logging.Log("Load params error - base temperature sensor not found (" + BaseTempSt + ")");
+                }
             }
             catch (Exception ex)
             {
@@ -999,6 +1024,17 @@ waiting 10000
         }
 
         /// <summary>
+        /// Query Arduino settings
+        /// </summary>
+        private void btnQueryArduinoSettings_Click(object sender, EventArgs e)
+        {
+            Logging.Log("btnQueryArduinoSettings_Click enter", 3);
+            Hardware.WriteSerialData("!?S");
+            Logging.Log("btnQueryArduinoSettings_Click exit", 3);
+        }
+
+
+        /// <summary>
         /// Service function to display and log errors
         /// </summary>
         /// <param name="ErrorMsg">Error message</param>
@@ -1007,16 +1043,6 @@ waiting 10000
             Logging.Log(ErrorMsg);
             MessageBox.Show(ErrorMsg);
         }
-
-        /// <summary>
-        /// Query Arduino settings
-        /// </summary>
-        private void btnQueryArduinoSettings_Click(object sender, EventArgs e)
-        {
-            Logging.Log("btnQueryArduinoSettings_Click enter", 3);
-            Hardware.WriteSerialData("(!?S)");
-            Logging.Log("btnQueryArduinoSettings_Click exit", 3);
-        }        
 
         private void btnStart_min_Click(object sender, EventArgs e)
         {

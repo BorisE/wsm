@@ -111,7 +111,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="LogLevel" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1 - Common messages</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="SensorFieldName" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

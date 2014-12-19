@@ -19,8 +19,15 @@ using System.Globalization;
 // How to add new settigs:
 // 1. Add form element
 // 2. Add in element Data/ApplicationSetting/text (or checked, or ...) reference to setting provider element
-// 2. Add writing from element to var in btnOk_Click event
-// 3. Add to LoadParams() in MainForm initial var setting from setting provider
+// 3. Add writing from element to var in btnOk_Click event
+// 4. Add to LoadParams() in MainForm initial var setting from setting provider
+// 
+// For combobox with selectindex
+// 2. DO NOT MAKE LINKING TO Application/Settings
+// 3.1 Add writting from element to var in btnOk_Click event
+// 3.2 Add writting from element to Properties.Settings.Default.####
+// 4. Add to LoadParams() in MainForm initial var setting from setting provider
+// 5. Add to SettingsForm.Show() initializing combobox selectedindex from var
 ///////////////////////////////////////////
 
 namespace WeatherStation
@@ -102,14 +109,17 @@ namespace WeatherStation
             //POPULATE SENSOR DATAGRID
             PopulateSensorListGrid();
 
+            //set comboboxes
+            cmbLogLevel.SelectedIndex = Logging.DEBUG_LEVEL-1;
+            cmbWetMode.SelectedIndex = (byte)ParentMainForm.Hardware.RainConditionMode; ;
+
+
             //Workaround about "Controls contained in a TabPage are not created until the tab page is shown, and any data bindings in these controls are not activated until the tab page is shown."
             foreach (TabPage tp in tabControl1.TabPages)
             {
                 tp.Show();
             }
-
         }
-
 
         private void btnOk_Click(object sender, EventArgs e)
         {
@@ -117,6 +127,8 @@ namespace WeatherStation
 
             try
             {
+                //Debuglevel combobox
+                Properties.Settings.Default.LogLevel = (cmbLogLevel.SelectedIndex+1).ToString();
                 Logging.DEBUG_LEVEL = (byte)(cmbLogLevel.SelectedIndex + 1);
 
                 //Store to vars main hardware settings
@@ -142,6 +154,8 @@ namespace WeatherStation
                 ParentMainForm.Hardware.RAININDEX_WET_LIMIT = Convert.ToDouble(txtWetLimit.Text);
                 ParentMainForm.Hardware.RAININDEX_RAIN_LIMIT = Convert.ToDouble(txtRainLimit.Text);
 
+                //Wet combobox
+                Properties.Settings.Default.WetSensorsMode = cmbWetMode.SelectedIndex.ToString();
                 ParentMainForm.Hardware.RainConditionMode = (WetSensorsMode)(cmbWetMode.SelectedIndex);
 
                 Logging.Log("Preferences: RAININDEX_WET_LIMIT: " + txtWetLimit.Text, 2);
@@ -192,22 +206,19 @@ namespace WeatherStation
                 Logging.DataFileFlag = chkCSVFileFlag.Checked;
                 Logging.BoltwoodFileFlag = chkBoltwoodFileFlag.Checked;
 
-                //Store to vars base temp sensor settings
+                //Store to vars base temp sensor settings (COMBOBOX)
                 string BaseTempSt = (string)cmbBaseTempSensor.SelectedItem;
-                int curSensIndex = -1;
-                foreach (SensorElement DataSensor in ParentMainForm.Hardware.SensorsArray)
+                if (ParentMainForm.Hardware.SensorsArrayHash.ContainsKey(BaseTempSt))
                 {
-                    if (DataSensor != null)
-                    {
-                        curSensIndex++;
-                        if (DataSensor.SensorName == BaseTempSt)
-                        {
-                            ParentMainForm.Hardware.BaseTempIdx = curSensIndex;
-                            ParentMainForm.Hardware.BaseTempName = BaseTempSt;
-                        }
-                    }
+                    ParentMainForm.Hardware.BaseTempName = BaseTempSt;
+                    ParentMainForm.Hardware.BaseTempIdx = ParentMainForm.Hardware.SensorsArrayHash[BaseTempSt];
                 }
-                Logging.Log("Preferences: Base temperature sensor: " + BaseTempSt, 2);
+                else
+                {
+                    Logging.Log("Settings error! Base temperature sensor not found (" + BaseTempSt+")");
+                }
+
+                Logging.Log("Settings: Base temperature sensor: " + BaseTempSt, 2);
 
                 //Save datagrid to Properties.Settings
                 //1 - make param strings

@@ -49,7 +49,7 @@ namespace ConsoleApplication1
 
 
             double t = 19.2; double h = 1.0;
-            double dp = WS.DewPoint(t, h);
+            double dp = WS.calcDewPoint(t, h);
             Console.WriteLine("Dew point at {0}C {1}%: {2}",t,h,dp);
 
             Console.WriteLine("Test");
