@@ -2,10 +2,14 @@ WeatherStation Project
 (c) 2013-2014 by Emchenko Boris
 
 Change log
+1.5.37 (2014-12-22)
+- minor improvements to Serial File Emulation
+
 1.5.36 (2014-12-22)
-- Added Serial Port file emulation
+- Added Serial Port file emulation (in and out)
 - Name changed to WeatherStation Monitor
 - Removed some obsolete modules
+- First use of resource file. Long way to go!
 
 1.4.35 (2014-12-20)
 - Minor changes in chase for elusive BaseTemp bug

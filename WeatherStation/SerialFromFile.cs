@@ -133,8 +133,6 @@ namespace WeatherStation
             return retIsModified;
         }
 
-
-
         /// <summary>
         /// Get data from file
         /// </summary>
@@ -156,6 +154,47 @@ namespace WeatherStation
 
             Logging.Log("getBufferFromFile exit", 3);
             return st;
+        }
+
+        /// <summary>
+        /// Wrapper for writing data to serial port
+        /// </summary>
+        /// <param name="CommandSt">string with command, which should be sent to Arduino</param>
+        public static bool WriteData(string CommandSt)
+        {
+            Logging.Log("SerialFromFile WriteData enter", 3);
+
+            bool error = false;
+
+            try
+            {
+                if (!File.Exists(SerialFileNameOut))
+                {
+                    using (StreamWriter outfile = File.CreateText(SerialFileNameOut))
+                    {
+                        outfile.WriteLine(CommandSt);
+                        error = false;
+                        Logging.Log("Create file for Serial File Emaulation output command " + CommandSt, 2);
+                    }
+                }
+                else
+                {
+                    using (StreamWriter outfile = File.AppendText(SerialFileNameOut))
+                    {
+                        outfile.WriteLine(CommandSt);
+                        error = false;
+                        Logging.Log("Append to existing file for Serial File Emaulation output command " + CommandSt, 2);
+                    }
+                }
+            }
+            catch
+            {
+                Logging.Log("Serial File Emulation output to serial error. Command " + CommandSt + " wasn't sent");
+                error = true;
+            }
+
+            Logging.Log("SerialFromFile WriteData exit", 3);
+            return error;
         }
 
 

@@ -120,6 +120,11 @@ namespace WeatherStation
             cmbLogLevel.SelectedIndex = Logging.DEBUG_LEVEL-1;
             cmbWetMode.SelectedIndex = (byte)ParentMainForm.Hardware.RainConditionMode; ;
 
+            //enable/disable serial file emulation
+            if (ParentMainForm.Hardware.UseFileEmulation)
+            {
+                cmbPortList_SelectedIndexChanged(this,e);
+            }
 
             //Workaround about "Controls contained in a TabPage are not created until the tab page is shown, and any data bindings in these controls are not activated until the tab page is shown."
             foreach (TabPage tp in tabControl1.TabPages)
@@ -307,7 +312,7 @@ namespace WeatherStation
             //write settings to Arduino
             string OutSt = "";
             ParentMainForm.Hardware.sendParametersToSerial(out OutSt);
-            ParentMainForm.Hardware.getParametersToSerial();
+            ParentMainForm.Hardware.queryParametersFromSerial();
             ParentMainForm.LogForm.AppendLogText(OutSt);
 
         }

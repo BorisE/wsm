@@ -635,7 +635,7 @@ namespace WeatherStation
                         Logging.Log("Comport was opened", 2);
 
                         sendParametersToSerial();
-                        getParametersToSerial();
+                        queryParametersFromSerial();
                     }
                     catch (UnauthorizedAccessException) { error = true; }
                     catch (IOException) { error = true; }
@@ -777,16 +777,27 @@ namespace WeatherStation
         public bool WriteSerialData(string CommandSt)
         {
             string FullCommandSt = "(" + CommandSt + ")";
-            try
+            bool error = false;
+
+            if (UseFileEmulation)
             {
-                comport.WriteLine(FullCommandSt);
-                Logging.Log("Command to serial sent: " + FullCommandSt);
-                return true;
+                error = !SerialFromFile.WriteData(FullCommandSt);
+                if (!error) Logging.Log("Command to Serial File Emulation was sent: " + FullCommandSt);
+                return !error;
             }
-            catch
+            else
             {
-                Logging.Log("Error writing command " + FullCommandSt + " to serial");
-                return false;
+                try
+                {
+                    comport.WriteLine(FullCommandSt);
+                    Logging.Log("Command to serial sent: " + FullCommandSt);
+                    return true;
+                }
+                catch
+                {
+                    Logging.Log("Error writing command " + FullCommandSt + " to serial");
+                    return false;
+                }
             }
         }
 
@@ -813,6 +824,7 @@ namespace WeatherStation
             
             return (retval1 && retval2 && retval3);
         }
+
         /// <summary>
         /// Send current settings to Arduino
         /// </summary>
@@ -841,7 +853,7 @@ namespace WeatherStation
         /// Send command to Arduino to print current settings 
         /// </summary>
         /// <returns></returns>
-        public bool getParametersToSerial()
+        public bool queryParametersFromSerial()
         {
             bool retval1 = WriteSerialData("!?S");
 
@@ -854,7 +866,7 @@ namespace WeatherStation
         /// Send command to Arduino to print current settings. Overload with return string
         /// </summary>
         /// <returns></returns>
-        public bool getParametersToSerial(out string CommandStr)
+        public bool queryParametersFromSerial(out string CommandStr)
         {
             String St = "!?S"; CommandStr = St;
             bool retval1 = WriteSerialData(St);

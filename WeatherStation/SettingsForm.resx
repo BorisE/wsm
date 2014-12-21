@@ -120,6 +120,9 @@
   <metadata name="MyToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>14, 4</value>
   </metadata>
+  <metadata name="MyToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>14, 4</value>
+  </metadata>
   <data name="txtRefreshWebDataInterval.ToolTip" xml:space="preserve">
     <value>Specify how ofter data should be sent to web server
 
@@ -310,10 +313,7 @@ Program determines when Cloud Sensor need heating based on some conditions:
         AAD/nwAAv30AAA==
 </value>
   </data>
-  <metadata name="fileOpenDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>423, 3</value>
-  </metadata>
   <metadata name="fileChooseDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>556, 3</value>
+    <value>402, 3</value>
   </metadata>
 </root>

@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabGeneral = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
@@ -158,7 +158,6 @@
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnReset = new System.Windows.Forms.Button();
-            this.fileOpenDialog = new System.Windows.Forms.OpenFileDialog();
             this.fileChooseDialog = new System.Windows.Forms.SaveFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -1260,14 +1259,14 @@
             this.dataGridSensors.AllowUserToDeleteRows = false;
             this.dataGridSensors.AllowUserToOrderColumns = true;
             this.dataGridSensors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridSensors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridSensors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridSensors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridSensors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SensorName,
@@ -1656,13 +1655,10 @@
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // fileOpenDialog
-            // 
-            this.fileOpenDialog.FileName = "SerialIn.txt";
-            // 
             // fileChooseDialog
             // 
             this.fileChooseDialog.InitialDirectory = "MyComputer";
+            this.fileChooseDialog.Title = "Choose file for Serial emulation";
             // 
             // SettingsForm
             // 
@@ -1850,7 +1846,6 @@
         private System.Windows.Forms.TextBox txtSerialFileIn;
         private System.Windows.Forms.Button btnOpenWriteToFile;
         private System.Windows.Forms.Button btnOpenReadFromFile;
-        private System.Windows.Forms.OpenFileDialog fileOpenDialog;
         private System.Windows.Forms.SaveFileDialog fileChooseDialog;
     }
 }
