@@ -14,6 +14,7 @@ using System.Net;
 using System.Threading;
 using System.Diagnostics;
 using System.Reflection;
+using System.Resources;
 
 public enum FormAppearanceMode { MODE_MIN, MODE_MAX };
 
@@ -42,6 +43,16 @@ namespace WeatherStation
         /// </summary>
         public SettingsForm SetForm;
 
+        /// <summary>
+        /// Link to serial from file methods
+        /// </summary>
+        //public SerialFromFile SerialFile;
+
+        /// <summary>
+        /// Link to NON LOCALISED resource manager
+        /// </summary>
+        ResourceManager LocRM;
+
         //For graphs
         private DateTime curX;
         public int maxNumberOfPointsInChart = 8640; //For 24h with 10sec interval
@@ -68,10 +79,13 @@ namespace WeatherStation
         {
             InitializeComponent();
 
+            LocRM = new ResourceManager("WeatherStation.WinFormStrings", Assembly.GetExecutingAssembly()); //create resource manager
+
             LogForm = new LogWindow(this);
             Hardware = new WeatherStationSerial(this);
             //PrefForm = new PreferencesForm(this);
             SetForm = new SettingsForm(this);
+            //SerialFile = new SerialFromFile();
         }
 
         /// <summary>
@@ -166,21 +180,21 @@ namespace WeatherStation
         private void btnStart_Click(object sender, EventArgs e)
         {
             // If the port is open, close it.
-            if (Hardware.IsOpen())
+            if (Hardware.IsOpened())
             {
                 if (!Hardware.stopReadData())
                 {
-                    Logging.Log("Could not close the COM port [" + Hardware.comport.PortName + "]");
-                    LogForm.txtLog.AppendText("Could not close the COM port [" + Hardware.comport.PortName + "]");
-                    MessageBox.Show(this, "Could not close the COM port [" + Hardware.comport.PortName + "]", "COM Port couldn't be closed", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    Logging.Log("Could not close the COM port [" + Hardware.PortName + "]");
+                    LogForm.txtLog.AppendText("Could not close the COM port [" + Hardware.PortName + "]");
+                    MessageBox.Show(this, "Could not close the COM port [" + Hardware.PortName + "]", "COM Port couldn't be closed", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
                 else
                 {
                     btnStart.Text = "Start";
                     btnStart_min.Text = "Start";
                     timer_main.Enabled = false;
-                    Logging.Log("Monitoring on [" + Hardware.comport.PortName + "] was stopped");
-                    LogForm.txtLog.AppendText("Monitoring on [" + Hardware.comport.PortName + "] was stopped");
+                    Logging.Log("Monitoring on [" + Hardware.PortName + "] was stopped");
+                    LogForm.txtLog.AppendText("Monitoring on [" + Hardware.PortName + "] was stopped");
                     Logging.CloseLogFile();
                 }
                 btnRelay.Enabled = false;
@@ -189,16 +203,16 @@ namespace WeatherStation
             {
                 if (!Hardware.startReadData())
                 {
-                    Logging.Log("Could not open the COM port [" + Hardware.comport.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.");
-                    LogForm.txtLog.AppendText("Could not open the COM port [" + Hardware.comport.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.");
-                    MessageBox.Show(this, "Could not open the COM port [" + Hardware.comport.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.", "COM Port Unavalible", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    Logging.Log("Could not open the COM port [" + Hardware.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.");
+                    LogForm.txtLog.AppendText("Could not open the COM port [" + Hardware.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.");
+                    MessageBox.Show(this, "Could not open the COM port [" + Hardware.PortName + "].  Most likely it is already in use, has been removed, or is unavailable.", "COM Port Unavalible", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     btnRelay.Enabled = false;
                 }
                 else
                 {
                     timer_main.Enabled = true;
-                    Logging.Log("Monitoring on [" + Hardware.comport.PortName + "] was started");
-                    LogForm.AppendLogText("Monitoring on [" + Hardware.comport.PortName + "] was started");
+                    Logging.Log("Monitoring on [" + Hardware.PortName + "] was started");
+                    LogForm.AppendLogText("Monitoring on [" + Hardware.PortName + "] was started");
                     btnStart.Text = "Stop";
                     btnStart_min.Text = "Stop";
 
@@ -264,7 +278,7 @@ namespace WeatherStation
             //Get current buffer for logging
             string curSerialBuffer = Hardware.SerialBuffer;
             //Parse data and make all calculation
-            Hardware.Loop_Cycle();
+            Hardware.LOOP_CYCLE();
 
             //Write boltwood file (and calculate boltwood fields values)
             if (Properties.Settings.Default.BoltwoodFileFlag)
@@ -889,6 +903,10 @@ waiting 10000
             {
                 Hardware.PortName = Properties.Settings.Default.comport;
                 Hardware.WatchDog = Properties.Settings.Default.ComWatchdog;
+
+                Hardware.UseFileEmulation = (Hardware.PortName == LocRM.GetString("_WORK_WITH_FILE_SERIAL"));                
+                SerialFromFile.SerialFileNameIn = Properties.Settings.Default.SerialFileIn;
+                SerialFromFile.SerialFileNameOut = Properties.Settings.Default.SerialFileOut;
 
                 Hardware.CLOUDINDEX_CLEAR = Convert.ToDouble(Properties.Settings.Default.Clearsky);
                 Hardware.CLOUDINDEX_CLOUDY = Convert.ToDouble(Properties.Settings.Default.Cloudysky);

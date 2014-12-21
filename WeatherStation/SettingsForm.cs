@@ -14,11 +14,13 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Reflection;
 using System.Globalization;
+using System.Threading;
+using System.Resources;
 
 ///////////////////////////////////////////
 // How to add new settigs:
 // 1. Add form element
-// 2. Add in element Data/ApplicationSetting/text (or checked, or ...) reference to setting provider element
+// 2. Link element through Data/ApplicationSetting/text (or checked, or ...) to setting provider element
 // 3. Add writing from element to var in btnOk_Click event
 // 4. Add to LoadParams() in MainForm initial var setting from setting provider
 // 
@@ -35,10 +37,14 @@ namespace WeatherStation
     public partial class SettingsForm : Form
     {
         private MainForm ParentMainForm;
+
+        ResourceManager LocRM;
+
         public SettingsForm(MainForm MF)
         {
             InitializeComponent();
             ParentMainForm = MF;
+            LocRM = new ResourceManager("WeatherStation.WinFormStrings", Assembly.GetExecutingAssembly()); //create resource manager
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
@@ -48,6 +54,7 @@ namespace WeatherStation
             //READ COM PORT LIST
             foreach (string s in SerialPort.GetPortNames())
                 cmbPortList.Items.Add(s);
+            cmbPortList.Items.Add(LocRM.GetString("_WORK_WITH_FILE_SERIAL")); //add File Emulation item
 
             //READ AND FILL SENSOR PARAMETERS
             LoadSensorArrayFromSettings();
@@ -135,6 +142,10 @@ namespace WeatherStation
                 ParentMainForm.Hardware.PortName = cmbPortList.Text;
                 ParentMainForm.Hardware.WatchDog = chkWatchdog.Checked;
                 Logging.Log("Preferences: COMPORT: " + cmbPortList.Text, 2);
+
+                ParentMainForm.Hardware.UseFileEmulation= (cmbPortList.Text == LocRM.GetString("_WORK_WITH_FILE_SERIAL"));
+                SerialFromFile.SerialFileNameIn = txtSerialFileIn.Text;
+                SerialFromFile.SerialFileNameOut = txtSerialFileOut.Text;
 
                 ParentMainForm.Hardware.CLOUDINDEX_CLEAR = Convert.ToDouble(txtClearsky.Text);
                 ParentMainForm.Hardware.CLOUDINDEX_CLOUDY = Convert.ToDouble(txtCloudysky.Text);
@@ -546,11 +557,6 @@ namespace WeatherStation
             }
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.Reload(); 
@@ -567,6 +573,56 @@ namespace WeatherStation
             string myString = WebServices.GetMacAddress();
             myString = Regex.Replace(myString, ".{2}", "$0-");
             txtNarodmonMAC.Text = (myString.Substring(myString.Length - 1, 1) == "-" ? myString.Substring(0, myString.Length - 1) : myString);
+        }
+
+
+        /// <summary>
+        /// Handle when user choose file serial emulation
+        /// </summary>
+        private void cmbPortList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbPortList.Text == LocRM.GetString("_WORK_WITH_FILE_SERIAL"))
+            {
+                txtSerialFileIn.Enabled = true;
+                txtSerialFileOut.Enabled = true;
+                btnOpenReadFromFile.Enabled = true;
+                btnOpenWriteToFile.Enabled = true;
+
+                chkWatchdog.Enabled = false;
+            }
+            else
+            {
+                txtSerialFileIn.Enabled = false;
+                txtSerialFileOut.Enabled = false;
+                btnOpenReadFromFile.Enabled = false;
+                btnOpenWriteToFile.Enabled = false;
+
+                chkWatchdog.Enabled = true;
+            }
+
+        }
+
+        /// <summary>
+        /// User press choose file button
+        /// </summary>
+        private void btnOpenReadFromFile_Click(object sender, EventArgs e)
+        {
+
+            DialogResult result = fileChooseDialog.ShowDialog();
+  
+            if (result == DialogResult.OK)
+            {
+                Button bttn = (Button)sender;
+                string FileNameSt = fileChooseDialog.FileName;
+                //if (FileNameSt.Substring(FileNameSt.Length - 1, 1) != "\\") FileNameSt = FileNameSt + "\\";
+
+                if (bttn.Name == "btnOpenReadFromFile") { txtSerialFileIn.Text = FileNameSt; }
+                else if (bttn.Name == "btnOpenWriteToFile") { txtSerialFileOut.Text = FileNameSt; }
+
+                //Environment.SpecialFolder root = folderDlg.RootFolder;
+            }
+        
+        
         }
 
 

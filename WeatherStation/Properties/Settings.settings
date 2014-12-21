@@ -170,5 +170,11 @@
     <Setting Name="RefreshNarodmonInterval" Type="System.String" Scope="User">
       <Value Profile="(Default)">300</Value>
     </Setting>
+    <Setting Name="SerialFileIn" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SerialFileOut" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

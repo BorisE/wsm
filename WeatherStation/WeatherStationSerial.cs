@@ -87,18 +87,17 @@ public class ArduinoSettingsClass
 
 namespace WeatherStation
 {
+    /// <summary>
+    /// Class for working with Arduino piece of hardware (through SERIAL PORT)
+    /// </summary>
     public class WeatherStationSerial
     {
-        /// <summary>
-        /// Link to MainForm for displaying serial data
-        /// </summary>
-        //private MainForm ParentMainForm=null;
-
         /// <summary>
         /// Serial Port name
         /// </summary>        
         public string PortName = "COM5";
-
+        public bool UseFileEmulation = false;
+        public string _WORK_WITH_FILE_SERIAL = "File Emulation"; //CONSTANT, CAN BE SET FROM EXTERNAL PARAMETERS
         /// <summary>
         /// The SerialPort object, which is used for communicating through the RS-232 port
         /// </summary>        
@@ -562,7 +561,7 @@ namespace WeatherStation
         }
 
         /// <summary>
-        /// Autosearch sensors 
+        /// Autosearch sensors. Not implemented
         /// </summary>        
         public void searchSensors()
         {
@@ -619,22 +618,29 @@ namespace WeatherStation
             // If the port is not open
             if (!comport.IsOpen)
             {
-                try
+                if (UseFileEmulation)
                 {
-                    setPortSettings();
-                    eventHandler();
-
-                    // Open the port
-                    comport.Open();
-                    Logging.Log("Comport was opened", 2);
-
-                    sendParametersToSerial();
-                    getParametersToSerial();
+                    error=!SerialFromFile.Open();
+                    if (!error) Logging.Log("FileEmulation was opened", 2);
                 }
-                catch (UnauthorizedAccessException) { error = true; }
-                catch (IOException) { error = true; }
-                catch (ArgumentException) { error = true; }
+                else
+                {
+                    try
+                    {
+                        setPortSettings();
+                        eventHandler();
 
+                        // Open the port
+                        comport.Open();
+                        Logging.Log("Comport was opened", 2);
+
+                        sendParametersToSerial();
+                        getParametersToSerial();
+                    }
+                    catch (UnauthorizedAccessException) { error = true; }
+                    catch (IOException) { error = true; }
+                    catch (ArgumentException) { error = true; }
+                }
             }
             if (error)
             {
@@ -658,16 +664,23 @@ namespace WeatherStation
             // If the port is open, close it.
             if (comport.IsOpen)
             {
-                try
+                if (UseFileEmulation)
                 {
-                    // Close the port
-                    comport.Close();
-                    Logging.Log("Comport was closed", 2);
+                    error = SerialFromFile.Close();
+                    if (!error) Logging.Log("FileEmulation was closed", 2);
                 }
-                catch (UnauthorizedAccessException) { error = true; }
-                catch (IOException) { error = true; }
-                catch (ArgumentException) { error = true; }
-
+                else
+                {
+                    try
+                    {
+                        // Close the port
+                        comport.Close();
+                        Logging.Log("Comport was closed", 2);
+                    }
+                    catch (UnauthorizedAccessException) { error = true; }
+                    catch (IOException) { error = true; }
+                    catch (ArgumentException) { error = true; }
+                }
             }
             if (error)
             {
@@ -883,9 +896,19 @@ namespace WeatherStation
         /// <summary>
         /// External interface to check if communication was started
         /// </summary>        
-        public bool IsOpen()
+        public bool IsOpened()
         {
-            return comport.IsOpen;
+            bool ret = false;
+            if (UseFileEmulation)
+            {
+                ret = SerialFromFile.ConsideredOpen;
+            }
+            else
+            {
+                ret=comport.IsOpen;
+            }
+            return ret;
+
         }
 
         /// <summary>
@@ -899,8 +922,11 @@ namespace WeatherStation
         /// <summary>
         /// External method for parsing buffer data and then make all needed calculations
         /// </summary>        
-        public void Loop_Cycle()
+        public void LOOP_CYCLE()
         {
+            //0. If Serial file emulation, read file
+            if (UseFileEmulation) SerialBuffer = SerialFromFile.Read();
+            
             //1. PARSE BUFFER
             ParseBufferData();
             //Clear buffer after parsing
