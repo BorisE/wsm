@@ -52,6 +52,7 @@ namespace WeatherStation
             Logging.Log("Preferences Form load starting...", 3);
 
             //READ COM PORT LIST
+            cmbPortList.Items.Clear();
             foreach (string s in SerialPort.GetPortNames())
                 cmbPortList.Items.Add(s);
             cmbPortList.Items.Add(LocRM.GetString("_WORK_WITH_FILE_SERIAL")); //add File Emulation item

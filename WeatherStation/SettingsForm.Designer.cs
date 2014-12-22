@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabGeneral = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
@@ -155,9 +155,9 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnReset = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnReset = new System.Windows.Forms.Button();
             this.fileChooseDialog = new System.Windows.Forms.SaveFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -182,36 +182,36 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Controls.Add(this.tabGeneral);
             this.tabControl1.Controls.Add(this.tabModeling);
             this.tabControl1.Controls.Add(this.tabSensors);
             this.tabControl1.Controls.Add(this.tabHeater);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.errorProvider1.SetError(this.tabControl1, resources.GetString("tabControl1.Error"));
+            this.errorProvider1.SetIconAlignment(this.tabControl1, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("tabControl1.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.tabControl1, ((int)(resources.GetObject("tabControl1.IconPadding"))));
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(627, 368);
-            this.tabControl1.TabIndex = 0;
+            this.MyToolTip.SetToolTip(this.tabControl1, resources.GetString("tabControl1.ToolTip"));
             // 
             // tabGeneral
             // 
+            resources.ApplyResources(this.tabGeneral, "tabGeneral");
             this.tabGeneral.Controls.Add(this.groupBox11);
             this.tabGeneral.Controls.Add(this.groupBox8);
             this.tabGeneral.Controls.Add(this.groupBox3);
             this.tabGeneral.Controls.Add(this.groupBox6);
             this.tabGeneral.Controls.Add(this.groupBox1);
-            this.tabGeneral.Location = new System.Drawing.Point(4, 22);
+            this.errorProvider1.SetError(this.tabGeneral, resources.GetString("tabGeneral.Error"));
+            this.errorProvider1.SetIconAlignment(this.tabGeneral, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("tabGeneral.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.tabGeneral, ((int)(resources.GetObject("tabGeneral.IconPadding"))));
             this.tabGeneral.Name = "tabGeneral";
-            this.tabGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGeneral.Size = new System.Drawing.Size(619, 342);
-            this.tabGeneral.TabIndex = 0;
-            this.tabGeneral.Text = "General";
+            this.MyToolTip.SetToolTip(this.tabGeneral, resources.GetString("tabGeneral.ToolTip"));
             this.tabGeneral.UseVisualStyleBackColor = true;
             // 
             // groupBox11
             // 
+            resources.ApplyResources(this.groupBox11, "groupBox11");
             this.groupBox11.Controls.Add(this.label35);
             this.groupBox11.Controls.Add(this.label34);
             this.groupBox11.Controls.Add(this.label31);
@@ -224,205 +224,196 @@
             this.groupBox11.Controls.Add(this.txtWebDataURL);
             this.groupBox11.Controls.Add(this.chkNarodMon);
             this.groupBox11.Controls.Add(this.chkWebData);
-            this.groupBox11.Location = new System.Drawing.Point(321, 144);
+            this.errorProvider1.SetError(this.groupBox11, resources.GetString("groupBox11.Error"));
+            this.errorProvider1.SetIconAlignment(this.groupBox11, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("groupBox11.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.groupBox11, ((int)(resources.GetObject("groupBox11.IconPadding"))));
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(290, 189);
-            this.groupBox11.TabIndex = 7;
             this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Web server";
+            this.MyToolTip.SetToolTip(this.groupBox11, resources.GetString("groupBox11.ToolTip"));
             // 
             // label35
             // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(3, 125);
+            resources.ApplyResources(this.label35, "label35");
+            this.errorProvider1.SetError(this.label35, resources.GetString("label35.Error"));
+            this.errorProvider1.SetIconAlignment(this.label35, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label35.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label35, ((int)(resources.GetObject("label35.IconPadding"))));
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(18, 13);
-            this.label35.TabIndex = 11;
-            this.label35.Text = "ID";
+            this.MyToolTip.SetToolTip(this.label35, resources.GetString("label35.ToolTip"));
             // 
             // label34
             // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(216, 150);
-            this.label34.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.label34, "label34");
+            this.errorProvider1.SetError(this.label34, resources.GetString("label34.Error"));
+            this.errorProvider1.SetIconAlignment(this.label34, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label34.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label34, ((int)(resources.GetObject("label34.IconPadding"))));
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(24, 13);
-            this.label34.TabIndex = 10;
-            this.label34.Text = "sec";
+            this.MyToolTip.SetToolTip(this.label34, resources.GetString("label34.ToolTip"));
             // 
             // label31
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(216, 67);
-            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.label31, "label31");
+            this.errorProvider1.SetError(this.label31, resources.GetString("label31.Error"));
+            this.errorProvider1.SetIconAlignment(this.label31, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label31.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label31, ((int)(resources.GetObject("label31.IconPadding"))));
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(24, 13);
-            this.label31.TabIndex = 10;
-            this.label31.Text = "sec";
+            this.MyToolTip.SetToolTip(this.label31, resources.GetString("label31.ToolTip"));
             // 
             // label33
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(5, 150);
-            this.label33.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.label33, "label33");
+            this.errorProvider1.SetError(this.label33, resources.GetString("label33.Error"));
+            this.errorProvider1.SetIconAlignment(this.label33, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label33.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label33, ((int)(resources.GetObject("label33.IconPadding"))));
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(150, 13);
-            this.label33.TabIndex = 10;
-            this.label33.Text = "Send data to narodmon every ";
+            this.MyToolTip.SetToolTip(this.label33, resources.GetString("label33.ToolTip"));
             // 
             // label30
             // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(5, 67);
-            this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.label30, "label30");
+            this.errorProvider1.SetError(this.label30, resources.GetString("label30.Error"));
+            this.errorProvider1.SetIconAlignment(this.label30, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label30.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label30, ((int)(resources.GetObject("label30.IconPadding"))));
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(123, 13);
-            this.label30.TabIndex = 10;
-            this.label30.Text = "Send data to web every ";
+            this.MyToolTip.SetToolTip(this.label30, resources.GetString("label30.ToolTip"));
             // 
             // txtRefreshNarodmonInterval
             // 
+            resources.ApplyResources(this.txtRefreshNarodmonInterval, "txtRefreshNarodmonInterval");
             this.txtRefreshNarodmonInterval.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "RefreshNarodmonInterval", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtRefreshNarodmonInterval.Location = new System.Drawing.Point(159, 147);
+            this.errorProvider1.SetError(this.txtRefreshNarodmonInterval, resources.GetString("txtRefreshNarodmonInterval.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtRefreshNarodmonInterval, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtRefreshNarodmonInterval.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtRefreshNarodmonInterval, ((int)(resources.GetObject("txtRefreshNarodmonInterval.IconPadding"))));
             this.txtRefreshNarodmonInterval.Name = "txtRefreshNarodmonInterval";
-            this.txtRefreshNarodmonInterval.Size = new System.Drawing.Size(53, 20);
-            this.txtRefreshNarodmonInterval.TabIndex = 0;
             this.txtRefreshNarodmonInterval.Text = global::WeatherStation.Properties.Settings.Default.RefreshNarodmonInterval;
-            this.txtRefreshNarodmonInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtRefreshNarodmonInterval, "Specify how ofter data should be sent to narodmon.ru\r\n\r\nService demand that it sh" +
-        "ould be at least 5 min for free accounts.\r\nNote that data would be sent only in " +
-        "multiples of Refresh interval settings");
+            this.MyToolTip.SetToolTip(this.txtRefreshNarodmonInterval, resources.GetString("txtRefreshNarodmonInterval.ToolTip"));
             this.txtRefreshNarodmonInterval.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
             // btnGenerateMac
             // 
-            this.btnGenerateMac.Location = new System.Drawing.Point(159, 119);
+            resources.ApplyResources(this.btnGenerateMac, "btnGenerateMac");
+            this.errorProvider1.SetError(this.btnGenerateMac, resources.GetString("btnGenerateMac.Error"));
+            this.errorProvider1.SetIconAlignment(this.btnGenerateMac, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnGenerateMac.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.btnGenerateMac, ((int)(resources.GetObject("btnGenerateMac.IconPadding"))));
             this.btnGenerateMac.Name = "btnGenerateMac";
-            this.btnGenerateMac.Size = new System.Drawing.Size(59, 23);
-            this.btnGenerateMac.TabIndex = 2;
-            this.btnGenerateMac.Text = "Generate";
-            this.MyToolTip.SetToolTip(this.btnGenerateMac, "Press to generate ID based on computer MAC address");
+            this.MyToolTip.SetToolTip(this.btnGenerateMac, resources.GetString("btnGenerateMac.ToolTip"));
             this.btnGenerateMac.UseVisualStyleBackColor = true;
             this.btnGenerateMac.Click += new System.EventHandler(this.btnGenerateMac_Click_1);
             // 
             // txtRefreshWebDataInterval
             // 
+            resources.ApplyResources(this.txtRefreshWebDataInterval, "txtRefreshWebDataInterval");
             this.txtRefreshWebDataInterval.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "RefreshWebInterval", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtRefreshWebDataInterval.Location = new System.Drawing.Point(159, 64);
+            this.errorProvider1.SetError(this.txtRefreshWebDataInterval, resources.GetString("txtRefreshWebDataInterval.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtRefreshWebDataInterval, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtRefreshWebDataInterval.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtRefreshWebDataInterval, ((int)(resources.GetObject("txtRefreshWebDataInterval.IconPadding"))));
             this.txtRefreshWebDataInterval.Name = "txtRefreshWebDataInterval";
-            this.txtRefreshWebDataInterval.Size = new System.Drawing.Size(53, 20);
-            this.txtRefreshWebDataInterval.TabIndex = 0;
             this.txtRefreshWebDataInterval.Text = global::WeatherStation.Properties.Settings.Default.RefreshWebInterval;
-            this.txtRefreshWebDataInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.MyToolTip.SetToolTip(this.txtRefreshWebDataInterval, resources.GetString("txtRefreshWebDataInterval.ToolTip"));
             this.txtRefreshWebDataInterval.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
             // txtNarodmonMAC
             // 
+            resources.ApplyResources(this.txtNarodmonMAC, "txtNarodmonMAC");
             this.txtNarodmonMAC.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "Narodmon_MAC", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtNarodmonMAC.Location = new System.Drawing.Point(34, 122);
+            this.errorProvider1.SetError(this.txtNarodmonMAC, resources.GetString("txtNarodmonMAC.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtNarodmonMAC, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtNarodmonMAC.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtNarodmonMAC, ((int)(resources.GetObject("txtNarodmonMAC.IconPadding"))));
             this.txtNarodmonMAC.Name = "txtNarodmonMAC";
-            this.txtNarodmonMAC.Size = new System.Drawing.Size(119, 20);
-            this.txtNarodmonMAC.TabIndex = 1;
             this.txtNarodmonMAC.Text = global::WeatherStation.Properties.Settings.Default.Narodmon_MAC;
-            this.MyToolTip.SetToolTip(this.txtNarodmonMAC, "ID for Narodmon, must be unique\r\n\r\nThe service recommend to use Ethernet MAC addr" +
-        "ess. Pressing \"Genereate\" button will put use your default Ethernet adapter MAC " +
-        "address.");
+            this.MyToolTip.SetToolTip(this.txtNarodmonMAC, resources.GetString("txtNarodmonMAC.ToolTip"));
             // 
             // txtWebDataURL
             // 
+            resources.ApplyResources(this.txtWebDataURL, "txtWebDataURL");
             this.txtWebDataURL.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "WebDataURL", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtWebDataURL.Location = new System.Drawing.Point(7, 38);
+            this.errorProvider1.SetError(this.txtWebDataURL, resources.GetString("txtWebDataURL.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtWebDataURL, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtWebDataURL.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtWebDataURL, ((int)(resources.GetObject("txtWebDataURL.IconPadding"))));
             this.txtWebDataURL.Name = "txtWebDataURL";
-            this.txtWebDataURL.Size = new System.Drawing.Size(277, 20);
-            this.txtWebDataURL.TabIndex = 0;
             this.txtWebDataURL.Text = global::WeatherStation.Properties.Settings.Default.WebDataURL;
-            this.MyToolTip.SetToolTip(this.txtWebDataURL, "Full URL for script, which handle GET query with data");
+            this.MyToolTip.SetToolTip(this.txtWebDataURL, resources.GetString("txtWebDataURL.ToolTip"));
             // 
             // chkNarodMon
             // 
-            this.chkNarodMon.AutoSize = true;
+            resources.ApplyResources(this.chkNarodMon, "chkNarodMon");
             this.chkNarodMon.Checked = global::WeatherStation.Properties.Settings.Default.SendToNarodmon;
             this.chkNarodMon.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkNarodMon.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "SendToNarodmon", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkNarodMon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkNarodMon.Location = new System.Drawing.Point(7, 99);
+            this.errorProvider1.SetError(this.chkNarodMon, resources.GetString("chkNarodMon.Error"));
+            this.errorProvider1.SetIconAlignment(this.chkNarodMon, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("chkNarodMon.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.chkNarodMon, ((int)(resources.GetObject("chkNarodMon.IconPadding"))));
             this.chkNarodMon.Name = "chkNarodMon";
-            this.chkNarodMon.Size = new System.Drawing.Size(173, 17);
-            this.chkNarodMon.TabIndex = 9;
-            this.chkNarodMon.Text = "Send data to NARODMON.RU";
-            this.MyToolTip.SetToolTip(this.chkNarodMon, "Send data to NARODMON.RU service flag.\r\nThis is happened not often then 5 minutes" +
-        " (narodmon limitation)");
+            this.MyToolTip.SetToolTip(this.chkNarodMon, resources.GetString("chkNarodMon.ToolTip"));
             this.chkNarodMon.UseVisualStyleBackColor = true;
             // 
             // chkWebData
             // 
-            this.chkWebData.AutoSize = true;
+            resources.ApplyResources(this.chkWebData, "chkWebData");
             this.chkWebData.Checked = global::WeatherStation.Properties.Settings.Default.WebDataFlag;
             this.chkWebData.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkWebData.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "WebDataFlag", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkWebData.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkWebData.Location = new System.Drawing.Point(7, 20);
+            this.errorProvider1.SetError(this.chkWebData, resources.GetString("chkWebData.Error"));
+            this.errorProvider1.SetIconAlignment(this.chkWebData, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("chkWebData.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.chkWebData, ((int)(resources.GetObject("chkWebData.IconPadding"))));
             this.chkWebData.Name = "chkWebData";
-            this.chkWebData.Size = new System.Drawing.Size(142, 17);
-            this.chkWebData.TabIndex = 9;
-            this.chkWebData.Text = "Send data to web server";
+            this.MyToolTip.SetToolTip(this.chkWebData, resources.GetString("chkWebData.ToolTip"));
             this.chkWebData.UseVisualStyleBackColor = true;
             // 
             // groupBox8
             // 
+            resources.ApplyResources(this.groupBox8, "groupBox8");
             this.groupBox8.Controls.Add(this.chkShowDebugPannels);
             this.groupBox8.Controls.Add(this.chkTrayIcon);
             this.groupBox8.Controls.Add(this.chkMinMode);
-            this.groupBox8.Location = new System.Drawing.Point(321, 3);
+            this.errorProvider1.SetError(this.groupBox8, resources.GetString("groupBox8.Error"));
+            this.errorProvider1.SetIconAlignment(this.groupBox8, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("groupBox8.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.groupBox8, ((int)(resources.GetObject("groupBox8.IconPadding"))));
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(290, 112);
-            this.groupBox8.TabIndex = 6;
             this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Interface options";
+            this.MyToolTip.SetToolTip(this.groupBox8, resources.GetString("groupBox8.ToolTip"));
             // 
             // chkShowDebugPannels
             // 
-            this.chkShowDebugPannels.AutoSize = true;
+            resources.ApplyResources(this.chkShowDebugPannels, "chkShowDebugPannels");
             this.chkShowDebugPannels.Checked = global::WeatherStation.Properties.Settings.Default.ShowDebugPannels;
             this.chkShowDebugPannels.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkShowDebugPannels.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "ShowDebugPannels", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkShowDebugPannels.Location = new System.Drawing.Point(6, 73);
+            this.errorProvider1.SetError(this.chkShowDebugPannels, resources.GetString("chkShowDebugPannels.Error"));
+            this.errorProvider1.SetIconAlignment(this.chkShowDebugPannels, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("chkShowDebugPannels.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.chkShowDebugPannels, ((int)(resources.GetObject("chkShowDebugPannels.IconPadding"))));
             this.chkShowDebugPannels.Name = "chkShowDebugPannels";
-            this.chkShowDebugPannels.Size = new System.Drawing.Size(131, 17);
-            this.chkShowDebugPannels.TabIndex = 0;
-            this.chkShowDebugPannels.Text = "Show debug elements";
-            this.MyToolTip.SetToolTip(this.chkShowDebugPannels, "Requires restart");
+            this.MyToolTip.SetToolTip(this.chkShowDebugPannels, resources.GetString("chkShowDebugPannels.ToolTip"));
             this.chkShowDebugPannels.UseVisualStyleBackColor = true;
             // 
             // chkTrayIcon
             // 
-            this.chkTrayIcon.AutoSize = true;
+            resources.ApplyResources(this.chkTrayIcon, "chkTrayIcon");
             this.chkTrayIcon.Checked = global::WeatherStation.Properties.Settings.Default.MinimizeToSystemTray;
             this.chkTrayIcon.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkTrayIcon.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "MinimizeToSystemTray", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkTrayIcon.Location = new System.Drawing.Point(6, 46);
+            this.errorProvider1.SetError(this.chkTrayIcon, resources.GetString("chkTrayIcon.Error"));
+            this.errorProvider1.SetIconAlignment(this.chkTrayIcon, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("chkTrayIcon.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.chkTrayIcon, ((int)(resources.GetObject("chkTrayIcon.IconPadding"))));
             this.chkTrayIcon.Name = "chkTrayIcon";
-            this.chkTrayIcon.Size = new System.Drawing.Size(133, 17);
-            this.chkTrayIcon.TabIndex = 0;
-            this.chkTrayIcon.Text = "Minimize to system tray";
+            this.MyToolTip.SetToolTip(this.chkTrayIcon, resources.GetString("chkTrayIcon.ToolTip"));
             this.chkTrayIcon.UseVisualStyleBackColor = true;
             // 
             // chkMinMode
             // 
-            this.chkMinMode.AutoSize = true;
+            resources.ApplyResources(this.chkMinMode, "chkMinMode");
             this.chkMinMode.Checked = global::WeatherStation.Properties.Settings.Default.MinModeEnabled;
             this.chkMinMode.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkMinMode.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "MinModeEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkMinMode.Location = new System.Drawing.Point(6, 21);
+            this.errorProvider1.SetError(this.chkMinMode, resources.GetString("chkMinMode.Error"));
+            this.errorProvider1.SetIconAlignment(this.chkMinMode, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("chkMinMode.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.chkMinMode, ((int)(resources.GetObject("chkMinMode.IconPadding"))));
             this.chkMinMode.Name = "chkMinMode";
-            this.chkMinMode.Size = new System.Drawing.Size(243, 17);
-            this.chkMinMode.TabIndex = 0;
-            this.chkMinMode.Text = "Minimize button switch program to MIN MODE";
+            this.MyToolTip.SetToolTip(this.chkMinMode, resources.GetString("chkMinMode.ToolTip"));
             this.chkMinMode.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.cmbLogLevel);
             this.groupBox3.Controls.Add(this.btnBoltwoodPathBrowse);
@@ -437,251 +428,244 @@
             this.groupBox3.Controls.Add(this.chkSerialLogFileFlag);
             this.groupBox3.Controls.Add(this.chkCSVFileFlag);
             this.groupBox3.Controls.Add(this.chkLogFileFlag);
-            this.groupBox3.Location = new System.Drawing.Point(8, 110);
+            this.errorProvider1.SetError(this.groupBox3, resources.GetString("groupBox3.Error"));
+            this.errorProvider1.SetIconAlignment(this.groupBox3, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("groupBox3.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.groupBox3, ((int)(resources.GetObject("groupBox3.IconPadding"))));
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(307, 150);
-            this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Log data";
+            this.MyToolTip.SetToolTip(this.groupBox3, resources.GetString("groupBox3.ToolTip"));
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(4, 47);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.label10, "label10");
+            this.errorProvider1.SetError(this.label10, resources.GetString("label10.Error"));
+            this.errorProvider1.SetIconAlignment(this.label10, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label10.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label10, ((int)(resources.GetObject("label10.IconPadding"))));
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(70, 13);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Logging level";
+            this.MyToolTip.SetToolTip(this.label10, resources.GetString("label10.ToolTip"));
             // 
             // cmbLogLevel
             // 
+            resources.ApplyResources(this.cmbLogLevel, "cmbLogLevel");
+            this.errorProvider1.SetError(this.cmbLogLevel, resources.GetString("cmbLogLevel.Error"));
             this.cmbLogLevel.FormattingEnabled = true;
+            this.errorProvider1.SetIconAlignment(this.cmbLogLevel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("cmbLogLevel.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.cmbLogLevel, ((int)(resources.GetObject("cmbLogLevel.IconPadding"))));
             this.cmbLogLevel.Items.AddRange(new object[] {
-            "1 - Common messages",
-            "2 - Prog activity",
-            "3 - All debug info"});
-            this.cmbLogLevel.Location = new System.Drawing.Point(112, 45);
-            this.cmbLogLevel.Margin = new System.Windows.Forms.Padding(2);
+            resources.GetString("cmbLogLevel.Items"),
+            resources.GetString("cmbLogLevel.Items1"),
+            resources.GetString("cmbLogLevel.Items2")});
             this.cmbLogLevel.Name = "cmbLogLevel";
-            this.cmbLogLevel.Size = new System.Drawing.Size(129, 21);
-            this.cmbLogLevel.TabIndex = 3;
-            this.cmbLogLevel.Text = "1 - Common messages";
-            this.MyToolTip.SetToolTip(this.cmbLogLevel, "Logging level. 1 - recomended");
+            this.MyToolTip.SetToolTip(this.cmbLogLevel, resources.GetString("cmbLogLevel.ToolTip"));
             // 
             // btnBoltwoodPathBrowse
             // 
-            this.btnBoltwoodPathBrowse.Location = new System.Drawing.Point(274, 114);
+            resources.ApplyResources(this.btnBoltwoodPathBrowse, "btnBoltwoodPathBrowse");
+            this.errorProvider1.SetError(this.btnBoltwoodPathBrowse, resources.GetString("btnBoltwoodPathBrowse.Error"));
+            this.errorProvider1.SetIconAlignment(this.btnBoltwoodPathBrowse, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnBoltwoodPathBrowse.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.btnBoltwoodPathBrowse, ((int)(resources.GetObject("btnBoltwoodPathBrowse.IconPadding"))));
             this.btnBoltwoodPathBrowse.Name = "btnBoltwoodPathBrowse";
-            this.btnBoltwoodPathBrowse.Size = new System.Drawing.Size(27, 20);
-            this.btnBoltwoodPathBrowse.TabIndex = 12;
-            this.btnBoltwoodPathBrowse.Text = "...";
+            this.MyToolTip.SetToolTip(this.btnBoltwoodPathBrowse, resources.GetString("btnBoltwoodPathBrowse.ToolTip"));
             this.btnBoltwoodPathBrowse.UseVisualStyleBackColor = true;
             this.btnBoltwoodPathBrowse.Click += new System.EventHandler(this.btnLogPathBrowse_Click);
             // 
             // btnSerialLogPathBrowse
             // 
-            this.btnSerialLogPathBrowse.Location = new System.Drawing.Point(274, 67);
+            resources.ApplyResources(this.btnSerialLogPathBrowse, "btnSerialLogPathBrowse");
+            this.errorProvider1.SetError(this.btnSerialLogPathBrowse, resources.GetString("btnSerialLogPathBrowse.Error"));
+            this.errorProvider1.SetIconAlignment(this.btnSerialLogPathBrowse, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnSerialLogPathBrowse.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.btnSerialLogPathBrowse, ((int)(resources.GetObject("btnSerialLogPathBrowse.IconPadding"))));
             this.btnSerialLogPathBrowse.Name = "btnSerialLogPathBrowse";
-            this.btnSerialLogPathBrowse.Size = new System.Drawing.Size(27, 20);
-            this.btnSerialLogPathBrowse.TabIndex = 6;
-            this.btnSerialLogPathBrowse.Text = "...";
+            this.MyToolTip.SetToolTip(this.btnSerialLogPathBrowse, resources.GetString("btnSerialLogPathBrowse.ToolTip"));
             this.btnSerialLogPathBrowse.UseVisualStyleBackColor = true;
             this.btnSerialLogPathBrowse.Click += new System.EventHandler(this.btnLogPathBrowse_Click);
             // 
             // btnCSVPathBrowse
             // 
-            this.btnCSVPathBrowse.Location = new System.Drawing.Point(274, 89);
+            resources.ApplyResources(this.btnCSVPathBrowse, "btnCSVPathBrowse");
+            this.errorProvider1.SetError(this.btnCSVPathBrowse, resources.GetString("btnCSVPathBrowse.Error"));
+            this.errorProvider1.SetIconAlignment(this.btnCSVPathBrowse, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnCSVPathBrowse.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.btnCSVPathBrowse, ((int)(resources.GetObject("btnCSVPathBrowse.IconPadding"))));
             this.btnCSVPathBrowse.Name = "btnCSVPathBrowse";
-            this.btnCSVPathBrowse.Size = new System.Drawing.Size(27, 20);
-            this.btnCSVPathBrowse.TabIndex = 9;
-            this.btnCSVPathBrowse.Text = "...";
+            this.MyToolTip.SetToolTip(this.btnCSVPathBrowse, resources.GetString("btnCSVPathBrowse.ToolTip"));
             this.btnCSVPathBrowse.UseVisualStyleBackColor = true;
             this.btnCSVPathBrowse.Click += new System.EventHandler(this.btnLogPathBrowse_Click);
             // 
             // btnLogPathBrowse
             // 
-            this.btnLogPathBrowse.Location = new System.Drawing.Point(274, 19);
+            resources.ApplyResources(this.btnLogPathBrowse, "btnLogPathBrowse");
+            this.errorProvider1.SetError(this.btnLogPathBrowse, resources.GetString("btnLogPathBrowse.Error"));
+            this.errorProvider1.SetIconAlignment(this.btnLogPathBrowse, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnLogPathBrowse.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.btnLogPathBrowse, ((int)(resources.GetObject("btnLogPathBrowse.IconPadding"))));
             this.btnLogPathBrowse.Name = "btnLogPathBrowse";
-            this.btnLogPathBrowse.Size = new System.Drawing.Size(27, 20);
-            this.btnLogPathBrowse.TabIndex = 2;
-            this.btnLogPathBrowse.Text = "...";
+            this.MyToolTip.SetToolTip(this.btnLogPathBrowse, resources.GetString("btnLogPathBrowse.ToolTip"));
             this.btnLogPathBrowse.UseVisualStyleBackColor = true;
             this.btnLogPathBrowse.Click += new System.EventHandler(this.btnLogPathBrowse_Click);
             // 
             // txtBoltwoodFileLocation
             // 
+            resources.ApplyResources(this.txtBoltwoodFileLocation, "txtBoltwoodFileLocation");
             this.txtBoltwoodFileLocation.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "BoltwoodFileLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtBoltwoodFileLocation.Location = new System.Drawing.Point(111, 115);
+            this.errorProvider1.SetError(this.txtBoltwoodFileLocation, resources.GetString("txtBoltwoodFileLocation.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtBoltwoodFileLocation, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtBoltwoodFileLocation.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtBoltwoodFileLocation, ((int)(resources.GetObject("txtBoltwoodFileLocation.IconPadding"))));
             this.txtBoltwoodFileLocation.Name = "txtBoltwoodFileLocation";
-            this.txtBoltwoodFileLocation.Size = new System.Drawing.Size(156, 20);
-            this.txtBoltwoodFileLocation.TabIndex = 11;
             this.txtBoltwoodFileLocation.Text = global::WeatherStation.Properties.Settings.Default.BoltwoodFileLocation;
-            this.MyToolTip.SetToolTip(this.txtBoltwoodFileLocation, "Path for boltwood cloud sensor II format data file. If left empty - program direc" +
-        "tory");
+            this.MyToolTip.SetToolTip(this.txtBoltwoodFileLocation, resources.GetString("txtBoltwoodFileLocation.ToolTip"));
             // 
             // txtLogFileLocation
             // 
+            resources.ApplyResources(this.txtLogFileLocation, "txtLogFileLocation");
             this.txtLogFileLocation.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "logFileLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtLogFileLocation.Location = new System.Drawing.Point(111, 20);
+            this.errorProvider1.SetError(this.txtLogFileLocation, resources.GetString("txtLogFileLocation.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtLogFileLocation, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtLogFileLocation.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtLogFileLocation, ((int)(resources.GetObject("txtLogFileLocation.IconPadding"))));
             this.txtLogFileLocation.Name = "txtLogFileLocation";
-            this.txtLogFileLocation.Size = new System.Drawing.Size(156, 20);
-            this.txtLogFileLocation.TabIndex = 1;
             this.txtLogFileLocation.Text = global::WeatherStation.Properties.Settings.Default.logFileLocation;
-            this.MyToolTip.SetToolTip(this.txtLogFileLocation, "Path to program log file. If left empty - program directory");
+            this.MyToolTip.SetToolTip(this.txtLogFileLocation, resources.GetString("txtLogFileLocation.ToolTip"));
             // 
             // txtSerialLogFileLocation
             // 
+            resources.ApplyResources(this.txtSerialLogFileLocation, "txtSerialLogFileLocation");
             this.txtSerialLogFileLocation.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "SerialLogFileLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtSerialLogFileLocation.Location = new System.Drawing.Point(112, 67);
+            this.errorProvider1.SetError(this.txtSerialLogFileLocation, resources.GetString("txtSerialLogFileLocation.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtSerialLogFileLocation, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtSerialLogFileLocation.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtSerialLogFileLocation, ((int)(resources.GetObject("txtSerialLogFileLocation.IconPadding"))));
             this.txtSerialLogFileLocation.Name = "txtSerialLogFileLocation";
-            this.txtSerialLogFileLocation.Size = new System.Drawing.Size(156, 20);
-            this.txtSerialLogFileLocation.TabIndex = 5;
             this.txtSerialLogFileLocation.Text = global::WeatherStation.Properties.Settings.Default.SerialLogFileLocation;
-            this.MyToolTip.SetToolTip(this.txtSerialLogFileLocation, "Path to serial data exchange with Arduino log file. If left empty - program direc" +
-        "tory");
+            this.MyToolTip.SetToolTip(this.txtSerialLogFileLocation, resources.GetString("txtSerialLogFileLocation.ToolTip"));
             // 
             // txtCSVFileLocation
             // 
+            resources.ApplyResources(this.txtCSVFileLocation, "txtCSVFileLocation");
             this.txtCSVFileLocation.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "CSVFileLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtCSVFileLocation.Location = new System.Drawing.Point(112, 90);
+            this.errorProvider1.SetError(this.txtCSVFileLocation, resources.GetString("txtCSVFileLocation.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtCSVFileLocation, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtCSVFileLocation.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtCSVFileLocation, ((int)(resources.GetObject("txtCSVFileLocation.IconPadding"))));
             this.txtCSVFileLocation.Name = "txtCSVFileLocation";
-            this.txtCSVFileLocation.Size = new System.Drawing.Size(156, 20);
-            this.txtCSVFileLocation.TabIndex = 8;
             this.txtCSVFileLocation.Text = global::WeatherStation.Properties.Settings.Default.CSVFileLocation;
-            this.MyToolTip.SetToolTip(this.txtCSVFileLocation, "Storage path for data files. If left empty - program directory");
+            this.MyToolTip.SetToolTip(this.txtCSVFileLocation, resources.GetString("txtCSVFileLocation.ToolTip"));
             // 
             // chkBoltwoodFileFlag
             // 
-            this.chkBoltwoodFileFlag.AutoSize = true;
+            resources.ApplyResources(this.chkBoltwoodFileFlag, "chkBoltwoodFileFlag");
             this.chkBoltwoodFileFlag.Checked = global::WeatherStation.Properties.Settings.Default.BoltwoodFileFlag;
             this.chkBoltwoodFileFlag.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkBoltwoodFileFlag.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "BoltwoodFileFlag", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkBoltwoodFileFlag.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkBoltwoodFileFlag.Location = new System.Drawing.Point(7, 117);
+            this.errorProvider1.SetError(this.chkBoltwoodFileFlag, resources.GetString("chkBoltwoodFileFlag.Error"));
+            this.errorProvider1.SetIconAlignment(this.chkBoltwoodFileFlag, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("chkBoltwoodFileFlag.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.chkBoltwoodFileFlag, ((int)(resources.GetObject("chkBoltwoodFileFlag.IconPadding"))));
             this.chkBoltwoodFileFlag.Name = "chkBoltwoodFileFlag";
-            this.chkBoltwoodFileFlag.Size = new System.Drawing.Size(103, 17);
-            this.chkBoltwoodFileFlag.TabIndex = 10;
-            this.chkBoltwoodFileFlag.Text = "Boltwood CS file";
-            this.MyToolTip.SetToolTip(this.chkBoltwoodFileFlag, "Path for boltwood cloud sensor II format data file. If left empty - program direc" +
-        "tory");
+            this.MyToolTip.SetToolTip(this.chkBoltwoodFileFlag, resources.GetString("chkBoltwoodFileFlag.ToolTip"));
             this.chkBoltwoodFileFlag.UseVisualStyleBackColor = true;
             // 
             // chkSerialLogFileFlag
             // 
-            this.chkSerialLogFileFlag.AutoSize = true;
+            resources.ApplyResources(this.chkSerialLogFileFlag, "chkSerialLogFileFlag");
             this.chkSerialLogFileFlag.Checked = global::WeatherStation.Properties.Settings.Default.SerialLogFileFlag;
             this.chkSerialLogFileFlag.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "SerialLogFileFlag", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkSerialLogFileFlag.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkSerialLogFileFlag.Location = new System.Drawing.Point(7, 70);
+            this.errorProvider1.SetError(this.chkSerialLogFileFlag, resources.GetString("chkSerialLogFileFlag.Error"));
+            this.errorProvider1.SetIconAlignment(this.chkSerialLogFileFlag, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("chkSerialLogFileFlag.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.chkSerialLogFileFlag, ((int)(resources.GetObject("chkSerialLogFileFlag.IconPadding"))));
             this.chkSerialLogFileFlag.Name = "chkSerialLogFileFlag";
-            this.chkSerialLogFileFlag.Size = new System.Drawing.Size(85, 17);
-            this.chkSerialLogFileFlag.TabIndex = 4;
-            this.chkSerialLogFileFlag.Text = "Serial log file";
-            this.MyToolTip.SetToolTip(this.chkSerialLogFileFlag, "Path to serial data exchange with Arduino log file. If left empty - program direc" +
-        "tory");
+            this.MyToolTip.SetToolTip(this.chkSerialLogFileFlag, resources.GetString("chkSerialLogFileFlag.ToolTip"));
             this.chkSerialLogFileFlag.UseVisualStyleBackColor = true;
             // 
             // chkCSVFileFlag
             // 
-            this.chkCSVFileFlag.AutoSize = true;
+            resources.ApplyResources(this.chkCSVFileFlag, "chkCSVFileFlag");
             this.chkCSVFileFlag.Checked = global::WeatherStation.Properties.Settings.Default.CSVFileFlag;
             this.chkCSVFileFlag.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkCSVFileFlag.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "CSVFileFlag", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkCSVFileFlag.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkCSVFileFlag.Location = new System.Drawing.Point(7, 93);
+            this.errorProvider1.SetError(this.chkCSVFileFlag, resources.GetString("chkCSVFileFlag.Error"));
+            this.errorProvider1.SetIconAlignment(this.chkCSVFileFlag, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("chkCSVFileFlag.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.chkCSVFileFlag, ((int)(resources.GetObject("chkCSVFileFlag.IconPadding"))));
             this.chkCSVFileFlag.Name = "chkCSVFileFlag";
-            this.chkCSVFileFlag.Size = new System.Drawing.Size(89, 17);
-            this.chkCSVFileFlag.TabIndex = 7;
-            this.chkCSVFileFlag.Text = "Data CSV file";
+            this.MyToolTip.SetToolTip(this.chkCSVFileFlag, resources.GetString("chkCSVFileFlag.ToolTip"));
             this.chkCSVFileFlag.UseVisualStyleBackColor = true;
             // 
             // chkLogFileFlag
             // 
-            this.chkLogFileFlag.AutoSize = true;
+            resources.ApplyResources(this.chkLogFileFlag, "chkLogFileFlag");
             this.chkLogFileFlag.Checked = global::WeatherStation.Properties.Settings.Default.logFileFlag;
             this.chkLogFileFlag.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkLogFileFlag.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "logFileFlag", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkLogFileFlag.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkLogFileFlag.Location = new System.Drawing.Point(7, 22);
+            this.errorProvider1.SetError(this.chkLogFileFlag, resources.GetString("chkLogFileFlag.Error"));
+            this.errorProvider1.SetIconAlignment(this.chkLogFileFlag, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("chkLogFileFlag.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.chkLogFileFlag, ((int)(resources.GetObject("chkLogFileFlag.IconPadding"))));
             this.chkLogFileFlag.Name = "chkLogFileFlag";
-            this.chkLogFileFlag.Size = new System.Drawing.Size(98, 17);
-            this.chkLogFileFlag.TabIndex = 0;
-            this.chkLogFileFlag.Text = "Program log file";
-            this.MyToolTip.SetToolTip(this.chkLogFileFlag, "Path to program log file. If left empty - program directory");
+            this.MyToolTip.SetToolTip(this.chkLogFileFlag, resources.GetString("chkLogFileFlag.ToolTip"));
             this.chkLogFileFlag.UseVisualStyleBackColor = true;
             // 
             // groupBox6
             // 
+            resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Controls.Add(this.label32);
             this.groupBox6.Controls.Add(this.label14);
             this.groupBox6.Controls.Add(this.label15);
             this.groupBox6.Controls.Add(this.txtRefreshInterval);
             this.groupBox6.Controls.Add(this.txtMaxPoints);
-            this.groupBox6.Location = new System.Drawing.Point(8, 263);
+            this.errorProvider1.SetError(this.groupBox6, resources.GetString("groupBox6.Error"));
+            this.errorProvider1.SetIconAlignment(this.groupBox6, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("groupBox6.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.groupBox6, ((int)(resources.GetObject("groupBox6.IconPadding"))));
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(307, 70);
-            this.groupBox6.TabIndex = 5;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Gragh settings";
+            this.MyToolTip.SetToolTip(this.groupBox6, resources.GetString("groupBox6.ToolTip"));
             // 
             // label32
             // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(205, 19);
-            this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.label32, "label32");
+            this.errorProvider1.SetError(this.label32, resources.GetString("label32.Error"));
+            this.errorProvider1.SetIconAlignment(this.label32, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label32.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label32, ((int)(resources.GetObject("label32.IconPadding"))));
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(40, 13);
-            this.label32.TabIndex = 10;
-            this.label32.Text = "millisec";
+            this.MyToolTip.SetToolTip(this.label32, resources.GetString("label32.ToolTip"));
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
-            this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label14.Location = new System.Drawing.Point(6, 19);
+            resources.ApplyResources(this.label14, "label14");
+            this.errorProvider1.SetError(this.label14, resources.GetString("label14.Error"));
+            this.errorProvider1.SetIconAlignment(this.label14, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label14.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label14, ((int)(resources.GetObject("label14.IconPadding"))));
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(81, 13);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "Refresh interval";
+            this.MyToolTip.SetToolTip(this.label14, resources.GetString("label14.ToolTip"));
             // 
             // label15
             // 
-            this.label15.AutoSize = true;
-            this.label15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label15.Location = new System.Drawing.Point(7, 41);
+            resources.ApplyResources(this.label15, "label15");
+            this.errorProvider1.SetError(this.label15, resources.GetString("label15.Error"));
+            this.errorProvider1.SetIconAlignment(this.label15, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label15.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label15, ((int)(resources.GetObject("label15.IconPadding"))));
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(103, 13);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "Max points on graph";
+            this.MyToolTip.SetToolTip(this.label15, resources.GetString("label15.ToolTip"));
             // 
             // txtRefreshInterval
             // 
+            resources.ApplyResources(this.txtRefreshInterval, "txtRefreshInterval");
             this.txtRefreshInterval.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "RefreshInterval", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtRefreshInterval.Location = new System.Drawing.Point(148, 16);
+            this.errorProvider1.SetError(this.txtRefreshInterval, resources.GetString("txtRefreshInterval.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtRefreshInterval, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtRefreshInterval.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtRefreshInterval, ((int)(resources.GetObject("txtRefreshInterval.IconPadding"))));
             this.txtRefreshInterval.Name = "txtRefreshInterval";
-            this.txtRefreshInterval.Size = new System.Drawing.Size(53, 20);
-            this.txtRefreshInterval.TabIndex = 0;
             this.txtRefreshInterval.Text = global::WeatherStation.Properties.Settings.Default.RefreshInterval;
-            this.txtRefreshInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.MyToolTip.SetToolTip(this.txtRefreshInterval, resources.GetString("txtRefreshInterval.ToolTip"));
             this.txtRefreshInterval.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
             // txtMaxPoints
             // 
+            resources.ApplyResources(this.txtMaxPoints, "txtMaxPoints");
             this.txtMaxPoints.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "MaxPoints", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtMaxPoints.Location = new System.Drawing.Point(148, 38);
+            this.errorProvider1.SetError(this.txtMaxPoints, resources.GetString("txtMaxPoints.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtMaxPoints, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtMaxPoints.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtMaxPoints, ((int)(resources.GetObject("txtMaxPoints.IconPadding"))));
             this.txtMaxPoints.Name = "txtMaxPoints";
-            this.txtMaxPoints.Size = new System.Drawing.Size(53, 20);
-            this.txtMaxPoints.TabIndex = 1;
             this.txtMaxPoints.Text = global::WeatherStation.Properties.Settings.Default.MaxPoints;
-            this.txtMaxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtMaxPoints, "Max number of points displaying on charts. Too big values will leed to large memo" +
-        "ry consumption");
+            this.MyToolTip.SetToolTip(this.txtMaxPoints, resources.GetString("txtMaxPoints.ToolTip"));
             this.txtMaxPoints.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.label37);
             this.groupBox1.Controls.Add(this.label36);
             this.groupBox1.Controls.Add(this.txtSerialFileOut);
@@ -690,115 +674,118 @@
             this.groupBox1.Controls.Add(this.btnOpenWriteToFile);
             this.groupBox1.Controls.Add(this.btnOpenReadFromFile);
             this.groupBox1.Controls.Add(this.cmbPortList);
-            this.groupBox1.Location = new System.Drawing.Point(8, 3);
+            this.errorProvider1.SetError(this.groupBox1, resources.GetString("groupBox1.Error"));
+            this.errorProvider1.SetIconAlignment(this.groupBox1, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("groupBox1.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.groupBox1, ((int)(resources.GetObject("groupBox1.IconPadding"))));
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(307, 101);
-            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Serial port";
+            this.MyToolTip.SetToolTip(this.groupBox1, resources.GetString("groupBox1.ToolTip"));
             // 
             // label37
             // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(7, 74);
-            this.label37.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.label37, "label37");
+            this.errorProvider1.SetError(this.label37, resources.GetString("label37.Error"));
+            this.errorProvider1.SetIconAlignment(this.label37, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label37.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label37, ((int)(resources.GetObject("label37.IconPadding"))));
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(60, 13);
-            this.label37.TabIndex = 11;
-            this.label37.Text = "Write to file";
+            this.MyToolTip.SetToolTip(this.label37, resources.GetString("label37.ToolTip"));
             // 
             // label36
             // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(7, 47);
-            this.label36.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.label36, "label36");
+            this.errorProvider1.SetError(this.label36, resources.GetString("label36.Error"));
+            this.errorProvider1.SetIconAlignment(this.label36, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label36.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label36, ((int)(resources.GetObject("label36.IconPadding"))));
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(72, 13);
-            this.label36.TabIndex = 11;
-            this.label36.Text = "Read from file";
+            this.MyToolTip.SetToolTip(this.label36, resources.GetString("label36.ToolTip"));
             // 
             // txtSerialFileOut
             // 
+            resources.ApplyResources(this.txtSerialFileOut, "txtSerialFileOut");
             this.txtSerialFileOut.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "SerialFileOut", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtSerialFileOut.Enabled = false;
-            this.txtSerialFileOut.Location = new System.Drawing.Point(95, 71);
+            this.errorProvider1.SetError(this.txtSerialFileOut, resources.GetString("txtSerialFileOut.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtSerialFileOut, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtSerialFileOut.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtSerialFileOut, ((int)(resources.GetObject("txtSerialFileOut.IconPadding"))));
             this.txtSerialFileOut.Name = "txtSerialFileOut";
-            this.txtSerialFileOut.Size = new System.Drawing.Size(173, 20);
-            this.txtSerialFileOut.TabIndex = 3;
             this.txtSerialFileOut.Text = global::WeatherStation.Properties.Settings.Default.SerialFileOut;
+            this.MyToolTip.SetToolTip(this.txtSerialFileOut, resources.GetString("txtSerialFileOut.ToolTip"));
             // 
             // txtSerialFileIn
             // 
+            resources.ApplyResources(this.txtSerialFileIn, "txtSerialFileIn");
             this.txtSerialFileIn.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "SerialFileIn", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtSerialFileIn.Enabled = false;
-            this.txtSerialFileIn.Location = new System.Drawing.Point(95, 44);
+            this.errorProvider1.SetError(this.txtSerialFileIn, resources.GetString("txtSerialFileIn.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtSerialFileIn, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtSerialFileIn.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtSerialFileIn, ((int)(resources.GetObject("txtSerialFileIn.IconPadding"))));
             this.txtSerialFileIn.Name = "txtSerialFileIn";
-            this.txtSerialFileIn.Size = new System.Drawing.Size(172, 20);
-            this.txtSerialFileIn.TabIndex = 3;
             this.txtSerialFileIn.Text = global::WeatherStation.Properties.Settings.Default.SerialFileIn;
+            this.MyToolTip.SetToolTip(this.txtSerialFileIn, resources.GetString("txtSerialFileIn.ToolTip"));
             // 
             // chkWatchdog
             // 
-            this.chkWatchdog.AutoSize = true;
+            resources.ApplyResources(this.chkWatchdog, "chkWatchdog");
             this.chkWatchdog.Checked = global::WeatherStation.Properties.Settings.Default.ComWatchdog;
             this.chkWatchdog.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkWatchdog.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "ComWatchdog", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkWatchdog.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkWatchdog.Location = new System.Drawing.Point(95, 19);
+            this.errorProvider1.SetError(this.chkWatchdog, resources.GetString("chkWatchdog.Error"));
+            this.errorProvider1.SetIconAlignment(this.chkWatchdog, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("chkWatchdog.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.chkWatchdog, ((int)(resources.GetObject("chkWatchdog.IconPadding"))));
             this.chkWatchdog.Name = "chkWatchdog";
-            this.chkWatchdog.Size = new System.Drawing.Size(130, 17);
-            this.chkWatchdog.TabIndex = 2;
-            this.chkWatchdog.Text = "Connection watchdog";
+            this.MyToolTip.SetToolTip(this.chkWatchdog, resources.GetString("chkWatchdog.ToolTip"));
             this.chkWatchdog.UseVisualStyleBackColor = true;
             // 
             // btnOpenWriteToFile
             // 
-            this.btnOpenWriteToFile.Enabled = false;
-            this.btnOpenWriteToFile.Location = new System.Drawing.Point(274, 71);
+            resources.ApplyResources(this.btnOpenWriteToFile, "btnOpenWriteToFile");
+            this.errorProvider1.SetError(this.btnOpenWriteToFile, resources.GetString("btnOpenWriteToFile.Error"));
+            this.errorProvider1.SetIconAlignment(this.btnOpenWriteToFile, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnOpenWriteToFile.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.btnOpenWriteToFile, ((int)(resources.GetObject("btnOpenWriteToFile.IconPadding"))));
             this.btnOpenWriteToFile.Name = "btnOpenWriteToFile";
-            this.btnOpenWriteToFile.Size = new System.Drawing.Size(27, 20);
-            this.btnOpenWriteToFile.TabIndex = 2;
-            this.btnOpenWriteToFile.Text = "...";
+            this.MyToolTip.SetToolTip(this.btnOpenWriteToFile, resources.GetString("btnOpenWriteToFile.ToolTip"));
             this.btnOpenWriteToFile.UseVisualStyleBackColor = true;
             this.btnOpenWriteToFile.Click += new System.EventHandler(this.btnOpenReadFromFile_Click);
             // 
             // btnOpenReadFromFile
             // 
-            this.btnOpenReadFromFile.Enabled = false;
-            this.btnOpenReadFromFile.Location = new System.Drawing.Point(274, 44);
+            resources.ApplyResources(this.btnOpenReadFromFile, "btnOpenReadFromFile");
+            this.errorProvider1.SetError(this.btnOpenReadFromFile, resources.GetString("btnOpenReadFromFile.Error"));
+            this.errorProvider1.SetIconAlignment(this.btnOpenReadFromFile, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnOpenReadFromFile.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.btnOpenReadFromFile, ((int)(resources.GetObject("btnOpenReadFromFile.IconPadding"))));
             this.btnOpenReadFromFile.Name = "btnOpenReadFromFile";
-            this.btnOpenReadFromFile.Size = new System.Drawing.Size(27, 20);
-            this.btnOpenReadFromFile.TabIndex = 2;
-            this.btnOpenReadFromFile.Text = "...";
+            this.MyToolTip.SetToolTip(this.btnOpenReadFromFile, resources.GetString("btnOpenReadFromFile.ToolTip"));
             this.btnOpenReadFromFile.UseVisualStyleBackColor = true;
             this.btnOpenReadFromFile.Click += new System.EventHandler(this.btnOpenReadFromFile_Click);
             // 
             // cmbPortList
             // 
+            resources.ApplyResources(this.cmbPortList, "cmbPortList");
             this.cmbPortList.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "comport", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.errorProvider1.SetError(this.cmbPortList, resources.GetString("cmbPortList.Error"));
             this.cmbPortList.FormattingEnabled = true;
-            this.cmbPortList.Location = new System.Drawing.Point(7, 19);
+            this.errorProvider1.SetIconAlignment(this.cmbPortList, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("cmbPortList.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.cmbPortList, ((int)(resources.GetObject("cmbPortList.IconPadding"))));
             this.cmbPortList.Name = "cmbPortList";
-            this.cmbPortList.Size = new System.Drawing.Size(72, 21);
-            this.cmbPortList.TabIndex = 0;
             this.cmbPortList.Text = global::WeatherStation.Properties.Settings.Default.comport;
+            this.MyToolTip.SetToolTip(this.cmbPortList, resources.GetString("cmbPortList.ToolTip"));
             this.cmbPortList.SelectedIndexChanged += new System.EventHandler(this.cmbPortList_SelectedIndexChanged);
             // 
             // tabModeling
             // 
+            resources.ApplyResources(this.tabModeling, "tabModeling");
             this.tabModeling.Controls.Add(this.groupBox12);
             this.tabModeling.Controls.Add(this.groupBox10);
             this.tabModeling.Controls.Add(this.groupBox5);
             this.tabModeling.Controls.Add(this.groupBox2);
-            this.tabModeling.Location = new System.Drawing.Point(4, 22);
+            this.errorProvider1.SetError(this.tabModeling, resources.GetString("tabModeling.Error"));
+            this.errorProvider1.SetIconAlignment(this.tabModeling, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("tabModeling.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.tabModeling, ((int)(resources.GetObject("tabModeling.IconPadding"))));
             this.tabModeling.Name = "tabModeling";
-            this.tabModeling.Size = new System.Drawing.Size(619, 342);
-            this.tabModeling.TabIndex = 3;
-            this.tabModeling.Text = "Modeling";
+            this.MyToolTip.SetToolTip(this.tabModeling, resources.GetString("tabModeling.ToolTip"));
             this.tabModeling.UseVisualStyleBackColor = true;
             // 
             // groupBox12
             // 
+            resources.ApplyResources(this.groupBox12, "groupBox12");
             this.groupBox12.Controls.Add(this.label28);
             this.groupBox12.Controls.Add(this.label29);
             this.groupBox12.Controls.Add(this.label27);
@@ -808,115 +795,105 @@
             this.groupBox12.Controls.Add(this.label23);
             this.groupBox12.Controls.Add(this.txtVeryWindyLimit);
             this.groupBox12.Controls.Add(this.txtWindyLimit);
-            this.groupBox12.Location = new System.Drawing.Point(321, 3);
+            this.errorProvider1.SetError(this.groupBox12, resources.GetString("groupBox12.Error"));
+            this.errorProvider1.SetIconAlignment(this.groupBox12, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("groupBox12.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.groupBox12, ((int)(resources.GetObject("groupBox12.IconPadding"))));
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(293, 94);
-            this.groupBox12.TabIndex = 11;
             this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Wind Speed Sensor model";
+            this.MyToolTip.SetToolTip(this.groupBox12, resources.GetString("groupBox12.ToolTip"));
             // 
             // label28
             // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(210, 67);
-            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.label28, "label28");
+            this.errorProvider1.SetError(this.label28, resources.GetString("label28.Error"));
+            this.errorProvider1.SetIconAlignment(this.label28, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label28.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label28, ((int)(resources.GetObject("label28.IconPadding"))));
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(25, 13);
-            this.label28.TabIndex = 4;
-            this.label28.Text = "m/s";
+            this.MyToolTip.SetToolTip(this.label28, resources.GetString("label28.ToolTip"));
             // 
             // label29
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(210, 43);
-            this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.label29, "label29");
+            this.errorProvider1.SetError(this.label29, resources.GetString("label29.Error"));
+            this.errorProvider1.SetIconAlignment(this.label29, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label29.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label29, ((int)(resources.GetObject("label29.IconPadding"))));
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(25, 13);
-            this.label29.TabIndex = 4;
-            this.label29.Text = "m/s";
+            this.MyToolTip.SetToolTip(this.label29, resources.GetString("label29.ToolTip"));
             // 
             // label27
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(210, 43);
-            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.label27, "label27");
+            this.errorProvider1.SetError(this.label27, resources.GetString("label27.Error"));
+            this.errorProvider1.SetIconAlignment(this.label27, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label27.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label27, ((int)(resources.GetObject("label27.IconPadding"))));
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(25, 13);
-            this.label27.TabIndex = 4;
-            this.label27.Text = "m/s";
+            this.MyToolTip.SetToolTip(this.label27, resources.GetString("label27.ToolTip"));
             // 
             // label26
             // 
-            this.label26.AutoSize = true;
-            this.label26.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label26.Location = new System.Drawing.Point(7, 43);
+            resources.ApplyResources(this.label26, "label26");
+            this.errorProvider1.SetError(this.label26, resources.GetString("label26.Error"));
+            this.errorProvider1.SetIconAlignment(this.label26, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label26.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label26, ((int)(resources.GetObject("label26.IconPadding"))));
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(83, 13);
-            this.label26.TabIndex = 1;
-            this.label26.Text = "Windy threshold";
+            this.MyToolTip.SetToolTip(this.label26, resources.GetString("label26.ToolTip"));
             // 
             // label21
             // 
-            this.label21.AutoSize = true;
-            this.label21.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label21.Location = new System.Drawing.Point(7, 19);
+            resources.ApplyResources(this.label21, "label21");
+            this.errorProvider1.SetError(this.label21, resources.GetString("label21.Error"));
+            this.errorProvider1.SetIconAlignment(this.label21, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label21.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label21, ((int)(resources.GetObject("label21.IconPadding"))));
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(137, 13);
-            this.label21.TabIndex = 3;
-            this.label21.Text = "Zero wind speed calibration";
-            this.MyToolTip.SetToolTip(this.label21, "Calibration value for zero wind speed\r\n\r\nStop wind speed sensor and enter value w" +
-        "hich would lead to 0 speed value. Default 83, may be different for different sen" +
-        "sors");
+            this.MyToolTip.SetToolTip(this.label21, resources.GetString("label21.ToolTip"));
             // 
             // txtWSpeedZero
             // 
+            resources.ApplyResources(this.txtWSpeedZero, "txtWSpeedZero");
             this.txtWSpeedZero.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "WindSpeed_Zero", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtWSpeedZero.Location = new System.Drawing.Point(148, 16);
+            this.errorProvider1.SetError(this.txtWSpeedZero, resources.GetString("txtWSpeedZero.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtWSpeedZero, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtWSpeedZero.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtWSpeedZero, ((int)(resources.GetObject("txtWSpeedZero.IconPadding"))));
             this.txtWSpeedZero.Name = "txtWSpeedZero";
-            this.txtWSpeedZero.Size = new System.Drawing.Size(53, 20);
-            this.txtWSpeedZero.TabIndex = 2;
             this.txtWSpeedZero.Text = global::WeatherStation.Properties.Settings.Default.WindSpeed_Zero;
-            this.txtWSpeedZero.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.MyToolTip.SetToolTip(this.txtWSpeedZero, resources.GetString("txtWSpeedZero.ToolTip"));
             // 
             // label23
             // 
-            this.label23.AutoSize = true;
-            this.label23.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label23.Location = new System.Drawing.Point(7, 67);
+            resources.ApplyResources(this.label23, "label23");
+            this.errorProvider1.SetError(this.label23, resources.GetString("label23.Error"));
+            this.errorProvider1.SetIconAlignment(this.label23, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label23.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label23, ((int)(resources.GetObject("label23.IconPadding"))));
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(104, 13);
-            this.label23.TabIndex = 1;
-            this.label23.Text = "Very windy threshold";
+            this.MyToolTip.SetToolTip(this.label23, resources.GetString("label23.ToolTip"));
             // 
             // txtVeryWindyLimit
             // 
+            resources.ApplyResources(this.txtVeryWindyLimit, "txtVeryWindyLimit");
             this.txtVeryWindyLimit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "VeryWindyLimit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtVeryWindyLimit.Location = new System.Drawing.Point(148, 65);
+            this.errorProvider1.SetError(this.txtVeryWindyLimit, resources.GetString("txtVeryWindyLimit.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtVeryWindyLimit, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtVeryWindyLimit.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtVeryWindyLimit, ((int)(resources.GetObject("txtVeryWindyLimit.IconPadding"))));
             this.txtVeryWindyLimit.Name = "txtVeryWindyLimit";
-            this.txtVeryWindyLimit.Size = new System.Drawing.Size(53, 20);
-            this.txtVeryWindyLimit.TabIndex = 1;
             this.txtVeryWindyLimit.Text = global::WeatherStation.Properties.Settings.Default.VeryWindyLimit;
-            this.txtVeryWindyLimit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtVeryWindyLimit, "Subjective value, usually 8-9 m/s\r\nYou can use Beaufort Scale (see https://en.wik" +
-        "ipedia.org/wiki/Beaufort_scale) for a reference\r\n");
+            this.MyToolTip.SetToolTip(this.txtVeryWindyLimit, resources.GetString("txtVeryWindyLimit.ToolTip"));
             this.txtVeryWindyLimit.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckFloatPos_Validating);
             // 
             // txtWindyLimit
             // 
+            resources.ApplyResources(this.txtWindyLimit, "txtWindyLimit");
             this.txtWindyLimit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "WindyLimit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtWindyLimit.Location = new System.Drawing.Point(148, 41);
+            this.errorProvider1.SetError(this.txtWindyLimit, resources.GetString("txtWindyLimit.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtWindyLimit, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtWindyLimit.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtWindyLimit, ((int)(resources.GetObject("txtWindyLimit.IconPadding"))));
             this.txtWindyLimit.Name = "txtWindyLimit";
-            this.txtWindyLimit.Size = new System.Drawing.Size(53, 20);
-            this.txtWindyLimit.TabIndex = 0;
             this.txtWindyLimit.Text = global::WeatherStation.Properties.Settings.Default.WindyLimit;
-            this.txtWindyLimit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtWindyLimit, "Subjective value, usually 4..5 m/s\r\nYou can use Beaufort Scale (see https://en.wi" +
-        "kipedia.org/wiki/Beaufort_scale) for a reference");
+            this.MyToolTip.SetToolTip(this.txtWindyLimit, resources.GetString("txtWindyLimit.ToolTip"));
             this.txtWindyLimit.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckFloatPos_Validating);
             // 
             // groupBox10
             // 
+            resources.ApplyResources(this.groupBox10, "groupBox10");
             this.groupBox10.Controls.Add(this.K7);
             this.groupBox10.Controls.Add(this.label8);
             this.groupBox10.Controls.Add(this.label7);
@@ -931,342 +908,326 @@
             this.groupBox10.Controls.Add(this.txtK6);
             this.groupBox10.Controls.Add(this.txtK4);
             this.groupBox10.Controls.Add(this.txtK5);
-            this.groupBox10.Location = new System.Drawing.Point(8, 84);
+            this.errorProvider1.SetError(this.groupBox10, resources.GetString("groupBox10.Error"));
+            this.errorProvider1.SetIconAlignment(this.groupBox10, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("groupBox10.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.groupBox10, ((int)(resources.GetObject("groupBox10.IconPadding"))));
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(307, 71);
-            this.groupBox10.TabIndex = 11;
             this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "AAG Cloud Sensor model";
+            this.MyToolTip.SetToolTip(this.groupBox10, resources.GetString("groupBox10.ToolTip"));
             // 
             // K7
             // 
-            this.K7.AutoSize = true;
-            this.K7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.K7.Location = new System.Drawing.Point(197, 16);
+            resources.ApplyResources(this.K7, "K7");
+            this.errorProvider1.SetError(this.K7, resources.GetString("K7.Error"));
+            this.errorProvider1.SetIconAlignment(this.K7, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("K7.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.K7, ((int)(resources.GetObject("K7.IconPadding"))));
             this.K7.Name = "K7";
-            this.K7.Size = new System.Drawing.Size(20, 13);
-            this.K7.TabIndex = 9;
-            this.K7.Text = "K7";
+            this.MyToolTip.SetToolTip(this.K7, resources.GetString("K7.ToolTip"));
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label8.Location = new System.Drawing.Point(167, 16);
+            resources.ApplyResources(this.label8, "label8");
+            this.errorProvider1.SetError(this.label8, resources.GetString("label8.Error"));
+            this.errorProvider1.SetIconAlignment(this.label8, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label8.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label8, ((int)(resources.GetObject("label8.IconPadding"))));
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(20, 13);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "K6";
+            this.MyToolTip.SetToolTip(this.label8, resources.GetString("label8.ToolTip"));
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label7.Location = new System.Drawing.Point(137, 16);
+            resources.ApplyResources(this.label7, "label7");
+            this.errorProvider1.SetError(this.label7, resources.GetString("label7.Error"));
+            this.errorProvider1.SetIconAlignment(this.label7, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label7.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label7, ((int)(resources.GetObject("label7.IconPadding"))));
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(20, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "K5";
+            this.MyToolTip.SetToolTip(this.label7, resources.GetString("label7.ToolTip"));
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(107, 16);
+            resources.ApplyResources(this.label6, "label6");
+            this.errorProvider1.SetError(this.label6, resources.GetString("label6.Error"));
+            this.errorProvider1.SetIconAlignment(this.label6, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label6.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label6, ((int)(resources.GetObject("label6.IconPadding"))));
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(20, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "K4";
+            this.MyToolTip.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label5.Location = new System.Drawing.Point(77, 16);
+            resources.ApplyResources(this.label5, "label5");
+            this.errorProvider1.SetError(this.label5, resources.GetString("label5.Error"));
+            this.errorProvider1.SetIconAlignment(this.label5, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label5.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label5, ((int)(resources.GetObject("label5.IconPadding"))));
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(20, 13);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "K3";
+            this.MyToolTip.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(47, 16);
+            resources.ApplyResources(this.label4, "label4");
+            this.errorProvider1.SetError(this.label4, resources.GetString("label4.Error"));
+            this.errorProvider1.SetIconAlignment(this.label4, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label4.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label4, ((int)(resources.GetObject("label4.IconPadding"))));
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(20, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "K2";
+            this.MyToolTip.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
             // 
             // txtK1
             // 
+            resources.ApplyResources(this.txtK1, "txtK1");
             this.txtK1.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K1", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtK1.Location = new System.Drawing.Point(11, 32);
+            this.errorProvider1.SetError(this.txtK1, resources.GetString("txtK1.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtK1, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtK1.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtK1, ((int)(resources.GetObject("txtK1.IconPadding"))));
             this.txtK1.Name = "txtK1";
-            this.txtK1.Size = new System.Drawing.Size(26, 20);
-            this.txtK1.TabIndex = 16;
             this.txtK1.Text = global::WeatherStation.Properties.Settings.Default.K1;
-            this.txtK1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.MyToolTip.SetToolTip(this.txtK1, resources.GetString("txtK1.ToolTip"));
             this.txtK1.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(17, 16);
+            resources.ApplyResources(this.label3, "label3");
+            this.errorProvider1.SetError(this.label3, resources.GetString("label3.Error"));
+            this.errorProvider1.SetIconAlignment(this.label3, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label3.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label3, ((int)(resources.GetObject("label3.IconPadding"))));
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(20, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "K1";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.MyToolTip.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
             // 
             // txtK2
             // 
+            resources.ApplyResources(this.txtK2, "txtK2");
             this.txtK2.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K2", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtK2.Location = new System.Drawing.Point(43, 32);
+            this.errorProvider1.SetError(this.txtK2, resources.GetString("txtK2.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtK2, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtK2.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtK2, ((int)(resources.GetObject("txtK2.IconPadding"))));
             this.txtK2.Name = "txtK2";
-            this.txtK2.Size = new System.Drawing.Size(24, 20);
-            this.txtK2.TabIndex = 17;
             this.txtK2.Text = global::WeatherStation.Properties.Settings.Default.K2;
-            this.txtK2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.MyToolTip.SetToolTip(this.txtK2, resources.GetString("txtK2.ToolTip"));
             this.txtK2.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
             // 
             // txtK7
             // 
+            resources.ApplyResources(this.txtK7, "txtK7");
             this.txtK7.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K7", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtK7.Location = new System.Drawing.Point(193, 32);
+            this.errorProvider1.SetError(this.txtK7, resources.GetString("txtK7.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtK7, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtK7.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtK7, ((int)(resources.GetObject("txtK7.IconPadding"))));
             this.txtK7.Name = "txtK7";
-            this.txtK7.Size = new System.Drawing.Size(24, 20);
-            this.txtK7.TabIndex = 22;
             this.txtK7.Text = global::WeatherStation.Properties.Settings.Default.K7;
-            this.txtK7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.MyToolTip.SetToolTip(this.txtK7, resources.GetString("txtK7.ToolTip"));
             this.txtK7.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
             // 
             // txtK3
             // 
+            resources.ApplyResources(this.txtK3, "txtK3");
             this.txtK3.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K3", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtK3.Location = new System.Drawing.Point(73, 32);
+            this.errorProvider1.SetError(this.txtK3, resources.GetString("txtK3.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtK3, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtK3.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtK3, ((int)(resources.GetObject("txtK3.IconPadding"))));
             this.txtK3.Name = "txtK3";
-            this.txtK3.Size = new System.Drawing.Size(24, 20);
-            this.txtK3.TabIndex = 18;
             this.txtK3.Text = global::WeatherStation.Properties.Settings.Default.K3;
-            this.txtK3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.MyToolTip.SetToolTip(this.txtK3, resources.GetString("txtK3.ToolTip"));
             this.txtK3.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
             // 
             // txtK6
             // 
+            resources.ApplyResources(this.txtK6, "txtK6");
             this.txtK6.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K6", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtK6.Location = new System.Drawing.Point(163, 32);
+            this.errorProvider1.SetError(this.txtK6, resources.GetString("txtK6.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtK6, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtK6.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtK6, ((int)(resources.GetObject("txtK6.IconPadding"))));
             this.txtK6.Name = "txtK6";
-            this.txtK6.Size = new System.Drawing.Size(24, 20);
-            this.txtK6.TabIndex = 21;
             this.txtK6.Text = global::WeatherStation.Properties.Settings.Default.K6;
-            this.txtK6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.MyToolTip.SetToolTip(this.txtK6, resources.GetString("txtK6.ToolTip"));
             this.txtK6.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
             // 
             // txtK4
             // 
+            resources.ApplyResources(this.txtK4, "txtK4");
             this.txtK4.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K4", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtK4.Location = new System.Drawing.Point(103, 32);
+            this.errorProvider1.SetError(this.txtK4, resources.GetString("txtK4.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtK4, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtK4.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtK4, ((int)(resources.GetObject("txtK4.IconPadding"))));
             this.txtK4.Name = "txtK4";
-            this.txtK4.Size = new System.Drawing.Size(24, 20);
-            this.txtK4.TabIndex = 19;
             this.txtK4.Text = global::WeatherStation.Properties.Settings.Default.K4;
-            this.txtK4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.MyToolTip.SetToolTip(this.txtK4, resources.GetString("txtK4.ToolTip"));
             this.txtK4.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
             // 
             // txtK5
             // 
+            resources.ApplyResources(this.txtK5, "txtK5");
             this.txtK5.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "K5", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtK5.Location = new System.Drawing.Point(133, 32);
+            this.errorProvider1.SetError(this.txtK5, resources.GetString("txtK5.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtK5, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtK5.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtK5, ((int)(resources.GetObject("txtK5.IconPadding"))));
             this.txtK5.Name = "txtK5";
-            this.txtK5.Size = new System.Drawing.Size(24, 20);
-            this.txtK5.TabIndex = 20;
             this.txtK5.Text = global::WeatherStation.Properties.Settings.Default.K5;
-            this.txtK5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.MyToolTip.SetToolTip(this.txtK5, resources.GetString("txtK5.ToolTip"));
             this.txtK5.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
             // 
             // groupBox5
             // 
+            resources.ApplyResources(this.groupBox5, "groupBox5");
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.cmbWetMode);
             this.groupBox5.Controls.Add(this.label19);
             this.groupBox5.Controls.Add(this.label13);
             this.groupBox5.Controls.Add(this.txtWetLimit);
             this.groupBox5.Controls.Add(this.txtRainLimit);
-            this.groupBox5.Location = new System.Drawing.Point(8, 161);
+            this.errorProvider1.SetError(this.groupBox5, resources.GetString("groupBox5.Error"));
+            this.errorProvider1.SetIconAlignment(this.groupBox5, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("groupBox5.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.groupBox5, ((int)(resources.GetObject("groupBox5.IconPadding"))));
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(307, 99);
-            this.groupBox5.TabIndex = 10;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Rain sensor model";
+            this.MyToolTip.SetToolTip(this.groupBox5, resources.GetString("groupBox5.ToolTip"));
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label12.Location = new System.Drawing.Point(6, 19);
+            resources.ApplyResources(this.label12, "label12");
+            this.errorProvider1.SetError(this.label12, resources.GetString("label12.Error"));
+            this.errorProvider1.SetIconAlignment(this.label12, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label12.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label12, ((int)(resources.GetObject("label12.IconPadding"))));
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 13);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Wet threshold";
+            this.MyToolTip.SetToolTip(this.label12, resources.GetString("label12.ToolTip"));
             // 
             // cmbWetMode
             // 
+            resources.ApplyResources(this.cmbWetMode, "cmbWetMode");
+            this.errorProvider1.SetError(this.cmbWetMode, resources.GetString("cmbWetMode.Error"));
             this.cmbWetMode.FormattingEnabled = true;
+            this.errorProvider1.SetIconAlignment(this.cmbWetMode, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("cmbWetMode.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.cmbWetMode, ((int)(resources.GetObject("cmbWetMode.IconPadding"))));
             this.cmbWetMode.Items.AddRange(new object[] {
-            "Use both",
-            "Wet only",
-            "RGC only"});
-            this.cmbWetMode.Location = new System.Drawing.Point(148, 61);
-            this.cmbWetMode.Margin = new System.Windows.Forms.Padding(2);
+            resources.GetString("cmbWetMode.Items"),
+            resources.GetString("cmbWetMode.Items1"),
+            resources.GetString("cmbWetMode.Items2")});
             this.cmbWetMode.Name = "cmbWetMode";
-            this.cmbWetMode.Size = new System.Drawing.Size(129, 21);
-            this.cmbWetMode.TabIndex = 2;
-            this.cmbWetMode.Text = "Use both";
-            this.MyToolTip.SetToolTip(this.cmbWetMode, "Which sensor program should use to measure rain condition if more then one presen" +
-        "t (wet sensor and optical rain gauge counter)\r\nIf you have two of them - use \"Bo" +
-        "th\" unless you face problems");
+            this.MyToolTip.SetToolTip(this.cmbWetMode, resources.GetString("cmbWetMode.ToolTip"));
             // 
             // label19
             // 
-            this.label19.AutoSize = true;
-            this.label19.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label19.Location = new System.Drawing.Point(7, 63);
+            resources.ApplyResources(this.label19, "label19");
+            this.errorProvider1.SetError(this.label19, resources.GetString("label19.Error"));
+            this.errorProvider1.SetIconAlignment(this.label19, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label19.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label19, ((int)(resources.GetObject("label19.IconPadding"))));
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(97, 13);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "Rain sensors mode";
+            this.MyToolTip.SetToolTip(this.label19, resources.GetString("label19.ToolTip"));
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
-            this.label13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label13.Location = new System.Drawing.Point(7, 41);
+            resources.ApplyResources(this.label13, "label13");
+            this.errorProvider1.SetError(this.label13, resources.GetString("label13.Error"));
+            this.errorProvider1.SetIconAlignment(this.label13, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label13.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label13, ((int)(resources.GetObject("label13.IconPadding"))));
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(75, 13);
-            this.label13.TabIndex = 1;
-            this.label13.Text = "Rain threshold";
+            this.MyToolTip.SetToolTip(this.label13, resources.GetString("label13.ToolTip"));
             // 
             // txtWetLimit
             // 
+            resources.ApplyResources(this.txtWetLimit, "txtWetLimit");
             this.txtWetLimit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "WetLimit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtWetLimit.Location = new System.Drawing.Point(148, 16);
+            this.errorProvider1.SetError(this.txtWetLimit, resources.GetString("txtWetLimit.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtWetLimit, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtWetLimit.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtWetLimit, ((int)(resources.GetObject("txtWetLimit.IconPadding"))));
             this.txtWetLimit.Name = "txtWetLimit";
-            this.txtWetLimit.Size = new System.Drawing.Size(53, 20);
-            this.txtWetLimit.TabIndex = 0;
             this.txtWetLimit.Text = global::WeatherStation.Properties.Settings.Default.WetLimit;
-            this.txtWetLimit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.MyToolTip.SetToolTip(this.txtWetLimit, resources.GetString("txtWetLimit.ToolTip"));
             this.txtWetLimit.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
             // txtRainLimit
             // 
+            resources.ApplyResources(this.txtRainLimit, "txtRainLimit");
             this.txtRainLimit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "RainLimit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtRainLimit.Location = new System.Drawing.Point(148, 38);
+            this.errorProvider1.SetError(this.txtRainLimit, resources.GetString("txtRainLimit.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtRainLimit, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtRainLimit.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtRainLimit, ((int)(resources.GetObject("txtRainLimit.IconPadding"))));
             this.txtRainLimit.Name = "txtRainLimit";
-            this.txtRainLimit.Size = new System.Drawing.Size(53, 20);
-            this.txtRainLimit.TabIndex = 1;
             this.txtRainLimit.Text = global::WeatherStation.Properties.Settings.Default.RainLimit;
-            this.txtRainLimit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtRainLimit, "Rain threshold limit. All values higher then this will be treated as a wet condit" +
-        "ion, and lower as a rain condition");
+            this.MyToolTip.SetToolTip(this.txtRainLimit, resources.GetString("txtRainLimit.ToolTip"));
             this.txtRainLimit.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
             // groupBox2
             // 
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtCloudysky);
             this.groupBox2.Controls.Add(this.txtClearsky);
-            this.groupBox2.Location = new System.Drawing.Point(8, 3);
+            this.errorProvider1.SetError(this.groupBox2, resources.GetString("groupBox2.Error"));
+            this.errorProvider1.SetIconAlignment(this.groupBox2, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("groupBox2.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.groupBox2, ((int)(resources.GetObject("groupBox2.IconPadding"))));
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(307, 75);
-            this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Cloud sensor model";
+            this.MyToolTip.SetToolTip(this.groupBox2, resources.GetString("groupBox2.ToolTip"));
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(7, 43);
+            resources.ApplyResources(this.label2, "label2");
+            this.errorProvider1.SetError(this.label2, resources.GetString("label2.Error"));
+            this.errorProvider1.SetIconAlignment(this.label2, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label2.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label2, ((int)(resources.GetObject("label2.IconPadding"))));
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Cloudy sky threshold";
+            this.MyToolTip.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(7, 19);
+            resources.ApplyResources(this.label1, "label1");
+            this.errorProvider1.SetError(this.label1, resources.GetString("label1.Error"));
+            this.errorProvider1.SetIconAlignment(this.label1, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label1.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label1, ((int)(resources.GetObject("label1.IconPadding"))));
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Clear sky threshold";
+            this.MyToolTip.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
             // 
             // txtCloudysky
             // 
+            resources.ApplyResources(this.txtCloudysky, "txtCloudysky");
             this.txtCloudysky.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "Cloudysky", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtCloudysky.Location = new System.Drawing.Point(148, 41);
+            this.errorProvider1.SetError(this.txtCloudysky, resources.GetString("txtCloudysky.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtCloudysky, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtCloudysky.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtCloudysky, ((int)(resources.GetObject("txtCloudysky.IconPadding"))));
             this.txtCloudysky.Name = "txtCloudysky";
-            this.txtCloudysky.Size = new System.Drawing.Size(53, 20);
-            this.txtCloudysky.TabIndex = 1;
             this.txtCloudysky.Text = global::WeatherStation.Properties.Settings.Default.Cloudysky;
-            this.txtCloudysky.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtCloudysky, "Cloudy sky threshold limit. All values higher then this will be treated as a clou" +
-        "dy sky and lower - as a very cloudy");
+            this.MyToolTip.SetToolTip(this.txtCloudysky, resources.GetString("txtCloudysky.ToolTip"));
             this.txtCloudysky.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
             // txtClearsky
             // 
+            resources.ApplyResources(this.txtClearsky, "txtClearsky");
             this.txtClearsky.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "Clearsky", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtClearsky.Location = new System.Drawing.Point(148, 16);
+            this.errorProvider1.SetError(this.txtClearsky, resources.GetString("txtClearsky.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtClearsky, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtClearsky.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtClearsky, ((int)(resources.GetObject("txtClearsky.IconPadding"))));
             this.txtClearsky.Name = "txtClearsky";
-            this.txtClearsky.Size = new System.Drawing.Size(53, 20);
-            this.txtClearsky.TabIndex = 0;
             this.txtClearsky.Text = global::WeatherStation.Properties.Settings.Default.Clearsky;
-            this.txtClearsky.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtClearsky, "Clear sky threshold limit. All values higher then this will be treated as a clear" +
-        " sky");
+            this.MyToolTip.SetToolTip(this.txtClearsky, resources.GetString("txtClearsky.ToolTip"));
             this.txtClearsky.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
             // tabSensors
             // 
+            resources.ApplyResources(this.tabSensors, "tabSensors");
             this.tabSensors.Controls.Add(this.dataGridSensors);
             this.tabSensors.Controls.Add(this.groupBox7);
             this.tabSensors.Controls.Add(this.btnResetSensorList);
             this.tabSensors.Controls.Add(this.btnReadFromSerial);
-            this.tabSensors.Location = new System.Drawing.Point(4, 22);
+            this.errorProvider1.SetError(this.tabSensors, resources.GetString("tabSensors.Error"));
+            this.errorProvider1.SetIconAlignment(this.tabSensors, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("tabSensors.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.tabSensors, ((int)(resources.GetObject("tabSensors.IconPadding"))));
             this.tabSensors.Name = "tabSensors";
-            this.tabSensors.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSensors.Size = new System.Drawing.Size(619, 342);
-            this.tabSensors.TabIndex = 1;
-            this.tabSensors.Text = "Sensors";
+            this.MyToolTip.SetToolTip(this.tabSensors, resources.GetString("tabSensors.ToolTip"));
             this.tabSensors.UseVisualStyleBackColor = true;
             // 
             // dataGridSensors
             // 
+            resources.ApplyResources(this.dataGridSensors, "dataGridSensors");
             this.dataGridSensors.AllowUserToAddRows = false;
             this.dataGridSensors.AllowUserToDeleteRows = false;
             this.dataGridSensors.AllowUserToOrderColumns = true;
             this.dataGridSensors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridSensors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridSensors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridSensors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridSensors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SensorName,
@@ -1277,125 +1238,124 @@
             this.ArduinoName,
             this.WebCustomName,
             this.FormFieldName});
-            this.dataGridSensors.Location = new System.Drawing.Point(6, 6);
+            this.errorProvider1.SetError(this.dataGridSensors, resources.GetString("dataGridSensors.Error"));
+            this.errorProvider1.SetIconAlignment(this.dataGridSensors, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("dataGridSensors.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.dataGridSensors, ((int)(resources.GetObject("dataGridSensors.IconPadding"))));
             this.dataGridSensors.Name = "dataGridSensors";
             this.dataGridSensors.RowHeadersVisible = false;
-            this.dataGridSensors.Size = new System.Drawing.Size(604, 266);
-            this.dataGridSensors.TabIndex = 19;
+            this.MyToolTip.SetToolTip(this.dataGridSensors, resources.GetString("dataGridSensors.ToolTip"));
             // 
             // SensorName
             // 
-            this.SensorName.HeaderText = "Sensor";
-            this.SensorName.MinimumWidth = 50;
+            resources.ApplyResources(this.SensorName, "SensorName");
             this.SensorName.Name = "SensorName";
-            this.SensorName.Width = 120;
             // 
             // SensorEnabled
             // 
-            this.SensorEnabled.HeaderText = "Enabled";
-            this.SensorEnabled.MinimumWidth = 10;
+            resources.ApplyResources(this.SensorEnabled, "SensorEnabled");
             this.SensorEnabled.Name = "SensorEnabled";
-            this.SensorEnabled.Width = 50;
             // 
             // SensorType
             // 
-            this.SensorType.HeaderText = "Type";
-            this.SensorType.MinimumWidth = 50;
+            resources.ApplyResources(this.SensorType, "SensorType");
             this.SensorType.Name = "SensorType";
-            this.SensorType.Width = 80;
             // 
             // SendToWeb
             // 
-            this.SendToWeb.HeaderText = "Send to Web";
+            resources.ApplyResources(this.SendToWeb, "SendToWeb");
             this.SendToWeb.Name = "SendToWeb";
             // 
             // SendToNarodmon
             // 
-            this.SendToNarodmon.HeaderText = "Send to Narodmon";
+            resources.ApplyResources(this.SendToNarodmon, "SendToNarodmon");
             this.SendToNarodmon.Name = "SendToNarodmon";
             // 
             // ArduinoName
             // 
-            this.ArduinoName.HeaderText = "Arduino Name";
+            resources.ApplyResources(this.ArduinoName, "ArduinoName");
             this.ArduinoName.Name = "ArduinoName";
-            this.ArduinoName.Width = 80;
             // 
             // WebCustomName
             // 
-            this.WebCustomName.HeaderText = "Web VAR name";
+            resources.ApplyResources(this.WebCustomName, "WebCustomName");
             this.WebCustomName.Name = "WebCustomName";
             // 
             // FormFieldName
             // 
-            this.FormFieldName.HeaderText = "TextField name";
+            resources.ApplyResources(this.FormFieldName, "FormFieldName");
             this.FormFieldName.Name = "FormFieldName";
             this.FormFieldName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.FormFieldName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // groupBox7
             // 
+            resources.ApplyResources(this.groupBox7, "groupBox7");
             this.groupBox7.Controls.Add(this.label9);
             this.groupBox7.Controls.Add(this.cmbBaseTempSensor);
-            this.groupBox7.Location = new System.Drawing.Point(6, 278);
+            this.errorProvider1.SetError(this.groupBox7, resources.GetString("groupBox7.Error"));
+            this.errorProvider1.SetIconAlignment(this.groupBox7, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("groupBox7.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.groupBox7, ((int)(resources.GetObject("groupBox7.IconPadding"))));
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(266, 49);
-            this.groupBox7.TabIndex = 18;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Base temp sensor";
+            this.MyToolTip.SetToolTip(this.groupBox7, resources.GetString("groupBox7.ToolTip"));
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 24);
+            resources.ApplyResources(this.label9, "label9");
+            this.errorProvider1.SetError(this.label9, resources.GetString("label9.Error"));
+            this.errorProvider1.SetIconAlignment(this.label9, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label9.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label9, ((int)(resources.GetObject("label9.IconPadding"))));
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(91, 13);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Base temp sensor";
+            this.MyToolTip.SetToolTip(this.label9, resources.GetString("label9.ToolTip"));
             // 
             // cmbBaseTempSensor
             // 
+            resources.ApplyResources(this.cmbBaseTempSensor, "cmbBaseTempSensor");
             this.cmbBaseTempSensor.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "BaseTempSensor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.errorProvider1.SetError(this.cmbBaseTempSensor, resources.GetString("cmbBaseTempSensor.Error"));
             this.cmbBaseTempSensor.FormattingEnabled = true;
-            this.cmbBaseTempSensor.Location = new System.Drawing.Point(133, 21);
+            this.errorProvider1.SetIconAlignment(this.cmbBaseTempSensor, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("cmbBaseTempSensor.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.cmbBaseTempSensor, ((int)(resources.GetObject("cmbBaseTempSensor.IconPadding"))));
             this.cmbBaseTempSensor.Name = "cmbBaseTempSensor";
-            this.cmbBaseTempSensor.Size = new System.Drawing.Size(121, 21);
-            this.cmbBaseTempSensor.TabIndex = 16;
             this.cmbBaseTempSensor.Text = global::WeatherStation.Properties.Settings.Default.BaseTempSensor;
+            this.MyToolTip.SetToolTip(this.cmbBaseTempSensor, resources.GetString("cmbBaseTempSensor.ToolTip"));
             // 
             // btnResetSensorList
             // 
-            this.btnResetSensorList.Location = new System.Drawing.Point(471, 292);
+            resources.ApplyResources(this.btnResetSensorList, "btnResetSensorList");
+            this.errorProvider1.SetError(this.btnResetSensorList, resources.GetString("btnResetSensorList.Error"));
+            this.errorProvider1.SetIconAlignment(this.btnResetSensorList, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnResetSensorList.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.btnResetSensorList, ((int)(resources.GetObject("btnResetSensorList.IconPadding"))));
             this.btnResetSensorList.Name = "btnResetSensorList";
-            this.btnResetSensorList.Size = new System.Drawing.Size(139, 23);
-            this.btnResetSensorList.TabIndex = 16;
-            this.btnResetSensorList.Text = "Reset sensor list to default";
-            this.MyToolTip.SetToolTip(this.btnResetSensorList, "Will delete all your entries in sensor list and fill with default values");
+            this.MyToolTip.SetToolTip(this.btnResetSensorList, resources.GetString("btnResetSensorList.ToolTip"));
             this.btnResetSensorList.UseVisualStyleBackColor = true;
             this.btnResetSensorList.Click += new System.EventHandler(this.btnResetSensorList_Click);
             // 
             // btnReadFromSerial
             // 
-            this.btnReadFromSerial.Location = new System.Drawing.Point(303, 292);
+            resources.ApplyResources(this.btnReadFromSerial, "btnReadFromSerial");
+            this.errorProvider1.SetError(this.btnReadFromSerial, resources.GetString("btnReadFromSerial.Error"));
+            this.errorProvider1.SetIconAlignment(this.btnReadFromSerial, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnReadFromSerial.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.btnReadFromSerial, ((int)(resources.GetObject("btnReadFromSerial.IconPadding"))));
             this.btnReadFromSerial.Name = "btnReadFromSerial";
-            this.btnReadFromSerial.Size = new System.Drawing.Size(139, 23);
-            this.btnReadFromSerial.TabIndex = 17;
-            this.btnReadFromSerial.Text = "Read from serial port";
-            this.MyToolTip.SetToolTip(this.btnReadFromSerial, "Not implemented yet");
+            this.MyToolTip.SetToolTip(this.btnReadFromSerial, resources.GetString("btnReadFromSerial.ToolTip"));
             this.btnReadFromSerial.UseVisualStyleBackColor = true;
             // 
             // tabHeater
             // 
+            resources.ApplyResources(this.tabHeater, "tabHeater");
             this.tabHeater.Controls.Add(this.groupBox9);
             this.tabHeater.Controls.Add(this.groupBox4);
-            this.tabHeater.Location = new System.Drawing.Point(4, 22);
+            this.errorProvider1.SetError(this.tabHeater, resources.GetString("tabHeater.Error"));
+            this.errorProvider1.SetIconAlignment(this.tabHeater, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("tabHeater.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.tabHeater, ((int)(resources.GetObject("tabHeater.IconPadding"))));
             this.tabHeater.Name = "tabHeater";
-            this.tabHeater.Size = new System.Drawing.Size(619, 342);
-            this.tabHeater.TabIndex = 4;
-            this.tabHeater.Text = "Heater";
+            this.MyToolTip.SetToolTip(this.tabHeater, resources.GetString("tabHeater.ToolTip"));
             this.tabHeater.UseVisualStyleBackColor = true;
             // 
             // groupBox9
             // 
+            resources.ApplyResources(this.groupBox9, "groupBox9");
             this.groupBox9.Controls.Add(this.label20);
             this.groupBox9.Controls.Add(this.label22);
             this.groupBox9.Controls.Add(this.label24);
@@ -1406,279 +1366,266 @@
             this.groupBox9.Controls.Add(this.txtCSHeatingMax);
             this.groupBox9.Controls.Add(this.txtCSDecreasingMinDelta);
             this.groupBox9.Controls.Add(this.txtCSHeatingMin);
-            this.groupBox9.Location = new System.Drawing.Point(8, 100);
+            this.errorProvider1.SetError(this.groupBox9, resources.GetString("groupBox9.Error"));
+            this.errorProvider1.SetIconAlignment(this.groupBox9, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("groupBox9.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.groupBox9, ((int)(resources.GetObject("groupBox9.IconPadding"))));
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(307, 100);
-            this.groupBox9.TabIndex = 6;
             this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "CS auto heater settings";
+            this.MyToolTip.SetToolTip(this.groupBox9, resources.GetString("groupBox9.ToolTip"));
             // 
             // label20
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(205, 70);
-            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.label20, "label20");
+            this.errorProvider1.SetError(this.label20, resources.GetString("label20.Error"));
+            this.errorProvider1.SetIconAlignment(this.label20, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label20.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label20, ((int)(resources.GetObject("label20.IconPadding"))));
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(10, 13);
-            this.label20.TabIndex = 13;
-            this.label20.Text = "-";
+            this.MyToolTip.SetToolTip(this.label20, resources.GetString("label20.ToolTip"));
             // 
             // label22
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(205, 22);
-            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.label22, "label22");
+            this.errorProvider1.SetError(this.label22, resources.GetString("label22.Error"));
+            this.errorProvider1.SetIconAlignment(this.label22, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label22.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label22, ((int)(resources.GetObject("label22.IconPadding"))));
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(10, 13);
-            this.label22.TabIndex = 13;
-            this.label22.Text = "-";
+            this.MyToolTip.SetToolTip(this.label22, resources.GetString("label22.ToolTip"));
             this.label22.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
             // label24
             // 
-            this.label24.AutoSize = true;
-            this.label24.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label24.Location = new System.Drawing.Point(6, 46);
+            resources.ApplyResources(this.label24, "label24");
+            this.errorProvider1.SetError(this.label24, resources.GetString("label24.Error"));
+            this.errorProvider1.SetIconAlignment(this.label24, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label24.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label24, ((int)(resources.GetObject("label24.IconPadding"))));
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(93, 13);
-            this.label24.TabIndex = 1;
-            this.label24.Text = "Heater pause time";
+            this.MyToolTip.SetToolTip(this.label24, resources.GetString("label24.ToolTip"));
             // 
             // label18
             // 
-            this.label18.AutoSize = true;
-            this.label18.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label18.Location = new System.Drawing.Point(7, 70);
+            resources.ApplyResources(this.label18, "label18");
+            this.errorProvider1.SetError(this.label18, resources.GetString("label18.Error"));
+            this.errorProvider1.SetIconAlignment(this.label18, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label18.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label18, ((int)(resources.GetObject("label18.IconPadding"))));
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(122, 13);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "CS decreasing threshold";
+            this.MyToolTip.SetToolTip(this.label18, resources.GetString("label18.ToolTip"));
             // 
             // label25
             // 
-            this.label25.AutoSize = true;
-            this.label25.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label25.Location = new System.Drawing.Point(6, 22);
+            resources.ApplyResources(this.label25, "label25");
+            this.errorProvider1.SetError(this.label25, resources.GetString("label25.Error"));
+            this.errorProvider1.SetIconAlignment(this.label25, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label25.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label25, ((int)(resources.GetObject("label25.IconPadding"))));
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(129, 13);
-            this.label25.TabIndex = 1;
-            this.label25.Text = "CS threshold switching on";
+            this.MyToolTip.SetToolTip(this.label25, resources.GetString("label25.ToolTip"));
             // 
             // txtCSHeaterPauseTime
             // 
+            resources.ApplyResources(this.txtCSHeaterPauseTime, "txtCSHeaterPauseTime");
             this.txtCSHeaterPauseTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "HeatingPauseTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtCSHeaterPauseTime.Location = new System.Drawing.Point(148, 43);
+            this.errorProvider1.SetError(this.txtCSHeaterPauseTime, resources.GetString("txtCSHeaterPauseTime.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtCSHeaterPauseTime, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtCSHeaterPauseTime.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtCSHeaterPauseTime, ((int)(resources.GetObject("txtCSHeaterPauseTime.IconPadding"))));
             this.txtCSHeaterPauseTime.Name = "txtCSHeaterPauseTime";
-            this.txtCSHeaterPauseTime.Size = new System.Drawing.Size(53, 20);
-            this.txtCSHeaterPauseTime.TabIndex = 2;
             this.txtCSHeaterPauseTime.Text = global::WeatherStation.Properties.Settings.Default.HeatingPauseTime;
-            this.txtCSHeaterPauseTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtCSHeaterPauseTime, "Interval between two autoheating cycles, seconds\r\n");
+            this.MyToolTip.SetToolTip(this.txtCSHeaterPauseTime, resources.GetString("txtCSHeaterPauseTime.ToolTip"));
             this.txtCSHeaterPauseTime.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
             // txtCSDecreasingMaxDelta
             // 
+            resources.ApplyResources(this.txtCSDecreasingMaxDelta, "txtCSDecreasingMaxDelta");
             this.txtCSDecreasingMaxDelta.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "HeatingCS_MaxDelta", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtCSDecreasingMaxDelta.Location = new System.Drawing.Point(215, 67);
+            this.errorProvider1.SetError(this.txtCSDecreasingMaxDelta, resources.GetString("txtCSDecreasingMaxDelta.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtCSDecreasingMaxDelta, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtCSDecreasingMaxDelta.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtCSDecreasingMaxDelta, ((int)(resources.GetObject("txtCSDecreasingMaxDelta.IconPadding"))));
             this.txtCSDecreasingMaxDelta.Name = "txtCSDecreasingMaxDelta";
-            this.txtCSDecreasingMaxDelta.Size = new System.Drawing.Size(53, 20);
-            this.txtCSDecreasingMaxDelta.TabIndex = 4;
             this.txtCSDecreasingMaxDelta.Text = global::WeatherStation.Properties.Settings.Default.HeatingCS_MaxDelta;
-            this.txtCSDecreasingMaxDelta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.MyToolTip.SetToolTip(this.txtCSDecreasingMaxDelta, resources.GetString("txtCSDecreasingMaxDelta.ToolTip"));
             this.txtCSDecreasingMaxDelta.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckFloatPos_Validating);
             // 
             // txtCSHeatingMax
             // 
+            resources.ApplyResources(this.txtCSHeatingMax, "txtCSHeatingMax");
             this.txtCSHeatingMax.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "HeatingCSThresholdMax", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtCSHeatingMax.Location = new System.Drawing.Point(215, 19);
+            this.errorProvider1.SetError(this.txtCSHeatingMax, resources.GetString("txtCSHeatingMax.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtCSHeatingMax, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtCSHeatingMax.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtCSHeatingMax, ((int)(resources.GetObject("txtCSHeatingMax.IconPadding"))));
             this.txtCSHeatingMax.Name = "txtCSHeatingMax";
-            this.txtCSHeatingMax.Size = new System.Drawing.Size(53, 20);
-            this.txtCSHeatingMax.TabIndex = 1;
             this.txtCSHeatingMax.Text = global::WeatherStation.Properties.Settings.Default.HeatingCSThresholdMax;
-            this.txtCSHeatingMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtCSHeatingMax, "Maximum cloud sensor value, when auto heating could be switched on\r\n");
+            this.MyToolTip.SetToolTip(this.txtCSHeatingMax, resources.GetString("txtCSHeatingMax.ToolTip"));
             this.txtCSHeatingMax.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
             // txtCSDecreasingMinDelta
             // 
+            resources.ApplyResources(this.txtCSDecreasingMinDelta, "txtCSDecreasingMinDelta");
             this.txtCSDecreasingMinDelta.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "HeatingCS_MinDelta", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtCSDecreasingMinDelta.Location = new System.Drawing.Point(148, 67);
+            this.errorProvider1.SetError(this.txtCSDecreasingMinDelta, resources.GetString("txtCSDecreasingMinDelta.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtCSDecreasingMinDelta, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtCSDecreasingMinDelta.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtCSDecreasingMinDelta, ((int)(resources.GetObject("txtCSDecreasingMinDelta.IconPadding"))));
             this.txtCSDecreasingMinDelta.Name = "txtCSDecreasingMinDelta";
-            this.txtCSDecreasingMinDelta.Size = new System.Drawing.Size(53, 20);
-            this.txtCSDecreasingMinDelta.TabIndex = 3;
             this.txtCSDecreasingMinDelta.Text = global::WeatherStation.Properties.Settings.Default.HeatingCS_MinDelta;
-            this.txtCSDecreasingMinDelta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.MyToolTip.SetToolTip(this.txtCSDecreasingMinDelta, resources.GetString("txtCSDecreasingMinDelta.ToolTip"));
             this.txtCSDecreasingMinDelta.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckFloatPos_Validating);
             // 
             // txtCSHeatingMin
             // 
+            resources.ApplyResources(this.txtCSHeatingMin, "txtCSHeatingMin");
             this.txtCSHeatingMin.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "HeatingCSThresholdMin", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtCSHeatingMin.Location = new System.Drawing.Point(148, 19);
+            this.errorProvider1.SetError(this.txtCSHeatingMin, resources.GetString("txtCSHeatingMin.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtCSHeatingMin, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtCSHeatingMin.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtCSHeatingMin, ((int)(resources.GetObject("txtCSHeatingMin.IconPadding"))));
             this.txtCSHeatingMin.Name = "txtCSHeatingMin";
-            this.txtCSHeatingMin.Size = new System.Drawing.Size(53, 20);
-            this.txtCSHeatingMin.TabIndex = 0;
             this.txtCSHeatingMin.Text = global::WeatherStation.Properties.Settings.Default.HeatingCSThresholdMin;
-            this.txtCSHeatingMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtCSHeatingMin, "Minimum cloud sensor value, when auto heating could be switched on");
+            this.MyToolTip.SetToolTip(this.txtCSHeatingMin, resources.GetString("txtCSHeatingMin.ToolTip"));
             this.txtCSHeatingMin.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
             // groupBox4
             // 
+            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.txtHeaterWetThreshold);
             this.groupBox4.Controls.Add(this.txtHeaterMaxTemp);
             this.groupBox4.Controls.Add(this.txtHeaterMaxDuration);
-            this.groupBox4.Location = new System.Drawing.Point(8, 3);
+            this.errorProvider1.SetError(this.groupBox4, resources.GetString("groupBox4.Error"));
+            this.errorProvider1.SetIconAlignment(this.groupBox4, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("groupBox4.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.groupBox4, ((int)(resources.GetObject("groupBox4.IconPadding"))));
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(307, 91);
-            this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Heater settings";
+            this.MyToolTip.SetToolTip(this.groupBox4, resources.GetString("groupBox4.ToolTip"));
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label11.Location = new System.Drawing.Point(6, 19);
+            resources.ApplyResources(this.label11, "label11");
+            this.errorProvider1.SetError(this.label11, resources.GetString("label11.Error"));
+            this.errorProvider1.SetIconAlignment(this.label11, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label11.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label11, ((int)(resources.GetObject("label11.IconPadding"))));
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(112, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Max temperature delta";
+            this.MyToolTip.SetToolTip(this.label11, resources.GetString("label11.ToolTip"));
             // 
             // label17
             // 
-            this.label17.AutoSize = true;
-            this.label17.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label17.Location = new System.Drawing.Point(7, 67);
+            resources.ApplyResources(this.label17, "label17");
+            this.errorProvider1.SetError(this.label17, resources.GetString("label17.Error"));
+            this.errorProvider1.SetIconAlignment(this.label17, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label17.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label17, ((int)(resources.GetObject("label17.IconPadding"))));
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(135, 13);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "Wet threshold switching on";
+            this.MyToolTip.SetToolTip(this.label17, resources.GetString("label17.ToolTip"));
             // 
             // label16
             // 
-            this.label16.AutoSize = true;
-            this.label16.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label16.Location = new System.Drawing.Point(7, 43);
+            resources.ApplyResources(this.label16, "label16");
+            this.errorProvider1.SetError(this.label16, resources.GetString("label16.Error"));
+            this.errorProvider1.SetIconAlignment(this.label16, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label16.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label16, ((int)(resources.GetObject("label16.IconPadding"))));
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(96, 13);
-            this.label16.TabIndex = 1;
-            this.label16.Text = "Max cycle duration";
+            this.MyToolTip.SetToolTip(this.label16, resources.GetString("label16.ToolTip"));
             // 
             // txtHeaterWetThreshold
             // 
+            resources.ApplyResources(this.txtHeaterWetThreshold, "txtHeaterWetThreshold");
             this.txtHeaterWetThreshold.BackColor = System.Drawing.SystemColors.Info;
             this.txtHeaterWetThreshold.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "HeatingWetThreshold", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtHeaterWetThreshold.Location = new System.Drawing.Point(148, 65);
+            this.errorProvider1.SetError(this.txtHeaterWetThreshold, resources.GetString("txtHeaterWetThreshold.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtHeaterWetThreshold, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtHeaterWetThreshold.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtHeaterWetThreshold, ((int)(resources.GetObject("txtHeaterWetThreshold.IconPadding"))));
             this.txtHeaterWetThreshold.Name = "txtHeaterWetThreshold";
-            this.txtHeaterWetThreshold.Size = new System.Drawing.Size(53, 20);
-            this.txtHeaterWetThreshold.TabIndex = 2;
             this.txtHeaterWetThreshold.Text = global::WeatherStation.Properties.Settings.Default.HeatingWetThreshold;
-            this.txtHeaterWetThreshold.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtHeaterWetThreshold, "Wet sensor value after reaching which heating started automaticaly. \r\nSet 0 to di" +
-        "sable");
+            this.MyToolTip.SetToolTip(this.txtHeaterWetThreshold, resources.GetString("txtHeaterWetThreshold.ToolTip"));
             this.txtHeaterWetThreshold.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
             // txtHeaterMaxTemp
             // 
+            resources.ApplyResources(this.txtHeaterMaxTemp, "txtHeaterMaxTemp");
             this.txtHeaterMaxTemp.BackColor = System.Drawing.SystemColors.Info;
             this.txtHeaterMaxTemp.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "HeatingMaxTemp", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtHeaterMaxTemp.Location = new System.Drawing.Point(148, 16);
+            this.errorProvider1.SetError(this.txtHeaterMaxTemp, resources.GetString("txtHeaterMaxTemp.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtHeaterMaxTemp, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtHeaterMaxTemp.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtHeaterMaxTemp, ((int)(resources.GetObject("txtHeaterMaxTemp.IconPadding"))));
             this.txtHeaterMaxTemp.Name = "txtHeaterMaxTemp";
-            this.txtHeaterMaxTemp.Size = new System.Drawing.Size(53, 20);
-            this.txtHeaterMaxTemp.TabIndex = 0;
             this.txtHeaterMaxTemp.Text = global::WeatherStation.Properties.Settings.Default.HeatingMaxTemp;
-            this.txtHeaterMaxTemp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtHeaterMaxTemp, "Maximum temperature delta which can be reached during heating. Measured by MLX te" +
-        "mperature sensor (ATemp) minus \"Base temp sensor\" value");
+            this.MyToolTip.SetToolTip(this.txtHeaterMaxTemp, resources.GetString("txtHeaterMaxTemp.ToolTip"));
             this.txtHeaterMaxTemp.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
             // txtHeaterMaxDuration
             // 
+            resources.ApplyResources(this.txtHeaterMaxDuration, "txtHeaterMaxDuration");
             this.txtHeaterMaxDuration.BackColor = System.Drawing.SystemColors.Info;
             this.txtHeaterMaxDuration.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "HeatingMaxDuration", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtHeaterMaxDuration.Location = new System.Drawing.Point(148, 41);
+            this.errorProvider1.SetError(this.txtHeaterMaxDuration, resources.GetString("txtHeaterMaxDuration.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtHeaterMaxDuration, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtHeaterMaxDuration.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtHeaterMaxDuration, ((int)(resources.GetObject("txtHeaterMaxDuration.IconPadding"))));
             this.txtHeaterMaxDuration.Name = "txtHeaterMaxDuration";
-            this.txtHeaterMaxDuration.Size = new System.Drawing.Size(53, 20);
-            this.txtHeaterMaxDuration.TabIndex = 1;
             this.txtHeaterMaxDuration.Text = global::WeatherStation.Properties.Settings.Default.HeatingMaxDuration;
-            this.txtHeaterMaxDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.MyToolTip.SetToolTip(this.txtHeaterMaxDuration, "Maximum heating cycle duration, sec");
+            this.MyToolTip.SetToolTip(this.txtHeaterMaxDuration, resources.GetString("txtHeaterMaxDuration.ToolTip"));
             this.txtHeaterMaxDuration.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
             // btnOk
             // 
-            this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnOk.Location = new System.Drawing.Point(426, 374);
+            resources.ApplyResources(this.btnOk, "btnOk");
+            this.errorProvider1.SetError(this.btnOk, resources.GetString("btnOk.Error"));
+            this.errorProvider1.SetIconAlignment(this.btnOk, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnOk.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.btnOk, ((int)(resources.GetObject("btnOk.IconPadding"))));
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(79, 24);
-            this.btnOk.TabIndex = 10;
-            this.btnOk.Text = "OK";
+            this.MyToolTip.SetToolTip(this.btnOk, resources.GetString("btnOk.ToolTip"));
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCancel.Location = new System.Drawing.Point(536, 374);
+            this.errorProvider1.SetError(this.btnCancel, resources.GetString("btnCancel.Error"));
+            this.errorProvider1.SetIconAlignment(this.btnCancel, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnCancel.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.btnCancel, ((int)(resources.GetObject("btnCancel.IconPadding"))));
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(79, 24);
-            this.btnCancel.TabIndex = 11;
-            this.btnCancel.Text = "Cancel";
+            this.MyToolTip.SetToolTip(this.btnCancel, resources.GetString("btnCancel.ToolTip"));
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnReset
+            // 
+            resources.ApplyResources(this.btnReset, "btnReset");
+            this.errorProvider1.SetError(this.btnReset, resources.GetString("btnReset.Error"));
+            this.errorProvider1.SetIconAlignment(this.btnReset, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnReset.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.btnReset, ((int)(resources.GetObject("btnReset.IconPadding"))));
+            this.btnReset.Name = "btnReset";
+            this.MyToolTip.SetToolTip(this.btnReset, resources.GetString("btnReset.ToolTip"));
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // folderBrowserDialog
             // 
+            resources.ApplyResources(this.folderBrowserDialog, "folderBrowserDialog");
             this.folderBrowserDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // btnReset
-            // 
-            this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnReset.Location = new System.Drawing.Point(7, 374);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(110, 24);
-            this.btnReset.TabIndex = 11;
-            this.btnReset.Text = "Reset to Defaults";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            resources.ApplyResources(this.errorProvider1, "errorProvider1");
             // 
             // fileChooseDialog
             // 
+            resources.ApplyResources(this.fileChooseDialog, "fileChooseDialog");
             this.fileChooseDialog.InitialDirectory = "MyComputer";
-            this.fileChooseDialog.Title = "Choose file for Serial emulation";
             // 
             // SettingsForm
             // 
             this.AcceptButton = this.btnOk;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(627, 405);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SettingsForm";
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Settings";
+            this.MyToolTip.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsForm_FormClosing);
             this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.Shown += new System.EventHandler(this.SettingsForm_Shown);
