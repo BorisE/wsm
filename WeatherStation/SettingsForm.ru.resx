@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="btnReset.Text" xml:space="preserve">
+    <value>По умолчанию</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -142,7 +148,301 @@
         AAD/nwAAv30AAA==
 </value>
   </data>
+  <data name="label34.Text" xml:space="preserve">
+    <value>сек</value>
+  </data>
+  <data name="label31.Text" xml:space="preserve">
+    <value>сек</value>
+  </data>
+  <data name="label33.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 17</value>
+  </data>
+  <data name="label33.Text" xml:space="preserve">
+    <value>Отправлять каждые</value>
+  </data>
+  <data name="label30.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 17</value>
+  </data>
+  <data name="label30.Text" xml:space="preserve">
+    <value>Отправлять каждые</value>
+  </data>
+  <data name="btnGenerateMac.Text" xml:space="preserve">
+    <value>Генер.</value>
+  </data>
+  <data name="chkNarodMon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 21</value>
+  </data>
+  <data name="chkNarodMon.Text" xml:space="preserve">
+    <value>Отправлять на NARODMON.RU</value>
+  </data>
+  <data name="chkWebData.Size" type="System.Drawing.Size, System.Drawing">
+    <value>262, 21</value>
+  </data>
+  <data name="chkWebData.Text" xml:space="preserve">
+    <value>Отправлять данные на web сервер</value>
+  </data>
+  <data name="groupBox11.Text" xml:space="preserve">
+    <value>Интернет</value>
+  </data>
+  <data name="chkShowDebugPannels.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 21</value>
+  </data>
+  <data name="chkShowDebugPannels.Text" xml:space="preserve">
+    <value>Элементы для отладки</value>
+  </data>
+  <data name="chkTrayIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 21</value>
+  </data>
+  <data name="chkTrayIcon.Text" xml:space="preserve">
+    <value>Минимизировать в трей</value>
+  </data>
+  <data name="chkMinMode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>324, 21</value>
+  </data>
+  <data name="chkMinMode.Text" xml:space="preserve">
+    <value>Переключение в минималистический режим</value>
+  </data>
+  <data name="groupBox8.Text" xml:space="preserve">
+    <value>Интерфейс</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 17</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Уровень детализации</value>
+  </data>
+  <data name="chkBoltwoodFileFlag.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 21</value>
+  </data>
+  <data name="chkBoltwoodFileFlag.Text" xml:space="preserve">
+    <value>Файл состояния</value>
+  </data>
+  <data name="chkSerialLogFileFlag.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 21</value>
+  </data>
+  <data name="chkSerialLogFileFlag.Text" xml:space="preserve">
+    <value>Лог порта</value>
+  </data>
+  <data name="chkCSVFileFlag.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 21</value>
+  </data>
+  <data name="chkCSVFileFlag.Text" xml:space="preserve">
+    <value>Лог данных</value>
+  </data>
+  <data name="chkLogFileFlag.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 21</value>
+  </data>
+  <data name="chkLogFileFlag.Text" xml:space="preserve">
+    <value>Лог программы</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Логи</value>
+  </data>
+  <data name="label32.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 17</value>
+  </data>
+  <data name="label32.Text" xml:space="preserve">
+    <value>миллисек</value>
+  </data>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 17</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>Интервал обновления</value>
+  </data>
+  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 17</value>
+  </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>Макс.точек на графике</value>
+  </data>
+  <data name="groupBox6.Text" xml:space="preserve">
+    <value>Производительность</value>
+  </data>
+  <data name="label37.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 17</value>
+  </data>
+  <data name="label37.Text" xml:space="preserve">
+    <value>Писать в</value>
+  </data>
+  <data name="label36.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 17</value>
+  </data>
+  <data name="label36.Text" xml:space="preserve">
+    <value>Читать из</value>
+  </data>
+  <data name="chkWatchdog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 21</value>
+  </data>
+  <data name="chkWatchdog.Text" xml:space="preserve">
+    <value>Отслеживание соединения</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>COM порт</value>
+  </data>
   <data name="tabGeneral.Text" xml:space="preserve">
     <value>Общие</value>
+  </data>
+  <data name="label28.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 17</value>
+  </data>
+  <data name="label28.Text" xml:space="preserve">
+    <value>м/с</value>
+  </data>
+  <data name="label29.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 17</value>
+  </data>
+  <data name="label29.Text" xml:space="preserve">
+    <value>м/с</value>
+  </data>
+  <data name="label26.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 17</value>
+  </data>
+  <data name="label26.Text" xml:space="preserve">
+    <value>"Ветренно"</value>
+  </data>
+  <data name="label21.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 17</value>
+  </data>
+  <data name="label21.Text" xml:space="preserve">
+    <value>Нулевой порог</value>
+  </data>
+  <data name="label23.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 17</value>
+  </data>
+  <data name="label23.Text" xml:space="preserve">
+    <value>"Очень ветренно"</value>
+  </data>
+  <data name="groupBox12.Text" xml:space="preserve">
+    <value>Скорость ветра</value>
+  </data>
+  <data name="groupBox10.Text" xml:space="preserve">
+    <value>Датчик облачности AAG</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 17</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>Порог "влажно"</value>
+  </data>
+  <data name="cmbWetMode.Items" xml:space="preserve">
+    <value>Оба датчика</value>
+  </data>
+  <data name="cmbWetMode.Items1" xml:space="preserve">
+    <value>Wet sensor только</value>
+  </data>
+  <data name="cmbWetMode.Items2" xml:space="preserve">
+    <value>RGC только</value>
+  </data>
+  <data name="cmbWetMode.Text" xml:space="preserve">
+    <value>Оба датчика</value>
+  </data>
+  <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 17</value>
+  </data>
+  <data name="label19.Text" xml:space="preserve">
+    <value>Режим датчиков дождя</value>
+  </data>
+  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 17</value>
+  </data>
+  <data name="label13.Text" xml:space="preserve">
+    <value>Порого "дождь"</value>
+  </data>
+  <data name="groupBox5.Text" xml:space="preserve">
+    <value>Датчики дождя</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Датчик облачности</value>
+  </data>
+  <data name="tabModeling.Text" xml:space="preserve">
+    <value>Модели</value>
+  </data>
+  <data name="SensorName.HeaderText" xml:space="preserve">
+    <value>Сенсор</value>
+  </data>
+  <data name="SensorEnabled.HeaderText" xml:space="preserve">
+    <value>Вкл</value>
+  </data>
+  <data name="SensorType.HeaderText" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="SendToWeb.HeaderText" xml:space="preserve">
+    <value>Web</value>
+  </data>
+  <data name="SendToNarodmon.HeaderText" xml:space="preserve">
+    <value>Narodmon</value>
+  </data>
+  <data name="ArduinoName.HeaderText" xml:space="preserve">
+    <value>Имя в Arduino</value>
+  </data>
+  <data name="WebCustomName.HeaderText" xml:space="preserve">
+    <value>Web имя</value>
+  </data>
+  <data name="FormFieldName.HeaderText" xml:space="preserve">
+    <value>TextField имя</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 17</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Датчик температуры</value>
+  </data>
+  <data name="groupBox7.Text" xml:space="preserve">
+    <value>Основной датчик температуры</value>
+  </data>
+  <data name="btnResetSensorList.Text" xml:space="preserve">
+    <value>Значения по умолчанию</value>
+  </data>
+  <data name="btnReadFromSerial.Text" xml:space="preserve">
+    <value>Читать из порта</value>
+  </data>
+  <data name="tabSensors.Text" xml:space="preserve">
+    <value>Сенсоры</value>
+  </data>
+  <data name="label24.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 17</value>
+  </data>
+  <data name="label24.Text" xml:space="preserve">
+    <value>Пауза между включениями</value>
+  </data>
+  <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 17</value>
+  </data>
+  <data name="label18.Text" xml:space="preserve">
+    <value>Порог снижения</value>
+  </data>
+  <data name="label25.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 17</value>
+  </data>
+  <data name="label25.Text" xml:space="preserve">
+    <value>Порог включения</value>
+  </data>
+  <data name="groupBox9.Text" xml:space="preserve">
+    <value>Автообогрев датчика облачности</value>
+  </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 17</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Макс. разница температур</value>
+  </data>
+  <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 17</value>
+  </data>
+  <data name="label17.Text" xml:space="preserve">
+    <value>Порог включения по Wet</value>
+  </data>
+  <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 17</value>
+  </data>
+  <data name="label16.Text" xml:space="preserve">
+    <value>Макс. длительность</value>
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Настройки обогрева</value>
+  </data>
+  <data name="tabHeater.Text" xml:space="preserve">
+    <value>Обогрев</value>
   </data>
 </root>

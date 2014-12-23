@@ -194,7 +194,7 @@ namespace WeatherStation
             }
 
             Logging.Log("SerialFromFile WriteData exit", 3);
-            return error;
+            return !error;
         }
 
 

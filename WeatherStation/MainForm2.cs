@@ -15,6 +15,7 @@ using System.Threading;
 using System.Diagnostics;
 using System.Reflection;
 using System.Resources;
+using System.Globalization;
 
 public enum FormAppearanceMode { MODE_MIN, MODE_MAX };
 
@@ -53,6 +54,9 @@ namespace WeatherStation
         /// </summary>
         ResourceManager LocRM;
 
+        public string currentLang="";
+        internal string currentLangDefault = "en-US";
+
         //For graphs
         private DateTime curX;
         public int maxNumberOfPointsInChart = 8640; //For 24h with 10sec interval
@@ -77,7 +81,10 @@ namespace WeatherStation
         /// </summary>
         public MainForm()
         {
-            InitializeComponent();
+            //Load language on creation
+            currentLang = Properties.Settings.Default.currentLang;
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(currentLang);
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(currentLang);
 
             LocRM = new ResourceManager("WeatherStation.WinFormStrings", Assembly.GetExecutingAssembly()); //create resource manager
 
@@ -86,6 +93,9 @@ namespace WeatherStation
             //PrefForm = new PreferencesForm(this);
             SetForm = new SettingsForm(this);
             //SerialFile = new SerialFromFile();
+
+
+            InitializeComponent();
         }
 
         /// <summary>
@@ -1017,7 +1027,7 @@ waiting 10000
             {
                 if (!Hardware.HeatingOn())
                 {
-                    ShowError("Couldn't write to COM port [" + Hardware.comport.PortName + "]");
+                    ShowError("Couldn't write to COM port [" + Hardware.PortName + "]");
                 }
                 else
                 {

@@ -2,6 +2,11 @@ WeatherStation Project
 (c) 2013-2014 by Emchenko Boris
 
 Change log
+1.5.39 (2014-12-23)
+- Switch language mechanizm
+- Main and Settings translation
+- Minor bugs
+
 1.5.38 (2014-12-22)
 - starting localization proccess
 

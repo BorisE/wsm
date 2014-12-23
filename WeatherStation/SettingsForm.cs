@@ -42,9 +42,10 @@ namespace WeatherStation
 
         public SettingsForm(MainForm MF)
         {
-            InitializeComponent();
             ParentMainForm = MF;
             LocRM = new ResourceManager("WeatherStation.WinFormStrings", Assembly.GetExecutingAssembly()); //create resource manager
+
+            InitializeComponent();
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
@@ -127,6 +128,16 @@ namespace WeatherStation
                 cmbPortList_SelectedIndexChanged(this,e);
             }
 
+            cmbLang.DataSource = new CultureInfo[]{
+                CultureInfo.GetCultureInfo("en-US"),
+                CultureInfo.GetCultureInfo("ru-RU")
+            };
+            cmbLang.DisplayMember = "NativeName";
+            cmbLang.ValueMember = "Name";
+            cmbLang.SelectedValue = ParentMainForm.currentLang;
+
+
+
             //Workaround about "Controls contained in a TabPage are not created until the tab page is shown, and any data bindings in these controls are not activated until the tab page is shown."
             foreach (TabPage tp in tabControl1.TabPages)
             {
@@ -204,6 +215,10 @@ namespace WeatherStation
                 ParentMainForm.bMinModeEnabled = chkMinMode.Checked;
                 ParentMainForm.bMinimizeToTray = chkTrayIcon.Checked;
                 ParentMainForm.bDebugPannels = chkShowDebugPannels.Checked;
+
+                //Language combobox
+                ParentMainForm.currentLang = cmbLang.SelectedValue.ToString();
+                Properties.Settings.Default.currentLang = ParentMainForm.currentLang;
 
                 //Store webservice settings
                 WebServices.WebDataFlag = chkWebData.Checked;
