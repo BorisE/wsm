@@ -150,6 +150,11 @@
   <data name="btnAbout.Text" xml:space="preserve">
     <value>О ...</value>
   </data>
+  <data name="txtRainCond.ToolTip" xml:space="preserve">
+    <value>Текущее состояние дождя, расчитываемое в соответстии с параметрами модели, указанными в "Настройках".
+В соответствии со спецификацией Boltwood Cloud Sensor II
+</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 13</value>
@@ -162,6 +167,9 @@
   </data>
   <data name="label16.Text" xml:space="preserve">
     <value>Дождь:</value>
+  </data>
+  <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>168, 25</value>
   </data>
   <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 13</value>
@@ -186,6 +194,32 @@
   </data>
   <data name="label18.Text" xml:space="preserve">
     <value>Идет дождь:</value>
+  </data>
+  <data name="txtWindCond.ToolTip" xml:space="preserve">
+    <value>Сила ветра на основании показаний датчика скорости ветра.
+В соответствии со спецификацией Boltwood Cloud Sensor II</value>
+  </data>
+  <data name="txtWetflag.ToolTip" xml:space="preserve">
+    <value>Флаг "влажно".  Расчитывается на основании датчиков дождя (не влажности!)
+В соответствии со спецификацией Boltwood Cloud Sensor II</value>
+  </data>
+  <data name="txtRainflag.ToolTip" xml:space="preserve">
+    <value>Флаг "идет дождь". 
+В соответствии со спецификацией Boltwood Cloud Sensor II
+</value>
+  </data>
+  <data name="txtDayCond.ToolTip" xml:space="preserve">
+    <value>Текущее состояние освещенности, расчитываемое в соответстии с показателеми датчиком освещенности.
+Очень светло - освещенность выше 500 люкс
+Светло - освещенность выше 0 люкс.
+Для сравнения - полная Луна дает освещенность порядка 0,2 люкс
+
+В соответствии со спецификацией Boltwood Cloud Sensor II
+</value>
+  </data>
+  <data name="txtCloudCond.ToolTip" xml:space="preserve">
+    <value>Текущее состояние облачности, расчитываемое по одному из иднексов (обычный или AAG).
+В соответствии со спецификацией Boltwood Cloud Sensor II</value>
   </data>
   <data name="groupBox8.Text" xml:space="preserve">
     <value>Состояние флагов Boltwood cloud sensor</value>
@@ -226,8 +260,15 @@
   <data name="btnRelay.ToolTip" xml:space="preserve">
     <value>Включить/выключить реле обогрева вручную</value>
   </data>
+  <data name="txtSinceHeatingOn.ToolTip" xml:space="preserve">
+    <value>Прошло секунд с момент последнего включения обогрева</value>
+  </data>
   <data name="txtRainLastMinute.ToolTip" xml:space="preserve">
     <value>Был ли дожь в последнюю минуту (рассчитывается по дачтикам дождя)</value>
+  </data>
+  <data name="txtSinceHeatingOff.ToolTip" xml:space="preserve">
+    <value>Прошло секунд с момент последнего выключения обогрева
+</value>
   </data>
   <data name="groupBox10.Text" xml:space="preserve">
     <value>Обогрев</value>
