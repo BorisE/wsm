@@ -30,7 +30,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="WebDataURL" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://astromania.info/checkconn/putweatherdata2a.php</Value>
+      <Value Profile="(Default)">http://astromania.info/checkconn/pwd2.php</Value>
     </Setting>
     <Setting Name="RefreshInterval" Type="System.String" Scope="User">
       <Value Profile="(Default)">10000</Value>

@@ -112,7 +112,8 @@ namespace WeatherStation
         /// <summary>
         /// Simulation mode vars
         /// </summary>
-        public string SerialBufferFullSim="";
+        public bool UseSimulation = false;
+        public string SerialBufferFullSim = "";
         public int simBufferReadPos = 0;
 
         //Protocol delimeters
@@ -621,6 +622,8 @@ namespace WeatherStation
                 if (UseFileEmulation)
                 {
                     error=!SerialFromFile.Open();
+                    sendParametersToSerial();
+                    queryParametersFromSerial();
                     if (!error) Logging.Log("FileEmulation was opened", 2);
                 }
                 else
@@ -937,7 +940,7 @@ namespace WeatherStation
         public void LOOP_CYCLE()
         {
             //0. If Serial file emulation, read file
-            if (UseFileEmulation) SerialBuffer = SerialFromFile.Read();
+            if (UseFileEmulation && !UseSimulation) SerialBuffer = SerialFromFile.Read();
             
             //1. PARSE BUFFER
             ParseBufferData();

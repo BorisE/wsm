@@ -104,29 +104,36 @@ namespace WeatherStation
             Logging.Log("checkFileModification enter", 3);
             bool retIsModified = false;
 
-            if (File.Exists(SerialFileNameIn))
+            try
             {
-                // Get the creation time.
-                DateTime dt = File.GetLastWriteTime(SerialFileNameIn);
-
-                TimeSpan SinceLastModification = DateTime.Now.Subtract(dt);
-                UInt32 SinceLastModification_sec = (UInt32)Math.Round(SinceLastModification.TotalSeconds, 0);
-
-                if (SinceLastModification_sec < _MAX_MODIFICATION_TIMEOUT)
+                if (File.Exists(SerialFileNameIn))
                 {
-                    retIsModified = true;
-                    Logging.Log("Serial file emulation modification check ok. Was modified " + SinceLastModification_sec+" sec. ago", 2);
+                    // Get the creation time.
+                    DateTime dt = File.GetLastWriteTime(SerialFileNameIn);
+
+                    TimeSpan SinceLastModification = DateTime.Now.Subtract(dt);
+                    UInt32 SinceLastModification_sec = (UInt32)Math.Round(SinceLastModification.TotalSeconds, 0);
+
+                    if (SinceLastModification_sec < _MAX_MODIFICATION_TIMEOUT)
+                    {
+                        retIsModified = true;
+                        Logging.Log("Serial file emulation modification check ok. Was modified " + SinceLastModification_sec + " sec. ago", 2);
+                    }
+                    else
+                    {
+                        retIsModified = false;
+                        Logging.Log("Serial file emulation error - file haven't changed for too long (" + SinceLastModification_sec + " sec)");
+                    }
                 }
                 else
                 {
                     retIsModified = false;
-                    Logging.Log("Serial file emulation error - file haven't changed for too long (" + SinceLastModification_sec + " sec)");
+                    Logging.Log("Serial file emulation error - file doesn't exist");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                retIsModified = false;
-                Logging.Log("Serial file emulation error - file doesn't exist");
+                Logging.Log("checkFileModification error. " + "IOException source: " + ex.Data + " Mess: " + ex.Message);
             }
 
             Logging.Log("checkFileModification exit", 3);
@@ -141,15 +148,24 @@ namespace WeatherStation
         {
             Logging.Log("getBufferFromFile enter", 3);
             string st = "";
-
-            if (File.Exists(SerialFileNameIn))
+            bool error = false;
+            try
             {
-                // Get the creation time.
-                st = File.ReadAllText(SerialFileNameIn);
+                if (File.Exists(SerialFileNameIn))
+                {
+                    // Get the creation time.
+                    st = File.ReadAllText(SerialFileNameIn);
+                }
+                else
+                {
+                    Logging.Log("Serial File emulation error. File with serial output can't be found");
+                    error = true;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                Logging.Log("Serial File emulation error. File with serial output can't be found");
+                Logging.Log("Serial File emulation error. File with serial output can't be read.  IOException source: " + ex.Data + " Mess: " + ex.Message);
+                error = true;
             }
 
             Logging.Log("getBufferFromFile exit", 3);

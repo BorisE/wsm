@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="SimulationStart" xml:space="preserve">
-    <value>Simulation start</value>
+    <value>Симуляция</value>
   </data>
   <data name="SimulationStop" xml:space="preserve">
-    <value>Stop simulation</value>
+    <value>Стоп</value>
   </data>
   <data name="Start" xml:space="preserve">
-    <value>Start</value>
+    <value>Старт</value>
   </data>
   <data name="Stop" xml:space="preserve">
-    <value>Stop</value>
+    <value>Стоп</value>
   </data>
   <data name="_WORK_WITH_FILE_SERIAL" xml:space="preserve">
     <value>File Emulation</value>

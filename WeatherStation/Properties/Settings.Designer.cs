@@ -133,7 +133,7 @@ namespace WeatherStation.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://astromania.info/checkconn/putweatherdata2a.php")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://astromania.info/checkconn/pwd2.php")]
         public string WebDataURL {
             get {
                 return ((string)(this["WebDataURL"]));

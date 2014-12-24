@@ -392,9 +392,6 @@
             this.cmbLang.FormattingEnabled = true;
             this.errorProvider1.SetIconAlignment(this.cmbLang, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("cmbLang.IconAlignment"))));
             this.errorProvider1.SetIconPadding(this.cmbLang, ((int)(resources.GetObject("cmbLang.IconPadding"))));
-            this.cmbLang.Items.AddRange(new object[] {
-            resources.GetString("cmbLang.Items"),
-            resources.GetString("cmbLang.Items1")});
             this.cmbLang.Name = "cmbLang";
             this.MyToolTip.SetToolTip(this.cmbLang, resources.GetString("cmbLang.ToolTip"));
             // 

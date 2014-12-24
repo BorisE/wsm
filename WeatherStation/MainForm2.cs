@@ -200,8 +200,8 @@ namespace WeatherStation
                 }
                 else
                 {
-                    btnStart.Text = "Start";
-                    btnStart_min.Text = "Start";
+                    btnStart.Text = LocRM.GetString("Start");
+                    btnStart_min.Text = LocRM.GetString("Start"); 
                     timer_main.Enabled = false;
                     Logging.Log("Monitoring on [" + Hardware.PortName + "] was stopped");
                     LogForm.txtLog.AppendText("Monitoring on [" + Hardware.PortName + "] was stopped");
@@ -223,8 +223,8 @@ namespace WeatherStation
                     timer_main.Enabled = true;
                     Logging.Log("Monitoring on [" + Hardware.PortName + "] was started");
                     LogForm.AppendLogText("Monitoring on [" + Hardware.PortName + "] was started");
-                    btnStart.Text = "Stop";
-                    btnStart_min.Text = "Stop";
+                    btnStart.Text = LocRM.GetString("Stop");
+                    btnStart_min.Text = LocRM.GetString("Stop"); 
 
                     //init Hardware.RGC_Cumulative prev value
                     Hardware.RGC_Cumulative = Logging.LoadRGCValue(out Hardware.RGC_Cumulative_LastReset);
@@ -247,13 +247,14 @@ namespace WeatherStation
         {
             if (timer_debug_changetext.Enabled)
             {
-                btnSimulate.Text = "Simulation start";
+                btnSimulate.Text = LocRM.GetString("SimulationStart");
                 btnStart.Enabled = true;
-                btnStart_min.Text = "Start";
+                btnStart_min.Text = LocRM.GetString("Start"); 
                 timer_main.Enabled = false;
                 timer_debug_changetext.Enabled = false;
                 timer_debug_portread.Enabled = false;
                 SimulationMode = false;
+                Hardware.UseSimulation = false;
                 Logging.Log("Monitoring simulation was stopped");
                 LogForm.AppendLogText("Monitoring simulation was stopped");
                 Logging.CloseLogFile();
@@ -265,9 +266,10 @@ namespace WeatherStation
                 //timer_debug_portread.Enabled = true; //this timer is started by timer_debug_changetext tick
                 Logging.Log("Monitoring simulation was started");
                 SimulationMode = true;
+                Hardware.UseSimulation = true;
                 LogForm.AppendLogText("Monitoring simulation was started");
-                btnSimulate.Text = "Stop simulation";
-                btnStart_min.Text = "Stop";
+                btnSimulate.Text = LocRM.GetString("SimulationStop"); 
+                btnStart_min.Text = WinFormStrings.Stop;
                 btnStart.Enabled = false;
 
                 //load last value for RGC cumulative
