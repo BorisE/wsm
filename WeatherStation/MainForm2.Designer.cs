@@ -197,7 +197,6 @@
             // 
             resources.ApplyResources(this.btnStart, "btnStart");
             this.btnStart.Name = "btnStart";
-            this.mainToolTip.SetToolTip(this.btnStart, resources.GetString("btnStart.ToolTip"));
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
@@ -210,24 +209,21 @@
             // 
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.mainToolTip.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
             // 
             // label4
             // 
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.mainToolTip.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
             // 
             // groupBox2
             // 
-            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.txtFldBTemp);
             this.groupBox2.Controls.Add(this.txtFldPress);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label4);
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
-            this.mainToolTip.SetToolTip(this.groupBox2, resources.GetString("groupBox2.ToolTip"));
             // 
             // txtFldBTemp
             // 
@@ -243,14 +239,13 @@
             // 
             // groupBox3
             // 
-            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Controls.Add(this.txtFldHum1);
             this.groupBox3.Controls.Add(this.txtFldDTemp1);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label8);
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
-            this.mainToolTip.SetToolTip(this.groupBox3, resources.GetString("groupBox3.ToolTip"));
             // 
             // txtFldHum1
             // 
@@ -268,24 +263,21 @@
             // 
             resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
-            this.mainToolTip.SetToolTip(this.label7, resources.GetString("label7.ToolTip"));
             // 
             // label8
             // 
             resources.ApplyResources(this.label8, "label8");
             this.label8.Name = "label8";
-            this.mainToolTip.SetToolTip(this.label8, resources.GetString("label8.ToolTip"));
             // 
             // groupBox4
             // 
-            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Controls.Add(this.txtFldHum2);
             this.groupBox4.Controls.Add(this.txtFldDTemp2);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.label6);
+            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
-            this.mainToolTip.SetToolTip(this.groupBox4, resources.GetString("groupBox4.ToolTip"));
             // 
             // txtFldHum2
             // 
@@ -303,22 +295,19 @@
             // 
             resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.mainToolTip.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
             // 
             // label6
             // 
             resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
-            this.mainToolTip.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
             // 
             // groupBox5
             // 
-            resources.ApplyResources(this.groupBox5, "groupBox5");
             this.groupBox5.Controls.Add(this.txtFldIllum);
             this.groupBox5.Controls.Add(this.label10);
+            resources.ApplyResources(this.groupBox5, "groupBox5");
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.TabStop = false;
-            this.mainToolTip.SetToolTip(this.groupBox5, resources.GetString("groupBox5.ToolTip"));
             // 
             // txtFldIllum
             // 
@@ -330,18 +319,16 @@
             // 
             resources.ApplyResources(this.label10, "label10");
             this.label10.Name = "label10";
-            this.mainToolTip.SetToolTip(this.label10, resources.GetString("label10.ToolTip"));
             // 
             // groupBox6
             // 
-            resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Controls.Add(this.txtFldObj);
             this.groupBox6.Controls.Add(this.txtFldATemp);
             this.groupBox6.Controls.Add(this.label11);
             this.groupBox6.Controls.Add(this.label12);
+            resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.TabStop = false;
-            this.mainToolTip.SetToolTip(this.groupBox6, resources.GetString("groupBox6.ToolTip"));
             // 
             // txtFldObj
             // 
@@ -359,19 +346,16 @@
             // 
             resources.ApplyResources(this.label11, "label11");
             this.label11.Name = "label11";
-            this.mainToolTip.SetToolTip(this.label11, resources.GetString("label11.ToolTip"));
             // 
             // label12
             // 
             resources.ApplyResources(this.label12, "label12");
             this.label12.Name = "label12";
-            this.mainToolTip.SetToolTip(this.label12, resources.GetString("label12.ToolTip"));
             // 
             // btnPreferences
             // 
             resources.ApplyResources(this.btnPreferences, "btnPreferences");
             this.btnPreferences.Name = "btnPreferences";
-            this.mainToolTip.SetToolTip(this.btnPreferences, resources.GetString("btnPreferences.ToolTip"));
             this.btnPreferences.UseVisualStyleBackColor = true;
             this.btnPreferences.Click += new System.EventHandler(this.btnPreferences_Click);
             // 
@@ -379,13 +363,11 @@
             // 
             resources.ApplyResources(this.btnLogWindow, "btnLogWindow");
             this.btnLogWindow.Name = "btnLogWindow";
-            this.mainToolTip.SetToolTip(this.btnLogWindow, resources.GetString("btnLogWindow.ToolTip"));
             this.btnLogWindow.UseVisualStyleBackColor = true;
             this.btnLogWindow.Click += new System.EventHandler(this.btnLogWindow_Click);
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.txtFldRGCCumulative);
             this.groupBox1.Controls.Add(this.txtFldRGC);
             this.groupBox1.Controls.Add(this.txtRGCLastMin);
@@ -393,9 +375,9 @@
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.txtFldWet);
             this.groupBox1.Controls.Add(this.label2);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
-            this.mainToolTip.SetToolTip(this.groupBox1, resources.GetString("groupBox1.ToolTip"));
             // 
             // txtFldRGCCumulative
             // 
@@ -411,18 +393,18 @@
             // 
             // txtRGCLastMin
             // 
-            resources.ApplyResources(this.txtRGCLastMin, "txtRGCLastMin");
             this.txtRGCLastMin.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtRGCLastMin.ForeColor = System.Drawing.Color.RoyalBlue;
+            resources.ApplyResources(this.txtRGCLastMin, "txtRGCLastMin");
             this.txtRGCLastMin.Name = "txtRGCLastMin";
             this.txtRGCLastMin.ReadOnly = true;
             this.mainToolTip.SetToolTip(this.txtRGCLastMin, resources.GetString("txtRGCLastMin.ToolTip"));
             // 
             // txtWetLastMin
             // 
-            resources.ApplyResources(this.txtWetLastMin, "txtWetLastMin");
             this.txtWetLastMin.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtWetLastMin.ForeColor = System.Drawing.Color.RoyalBlue;
+            resources.ApplyResources(this.txtWetLastMin, "txtWetLastMin");
             this.txtWetLastMin.Name = "txtWetLastMin";
             this.txtWetLastMin.ReadOnly = true;
             this.mainToolTip.SetToolTip(this.txtWetLastMin, resources.GetString("txtWetLastMin.ToolTip"));
@@ -431,7 +413,6 @@
             // 
             resources.ApplyResources(this.label14, "label14");
             this.label14.Name = "label14";
-            this.mainToolTip.SetToolTip(this.label14, resources.GetString("label14.ToolTip"));
             // 
             // txtFldWet
             // 
@@ -443,18 +424,16 @@
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.mainToolTip.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
             // 
             // groupBox7
             // 
-            resources.ApplyResources(this.groupBox7, "groupBox7");
             this.groupBox7.Controls.Add(this.txtFldTemp1);
             this.groupBox7.Controls.Add(this.txtFldTemp2);
             this.groupBox7.Controls.Add(this.label1);
             this.groupBox7.Controls.Add(this.label13);
+            resources.ApplyResources(this.groupBox7, "groupBox7");
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.TabStop = false;
-            this.mainToolTip.SetToolTip(this.groupBox7, resources.GetString("groupBox7.ToolTip"));
             // 
             // txtFldTemp1
             // 
@@ -472,19 +451,16 @@
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.mainToolTip.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
             // 
             // label13
             // 
             resources.ApplyResources(this.label13, "label13");
             this.label13.Name = "label13";
-            this.mainToolTip.SetToolTip(this.label13, resources.GetString("label13.ToolTip"));
             // 
             // btnAbout
             // 
             resources.ApplyResources(this.btnAbout, "btnAbout");
             this.btnAbout.Name = "btnAbout";
-            this.mainToolTip.SetToolTip(this.btnAbout, resources.GetString("btnAbout.ToolTip"));
             this.btnAbout.UseVisualStyleBackColor = true;
             this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
@@ -832,7 +808,6 @@
             this.chart1.Titles.Add(title3);
             this.chart1.Titles.Add(title4);
             this.chart1.Titles.Add(title5);
-            this.mainToolTip.SetToolTip(this.chart1, resources.GetString("chart1.ToolTip"));
             // 
             // txtCloudIndex2
             // 
@@ -856,23 +831,19 @@
             // 
             resources.ApplyResources(this.label15, "label15");
             this.label15.Name = "label15";
-            this.mainToolTip.SetToolTip(this.label15, resources.GetString("label15.ToolTip"));
             // 
             // label16
             // 
             resources.ApplyResources(this.label16, "label16");
             this.label16.Name = "label16";
-            this.mainToolTip.SetToolTip(this.label16, resources.GetString("label16.ToolTip"));
             // 
             // label17
             // 
             resources.ApplyResources(this.label17, "label17");
             this.label17.Name = "label17";
-            this.mainToolTip.SetToolTip(this.label17, resources.GetString("label17.ToolTip"));
             // 
             // groupBox8
             // 
-            resources.ApplyResources(this.groupBox8, "groupBox8");
             this.groupBox8.Controls.Add(this.label30);
             this.groupBox8.Controls.Add(this.label19);
             this.groupBox8.Controls.Add(this.label18);
@@ -885,27 +856,24 @@
             this.groupBox8.Controls.Add(this.txtDayCond);
             this.groupBox8.Controls.Add(this.txtCloudCond);
             this.groupBox8.Controls.Add(this.txtRainCond);
+            resources.ApplyResources(this.groupBox8, "groupBox8");
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.TabStop = false;
-            this.mainToolTip.SetToolTip(this.groupBox8, resources.GetString("groupBox8.ToolTip"));
             // 
             // label30
             // 
             resources.ApplyResources(this.label30, "label30");
             this.label30.Name = "label30";
-            this.mainToolTip.SetToolTip(this.label30, resources.GetString("label30.ToolTip"));
             // 
             // label19
             // 
             resources.ApplyResources(this.label19, "label19");
             this.label19.Name = "label19";
-            this.mainToolTip.SetToolTip(this.label19, resources.GetString("label19.ToolTip"));
             // 
             // label18
             // 
             resources.ApplyResources(this.label18, "label18");
             this.label18.Name = "label18";
-            this.mainToolTip.SetToolTip(this.label18, resources.GetString("label18.ToolTip"));
             // 
             // txtWindCond
             // 
@@ -941,19 +909,16 @@
             // 
             resources.ApplyResources(this.label21, "label21");
             this.label21.Name = "label21";
-            this.mainToolTip.SetToolTip(this.label21, resources.GetString("label21.ToolTip"));
             // 
             // label20
             // 
             resources.ApplyResources(this.label20, "label20");
             this.label20.Name = "label20";
-            this.mainToolTip.SetToolTip(this.label20, resources.GetString("label20.ToolTip"));
             // 
             // btnSimulate
             // 
             resources.ApplyResources(this.btnSimulate, "btnSimulate");
             this.btnSimulate.Name = "btnSimulate";
-            this.mainToolTip.SetToolTip(this.btnSimulate, resources.GetString("btnSimulate.ToolTip"));
             this.btnSimulate.UseVisualStyleBackColor = true;
             this.btnSimulate.Click += new System.EventHandler(this.btnSimulate_Click);
             // 
@@ -966,11 +931,9 @@
             this.groupBox9.Controls.Add(this.label20);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.TabStop = false;
-            this.mainToolTip.SetToolTip(this.groupBox9, resources.GetString("groupBox9.ToolTip"));
             // 
             // groupBox10
             // 
-            resources.ApplyResources(this.groupBox10, "groupBox10");
             this.groupBox10.Controls.Add(this.label22);
             this.groupBox10.Controls.Add(this.label23);
             this.groupBox10.Controls.Add(this.txtCSNeedHeating);
@@ -978,26 +941,24 @@
             this.groupBox10.Controls.Add(this.txtSinceHeatingOn);
             this.groupBox10.Controls.Add(this.txtRainLastMinute);
             this.groupBox10.Controls.Add(this.txtSinceHeatingOff);
+            resources.ApplyResources(this.groupBox10, "groupBox10");
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.TabStop = false;
-            this.mainToolTip.SetToolTip(this.groupBox10, resources.GetString("groupBox10.ToolTip"));
             // 
             // label22
             // 
             resources.ApplyResources(this.label22, "label22");
             this.label22.Name = "label22";
-            this.mainToolTip.SetToolTip(this.label22, resources.GetString("label22.ToolTip"));
             // 
             // label23
             // 
             resources.ApplyResources(this.label23, "label23");
             this.label23.Name = "label23";
-            this.mainToolTip.SetToolTip(this.label23, resources.GetString("label23.ToolTip"));
             // 
             // txtCSNeedHeating
             // 
-            resources.ApplyResources(this.txtCSNeedHeating, "txtCSNeedHeating");
             this.txtCSNeedHeating.BackColor = System.Drawing.Color.WhiteSmoke;
+            resources.ApplyResources(this.txtCSNeedHeating, "txtCSNeedHeating");
             this.txtCSNeedHeating.Name = "txtCSNeedHeating";
             this.txtCSNeedHeating.ReadOnly = true;
             this.mainToolTip.SetToolTip(this.txtCSNeedHeating, resources.GetString("txtCSNeedHeating.ToolTip"));
@@ -1012,24 +973,24 @@
             // 
             // txtSinceHeatingOn
             // 
-            resources.ApplyResources(this.txtSinceHeatingOn, "txtSinceHeatingOn");
             this.txtSinceHeatingOn.BackColor = System.Drawing.Color.WhiteSmoke;
+            resources.ApplyResources(this.txtSinceHeatingOn, "txtSinceHeatingOn");
             this.txtSinceHeatingOn.Name = "txtSinceHeatingOn";
             this.txtSinceHeatingOn.ReadOnly = true;
             this.mainToolTip.SetToolTip(this.txtSinceHeatingOn, resources.GetString("txtSinceHeatingOn.ToolTip"));
             // 
             // txtRainLastMinute
             // 
-            resources.ApplyResources(this.txtRainLastMinute, "txtRainLastMinute");
             this.txtRainLastMinute.BackColor = System.Drawing.Color.WhiteSmoke;
+            resources.ApplyResources(this.txtRainLastMinute, "txtRainLastMinute");
             this.txtRainLastMinute.Name = "txtRainLastMinute";
             this.txtRainLastMinute.ReadOnly = true;
             this.mainToolTip.SetToolTip(this.txtRainLastMinute, resources.GetString("txtRainLastMinute.ToolTip"));
             // 
             // txtSinceHeatingOff
             // 
-            resources.ApplyResources(this.txtSinceHeatingOff, "txtSinceHeatingOff");
             this.txtSinceHeatingOff.BackColor = System.Drawing.Color.WhiteSmoke;
+            resources.ApplyResources(this.txtSinceHeatingOff, "txtSinceHeatingOff");
             this.txtSinceHeatingOff.Name = "txtSinceHeatingOff";
             this.txtSinceHeatingOff.ReadOnly = true;
             this.mainToolTip.SetToolTip(this.txtSinceHeatingOff, resources.GetString("txtSinceHeatingOff.ToolTip"));
@@ -1148,11 +1109,9 @@
             this.pannelMaximum.Controls.Add(this.groupBox6);
             this.pannelMaximum.Controls.Add(this.groupBox2);
             this.pannelMaximum.Name = "pannelMaximum";
-            this.mainToolTip.SetToolTip(this.pannelMaximum, resources.GetString("pannelMaximum.ToolTip"));
             // 
             // panelDebug
             // 
-            resources.ApplyResources(this.panelDebug, "panelDebug");
             this.panelDebug.Controls.Add(this.btnQueryArduinoSettings);
             this.panelDebug.Controls.Add(this.txtArdSetWT);
             this.panelDebug.Controls.Add(this.txtArdSetRT);
@@ -1162,17 +1121,16 @@
             this.panelDebug.Controls.Add(this.txt10min);
             this.panelDebug.Controls.Add(this.txt5min);
             this.panelDebug.Controls.Add(this.txt0min);
+            resources.ApplyResources(this.panelDebug, "panelDebug");
             this.panelDebug.Name = "panelDebug";
-            this.mainToolTip.SetToolTip(this.panelDebug, resources.GetString("panelDebug.ToolTip"));
             // 
             // groupBox11
             // 
-            resources.ApplyResources(this.groupBox11, "groupBox11");
             this.groupBox11.Controls.Add(this.txtFldWSpeed);
             this.groupBox11.Controls.Add(this.label31);
+            resources.ApplyResources(this.groupBox11, "groupBox11");
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.TabStop = false;
-            this.mainToolTip.SetToolTip(this.groupBox11, resources.GetString("groupBox11.ToolTip"));
             // 
             // txtFldWSpeed
             // 
@@ -1184,7 +1142,6 @@
             // 
             resources.ApplyResources(this.label31, "label31");
             this.label31.Name = "label31";
-            this.mainToolTip.SetToolTip(this.label31, resources.GetString("label31.ToolTip"));
             // 
             // pannelMinimum
             // 
@@ -1203,85 +1160,72 @@
             this.pannelMinimum.Controls.Add(this.btnStart_min);
             this.pannelMinimum.Controls.Add(this.chart2);
             this.pannelMinimum.Name = "pannelMinimum";
-            this.mainToolTip.SetToolTip(this.pannelMinimum, resources.GetString("pannelMinimum.ToolTip"));
             // 
             // btnIndRelay
             // 
-            resources.ApplyResources(this.btnIndRelay, "btnIndRelay");
             this.btnIndRelay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.btnIndRelay.Controls.Add(this.label29);
+            resources.ApplyResources(this.btnIndRelay, "btnIndRelay");
             this.btnIndRelay.Name = "btnIndRelay";
-            this.mainToolTip.SetToolTip(this.btnIndRelay, resources.GetString("btnIndRelay.ToolTip"));
             // 
             // label29
             // 
             resources.ApplyResources(this.label29, "label29");
             this.label29.Name = "label29";
-            this.mainToolTip.SetToolTip(this.label29, resources.GetString("label29.ToolTip"));
             // 
             // btnIndRain
             // 
-            resources.ApplyResources(this.btnIndRain, "btnIndRain");
             this.btnIndRain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.btnIndRain.Controls.Add(this.label28);
+            resources.ApplyResources(this.btnIndRain, "btnIndRain");
             this.btnIndRain.Name = "btnIndRain";
-            this.mainToolTip.SetToolTip(this.btnIndRain, resources.GetString("btnIndRain.ToolTip"));
             // 
             // label28
             // 
             resources.ApplyResources(this.label28, "label28");
             this.label28.Name = "label28";
-            this.mainToolTip.SetToolTip(this.label28, resources.GetString("label28.ToolTip"));
             // 
             // btnIndCloud
             // 
-            resources.ApplyResources(this.btnIndCloud, "btnIndCloud");
             this.btnIndCloud.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.btnIndCloud.Controls.Add(this.label27);
+            resources.ApplyResources(this.btnIndCloud, "btnIndCloud");
             this.btnIndCloud.Name = "btnIndCloud";
-            this.mainToolTip.SetToolTip(this.btnIndCloud, resources.GetString("btnIndCloud.ToolTip"));
             // 
             // label27
             // 
             resources.ApplyResources(this.label27, "label27");
             this.label27.Name = "label27";
-            this.mainToolTip.SetToolTip(this.label27, resources.GetString("label27.ToolTip"));
             // 
             // label9
             // 
             resources.ApplyResources(this.label9, "label9");
             this.label9.Name = "label9";
-            this.mainToolTip.SetToolTip(this.label9, resources.GetString("label9.ToolTip"));
             // 
             // label26
             // 
             resources.ApplyResources(this.label26, "label26");
             this.label26.Name = "label26";
-            this.mainToolTip.SetToolTip(this.label26, resources.GetString("label26.ToolTip"));
             // 
             // label25
             // 
             resources.ApplyResources(this.label25, "label25");
             this.label25.Name = "label25";
-            this.mainToolTip.SetToolTip(this.label25, resources.GetString("label25.ToolTip"));
             // 
             // txtMinWind
             // 
             resources.ApplyResources(this.txtMinWind, "txtMinWind");
             this.txtMinWind.Name = "txtMinWind";
-            this.mainToolTip.SetToolTip(this.txtMinWind, resources.GetString("txtMinWind.ToolTip"));
             // 
             // label24
             // 
             resources.ApplyResources(this.label24, "label24");
             this.label24.Name = "label24";
-            this.mainToolTip.SetToolTip(this.label24, resources.GetString("label24.ToolTip"));
             // 
             // btnStart_min
             // 
             resources.ApplyResources(this.btnStart_min, "btnStart_min");
             this.btnStart_min.Name = "btnStart_min";
-            this.mainToolTip.SetToolTip(this.btnStart_min, resources.GetString("btnStart_min.ToolTip"));
             this.btnStart_min.UseVisualStyleBackColor = true;
             this.btnStart_min.Click += new System.EventHandler(this.btnStart_min_Click);
             // 
@@ -1355,32 +1299,30 @@
     "IN{F1} max:#MAX{F1} avg:#AVG{F1}";
             series14.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             this.chart2.Series.Add(series14);
-            this.mainToolTip.SetToolTip(this.chart2, resources.GetString("chart2.ToolTip"));
             // 
             // contextMenuStrip1
             // 
-            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem_open,
             this.toolStripSeparator1,
             this.toolStripMenuItem_exit});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.mainToolTip.SetToolTip(this.contextMenuStrip1, resources.GetString("contextMenuStrip1.ToolTip"));
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             // 
             // toolStripMenuItem_open
             // 
-            resources.ApplyResources(this.toolStripMenuItem_open, "toolStripMenuItem_open");
             this.toolStripMenuItem_open.Name = "toolStripMenuItem_open";
+            resources.ApplyResources(this.toolStripMenuItem_open, "toolStripMenuItem_open");
             // 
             // toolStripSeparator1
             // 
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // toolStripMenuItem_exit
             // 
-            resources.ApplyResources(this.toolStripMenuItem_exit, "toolStripMenuItem_exit");
             this.toolStripMenuItem_exit.Name = "toolStripMenuItem_exit";
+            resources.ApplyResources(this.toolStripMenuItem_exit, "toolStripMenuItem_exit");
             // 
             // notifyIcon1
             // 
@@ -1396,7 +1338,6 @@
             this.Controls.Add(this.pannelMinimum);
             this.Controls.Add(this.pannelMaximum);
             this.Name = "MainForm";
-            this.mainToolTip.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.Activated += new System.EventHandler(this.MainForm_Activated);
             this.Deactivate += new System.EventHandler(this.MainForm_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
