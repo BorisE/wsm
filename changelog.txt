@@ -2,6 +2,10 @@ WeatherStation Project
 (c) 2013-2014 by Emchenko Boris
 
 Change log
+1.6.0 (2014-12-27)
+- installer with auto update
+- more translations
+
 1.5.41 (2014-12-24)
 - more translations
 - some bugsfixes

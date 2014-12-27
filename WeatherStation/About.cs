@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using System.Globalization;
+using System.Deployment.Application;
+using System.Diagnostics;
 
 namespace WeatherStation
 {
@@ -27,11 +29,30 @@ namespace WeatherStation
         private void About_Load(object sender, EventArgs e)
         {
 
-            // Get the version of the executing assembly (that is, this assembly).
-            Assembly assem = Assembly.GetEntryAssembly();
-            AssemblyName assemName = assem.GetName();
-            Version ver = assemName.Version;
-            lblVersion.Text += "Version " + ver.Major.ToString() + "." + ver.Minor.ToString() + "." + ver.Build.ToString() + " rev "+ver.Revision.ToString();
+            //Assembly Version
+            Version ver = Assembly.GetExecutingAssembly().GetName().Version;
+            
+            //File Version
+            string fileVersion = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
+            //Product Version
+            string productVersion = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
+
+            
+            //Publish version
+            Version PublishVersion = new Version("0.0.0.0");
+            try{
+                PublishVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
+            }
+            catch
+            {
+            }
+
+
+            lblVersion.Text += "Publish version " + PublishVersion.Major.ToString() + "." + PublishVersion.Minor.ToString() + "." + PublishVersion.Build.ToString() + " rev " + PublishVersion.Revision.ToString();
+            lblVersion.Text += Environment.NewLine + "Assembly version " + ver.Major.ToString() + "." + ver.Minor.ToString() + "." + ver.Build.ToString() + " rev " + ver.Revision.ToString();
+            lblVersion.Text += Environment.NewLine + "File version " + fileVersion;
+            //lblVersion.Text += Environment.NewLine + "Product version " + productVersion;
+          
             //MessageBox.Show("Application " + assemName.Name + ", Version " + ver.ToString());
             lblVersion.Text += Environment.NewLine+"Compile time: "+RetrieveLinkerTimestamp();
 
