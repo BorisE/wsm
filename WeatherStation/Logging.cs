@@ -70,7 +70,7 @@ namespace WeatherStation
             }
             catch
             {
-                MessageBox.Show("Cannot close log file");
+                //MessageBox.Show("Cannot close log file");
             }
             LogFile = null;
         }
@@ -134,7 +134,7 @@ namespace WeatherStation
             }
             catch
             {
-                //Logging.Log("Cannot close serial log file");
+                Logging.Log("Cannot close serial log file");
             }
 
             SerialLogFile = null;
