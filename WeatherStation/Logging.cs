@@ -53,12 +53,25 @@ namespace WeatherStation
         public static void OpenLogFile()
         {
             if (LogFilePath == "") LogFilePath = ApplicationFilePath;
-            LogFile = File.AppendText(LogFilePath + LogFileName);
+            try
+            {
+                LogFile = File.AppendText(LogFilePath + LogFileName);
+            }
+            catch {
+                MessageBox.Show("Cannot open log file");
+            }
         }
 
         public static void CloseLogFile()
         {
-            LogFile.Close();
+            try
+            {
+                LogFile.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Cannot close log file");
+            }
             LogFile = null;
         }
 
@@ -67,14 +80,21 @@ namespace WeatherStation
             // if current log level is less then DebugLevel
             if (LogLevel <= DEBUG_LEVEL)
             {
-
-                if (LogFile == null)
+                try
                 {
-                    OpenLogFile();
-                }
+                    if (LogFile == null)
+                    {
+                        OpenLogFile();
+                    }
 
-                LogFile.Write("{0} {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
-                LogFile.WriteLine(": {0}", logMessage);
+                    LogFile.Write("{0} {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
+                    LogFile.WriteLine(": {0}", logMessage);
+                }
+                catch {
+                    MessageBox.Show("Cannot write log file");
+                }
+                
+                CloseLogFile();
             }
         }
         #endregion
@@ -89,19 +109,34 @@ namespace WeatherStation
 
             string FullFileName = SerialLogFilePath + SerialLogFileName + DateTime.Now.ToString("yyyy-MM-dd") + serialLogExt;
 
-            if (!File.Exists(FullFileName))
+            try
             {
-                SerialLogFile = File.CreateText(FullFileName);
+                if (!File.Exists(FullFileName))
+                {
+                    SerialLogFile = File.CreateText(FullFileName);
+                }
+                else
+                {
+                    SerialLogFile = File.AppendText(FullFileName);
+                }
             }
-            else
+            catch
             {
-                SerialLogFile = File.AppendText(FullFileName);
+                Logging.Log("Cannot open serial log file");
             }
         }
 
         public static void CloseSerialLogFile()
         {
-            SerialLogFile.Close();
+            try
+            {
+                SerialLogFile.Close();
+            }
+            catch
+            {
+                Logging.Log("Cannot close serial log file");
+            }
+
             SerialLogFile = null;
         }
 
@@ -112,8 +147,16 @@ namespace WeatherStation
                 OpenSerialLogFile();
             }
 
-            SerialLogFile.Write("{0} {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
-            SerialLogFile.WriteLine(": {0}", logMessage);
+            try
+            {
+                SerialLogFile.Write("{0} {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
+                SerialLogFile.WriteLine(": {0}", logMessage);
+            }
+            catch
+            {
+                Logging.Log("Cannot write serial log file");
+            }
+            
         }
         #endregion
 
@@ -128,21 +171,37 @@ namespace WeatherStation
             //string FullFileName = DataFilePath + dataLogFileName + DateTime.Now.ToShortDateString()+dataLogExt; //bad for 
             string FullFileName = DataFilePath + dataLogFileName + DateTime.Now.ToString("yyyy-MM-dd") +dataLogExt;
 
+            try
+            {
+                if (!File.Exists(FullFileName))
+                {
+                    dataLogFile = File.CreateText(FullFileName);
+                    dataLogFile.WriteLine(headerline);
+                }
+                else
+                {
+                    dataLogFile = File.AppendText(FullFileName);
+                }
 
-            if (!File.Exists(FullFileName))
-            {
-                dataLogFile = File.CreateText(FullFileName);
-                dataLogFile.WriteLine(headerline);
             }
-            else
+            catch
             {
-                dataLogFile = File.AppendText(FullFileName);
+                Logging.Log("Cannot open data log file");
             }
+        
         }
 
         public static void CloseDataLogFile()
         {
-            dataLogFile.Close();
+            try
+            {
+                dataLogFile.Close();
+            }
+            catch
+            {
+                Logging.Log("Cannot close data log file");
+            }
+
             dataLogFile = null;
         }
 
@@ -152,21 +211,35 @@ namespace WeatherStation
             {
                 OpenDataLogFile(headerline);
             }
-            dataLogFile.WriteLine("{0} {1:H:mm:ss}" + CSVseparator + " {2}", DateTime.Now.ToShortDateString(), DateTime.Now, dataline);
-
+            
+            try
+            {
+                dataLogFile.WriteLine("{0} {1:H:mm:ss}" + CSVseparator + " {2}", DateTime.Now.ToShortDateString(), DateTime.Now, dataline);
+            }
+            catch
+            {
+                Logging.Log("Cannot write data log file");
+            }
             CloseDataLogFile();
 
         }
 
-        public static void SaveRGCValueTxt(int RGCVal)
+        public static void _SaveRGCValueTxt(int RGCVal)
         {
             if (DataFilePath == "") DataFilePath = ApplicationFilePath;
-            using (StreamWriter outfile = new StreamWriter(DataFilePath + RGCFileName))
+            try
             {
-                outfile.Write(RGCVal.ToString());
+                using (StreamWriter outfile = new StreamWriter(DataFilePath + RGCFileName))
+                {
+                    outfile.Write(RGCVal.ToString());
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Cannot write RGCValueTxt log file");
             }
         }
-        public static int LoadRGCValueTxt()
+        public static int _LoadRGCValueTxt()
         {
             if (DataFilePath == "") DataFilePath = ApplicationFilePath;
             int RGCVav = 0;
@@ -180,6 +253,7 @@ namespace WeatherStation
             }
             catch
             {
+                Logging.Log("Cannot load RGC Value file");
                 RGCVav = 0;
             }
             return RGCVav;
@@ -209,6 +283,7 @@ namespace WeatherStation
             }
             catch
             {
+                Logging.Log("Cannot save RGC Value file");
                 return false;
             }
             bw.Close();
@@ -230,6 +305,7 @@ namespace WeatherStation
             }
             catch
             {
+                Logging.Log("Cannot load RGC Value file"); 
                 return 0;
             }
             //read file
@@ -250,7 +326,8 @@ namespace WeatherStation
                 RGCLastSaved = Convert.ToDateTime(RGC_LastSavedSt);
                 RGCLastReset = Convert.ToDateTime(RGC_LastResetSt);
             }
-            catch { 
+            catch {
+                Logging.Log("Cannot load RGC Value file");
             }
             br.Close();
 
@@ -270,12 +347,26 @@ namespace WeatherStation
             if (BoltwoodFilePath == "") BoltwoodFilePath = ApplicationFilePath;
             string FullFileName = BoltwoodFilePath + BoltwoodFileName + BoltwoodFileExt;
 
-            BoltwoodFile = File.CreateText(FullFileName);
+            try
+            {
+                BoltwoodFile = File.CreateText(FullFileName);
+            }
+            catch
+            {
+                Logging.Log("Cannot create boltwood data file");
+            }
         }
 
         public static void CloseBoltwoodFile()
         {
-            BoltwoodFile.Close();
+            try
+            {
+                BoltwoodFile.Close();
+            }
+            catch
+            {
+                Logging.Log("Cannot close boltwood data file");
+            }
             BoltwoodFile = null;
         }
 
@@ -285,7 +376,15 @@ namespace WeatherStation
             {
                 OpenBoltwoodFile();
             }
-            BoltwoodFile.Write(dataline);
+
+            try
+            {
+                BoltwoodFile.Write(dataline);
+            }
+            catch
+            {
+                Logging.Log("Cannot write boltwood data file");
+            }
 
             CloseBoltwoodFile();
 
