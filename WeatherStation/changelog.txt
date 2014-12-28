@@ -2,6 +2,9 @@ WeatherStation Project
 (c) 2013-2014 by Emchenko Boris
 
 Change log
+1.6.44 (2014-12-29)
+- minor changes
+
 1.6.43 (2014-12-28)
 - logging exception handling
 - mutex mechanizm to run only one copy
