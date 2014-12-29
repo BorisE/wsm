@@ -4,6 +4,7 @@ WeatherStation Project
 Change log
 1.6.44 (2014-12-29)
 - minor changes
+- tab control order for settings normalized
 
 1.6.43 (2014-12-28)
 - logging exception handling
