@@ -117,51 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnOk.Error" xml:space="preserve">
-    <value />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>426, 374</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnOk.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="btnOk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 24</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnOk.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
-  <data name="btnOk.ToolTip" xml:space="preserve">
-    <value />
+  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>536, 374</value>
   </data>
-  <data name="btnCancel.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="btnCancel.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="btnCancel.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 24</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>Отмена</value>
   </data>
-  <data name="btnCancel.ToolTip" xml:space="preserve">
-    <value />
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>627, 405</value>
   </data>
-  <data name="btnReset.Error" xml:space="preserve">
-    <value />
+  <data name="btnReset.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 374</value>
   </data>
-  <data name="btnReset.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="btnReset.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 24</value>
   </data>
-  <data name="btnReset.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnReset.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="btnReset.Text" xml:space="preserve">
     <value>По умолчанию</value>
   </data>
-  <data name="btnReset.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAEBAAAAAAAABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
@@ -186,299 +176,195 @@
         AAD/nwAAv30AAA==
 </value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="label35.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 124</value>
   </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
+  <data name="label35.Size" type="System.Drawing.Size, System.Drawing">
+    <value>18, 13</value>
   </data>
-  <data name="label35.Error" xml:space="preserve">
-    <value />
+  <data name="label34.Location" type="System.Drawing.Point, System.Drawing">
+    <value>230, 150</value>
   </data>
-  <data name="label35.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label35.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="label35.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label34.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label34.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label34.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label34.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label34.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 17</value>
+    <value>28, 13</value>
   </data>
   <data name="label34.Text" xml:space="preserve">
     <value>сек.</value>
   </data>
-  <data name="label34.ToolTip" xml:space="preserve">
-    <value />
+  <data name="label31.Location" type="System.Drawing.Point, System.Drawing">
+    <value>230, 67</value>
   </data>
-  <data name="label31.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label31.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label31.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label31.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label31.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 17</value>
+    <value>28, 13</value>
   </data>
   <data name="label31.Text" xml:space="preserve">
     <value>сек.</value>
   </data>
-  <data name="label31.ToolTip" xml:space="preserve">
-    <value />
+  <data name="label33.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 150</value>
   </data>
-  <data name="label33.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label33.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label33.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label33.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label33.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 17</value>
+    <value>110, 13</value>
   </data>
   <data name="label33.Text" xml:space="preserve">
     <value>Отправлять каждые</value>
   </data>
-  <data name="label33.ToolTip" xml:space="preserve">
-    <value />
+  <data name="label30.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 67</value>
   </data>
-  <data name="label30.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label30.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label30.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label30.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label30.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 17</value>
+    <value>110, 13</value>
   </data>
   <data name="label30.Text" xml:space="preserve">
     <value>Отправлять каждые</value>
   </data>
-  <data name="label30.ToolTip" xml:space="preserve">
-    <value />
+  <data name="txtRefreshNarodmonInterval.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 147</value>
   </data>
-  <data name="txtRefreshNarodmonInterval.Error" xml:space="preserve">
-    <value />
+  <data name="txtRefreshNarodmonInterval.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 20</value>
   </data>
-  <data name="txtRefreshNarodmonInterval.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="btnGenerateMac.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 119</value>
   </data>
-  <data name="txtRefreshNarodmonInterval.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="btnGenerateMac.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="btnGenerateMac.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="btnGenerateMac.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="btnGenerateMac.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 23</value>
   </data>
   <data name="btnGenerateMac.Text" xml:space="preserve">
     <value>Генер.</value>
   </data>
-  <data name="txtRefreshWebDataInterval.Error" xml:space="preserve">
-    <value />
+  <data name="txtRefreshWebDataInterval.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 64</value>
   </data>
-  <data name="txtRefreshWebDataInterval.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtRefreshWebDataInterval.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 20</value>
   </data>
-  <data name="txtRefreshWebDataInterval.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtNarodmonMAC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 122</value>
   </data>
-  <data name="txtNarodmonMAC.Error" xml:space="preserve">
-    <value />
+  <data name="txtNarodmonMAC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 20</value>
   </data>
-  <data name="txtNarodmonMAC.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtWebDataURL.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 38</value>
   </data>
-  <data name="txtNarodmonMAC.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtWebDataURL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>277, 20</value>
   </data>
-  <data name="txtWebDataURL.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtWebDataURL.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="txtWebDataURL.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="chkNarodMon.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="chkNarodMon.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="chkNarodMon.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="chkNarodMon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 99</value>
   </data>
   <data name="chkNarodMon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 21</value>
+    <value>187, 17</value>
   </data>
   <data name="chkNarodMon.Text" xml:space="preserve">
     <value>Отправлять на NARODMON.RU</value>
   </data>
-  <data name="chkWebData.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="chkWebData.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="chkWebData.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="chkWebData.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 20</value>
   </data>
   <data name="chkWebData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>262, 21</value>
+    <value>204, 17</value>
   </data>
   <data name="chkWebData.Text" xml:space="preserve">
     <value>Отправлять данные на web сервер</value>
   </data>
-  <data name="chkWebData.ToolTip" xml:space="preserve">
-    <value />
+  <data name="groupBox11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>321, 144</value>
   </data>
-  <data name="groupBox11.Error" xml:space="preserve">
-    <value />
+  <data name="groupBox11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>290, 189</value>
   </data>
-  <data name="groupBox11.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="groupBox11.IconPadding" type="System.Int32, mscorlib">
+  <data name="groupBox11.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="groupBox11.Text" xml:space="preserve">
     <value>Интернет</value>
   </data>
-  <data name="groupBox11.ToolTip" xml:space="preserve">
-    <value />
+  <data name="label38.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 109</value>
   </data>
-  <data name="label38.Error" xml:space="preserve">
-    <value />
+  <data name="label38.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
-  <data name="label38.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="label38.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 13</value>
   </data>
-  <data name="label38.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="cmbLang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>76, 106</value>
   </data>
-  <data name="label38.ToolTip" xml:space="preserve">
-    <value />
+  <data name="cmbLang.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
-  <data name="cmbLang.Error" xml:space="preserve">
-    <value />
+  <data name="cmbLang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 21</value>
   </data>
-  <data name="cmbLang.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="cmbLang.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="chkShowDebugPannels.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="chkShowDebugPannels.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="chkShowDebugPannels.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="chkShowDebugPannels.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 73</value>
   </data>
   <data name="chkShowDebugPannels.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 21</value>
+    <value>208, 17</value>
   </data>
   <data name="chkShowDebugPannels.Text" xml:space="preserve">
     <value>Показывать элементы для отладки</value>
   </data>
-  <data name="chkTrayIcon.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="chkTrayIcon.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="chkTrayIcon.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="chkTrayIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 46</value>
   </data>
   <data name="chkTrayIcon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 21</value>
+    <value>149, 17</value>
   </data>
   <data name="chkTrayIcon.Text" xml:space="preserve">
     <value>Минимизировать в трей</value>
   </data>
-  <data name="chkMinMode.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="chkMinMode.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="chkMinMode.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="chkMinMode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 21</value>
   </data>
   <data name="chkMinMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>324, 21</value>
+    <value>254, 17</value>
   </data>
   <data name="chkMinMode.Text" xml:space="preserve">
     <value>Переключение в минималистический режим</value>
   </data>
-  <data name="groupBox8.Error" xml:space="preserve">
-    <value />
+  <data name="groupBox8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>321, 3</value>
   </data>
-  <data name="groupBox8.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="groupBox8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>290, 134</value>
   </data>
-  <data name="groupBox8.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox8.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="groupBox8.Text" xml:space="preserve">
     <value>Интерфейс</value>
   </data>
-  <data name="groupBox8.ToolTip" xml:space="preserve">
-    <value />
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 47</value>
   </data>
-  <data name="label10.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label10.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label10.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 17</value>
+    <value>75, 13</value>
+  </data>
+  <data name="label10.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="label10.Text" xml:space="preserve">
     <value>Детализация</value>
-  </data>
-  <data name="label10.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cmbLogLevel.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cmbLogLevel.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="cmbLogLevel.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="cmbLogLevel.Items" xml:space="preserve">
     <value>1 - Основные сообщения</value>
@@ -489,8 +375,17 @@
   <data name="cmbLogLevel.Items2" xml:space="preserve">
     <value>3 - Отладка</value>
   </data>
+  <data name="cmbLogLevel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 41</value>
+  </data>
+  <data name="cmbLogLevel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
   <data name="cmbLogLevel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 24</value>
+    <value>156, 21</value>
+  </data>
+  <data name="cmbLogLevel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
   <data name="cmbLogLevel.Text" xml:space="preserve">
     <value>1 - Основные сообщения</value>
@@ -498,713 +393,542 @@
   <data name="cmbLogLevel.ToolTip" xml:space="preserve">
     <value>Уровень детализации логов. Рекомендуется 1 или если все идет не так, то второй. Третий скорее для разработчика</value>
   </data>
-  <data name="btnBoltwoodPathBrowse.Error" xml:space="preserve">
-    <value />
+  <data name="btnBoltwoodPathBrowse.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 114</value>
   </data>
-  <data name="btnBoltwoodPathBrowse.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="btnBoltwoodPathBrowse.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 20</value>
   </data>
-  <data name="btnBoltwoodPathBrowse.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="btnBoltwoodPathBrowse.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="btnBoltwoodPathBrowse.ToolTip" xml:space="preserve">
-    <value />
+  <data name="btnSerialLogPathBrowse.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 67</value>
   </data>
-  <data name="btnSerialLogPathBrowse.Error" xml:space="preserve">
-    <value />
+  <data name="btnSerialLogPathBrowse.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 20</value>
   </data>
-  <data name="btnSerialLogPathBrowse.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="btnSerialLogPathBrowse.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
-  <data name="btnSerialLogPathBrowse.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="btnCSVPathBrowse.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 89</value>
   </data>
-  <data name="btnSerialLogPathBrowse.ToolTip" xml:space="preserve">
-    <value />
+  <data name="btnCSVPathBrowse.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 20</value>
   </data>
-  <data name="btnCSVPathBrowse.Error" xml:space="preserve">
-    <value />
+  <data name="btnCSVPathBrowse.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
-  <data name="btnCSVPathBrowse.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="btnLogPathBrowse.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 19</value>
   </data>
-  <data name="btnCSVPathBrowse.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="btnLogPathBrowse.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 20</value>
   </data>
-  <data name="btnCSVPathBrowse.ToolTip" xml:space="preserve">
-    <value />
+  <data name="btnLogPathBrowse.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="btnLogPathBrowse.Error" xml:space="preserve">
-    <value />
+  <data name="txtBoltwoodFileLocation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 115</value>
   </data>
-  <data name="btnLogPathBrowse.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtBoltwoodFileLocation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 20</value>
   </data>
-  <data name="btnLogPathBrowse.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtBoltwoodFileLocation.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="btnLogPathBrowse.ToolTip" xml:space="preserve">
-    <value />
+  <data name="txtLogFileLocation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 20</value>
   </data>
-  <data name="txtBoltwoodFileLocation.Error" xml:space="preserve">
-    <value />
+  <data name="txtLogFileLocation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 20</value>
   </data>
-  <data name="txtBoltwoodFileLocation.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtLogFileLocation.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="txtBoltwoodFileLocation.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtSerialLogFileLocation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 67</value>
   </data>
-  <data name="txtLogFileLocation.Error" xml:space="preserve">
-    <value />
+  <data name="txtSerialLogFileLocation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 20</value>
   </data>
-  <data name="txtLogFileLocation.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtSerialLogFileLocation.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
-  <data name="txtLogFileLocation.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtCSVFileLocation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 90</value>
   </data>
-  <data name="txtSerialLogFileLocation.Error" xml:space="preserve">
-    <value />
+  <data name="txtCSVFileLocation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 20</value>
   </data>
-  <data name="txtSerialLogFileLocation.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtCSVFileLocation.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
-  <data name="txtSerialLogFileLocation.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="txtCSVFileLocation.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtCSVFileLocation.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="txtCSVFileLocation.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="chkBoltwoodFileFlag.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="chkBoltwoodFileFlag.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="chkBoltwoodFileFlag.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="chkBoltwoodFileFlag.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 117</value>
   </data>
   <data name="chkBoltwoodFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 21</value>
+    <value>111, 17</value>
+  </data>
+  <data name="chkBoltwoodFileFlag.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="chkBoltwoodFileFlag.Text" xml:space="preserve">
     <value>Файл состояния</value>
   </data>
-  <data name="chkSerialLogFileFlag.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="chkSerialLogFileFlag.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="chkSerialLogFileFlag.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="chkSerialLogFileFlag.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 70</value>
   </data>
   <data name="chkSerialLogFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 21</value>
+    <value>77, 17</value>
+  </data>
+  <data name="chkSerialLogFileFlag.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
   <data name="chkSerialLogFileFlag.Text" xml:space="preserve">
     <value>Лог порта</value>
   </data>
-  <data name="chkCSVFileFlag.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="chkCSVFileFlag.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="chkCSVFileFlag.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="chkCSVFileFlag.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 93</value>
   </data>
   <data name="chkCSVFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 21</value>
+    <value>85, 17</value>
+  </data>
+  <data name="chkCSVFileFlag.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
   <data name="chkCSVFileFlag.Text" xml:space="preserve">
     <value>Лог данных</value>
   </data>
-  <data name="chkCSVFileFlag.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="chkLogFileFlag.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="chkLogFileFlag.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="chkLogFileFlag.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="chkLogFileFlag.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 22</value>
   </data>
   <data name="chkLogFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 21</value>
+    <value>107, 17</value>
+  </data>
+  <data name="chkLogFileFlag.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="chkLogFileFlag.Text" xml:space="preserve">
     <value>Лог программы</value>
   </data>
-  <data name="groupBox3.Error" xml:space="preserve">
-    <value />
+  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 110</value>
   </data>
-  <data name="groupBox3.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 150</value>
   </data>
-  <data name="groupBox3.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="groupBox3.Text" xml:space="preserve">
     <value>Логи</value>
   </data>
-  <data name="groupBox3.ToolTip" xml:space="preserve">
-    <value />
+  <data name="label32.Location" type="System.Drawing.Point, System.Drawing">
+    <value>205, 19</value>
   </data>
-  <data name="label32.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label32.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label32.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label32.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label32.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 17</value>
+    <value>60, 13</value>
   </data>
   <data name="label32.Text" xml:space="preserve">
     <value>миллисек.</value>
   </data>
-  <data name="label32.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label14.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label14.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label14.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
   </data>
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 17</value>
+    <value>119, 13</value>
   </data>
   <data name="label14.Text" xml:space="preserve">
     <value>Интервал обновления</value>
   </data>
-  <data name="label15.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label15.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label15.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 41</value>
   </data>
   <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 17</value>
+    <value>126, 13</value>
   </data>
   <data name="label15.Text" xml:space="preserve">
     <value>Макс.точек на графике</value>
   </data>
-  <data name="label15.ToolTip" xml:space="preserve">
-    <value />
+  <data name="txtRefreshInterval.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 16</value>
   </data>
-  <data name="txtRefreshInterval.Error" xml:space="preserve">
-    <value />
+  <data name="txtRefreshInterval.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
-  <data name="txtRefreshInterval.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtMaxPoints.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 38</value>
   </data>
-  <data name="txtRefreshInterval.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtMaxPoints.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
-  <data name="txtMaxPoints.Error" xml:space="preserve">
-    <value />
+  <data name="groupBox6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 263</value>
   </data>
-  <data name="txtMaxPoints.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 70</value>
   </data>
-  <data name="txtMaxPoints.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="groupBox6.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="groupBox6.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="groupBox6.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox6.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="groupBox6.Text" xml:space="preserve">
     <value>Производительность</value>
   </data>
-  <data name="groupBox6.ToolTip" xml:space="preserve">
-    <value />
+  <data name="label37.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 74</value>
   </data>
-  <data name="label37.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label37.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label37.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label37.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label37.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 17</value>
+    <value>53, 13</value>
   </data>
   <data name="label37.Text" xml:space="preserve">
     <value>Писать в</value>
   </data>
-  <data name="label37.ToolTip" xml:space="preserve">
-    <value />
+  <data name="label36.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 47</value>
   </data>
-  <data name="label36.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label36.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label36.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label36.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label36.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 17</value>
+    <value>58, 13</value>
   </data>
   <data name="label36.Text" xml:space="preserve">
     <value>Читать из</value>
   </data>
-  <data name="label36.ToolTip" xml:space="preserve">
-    <value />
+  <data name="txtSerialFileOut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 72</value>
   </data>
-  <data name="txtSerialFileOut.Error" xml:space="preserve">
-    <value />
+  <data name="txtSerialFileOut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 20</value>
   </data>
-  <data name="txtSerialFileOut.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtSerialFileIn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 45</value>
   </data>
-  <data name="txtSerialFileOut.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="txtSerialFileIn.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtSerialFileIn.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="txtSerialFileIn.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtSerialFileIn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 20</value>
   </data>
   <data name="txtSerialFileIn.ToolTip" xml:space="preserve">
     <value>Путь к файлу в режиме Serial File Emulation, из которого программа будет читать данные. Недоступно в нормально режиме</value>
   </data>
-  <data name="chkWatchdog.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="chkWatchdog.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="chkWatchdog.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="chkWatchdog.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 19</value>
   </data>
   <data name="chkWatchdog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 21</value>
+    <value>164, 17</value>
   </data>
   <data name="chkWatchdog.Text" xml:space="preserve">
     <value>Отслеживание соединения</value>
   </data>
-  <data name="chkWatchdog.ToolTip" xml:space="preserve">
-    <value />
+  <data name="btnOpenWriteToFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 71</value>
   </data>
-  <data name="btnOpenWriteToFile.Error" xml:space="preserve">
-    <value />
+  <data name="btnOpenWriteToFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 20</value>
   </data>
-  <data name="btnOpenWriteToFile.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="btnOpenReadFromFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 44</value>
   </data>
-  <data name="btnOpenWriteToFile.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="btnOpenReadFromFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 20</value>
   </data>
-  <data name="btnOpenReadFromFile.Error" xml:space="preserve">
-    <value />
+  <data name="cmbPortList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 19</value>
   </data>
-  <data name="btnOpenReadFromFile.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="cmbPortList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 21</value>
   </data>
-  <data name="btnOpenReadFromFile.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 3</value>
   </data>
-  <data name="cmbPortList.Error" xml:space="preserve">
-    <value />
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 101</value>
   </data>
-  <data name="cmbPortList.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="cmbPortList.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="groupBox1.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="groupBox1.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="groupBox1.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="groupBox1.Text" xml:space="preserve">
     <value>COM порт</value>
   </data>
-  <data name="groupBox1.ToolTip" xml:space="preserve">
-    <value />
+  <data name="tabGeneral.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
   </data>
-  <data name="tabGeneral.Error" xml:space="preserve">
-    <value />
+  <data name="tabGeneral.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
-  <data name="tabGeneral.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="tabGeneral.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="tabGeneral.Size" type="System.Drawing.Size, System.Drawing">
+    <value>619, 342</value>
   </data>
   <data name="tabGeneral.Text" xml:space="preserve">
     <value>Общие</value>
   </data>
-  <data name="tabGeneral.ToolTip" xml:space="preserve">
-    <value />
+  <data name="label28.Location" type="System.Drawing.Point, System.Drawing">
+    <value>210, 67</value>
   </data>
-  <data name="label28.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label28.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label28.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label28.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label28.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 17</value>
+    <value>26, 13</value>
+  </data>
+  <data name="label28.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
   <data name="label28.Text" xml:space="preserve">
     <value>м/с</value>
   </data>
-  <data name="label28.ToolTip" xml:space="preserve">
-    <value />
+  <data name="label29.Location" type="System.Drawing.Point, System.Drawing">
+    <value>210, 43</value>
   </data>
-  <data name="label29.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label29.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label29.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label29.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label29.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 17</value>
+    <value>26, 13</value>
   </data>
   <data name="label29.Text" xml:space="preserve">
     <value>м/с</value>
   </data>
-  <data name="label29.ToolTip" xml:space="preserve">
-    <value />
+  <data name="label27.Location" type="System.Drawing.Point, System.Drawing">
+    <value>210, 43</value>
   </data>
-  <data name="label27.Error" xml:space="preserve">
-    <value />
+  <data name="label27.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
-  <data name="label27.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="label27.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 13</value>
   </data>
-  <data name="label27.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="label27.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label26.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label26.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label26.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label26.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 43</value>
   </data>
   <data name="label26.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 17</value>
+    <value>65, 13</value>
+  </data>
+  <data name="label26.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="label26.Text" xml:space="preserve">
     <value>"Ветренно"</value>
   </data>
-  <data name="label26.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label21.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label21.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label21.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label21.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 19</value>
   </data>
   <data name="label21.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 17</value>
+    <value>82, 13</value>
+  </data>
+  <data name="label21.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="label21.Text" xml:space="preserve">
     <value>Нулевой порог</value>
   </data>
-  <data name="txtWSpeedZero.Error" xml:space="preserve">
-    <value />
+  <data name="txtWSpeedZero.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 16</value>
   </data>
-  <data name="txtWSpeedZero.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtWSpeedZero.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
-  <data name="txtWSpeedZero.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtWSpeedZero.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="label23.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label23.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label23.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label23.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 67</value>
   </data>
   <data name="label23.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 17</value>
+    <value>98, 13</value>
+  </data>
+  <data name="label23.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="label23.Text" xml:space="preserve">
     <value>"Очень ветренно"</value>
   </data>
-  <data name="label23.ToolTip" xml:space="preserve">
-    <value />
+  <data name="txtVeryWindyLimit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 65</value>
   </data>
-  <data name="txtVeryWindyLimit.Error" xml:space="preserve">
-    <value />
+  <data name="txtVeryWindyLimit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
-  <data name="txtVeryWindyLimit.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtVeryWindyLimit.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="txtVeryWindyLimit.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtWindyLimit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 41</value>
   </data>
-  <data name="txtWindyLimit.Error" xml:space="preserve">
-    <value />
+  <data name="txtWindyLimit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
-  <data name="txtWindyLimit.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtWindyLimit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="txtWindyLimit.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>321, 3</value>
   </data>
-  <data name="groupBox12.Error" xml:space="preserve">
-    <value />
+  <data name="groupBox12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>293, 94</value>
   </data>
-  <data name="groupBox12.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="groupBox12.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox12.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="groupBox12.Text" xml:space="preserve">
     <value>Скорость ветра</value>
   </data>
-  <data name="groupBox12.ToolTip" xml:space="preserve">
-    <value />
+  <data name="K7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>197, 16</value>
   </data>
-  <data name="K7.Error" xml:space="preserve">
-    <value />
+  <data name="K7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 13</value>
   </data>
-  <data name="K7.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="K7.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="K7.IconPadding" type="System.Int32, mscorlib">
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>167, 16</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 13</value>
+  </data>
+  <data name="label8.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 16</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 13</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>107, 16</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 13</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>77, 16</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 13</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 16</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 13</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="txtK1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 32</value>
+  </data>
+  <data name="txtK1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 20</value>
+  </data>
+  <data name="txtK1.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 16</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 13</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="K7.ToolTip" xml:space="preserve">
-    <value />
+  <data name="txtK2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>43, 32</value>
   </data>
-  <data name="label8.Error" xml:space="preserve">
-    <value />
+  <data name="txtK2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 20</value>
   </data>
-  <data name="label8.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtK2.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
-  <data name="label8.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtK7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 32</value>
   </data>
-  <data name="label8.ToolTip" xml:space="preserve">
-    <value />
+  <data name="txtK7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 20</value>
   </data>
-  <data name="label7.Error" xml:space="preserve">
-    <value />
+  <data name="txtK7.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
-  <data name="label7.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtK3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>73, 32</value>
   </data>
-  <data name="label7.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtK3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 20</value>
   </data>
-  <data name="label7.ToolTip" xml:space="preserve">
-    <value />
+  <data name="txtK3.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
-  <data name="label6.Error" xml:space="preserve">
-    <value />
+  <data name="txtK6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 32</value>
   </data>
-  <data name="label6.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtK6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 20</value>
   </data>
-  <data name="label6.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtK6.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
-  <data name="label6.ToolTip" xml:space="preserve">
-    <value />
+  <data name="txtK4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>103, 32</value>
   </data>
-  <data name="label5.Error" xml:space="preserve">
-    <value />
+  <data name="txtK4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 20</value>
   </data>
-  <data name="label5.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtK4.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
-  <data name="label5.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtK5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>133, 32</value>
   </data>
-  <data name="label5.ToolTip" xml:space="preserve">
-    <value />
+  <data name="txtK5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 20</value>
   </data>
-  <data name="label4.Error" xml:space="preserve">
-    <value />
+  <data name="txtK5.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
-  <data name="label4.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="groupBox10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 84</value>
   </data>
-  <data name="label4.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 71</value>
   </data>
-  <data name="label4.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtK1.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtK1.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="txtK1.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="label3.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label3.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label3.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="label3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtK2.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtK2.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="txtK2.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="txtK7.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtK7.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="txtK7.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="txtK3.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtK3.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="txtK3.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="txtK6.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtK6.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="txtK6.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="txtK4.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtK4.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="txtK4.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="txtK5.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtK5.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="txtK5.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="groupBox10.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="groupBox10.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="groupBox10.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox10.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="groupBox10.Text" xml:space="preserve">
     <value>Модель AAG</value>
   </data>
-  <data name="groupBox10.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label12.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label12.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label12.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 17</value>
+    <value>89, 13</value>
+  </data>
+  <data name="label12.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="label12.Text" xml:space="preserve">
     <value>Порог "влажно"</value>
-  </data>
-  <data name="label12.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cmbWetMode.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cmbWetMode.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="cmbWetMode.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="cmbWetMode.Items" xml:space="preserve">
     <value>Оба датчика</value>
@@ -1215,161 +939,137 @@
   <data name="cmbWetMode.Items2" xml:space="preserve">
     <value>RGC только</value>
   </data>
+  <data name="cmbWetMode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 61</value>
+  </data>
+  <data name="cmbWetMode.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="cmbWetMode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 21</value>
+  </data>
+  <data name="cmbWetMode.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
   <data name="cmbWetMode.Text" xml:space="preserve">
     <value>Оба датчика</value>
   </data>
-  <data name="label19.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label19.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label19.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 63</value>
   </data>
   <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 17</value>
+    <value>126, 13</value>
+  </data>
+  <data name="label19.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="label19.Text" xml:space="preserve">
     <value>Режим датчиков дождя</value>
   </data>
-  <data name="label19.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label13.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label13.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label13.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 41</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 17</value>
+    <value>83, 13</value>
+  </data>
+  <data name="label13.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="label13.Text" xml:space="preserve">
     <value>Порог "дождь"</value>
   </data>
-  <data name="label13.ToolTip" xml:space="preserve">
-    <value />
+  <data name="txtWetLimit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 16</value>
   </data>
-  <data name="txtWetLimit.Error" xml:space="preserve">
-    <value />
+  <data name="txtWetLimit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
-  <data name="txtWetLimit.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtWetLimit.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="txtWetLimit.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtRainLimit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 38</value>
   </data>
-  <data name="txtRainLimit.Error" xml:space="preserve">
-    <value />
+  <data name="txtRainLimit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
-  <data name="txtRainLimit.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtRainLimit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="txtRainLimit.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 161</value>
   </data>
-  <data name="groupBox5.Error" xml:space="preserve">
-    <value />
+  <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 99</value>
   </data>
-  <data name="groupBox5.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="groupBox5.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox5.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="groupBox5.Text" xml:space="preserve">
     <value>Датчики дождя</value>
   </data>
-  <data name="groupBox5.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label2.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label2.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label2.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 43</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 17</value>
+    <value>162, 13</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Порог "облачно"/"оч.облачно"</value>
   </data>
-  <data name="label2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label1.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label1.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label1.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 19</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 17</value>
+    <value>131, 13</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Порог "ясно"/"облачно"</value>
   </data>
-  <data name="label1.ToolTip" xml:space="preserve">
-    <value />
+  <data name="txtCloudysky.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 41</value>
   </data>
-  <data name="txtCloudysky.Error" xml:space="preserve">
-    <value />
+  <data name="txtCloudysky.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
-  <data name="txtCloudysky.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtCloudysky.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="txtCloudysky.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtClearsky.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 16</value>
   </data>
-  <data name="txtClearsky.Error" xml:space="preserve">
-    <value />
+  <data name="txtClearsky.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
-  <data name="txtClearsky.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtClearsky.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="txtClearsky.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 3</value>
   </data>
-  <data name="groupBox2.Error" xml:space="preserve">
-    <value />
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 75</value>
   </data>
-  <data name="groupBox2.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="groupBox2.IconPadding" type="System.Int32, mscorlib">
+  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="groupBox2.Text" xml:space="preserve">
     <value>Датчик облачности</value>
   </data>
-  <data name="groupBox2.ToolTip" xml:space="preserve">
-    <value />
+  <data name="tabModeling.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
   </data>
-  <data name="tabModeling.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tabModeling.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="tabModeling.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="tabModeling.Size" type="System.Drawing.Size, System.Drawing">
+    <value>619, 342</value>
   </data>
   <data name="tabModeling.Text" xml:space="preserve">
     <value>Модели</value>
-  </data>
-  <data name="tabModeling.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="SensorName.HeaderText" xml:space="preserve">
     <value>Сенсор</value>
@@ -1395,361 +1095,286 @@
   <data name="FormFieldName.HeaderText" xml:space="preserve">
     <value>TextField имя</value>
   </data>
-  <data name="dataGridSensors.Error" xml:space="preserve">
-    <value />
+  <data name="dataGridSensors.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
   </data>
-  <data name="dataGridSensors.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="dataGridSensors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>604, 266</value>
   </data>
-  <data name="dataGridSensors.IconPadding" type="System.Int32, mscorlib">
+  <data name="dataGridSensors.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="dataGridSensors.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label9.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label9.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label9.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 24</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 17</value>
+    <value>114, 13</value>
+  </data>
+  <data name="label9.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="label9.Text" xml:space="preserve">
     <value>Датчик температуры</value>
   </data>
-  <data name="label9.ToolTip" xml:space="preserve">
-    <value />
+  <data name="cmbBaseTempSensor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>133, 21</value>
   </data>
-  <data name="cmbBaseTempSensor.Error" xml:space="preserve">
-    <value />
+  <data name="cmbBaseTempSensor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
   </data>
-  <data name="cmbBaseTempSensor.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="cmbBaseTempSensor.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="cmbBaseTempSensor.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 278</value>
   </data>
-  <data name="cmbBaseTempSensor.ToolTip" xml:space="preserve">
-    <value />
+  <data name="groupBox7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 49</value>
   </data>
-  <data name="groupBox7.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="groupBox7.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="groupBox7.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox7.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="groupBox7.Text" xml:space="preserve">
     <value>Основной датчик температуры</value>
   </data>
-  <data name="groupBox7.ToolTip" xml:space="preserve">
-    <value />
+  <data name="btnResetSensorList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>471, 292</value>
   </data>
-  <data name="btnResetSensorList.Error" xml:space="preserve">
-    <value />
+  <data name="btnResetSensorList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 23</value>
   </data>
-  <data name="btnResetSensorList.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="btnResetSensorList.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="btnResetSensorList.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="btnResetSensorList.Text" xml:space="preserve">
     <value>Значения по умолчанию</value>
   </data>
-  <data name="btnReadFromSerial.Error" xml:space="preserve">
-    <value />
+  <data name="btnReadFromSerial.Location" type="System.Drawing.Point, System.Drawing">
+    <value>303, 292</value>
   </data>
-  <data name="btnReadFromSerial.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="btnReadFromSerial.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 23</value>
   </data>
-  <data name="btnReadFromSerial.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="btnReadFromSerial.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="btnReadFromSerial.Text" xml:space="preserve">
     <value>Читать из порта</value>
   </data>
-  <data name="tabSensors.Error" xml:space="preserve">
-    <value />
+  <data name="tabSensors.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
   </data>
-  <data name="tabSensors.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="tabSensors.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
-  <data name="tabSensors.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="tabSensors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>619, 342</value>
   </data>
   <data name="tabSensors.Text" xml:space="preserve">
     <value>Сенсоры</value>
   </data>
-  <data name="tabSensors.ToolTip" xml:space="preserve">
-    <value />
+  <data name="label20.Location" type="System.Drawing.Point, System.Drawing">
+    <value>205, 70</value>
   </data>
-  <data name="label20.Error" xml:space="preserve">
-    <value />
+  <data name="label20.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
-  <data name="label20.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="label20.Size" type="System.Drawing.Size, System.Drawing">
+    <value>10, 13</value>
   </data>
-  <data name="label20.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label20.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
-  <data name="label20.ToolTip" xml:space="preserve">
-    <value />
+  <data name="label22.Location" type="System.Drawing.Point, System.Drawing">
+    <value>205, 22</value>
   </data>
-  <data name="label22.Error" xml:space="preserve">
-    <value />
+  <data name="label22.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
-  <data name="label22.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="label22.Size" type="System.Drawing.Size, System.Drawing">
+    <value>10, 13</value>
   </data>
-  <data name="label22.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label22.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="label22.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label24.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label24.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label24.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 46</value>
   </data>
   <data name="label24.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 17</value>
+    <value>146, 13</value>
+  </data>
+  <data name="label24.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="label24.Text" xml:space="preserve">
     <value>Пауза между включениями</value>
   </data>
-  <data name="label24.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label18.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label18.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label18.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 70</value>
   </data>
   <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 17</value>
+    <value>91, 13</value>
+  </data>
+  <data name="label18.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="label18.Text" xml:space="preserve">
     <value>Порог снижения</value>
   </data>
-  <data name="label18.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label25.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label25.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label25.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label25.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 22</value>
   </data>
   <data name="label25.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 17</value>
+    <value>96, 13</value>
+  </data>
+  <data name="label25.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="label25.Text" xml:space="preserve">
     <value>Порог включения</value>
   </data>
-  <data name="label25.ToolTip" xml:space="preserve">
-    <value />
+  <data name="txtCSHeaterPauseTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 43</value>
   </data>
-  <data name="txtCSHeaterPauseTime.Error" xml:space="preserve">
-    <value />
+  <data name="txtCSHeaterPauseTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
-  <data name="txtCSHeaterPauseTime.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtCSHeaterPauseTime.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="txtCSHeaterPauseTime.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtCSDecreasingMaxDelta.Location" type="System.Drawing.Point, System.Drawing">
+    <value>215, 67</value>
   </data>
-  <data name="txtCSDecreasingMaxDelta.Error" xml:space="preserve">
-    <value />
+  <data name="txtCSDecreasingMaxDelta.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
-  <data name="txtCSDecreasingMaxDelta.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtCSDecreasingMaxDelta.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
-  <data name="txtCSDecreasingMaxDelta.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtCSHeatingMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>215, 19</value>
   </data>
-  <data name="txtCSHeatingMax.Error" xml:space="preserve">
-    <value />
+  <data name="txtCSHeatingMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
-  <data name="txtCSHeatingMax.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtCSHeatingMax.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="txtCSHeatingMax.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtCSDecreasingMinDelta.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 67</value>
   </data>
-  <data name="txtCSDecreasingMinDelta.Error" xml:space="preserve">
-    <value />
+  <data name="txtCSDecreasingMinDelta.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
-  <data name="txtCSDecreasingMinDelta.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtCSDecreasingMinDelta.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
-  <data name="txtCSDecreasingMinDelta.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtCSHeatingMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 19</value>
   </data>
-  <data name="txtCSHeatingMin.Error" xml:space="preserve">
-    <value />
+  <data name="txtCSHeatingMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
-  <data name="txtCSHeatingMin.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtCSHeatingMin.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="txtCSHeatingMin.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 100</value>
   </data>
-  <data name="groupBox9.Error" xml:space="preserve">
-    <value />
+  <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 100</value>
   </data>
-  <data name="groupBox9.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="groupBox9.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox9.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="groupBox9.Text" xml:space="preserve">
     <value>Автообогрев датчика облачности</value>
   </data>
-  <data name="groupBox9.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label11.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label11.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label11.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 17</value>
+    <value>144, 13</value>
+  </data>
+  <data name="label11.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="label11.Text" xml:space="preserve">
     <value>Макс. разница температур</value>
   </data>
-  <data name="label11.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label17.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label17.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label17.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 67</value>
   </data>
   <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 17</value>
+    <value>134, 13</value>
+  </data>
+  <data name="label17.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="label17.Text" xml:space="preserve">
     <value>Порог включения по Wet</value>
   </data>
-  <data name="label17.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label16.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label16.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="label16.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 43</value>
   </data>
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 17</value>
+    <value>110, 13</value>
+  </data>
+  <data name="label16.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="label16.Text" xml:space="preserve">
     <value>Макс. длительность</value>
   </data>
-  <data name="label16.ToolTip" xml:space="preserve">
-    <value />
+  <data name="txtHeaterWetThreshold.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 65</value>
   </data>
-  <data name="txtHeaterWetThreshold.Error" xml:space="preserve">
-    <value />
+  <data name="txtHeaterWetThreshold.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
-  <data name="txtHeaterWetThreshold.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtHeaterWetThreshold.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="txtHeaterWetThreshold.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtHeaterMaxTemp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 16</value>
   </data>
-  <data name="txtHeaterMaxTemp.Error" xml:space="preserve">
-    <value />
+  <data name="txtHeaterMaxTemp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
-  <data name="txtHeaterMaxTemp.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtHeaterMaxTemp.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="txtHeaterMaxTemp.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtHeaterMaxDuration.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 41</value>
   </data>
-  <data name="txtHeaterMaxDuration.Error" xml:space="preserve">
-    <value />
+  <data name="txtHeaterMaxDuration.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
-  <data name="txtHeaterMaxDuration.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtHeaterMaxDuration.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="txtHeaterMaxDuration.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 3</value>
   </data>
-  <data name="groupBox4.Error" xml:space="preserve">
-    <value />
+  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 91</value>
   </data>
-  <data name="groupBox4.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="groupBox4.IconPadding" type="System.Int32, mscorlib">
+  <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="groupBox4.Text" xml:space="preserve">
     <value>Настройки обогрева</value>
   </data>
-  <data name="groupBox4.ToolTip" xml:space="preserve">
-    <value />
+  <data name="tabHeater.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
   </data>
-  <data name="tabHeater.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tabHeater.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="tabHeater.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="tabHeater.Size" type="System.Drawing.Size, System.Drawing">
+    <value>619, 342</value>
   </data>
   <data name="tabHeater.Text" xml:space="preserve">
     <value>Обогрев</value>
   </data>
-  <data name="tabHeater.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tabControl1.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tabControl1.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
-  <data name="tabControl1.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="tabControl1.ToolTip" xml:space="preserve">
-    <value />
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>627, 368</value>
   </data>
 </root>
