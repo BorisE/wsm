@@ -20,7 +20,7 @@ namespace WeatherStation
         public static UInt32 _MAX_MODIFICATION_TIMEOUT = 100;
 
         /// <summary>
-        /// Open Serial File Emulation
+        /// Open Serial File Emulation. For succes file must exists
         /// </summary>
         /// <returns>true if it can be opened</returns>
         public static bool Open()
@@ -30,16 +30,7 @@ namespace WeatherStation
 
             if (File.Exists(SerialFileNameIn))
             {
-
-                if (checkFileModification())
-                {
-                    retIsOpened = true;
-                }
-                else
-                {
-                    retIsOpened = false;
-                }
-    
+                retIsOpened = true;
             }
             else
             {
