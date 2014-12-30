@@ -117,41 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>426, 374</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnOk.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="btnOk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 24</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>536, 374</value>
-  </data>
-  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 24</value>
+  <data name="btnCancel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>Отмена</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>627, 405</value>
-  </data>
-  <data name="btnReset.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 374</value>
-  </data>
-  <data name="btnReset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 24</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnReset.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="btnReset.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="btnReset.Text" xml:space="preserve">
     <value>По умолчанию</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAEBAAAAAAAABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
@@ -176,192 +158,119 @@
         AAD/nwAAv30AAA==
 </value>
   </data>
-  <data name="label35.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 124</value>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="label35.Size" type="System.Drawing.Size, System.Drawing">
-    <value>18, 13</value>
-  </data>
-  <data name="label34.Location" type="System.Drawing.Point, System.Drawing">
-    <value>230, 150</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label34.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+  <data name="label35.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label34.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 13</value>
+    <value>34, 17</value>
   </data>
   <data name="label34.Text" xml:space="preserve">
     <value>сек.</value>
   </data>
-  <data name="label31.Location" type="System.Drawing.Point, System.Drawing">
-    <value>230, 67</value>
-  </data>
-  <data name="label31.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
   <data name="label31.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 13</value>
+    <value>34, 17</value>
   </data>
   <data name="label31.Text" xml:space="preserve">
     <value>сек.</value>
   </data>
-  <data name="label33.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 150</value>
-  </data>
-  <data name="label33.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
   <data name="label33.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 13</value>
+    <value>141, 17</value>
   </data>
   <data name="label33.Text" xml:space="preserve">
     <value>Отправлять каждые</value>
   </data>
-  <data name="label30.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 67</value>
-  </data>
-  <data name="label30.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
   <data name="label30.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 13</value>
+    <value>141, 17</value>
   </data>
   <data name="label30.Text" xml:space="preserve">
     <value>Отправлять каждые</value>
   </data>
-  <data name="txtRefreshNarodmonInterval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 147</value>
+  <data name="txtRefreshNarodmonInterval.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtRefreshNarodmonInterval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 20</value>
-  </data>
-  <data name="btnGenerateMac.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 119</value>
-  </data>
-  <data name="btnGenerateMac.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 23</value>
+  <data name="btnGenerateMac.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="btnGenerateMac.Text" xml:space="preserve">
     <value>Генер.</value>
   </data>
-  <data name="txtRefreshWebDataInterval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 64</value>
+  <data name="txtRefreshWebDataInterval.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtRefreshWebDataInterval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 20</value>
+  <data name="txtNarodmonMAC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtNarodmonMAC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>34, 122</value>
+  <data name="txtWebDataURL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtNarodmonMAC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 20</value>
-  </data>
-  <data name="txtWebDataURL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 38</value>
-  </data>
-  <data name="txtWebDataURL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 20</value>
-  </data>
-  <data name="chkNarodMon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 99</value>
+  <data name="chkNarodMon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="chkNarodMon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 17</value>
+    <value>239, 21</value>
   </data>
   <data name="chkNarodMon.Text" xml:space="preserve">
     <value>Отправлять на NARODMON.RU</value>
   </data>
-  <data name="chkWebData.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 20</value>
+  <data name="chkWebData.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="chkWebData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 17</value>
+    <value>262, 21</value>
   </data>
   <data name="chkWebData.Text" xml:space="preserve">
     <value>Отправлять данные на web сервер</value>
   </data>
-  <data name="groupBox11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>321, 144</value>
+  <data name="groupBox11.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="groupBox11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>290, 189</value>
-  </data>
-  <data name="groupBox11.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox11.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox11.Text" xml:space="preserve">
     <value>Интернет</value>
   </data>
-  <data name="label38.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 109</value>
-  </data>
-  <data name="label38.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
-  <data name="label38.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 13</value>
-  </data>
-  <data name="cmbLang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>76, 106</value>
-  </data>
-  <data name="cmbLang.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="cmbLang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 21</value>
-  </data>
-  <data name="chkShowDebugPannels.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 73</value>
+  <data name="chkShowDebugPannels.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="chkShowDebugPannels.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 17</value>
+    <value>264, 21</value>
   </data>
   <data name="chkShowDebugPannels.Text" xml:space="preserve">
     <value>Показывать элементы для отладки</value>
   </data>
-  <data name="chkTrayIcon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 46</value>
+  <data name="chkTrayIcon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="chkTrayIcon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 17</value>
+    <value>188, 21</value>
   </data>
   <data name="chkTrayIcon.Text" xml:space="preserve">
     <value>Минимизировать в трей</value>
   </data>
-  <data name="chkMinMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 21</value>
+  <data name="chkMinMode.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="chkMinMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>254, 17</value>
+    <value>324, 21</value>
   </data>
   <data name="chkMinMode.Text" xml:space="preserve">
     <value>Переключение в минималистический режим</value>
   </data>
-  <data name="groupBox8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>321, 3</value>
+  <data name="groupBox8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="groupBox8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>290, 134</value>
-  </data>
-  <data name="groupBox8.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="groupBox8.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox8.Text" xml:space="preserve">
     <value>Интерфейс</value>
   </data>
-  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 47</value>
-  </data>
-  <data name="label10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 13</value>
-  </data>
-  <data name="label10.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>97, 17</value>
   </data>
   <data name="label10.Text" xml:space="preserve">
     <value>Детализация</value>
@@ -375,17 +284,8 @@
   <data name="cmbLogLevel.Items2" xml:space="preserve">
     <value>3 - Отладка</value>
   </data>
-  <data name="cmbLogLevel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>112, 41</value>
-  </data>
-  <data name="cmbLogLevel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
   <data name="cmbLogLevel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 21</value>
-  </data>
-  <data name="cmbLogLevel.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>207, 24</value>
   </data>
   <data name="cmbLogLevel.Text" xml:space="preserve">
     <value>1 - Основные сообщения</value>
@@ -393,539 +293,281 @@
   <data name="cmbLogLevel.ToolTip" xml:space="preserve">
     <value>Уровень детализации логов. Рекомендуется 1 или если все идет не так, то второй. Третий скорее для разработчика</value>
   </data>
-  <data name="btnBoltwoodPathBrowse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>274, 114</value>
+  <data name="btnBoltwoodPathBrowse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="btnBoltwoodPathBrowse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 20</value>
+  <data name="btnSerialLogPathBrowse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="btnBoltwoodPathBrowse.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="btnCSVPathBrowse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="btnSerialLogPathBrowse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>274, 67</value>
+  <data name="btnLogPathBrowse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="btnSerialLogPathBrowse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 20</value>
+  <data name="txtBoltwoodFileLocation.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="btnSerialLogPathBrowse.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+  <data name="txtLogFileLocation.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="btnCSVPathBrowse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>274, 89</value>
+  <data name="txtSerialLogFileLocation.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="btnCSVPathBrowse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 20</value>
+  <data name="txtCSVFileLocation.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="btnCSVPathBrowse.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="btnLogPathBrowse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>274, 19</value>
-  </data>
-  <data name="btnLogPathBrowse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 20</value>
-  </data>
-  <data name="btnLogPathBrowse.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="txtBoltwoodFileLocation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>112, 115</value>
-  </data>
-  <data name="txtBoltwoodFileLocation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 20</value>
-  </data>
-  <data name="txtBoltwoodFileLocation.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="txtLogFileLocation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>112, 20</value>
-  </data>
-  <data name="txtLogFileLocation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 20</value>
-  </data>
-  <data name="txtLogFileLocation.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="txtSerialLogFileLocation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>112, 67</value>
-  </data>
-  <data name="txtSerialLogFileLocation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 20</value>
-  </data>
-  <data name="txtSerialLogFileLocation.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="txtCSVFileLocation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>112, 90</value>
-  </data>
-  <data name="txtCSVFileLocation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 20</value>
-  </data>
-  <data name="txtCSVFileLocation.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="chkBoltwoodFileFlag.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 117</value>
+  <data name="chkBoltwoodFileFlag.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="chkBoltwoodFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 17</value>
-  </data>
-  <data name="chkBoltwoodFileFlag.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>140, 21</value>
   </data>
   <data name="chkBoltwoodFileFlag.Text" xml:space="preserve">
     <value>Файл состояния</value>
   </data>
-  <data name="chkSerialLogFileFlag.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 70</value>
+  <data name="chkSerialLogFileFlag.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="chkSerialLogFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 17</value>
-  </data>
-  <data name="chkSerialLogFileFlag.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>96, 21</value>
   </data>
   <data name="chkSerialLogFileFlag.Text" xml:space="preserve">
     <value>Лог порта</value>
   </data>
-  <data name="chkCSVFileFlag.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 93</value>
+  <data name="chkCSVFileFlag.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="chkCSVFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 17</value>
-  </data>
-  <data name="chkCSVFileFlag.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>105, 21</value>
   </data>
   <data name="chkCSVFileFlag.Text" xml:space="preserve">
     <value>Лог данных</value>
   </data>
-  <data name="chkLogFileFlag.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 22</value>
+  <data name="chkLogFileFlag.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="chkLogFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 17</value>
-  </data>
-  <data name="chkLogFileFlag.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>130, 21</value>
   </data>
   <data name="chkLogFileFlag.Text" xml:space="preserve">
     <value>Лог программы</value>
   </data>
-  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 110</value>
+  <data name="groupBox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 150</value>
-  </data>
-  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="groupBox3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox3.Text" xml:space="preserve">
     <value>Логи</value>
   </data>
-  <data name="label32.Location" type="System.Drawing.Point, System.Drawing">
-    <value>205, 19</value>
-  </data>
-  <data name="label32.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
   <data name="label32.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 13</value>
+    <value>75, 17</value>
   </data>
   <data name="label32.Text" xml:space="preserve">
     <value>миллисек.</value>
   </data>
-  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
+  <data name="label14.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 13</value>
+    <value>155, 17</value>
   </data>
   <data name="label14.Text" xml:space="preserve">
     <value>Интервал обновления</value>
   </data>
-  <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 41</value>
+  <data name="label15.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 13</value>
+    <value>162, 17</value>
   </data>
   <data name="label15.Text" xml:space="preserve">
     <value>Макс.точек на графике</value>
   </data>
-  <data name="txtRefreshInterval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 16</value>
+  <data name="txtRefreshInterval.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtRefreshInterval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
+  <data name="txtMaxPoints.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtMaxPoints.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 38</value>
+  <data name="groupBox6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtMaxPoints.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
-  </data>
-  <data name="groupBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 263</value>
-  </data>
-  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 70</value>
-  </data>
-  <data name="groupBox6.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="groupBox6.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox6.Text" xml:space="preserve">
     <value>Производительность</value>
   </data>
-  <data name="label37.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 74</value>
-  </data>
-  <data name="label37.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
   <data name="label37.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 13</value>
+    <value>66, 17</value>
   </data>
   <data name="label37.Text" xml:space="preserve">
     <value>Писать в</value>
   </data>
-  <data name="label36.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 47</value>
-  </data>
-  <data name="label36.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
   <data name="label36.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 13</value>
+    <value>74, 17</value>
   </data>
   <data name="label36.Text" xml:space="preserve">
     <value>Читать из</value>
   </data>
-  <data name="txtSerialFileOut.Location" type="System.Drawing.Point, System.Drawing">
-    <value>95, 72</value>
+  <data name="txtSerialFileOut.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtSerialFileOut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 20</value>
-  </data>
-  <data name="txtSerialFileIn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>95, 45</value>
-  </data>
-  <data name="txtSerialFileIn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 20</value>
+  <data name="txtSerialFileIn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="txtSerialFileIn.ToolTip" xml:space="preserve">
     <value>Путь к файлу в режиме Serial File Emulation, из которого программа будет читать данные. Недоступно в нормально режиме</value>
   </data>
-  <data name="chkWatchdog.Location" type="System.Drawing.Point, System.Drawing">
-    <value>95, 19</value>
+  <data name="chkWatchdog.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="chkWatchdog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 17</value>
+    <value>210, 21</value>
   </data>
   <data name="chkWatchdog.Text" xml:space="preserve">
     <value>Отслеживание соединения</value>
   </data>
-  <data name="btnOpenWriteToFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>274, 71</value>
+  <data name="btnOpenWriteToFile.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="btnOpenWriteToFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 20</value>
+  <data name="btnOpenReadFromFile.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="btnOpenReadFromFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>274, 44</value>
+  <data name="cmbPortList.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="btnOpenReadFromFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 20</value>
+  <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="cmbPortList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 19</value>
-  </data>
-  <data name="cmbPortList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 21</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 3</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 101</value>
-  </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="groupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox1.Text" xml:space="preserve">
     <value>COM порт</value>
   </data>
-  <data name="tabGeneral.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabGeneral.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabGeneral.Size" type="System.Drawing.Size, System.Drawing">
-    <value>619, 342</value>
+  <data name="tabGeneral.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="tabGeneral.Text" xml:space="preserve">
     <value>Общие</value>
   </data>
-  <data name="label28.Location" type="System.Drawing.Point, System.Drawing">
-    <value>210, 67</value>
-  </data>
-  <data name="label28.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
   <data name="label28.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 13</value>
-  </data>
-  <data name="label28.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>28, 17</value>
   </data>
   <data name="label28.Text" xml:space="preserve">
     <value>м/с</value>
   </data>
-  <data name="label29.Location" type="System.Drawing.Point, System.Drawing">
-    <value>210, 43</value>
-  </data>
-  <data name="label29.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
   <data name="label29.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 13</value>
+    <value>28, 17</value>
   </data>
   <data name="label29.Text" xml:space="preserve">
     <value>м/с</value>
   </data>
-  <data name="label27.Location" type="System.Drawing.Point, System.Drawing">
-    <value>210, 43</value>
-  </data>
-  <data name="label27.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
-  <data name="label27.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 13</value>
-  </data>
-  <data name="label26.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 43</value>
+  <data name="label26.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label26.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 13</value>
-  </data>
-  <data name="label26.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>82, 17</value>
   </data>
   <data name="label26.Text" xml:space="preserve">
     <value>"Ветренно"</value>
   </data>
-  <data name="label21.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 19</value>
+  <data name="label21.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label21.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 13</value>
-  </data>
-  <data name="label21.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>105, 17</value>
   </data>
   <data name="label21.Text" xml:space="preserve">
     <value>Нулевой порог</value>
   </data>
-  <data name="txtWSpeedZero.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 16</value>
+  <data name="txtWSpeedZero.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtWSpeedZero.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
-  </data>
-  <data name="txtWSpeedZero.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="label23.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 67</value>
+  <data name="label23.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label23.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 13</value>
-  </data>
-  <data name="label23.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>126, 17</value>
   </data>
   <data name="label23.Text" xml:space="preserve">
     <value>"Очень ветренно"</value>
   </data>
-  <data name="txtVeryWindyLimit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 65</value>
+  <data name="txtVeryWindyLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtVeryWindyLimit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
+  <data name="txtWindyLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtVeryWindyLimit.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="groupBox12.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtWindyLimit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 41</value>
-  </data>
-  <data name="txtWindyLimit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
-  </data>
-  <data name="txtWindyLimit.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="groupBox12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>321, 3</value>
-  </data>
-  <data name="groupBox12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>293, 94</value>
-  </data>
-  <data name="groupBox12.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="groupBox12.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox12.Text" xml:space="preserve">
     <value>Скорость ветра</value>
   </data>
-  <data name="K7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 16</value>
+  <data name="K7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
-  <data name="K7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 13</value>
+  <data name="label8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
-  <data name="K7.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
-  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>167, 16</value>
+  <data name="label6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 13</value>
+  <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
-  <data name="label8.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 16</value>
+  <data name="txtK1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 13</value>
+  <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
-  <data name="label7.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="txtK2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 16</value>
+  <data name="txtK7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 13</value>
+  <data name="txtK3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="label6.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="txtK6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>77, 16</value>
+  <data name="txtK4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 13</value>
+  <data name="txtK5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="groupBox10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>47, 16</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 13</value>
-  </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="txtK1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 32</value>
-  </data>
-  <data name="txtK1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 20</value>
-  </data>
-  <data name="txtK1.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 16</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 13</value>
-  </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="txtK2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>43, 32</value>
-  </data>
-  <data name="txtK2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 20</value>
-  </data>
-  <data name="txtK2.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="txtK7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 32</value>
-  </data>
-  <data name="txtK7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 20</value>
-  </data>
-  <data name="txtK7.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="txtK3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>73, 32</value>
-  </data>
-  <data name="txtK3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 20</value>
-  </data>
-  <data name="txtK3.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="txtK6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>163, 32</value>
-  </data>
-  <data name="txtK6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 20</value>
-  </data>
-  <data name="txtK6.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="txtK4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 32</value>
-  </data>
-  <data name="txtK4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 20</value>
-  </data>
-  <data name="txtK4.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="txtK5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 32</value>
-  </data>
-  <data name="txtK5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 20</value>
-  </data>
-  <data name="txtK5.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="groupBox10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 84</value>
-  </data>
-  <data name="groupBox10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 71</value>
-  </data>
-  <data name="groupBox10.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="groupBox10.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox10.Text" xml:space="preserve">
     <value>Модель AAG</value>
   </data>
-  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
+  <data name="label12.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 13</value>
-  </data>
-  <data name="label12.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>109, 17</value>
   </data>
   <data name="label12.Text" xml:space="preserve">
     <value>Порог "влажно"</value>
@@ -939,134 +581,77 @@
   <data name="cmbWetMode.Items2" xml:space="preserve">
     <value>RGC только</value>
   </data>
-  <data name="cmbWetMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 61</value>
-  </data>
-  <data name="cmbWetMode.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="cmbWetMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 21</value>
-  </data>
-  <data name="cmbWetMode.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
   <data name="cmbWetMode.Text" xml:space="preserve">
     <value>Оба датчика</value>
   </data>
-  <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 63</value>
+  <data name="label19.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 13</value>
-  </data>
-  <data name="label19.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>161, 17</value>
   </data>
   <data name="label19.Text" xml:space="preserve">
     <value>Режим датчиков дождя</value>
   </data>
-  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 41</value>
+  <data name="label13.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 13</value>
-  </data>
-  <data name="label13.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>101, 17</value>
   </data>
   <data name="label13.Text" xml:space="preserve">
     <value>Порог "дождь"</value>
   </data>
-  <data name="txtWetLimit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 16</value>
+  <data name="txtWetLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtWetLimit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
+  <data name="txtRainLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtWetLimit.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="groupBox5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtRainLimit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 38</value>
-  </data>
-  <data name="txtRainLimit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
-  </data>
-  <data name="txtRainLimit.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 161</value>
-  </data>
-  <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 99</value>
-  </data>
-  <data name="groupBox5.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="groupBox5.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox5.Text" xml:space="preserve">
     <value>Датчики дождя</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 43</value>
+  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 13</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>207, 17</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Порог "облачно"/"оч.облачно"</value>
   </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 19</value>
+  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 13</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>162, 17</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Порог "ясно"/"облачно"</value>
   </data>
-  <data name="txtCloudysky.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 41</value>
+  <data name="txtCloudysky.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtCloudysky.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
+  <data name="txtClearsky.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtCloudysky.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="groupBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtClearsky.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 16</value>
-  </data>
-  <data name="txtClearsky.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
-  </data>
-  <data name="txtClearsky.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 3</value>
-  </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 75</value>
-  </data>
-  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox2.Text" xml:space="preserve">
     <value>Датчик облачности</value>
   </data>
-  <data name="tabModeling.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabModeling.Size" type="System.Drawing.Size, System.Drawing">
-    <value>619, 342</value>
+  <data name="tabModeling.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="tabModeling.Text" xml:space="preserve">
     <value>Модели</value>
@@ -1095,286 +680,151 @@
   <data name="FormFieldName.HeaderText" xml:space="preserve">
     <value>TextField имя</value>
   </data>
-  <data name="dataGridSensors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 6</value>
+  <data name="dataGridSensors.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="dataGridSensors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>604, 266</value>
-  </data>
-  <data name="dataGridSensors.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 24</value>
+  <data name="label9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 13</value>
-  </data>
-  <data name="label9.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>149, 17</value>
   </data>
   <data name="label9.Text" xml:space="preserve">
     <value>Датчик температуры</value>
   </data>
-  <data name="cmbBaseTempSensor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 21</value>
+  <data name="cmbBaseTempSensor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="cmbBaseTempSensor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 21</value>
+  <data name="groupBox7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="cmbBaseTempSensor.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="groupBox7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 278</value>
-  </data>
-  <data name="groupBox7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 49</value>
-  </data>
-  <data name="groupBox7.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="groupBox7.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox7.Text" xml:space="preserve">
     <value>Основной датчик температуры</value>
   </data>
-  <data name="btnResetSensorList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>471, 292</value>
-  </data>
-  <data name="btnResetSensorList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 23</value>
-  </data>
-  <data name="btnResetSensorList.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="btnResetSensorList.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="btnResetSensorList.Text" xml:space="preserve">
     <value>Значения по умолчанию</value>
   </data>
-  <data name="btnReadFromSerial.Location" type="System.Drawing.Point, System.Drawing">
-    <value>303, 292</value>
-  </data>
-  <data name="btnReadFromSerial.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 23</value>
-  </data>
-  <data name="btnReadFromSerial.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="btnReadFromSerial.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="btnReadFromSerial.Text" xml:space="preserve">
     <value>Читать из порта</value>
   </data>
-  <data name="tabSensors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabSensors.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabSensors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>619, 342</value>
+  <data name="tabSensors.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="tabSensors.Text" xml:space="preserve">
     <value>Сенсоры</value>
   </data>
-  <data name="label20.Location" type="System.Drawing.Point, System.Drawing">
-    <value>205, 70</value>
-  </data>
-  <data name="label20.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
-  <data name="label20.Size" type="System.Drawing.Size, System.Drawing">
-    <value>10, 13</value>
-  </data>
-  <data name="label20.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="label22.Location" type="System.Drawing.Point, System.Drawing">
-    <value>205, 22</value>
-  </data>
-  <data name="label22.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
-  <data name="label22.Size" type="System.Drawing.Size, System.Drawing">
-    <value>10, 13</value>
-  </data>
-  <data name="label22.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="label24.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 46</value>
+  <data name="label24.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label24.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 13</value>
-  </data>
-  <data name="label24.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>186, 17</value>
   </data>
   <data name="label24.Text" xml:space="preserve">
     <value>Пауза между включениями</value>
   </data>
-  <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 70</value>
+  <data name="label18.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 13</value>
-  </data>
-  <data name="label18.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>115, 17</value>
   </data>
   <data name="label18.Text" xml:space="preserve">
     <value>Порог снижения</value>
   </data>
-  <data name="label25.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 22</value>
+  <data name="label25.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label25.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 13</value>
-  </data>
-  <data name="label25.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>123, 17</value>
   </data>
   <data name="label25.Text" xml:space="preserve">
     <value>Порог включения</value>
   </data>
-  <data name="txtCSHeaterPauseTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 43</value>
+  <data name="txtCSHeaterPauseTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtCSHeaterPauseTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
+  <data name="txtCSDecreasingMaxDelta.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtCSHeaterPauseTime.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="txtCSHeatingMax.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtCSDecreasingMaxDelta.Location" type="System.Drawing.Point, System.Drawing">
-    <value>215, 67</value>
+  <data name="txtCSDecreasingMinDelta.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtCSDecreasingMaxDelta.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
+  <data name="txtCSHeatingMin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtCSDecreasingMaxDelta.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+  <data name="groupBox9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtCSHeatingMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>215, 19</value>
-  </data>
-  <data name="txtCSHeatingMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
-  </data>
-  <data name="txtCSHeatingMax.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="txtCSDecreasingMinDelta.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 67</value>
-  </data>
-  <data name="txtCSDecreasingMinDelta.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
-  </data>
-  <data name="txtCSDecreasingMinDelta.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="txtCSHeatingMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 19</value>
-  </data>
-  <data name="txtCSHeatingMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
-  </data>
-  <data name="txtCSHeatingMin.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="groupBox9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 100</value>
-  </data>
-  <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 100</value>
-  </data>
-  <data name="groupBox9.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="groupBox9.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox9.Text" xml:space="preserve">
     <value>Автообогрев датчика облачности</value>
   </data>
-  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
+  <data name="label11.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 13</value>
-  </data>
-  <data name="label11.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>186, 17</value>
   </data>
   <data name="label11.Text" xml:space="preserve">
     <value>Макс. разница температур</value>
   </data>
-  <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 67</value>
+  <data name="label17.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 13</value>
-  </data>
-  <data name="label17.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>172, 17</value>
   </data>
   <data name="label17.Text" xml:space="preserve">
     <value>Порог включения по Wet</value>
   </data>
-  <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 43</value>
+  <data name="label16.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 13</value>
-  </data>
-  <data name="label16.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>140, 17</value>
   </data>
   <data name="label16.Text" xml:space="preserve">
     <value>Макс. длительность</value>
   </data>
-  <data name="txtHeaterWetThreshold.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 65</value>
+  <data name="txtHeaterWetThreshold.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtHeaterWetThreshold.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
+  <data name="txtHeaterMaxTemp.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtHeaterWetThreshold.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="txtHeaterMaxDuration.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtHeaterMaxTemp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 16</value>
+  <data name="groupBox4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="txtHeaterMaxTemp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
-  </data>
-  <data name="txtHeaterMaxTemp.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="txtHeaterMaxDuration.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 41</value>
-  </data>
-  <data name="txtHeaterMaxDuration.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
-  </data>
-  <data name="txtHeaterMaxDuration.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 3</value>
-  </data>
-  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 91</value>
-  </data>
-  <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="groupBox4.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox4.Text" xml:space="preserve">
     <value>Настройки обогрева</value>
   </data>
-  <data name="tabHeater.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabHeater.Size" type="System.Drawing.Size, System.Drawing">
-    <value>619, 342</value>
+  <data name="tabHeater.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="tabHeater.Text" xml:space="preserve">
     <value>Обогрев</value>
   </data>
-  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>627, 368</value>
+  <data name="tabControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
 </root>

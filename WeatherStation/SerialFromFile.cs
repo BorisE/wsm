@@ -96,6 +96,40 @@ namespace WeatherStation
         }
 
         /// <summary>
+        /// Seconds passed from last file modification
+        /// </summary>
+        /// <returns></returns>
+        public static UInt32 SinceLastModification()
+        {
+            Logging.Log("SinceLastModification enter", 3);
+            UInt32 SinceLastModification_sec = UInt32.MaxValue;
+            try
+            {
+                if (File.Exists(SerialFileNameIn))
+                {
+                    // Get the creation time.
+                    DateTime dt = File.GetLastWriteTime(SerialFileNameIn);
+
+                    TimeSpan SinceLastModification = DateTime.Now.Subtract(dt);
+                    SinceLastModification_sec = (UInt32)Math.Round(SinceLastModification.TotalSeconds, 0);
+                }
+                else
+                {
+                    SinceLastModification_sec = UInt32.MaxValue;
+                    Logging.Log("Serial file emulation SinceLastModification error - file doesn't exist");
+                }
+            }
+            catch (Exception ex)
+            {
+                Logging.Log("SinceLastModification error. " + "IOException source: " + ex.Data + " Mess: " + ex.Message);
+            }
+
+            Logging.Log("SinceLastModification exit", 3);
+            return SinceLastModification_sec;
+        }
+
+
+        /// <summary>
         /// Check file modification date
         /// </summary>
         /// <returns></returns>
@@ -108,11 +142,7 @@ namespace WeatherStation
             {
                 if (File.Exists(SerialFileNameIn))
                 {
-                    // Get the creation time.
-                    DateTime dt = File.GetLastWriteTime(SerialFileNameIn);
-
-                    TimeSpan SinceLastModification = DateTime.Now.Subtract(dt);
-                    UInt32 SinceLastModification_sec = (UInt32)Math.Round(SinceLastModification.TotalSeconds, 0);
+                    UInt32 SinceLastModification_sec = SinceLastModification();
 
                     if (SinceLastModification_sec < _MAX_MODIFICATION_TIMEOUT)
                     {

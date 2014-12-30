@@ -882,8 +882,17 @@ namespace WeatherStation
         /// </summary>        
         public UInt32 SinceLastDataReceived()
         {
-            TimeSpan SinceLastRead = DateTime.Now.Subtract(LastTimeDataRead);
-            UInt32 SinceLastRead_sec = (UInt32)Math.Round(SinceLastRead.TotalSeconds, 0);
+            UInt32 SinceLastRead_sec = UInt32.MaxValue;
+
+            if (UseFileEmulation)
+            {
+                SinceLastRead_sec = SerialFromFile.SinceLastModification();
+            }
+            else
+            {
+                TimeSpan SinceLastRead = DateTime.Now.Subtract(LastTimeDataRead);
+                SinceLastRead_sec = (UInt32)Math.Round(SinceLastRead.TotalSeconds, 0);
+            }
 
             return SinceLastRead_sec;
         }

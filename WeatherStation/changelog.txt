@@ -2,6 +2,9 @@ WeatherStation Project
 (c) 2013-2014 by Emchenko Boris
 
 Change log
+1.6.45 (2014-12-30)
+- bug fixes found by Dimaz
+
 1.6.44 (2014-12-29)
 - minor changes
 - tab control order for settings normalized
