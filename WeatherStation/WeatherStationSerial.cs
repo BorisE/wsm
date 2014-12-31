@@ -946,14 +946,16 @@ namespace WeatherStation
         /// <summary>
         /// External method for parsing buffer data and then make all needed calculations
         /// </summary>        
-        public void LOOP_CYCLE()
+        public void LOOP_CYCLE(out string curSerBuffer)
         {
             //0. If Serial file emulation, read file
             if (UseFileEmulation && !UseSimulation) SerialBuffer = SerialFromFile.Read();
             
             //1. PARSE BUFFER
             ParseBufferData();
-            //Clear buffer after parsing
+            
+            //Get out and clear buffer after parsing
+            curSerBuffer = SerialBuffer;
             SerialBuffer = "";
 
             //2. MAKE CALCULATIONS

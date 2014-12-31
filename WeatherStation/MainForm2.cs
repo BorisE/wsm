@@ -16,6 +16,8 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Resources;
 using System.Globalization;
+using System.Web;
+using System.Collections.Specialized;
 
 public enum FormAppearanceMode { MODE_MIN, MODE_MAX };
 
@@ -130,11 +132,9 @@ namespace WeatherStation
             // Set cursor selection color of X axis cursor
             chart1.ChartAreas[0].CursorX.SelectionColor = Color.Yellow;
 
-            // TEST COMMAND LINE PARAMETERS
+            // TEST Usual command LINE PARAMETERS
             string[] args = Environment.GetCommandLineArgs();
-
             bool autostart = false;
-
             for (int i = 1; i < args.Length; i++)
             {
                 if (args[i].IndexOf("start") >= 0)
@@ -145,12 +145,40 @@ namespace WeatherStation
                 {
                     //RESET COM PORT NAME
                     Hardware.PortName = args[i].ToLower();
+                    Logging.Log("Override serial port name to ["+args[i].ToLower()+"]");
                 }
             }
 
+            // ClickOnce parameters pass algorithm
+            try
+            {
+                string cmdLine = AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData[0];
+                if (cmdLine != "")
+                {
+                    MessageBox.Show(cmdLine);
+                    NameValueCollection nvc = HttpUtility.ParseQueryString(cmdLine);
+                    string[] theKeys = nvc.AllKeys;
+                    foreach (string theKey in theKeys)
+                    {
+                        if (theKey.IndexOf("start") >= 0)
+                        {
+                            //AUTOSTART MONITORING
+                            autostart = true;
+                        }
+                        else if (theKey.ToLower().Substring(0, 3) == "com")
+                        {
+                            //RESET COM PORT NAME
+                            Hardware.PortName = theKey.ToLower();
+                            Logging.Log("Override serial port name to [" + theKey.ToLower() + "]");
+                        }
+                    }
+                }
+            }
+            catch { }
+
+            //AUTOSTART MONITORING
             if (autostart)
             {
-                //AUTOSTART MONITORING
                 Logging.Log("Program autostart");
                 btnStart.PerformClick();
             }
@@ -166,18 +194,28 @@ namespace WeatherStation
             Form_SwitchTo_Maximum_Mode();
         }
 
+#region Button handlers
+        /// <summary>
+        /// Settings button click
+        /// </summary>
         private void btnPreferences_Click(object sender, EventArgs e)
         {
             //PrefForm.ShowDialog();
             SetForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Log button click
+        /// </summary>
         private void btnLogWindow_Click(object sender, EventArgs e)
         {
             LogForm.Show();
             LogForm.BringToFront();
         }
 
+        /// <summary>
+        /// About button click
+        /// </summary>
         private void btnAbout_Click(object sender, EventArgs e)
         {
             aboutForm = new About(Hardware.SketchVersion, Hardware.SketchVersionDate);
@@ -276,7 +314,9 @@ namespace WeatherStation
                 Hardware.RGC_Cumulative = Logging.LoadRGCValue(out Hardware.RGC_Cumulative_LastReset);
             }
         }
+#endregion Button handlers
 
+#region Timer Ticks
         /// <summary>
         /// Timer ticking - used to make all data manupalation and visualization at given interval
         /// </summary>
@@ -288,9 +328,10 @@ namespace WeatherStation
             if (Hardware.WatchDog && !SimulationMode) Hardware.CheckIfDataReceiving();
 
             //Get current buffer for logging
-            string curSerialBuffer = Hardware.SerialBuffer;
+            string curSerialBuffer = "";
+            
             //Parse data and make all calculation
-            Hardware.LOOP_CYCLE();
+            Hardware.LOOP_CYCLE(out curSerialBuffer);
 
             //Write boltwood file (and calculate boltwood fields values)
             if (Properties.Settings.Default.BoltwoodFileFlag)
@@ -398,7 +439,10 @@ waiting 10000
                 Logging.Log("Simulated text parsed", 3);
             }
         }
-        
+#endregion Timer Ticks
+
+
+#region Utils
         /// <summary>
         /// Refresh main and aux form fields
         /// </summary>
@@ -885,6 +929,7 @@ waiting 10000
             // Invalidate chart
             CurChart.Invalidate();
         }
+#endregion Utils
 
 
 

@@ -27,12 +27,13 @@
     <InstallUrl>http://astromania.info/weather_station/</InstallUrl>
     <SupportUrl>http://astromania.info</SupportUrl>
     <ProductName>WeatherStation Monitor</ProductName>
-    <PublisherName>Boris Emchenko</PublisherName>
-    <SuiteName>Weather Station</SuiteName>
+    <PublisherName>Astromania.info</PublisherName>
+    <SuiteName>Weather Station Project</SuiteName>
     <MinimumRequiredVersion>1.1.0.1</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>wsminstall.htm</WebPage>
-    <ApplicationRevision>12</ApplicationRevision>
+    <TrustUrlParameters>true</TrustUrlParameters>
+    <ApplicationRevision>16</ApplicationRevision>
     <ApplicationVersion>1.6.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -85,6 +86,13 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>WeatherStation_1_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -94,6 +102,7 @@
     <Reference Include="System.Data.SQLite.Linq">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\SQLite.NET\bin\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -111,6 +120,7 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils.cs" />
     <Compile Include="WinFormStrings.ru.Designer.cs">
       <DependentUpon>WinFormStrings.ru.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -189,6 +199,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

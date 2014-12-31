@@ -2,6 +2,9 @@ WeatherStation Project
 (c) 2013-2014 by Emchenko Boris
 
 Change log
+1.6.46 (2014-12-31)
+- serial file emulation data shows in log window
+
 1.6.45 (2014-12-30)
 - bug fixes found by Dimaz
 
