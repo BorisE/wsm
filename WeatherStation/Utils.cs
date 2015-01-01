@@ -5,6 +5,7 @@ using System.Text;
 using System.Deployment;
 using System.Deployment.Application;
 using System.Reflection;
+using System.IO;
 
 namespace WeatherStation
 {
@@ -56,5 +57,26 @@ namespace WeatherStation
                 }
             }
         }
+
+
+        public static void CreateShortcutOnDesktop()
+        {
+            string deskDir = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+
+            string linkName = "WeatherStation Monitor";
+
+            using (StreamWriter writer = new StreamWriter(deskDir + "\\" + linkName + ".url"))
+            {
+                string app = System.Reflection.Assembly.GetExecutingAssembly().Location;
+                writer.WriteLine("[InternetShortcut]");
+                writer.WriteLine("URL=file:///" + app);
+                writer.WriteLine("IconIndex=0");
+                string icon = app.Replace('\\', '/');
+                writer.WriteLine("IconFile=" + icon);
+                writer.Flush();
+            }
+        }
+
+
     }
 }
