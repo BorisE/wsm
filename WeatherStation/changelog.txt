@@ -2,6 +2,9 @@ WeatherStation Project
 (c) 2013-2015 by Emchenko Boris
 
 Change log
+1.6.50 (2015-01-12)
+- added max log window lines parameter
+
 1.6.49 (2015-01-12)
 - some structure changed
 

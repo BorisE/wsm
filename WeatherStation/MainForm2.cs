@@ -974,6 +974,8 @@ waiting 10000
                 maxNumberOfPointsInChart = Convert.ToInt16(Properties.Settings.Default.MaxPoints);
                 timer_main.Interval = Convert.ToInt16(Properties.Settings.Default.RefreshInterval);
                 timer_debug_changetext.Interval = Convert.ToInt16(Properties.Settings.Default.RefreshInterval);
+                LogForm.MAX_LOG_LINES = Convert.ToInt32(Properties.Settings.Default.MaxLogLines);
+                
                 WebServices.LIMIT_WEB_SEND_INTERVAL = Convert.ToUInt32(Properties.Settings.Default.RefreshWebInterval);
                 WebServices.LIMIT_NARODMON_SEND_INTERVAL = Convert.ToUInt32(Properties.Settings.Default.RefreshNarodmonInterval);
 

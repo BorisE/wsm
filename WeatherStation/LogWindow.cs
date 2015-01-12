@@ -15,9 +15,9 @@ namespace WeatherStation
     {
         private MainForm ParentMainForm;
         private bool AutoScrollLogFlag = true;
-        private int caretPos=0;
+        private Int32 caretPos=0;
 
-        public int MAX_LOG_LINES = 500;
+        public Int32 MAX_LOG_LINES = 500;
 
         public LogWindow(MainForm MF)
         {

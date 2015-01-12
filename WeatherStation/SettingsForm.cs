@@ -208,6 +208,7 @@ namespace WeatherStation
                 ParentMainForm.maxNumberOfPointsInChart = Convert.ToInt32(txtMaxPoints.Text);
                 ParentMainForm.timer_main.Interval = Convert.ToInt32(txtRefreshInterval.Text);
                 ParentMainForm.timer_debug_changetext.Interval = Convert.ToInt16(txtRefreshInterval.Text);
+                ParentMainForm.LogForm.MAX_LOG_LINES = Convert.ToInt32(txtMaxLogWindowLines.Text);
 
                 WebServices.LIMIT_WEB_SEND_INTERVAL = Convert.ToUInt32(txtRefreshWebDataInterval.Text);
                 WebServices.LIMIT_NARODMON_SEND_INTERVAL = Convert.ToUInt32(txtRefreshNarodmonInterval.Text);
