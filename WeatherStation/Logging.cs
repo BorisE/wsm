@@ -87,8 +87,8 @@ namespace WeatherStation
                         OpenLogFile();
                     }
 
-                    LogFile.Write("{0} {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
-                    LogFile.WriteLine(": {0}", logMessage);
+                    LogFile.Write("{0} {1} [{2}]:", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString(), LogLevel);
+                    LogFile.WriteLine("{0}", logMessage);
                 }
                 catch {
                     MessageBox.Show("Cannot write log file");

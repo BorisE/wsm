@@ -40,11 +40,11 @@ namespace WeatherStation
             ConsideredOpen = retIsOpened;
             if (retIsOpened)
             {
-                Logging.Log("SerialFileNameIn exists, considered port is opened", 1);
+                Logging.Log("SerialFileNameIn [" + SerialFileNameIn + "] exists, considered port is opened", 1);
             }
             else
             {
-                Logging.Log("SerialFileNameIn doesn't exist, considered port can't be opened", 1);
+                Logging.Log("SerialFileNameIn ["+SerialFileNameIn+"] doesn't exist, considered port can't be opened", 1);
             }
 
             return retIsOpened;
@@ -226,7 +226,7 @@ namespace WeatherStation
             }
             catch
             {
-                Logging.Log("Serial File Emulation output to serial error. Command " + CommandSt + " wasn't sent");
+                Logging.Log("SerialFileEmulation [" + SerialFileNameOut + "] output error. Command " + CommandSt + " wasn't sent");
                 error = true;
             }
 

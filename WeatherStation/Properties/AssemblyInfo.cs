@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("WeatherStation module for working with Arduino hardware")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("astromania.info")]
-[assembly: AssemblyProduct("WeatherStation")]
+[assembly: AssemblyProduct("WeatherStation Monitor")]
 [assembly: AssemblyCopyright("Copyright ©  2013-2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.6.46.*")]
-[assembly: AssemblyFileVersion("1.6.46.0")]
+[assembly: AssemblyVersion("1.6.49.*")]
+[assembly: AssemblyFileVersion("1.6.49.0")]

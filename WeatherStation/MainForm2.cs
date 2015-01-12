@@ -133,48 +133,16 @@ namespace WeatherStation
             chart1.ChartAreas[0].CursorX.SelectionColor = Color.Yellow;
 
             // TEST Usual command LINE PARAMETERS
-            string[] args = Environment.GetCommandLineArgs();
             bool autostart = false;
-            for (int i = 1; i < args.Length; i++)
-            {
-                if (args[i].IndexOf("start") >= 0)
-                {
-                    //AUTOSTART MONITORING
-                    autostart = true;
-                } else if (args[i].ToLower().Substring(0,3) == "com")
-                {
-                    //RESET COM PORT NAME
-                    Hardware.PortName = args[i].ToLower();
-                    Logging.Log("Override serial port name to ["+args[i].ToLower()+"]");
-                }
-            }
+            string comport_over = string.Empty;
+            AuxilaryProc.CheckStartParams(out autostart, out comport_over);
 
-            // ClickOnce parameters pass algorithm
-            try
+            //RESET COM PORT NAME
+            if (!string.IsNullOrEmpty(comport_over))
             {
-                string cmdLine = AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData[0];
-                if (cmdLine != "")
-                {
-                    MessageBox.Show(cmdLine);
-                    NameValueCollection nvc = HttpUtility.ParseQueryString(cmdLine);
-                    string[] theKeys = nvc.AllKeys;
-                    foreach (string theKey in theKeys)
-                    {
-                        if (theKey.IndexOf("start") >= 0)
-                        {
-                            //AUTOSTART MONITORING
-                            autostart = true;
-                        }
-                        else if (theKey.ToLower().Substring(0, 3) == "com")
-                        {
-                            //RESET COM PORT NAME
-                            Hardware.PortName = theKey.ToLower();
-                            Logging.Log("Override serial port name to [" + theKey.ToLower() + "]");
-                        }
-                    }
-                }
+                Hardware.PortName = comport_over;
+                Logging.Log("Override serial port name to [" + comport_over + "]");
             }
-            catch { }
 
             //AUTOSTART MONITORING
             if (autostart)
@@ -1113,7 +1081,7 @@ waiting 10000
         /// Service function to display and log errors
         /// </summary>
         /// <param name="ErrorMsg">Error message</param>
-        public void ShowError(string ErrorMsg)
+        public static void ShowError(string ErrorMsg)
         {
             Logging.Log(ErrorMsg);
             MessageBox.Show(ErrorMsg);

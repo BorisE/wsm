@@ -1,7 +1,17 @@
 WeatherStation Project
-(c) 2013-2014 by Emchenko Boris
+(c) 2013-2015 by Emchenko Boris
 
 Change log
+1.6.49 (2015-01-12)
+- some structure changed
+
+1.6.48 (2015-01-12)
+- now program can sense command line parameters even with ClickOnce deployment
+
+1.6.47 (2015-01-12)
+- testing creating autostart shortcut
+- program structure changed (utils and auxproc classes)
+
 1.6.46 (2014-12-31)
 - serial file emulation data shows in log window
 
