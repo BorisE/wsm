@@ -1078,7 +1078,6 @@ waiting 10000
             Logging.Log("btnQueryArduinoSettings_Click exit", 3);
         }
 
-
         /// <summary>
         /// Service function to display and log errors
         /// </summary>
@@ -1104,7 +1103,7 @@ waiting 10000
         /*********************************************************************************************************************
          * Changing form appearence mode 
         *********************************************************************************************************************/
-        #region FORM_APPEREANCE_MODE
+#region FORM_APPEREANCE_MODE
 
         /// <summary>
         /// MINIMUM mode
@@ -1218,8 +1217,9 @@ waiting 10000
                 this.Opacity = 0.8;
             }
         }
-        #endregion
+#endregion
 
+#region Minimize to tray
         private void MainForm_Resize(object sender, EventArgs e)
         {
             if (FormWindowState.Minimized == this.WindowState && bMinimizeToTray)
@@ -1244,6 +1244,7 @@ waiting 10000
             this.Show();
             this.WindowState = FormWindowState.Normal;
         }
+#endregion Minimize to tray
 
 
 
