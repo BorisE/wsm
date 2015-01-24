@@ -198,9 +198,9 @@ namespace WeatherStation
         public int RGCVal = 0;
         public double RainIntensityVal = 0.0;
 
-        public double RGC_Cumulative = 0;
-        public double RGC_Cumulative_mm = 0;
-        private const double RGC_ONETICK_VALUE = 0.01; //number of mm of precipitation per 1 count (tick)
+        public double RGC_Cumulative = -1;
+        public double RGC_Cumulative_mm = -1;
+        public double RGC_ONETICK_VALUE = 0.01; //number of mm of precipitation per 1 count (tick)
         public DateTime RGC_Cumulative_LastReset;
 
         public int MeasureCycleLen = 14530;

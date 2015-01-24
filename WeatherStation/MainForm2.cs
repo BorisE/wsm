@@ -954,6 +954,7 @@ waiting 10000
                 //Hardware.RainConditionMode = (WetSensorsMode)Enum.Parse(typeof(WetSensorsMode), Properties.Settings.Default.WetSensorsMode);
                 //Hardware.RainConditionMode = Hardware.WetSensorsModeDictionary[Properties.Settings.Default.WetSensorsMode];
                 //Hardware.RainConditionMode = Hardware.WetSensorsModeDictionary[Properties.Settings.Default.WetSensorsMode];
+                Hardware.RGC_ONETICK_VALUE = Convert.ToDouble(Properties.Settings.Default.RGCScale);
 
                 Hardware.WINDSPEED_WINDY = Convert.ToDouble(Properties.Settings.Default.WindyLimit);
                 Hardware.WINDSPEED_VERYWINDY = Convert.ToDouble(Properties.Settings.Default.VeryWindyLimit);

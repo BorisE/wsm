@@ -119,7 +119,19 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="chkLogFileFlag.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 27</value>
+    <value>7, 22</value>
+  </data>
+  <data name="txtK7.ToolTip" xml:space="preserve">
+    <value>- The software coefficient K1 mainly affects the slope of the curve in its linear section (i.e. ambient temperature below 25ºC);
+- K2 mainly affects the x-axis crossing point - it shifts the curve upwards as K2 gets smaller and vice-versa;
+- K3, K4 and K5  have a large effect on the shape of the curve for ambient temperatures above 30ºC;
+- K6 and K7 introduce an S bent around x-axis crossing point;
+
+Defalut:
+K1 = 33.0; K2 = 0.0; K3 = 4.0; K4 = 100.0; K5 = 100.0; K6 = 0.0; K7 = 0.0
+
+This type of curve appears to work better during the cold season in cold climate regions where the sky temperature is lower than in mild climate regions:
+K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</value>
   </data>
   <data name="cmbBaseTempSensor.Error" xml:space="preserve">
     <value />
@@ -131,18 +143,15 @@
   <data name="chkWatchdog.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="chkShowDebugPannels.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="chkLogFileFlag.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="txtRefreshNarodmonInterval.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="btnOk.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
-  <data name="label37.Text" xml:space="preserve">
-    <value>Write to file</value>
+  <data name="&gt;&gt;btnLogPathBrowse.Parent" xml:space="preserve">
+    <value>groupBox3</value>
   </data>
   <data name="groupBox10.ToolTip" xml:space="preserve">
     <value />
@@ -156,11 +165,11 @@
   <data name="label39.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
+  <data name="label40.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
   <data name="txtSerialLogFileLocation.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="btnOpenWriteToFile.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="&gt;&gt;txtMaxLogWindowLines.Parent" xml:space="preserve">
     <value>groupBox6</value>
@@ -168,11 +177,8 @@
   <data name="&gt;&gt;label22.Name" xml:space="preserve">
     <value>label22</value>
   </data>
-  <data name="groupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="txtWSpeedZero.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 20</value>
+    <value>148, 16</value>
   </data>
   <data name="&gt;&gt;chkWebData.Name" xml:space="preserve">
     <value>chkWebData</value>
@@ -190,7 +196,7 @@
     <value>0</value>
   </data>
   <data name="txtWindyLimit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 50</value>
+    <value>148, 41</value>
   </data>
   <data name="&gt;&gt;label24.Parent" xml:space="preserve">
     <value>groupBox9</value>
@@ -198,8 +204,8 @@
   <data name="&gt;&gt;tabSensors.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
-    <value>tabGeneral</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 19</value>
   </data>
   <data name="&gt;&gt;btnReset.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -208,7 +214,7 @@
     <value>MiddleRight</value>
   </data>
   <data name="label27.Location" type="System.Drawing.Point, System.Drawing">
-    <value>280, 53</value>
+    <value>210, 43</value>
   </data>
   <data name="&gt;&gt;label26.Parent" xml:space="preserve">
     <value>groupBox12</value>
@@ -216,8 +222,8 @@
   <data name="&gt;&gt;label23.Name" xml:space="preserve">
     <value>label23</value>
   </data>
-  <data name="groupBox5.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="SensorType.Width" type="System.Int32, mscorlib">
+    <value>80</value>
   </data>
   <data name="&gt;&gt;btnSerialLogPathBrowse.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -232,16 +238,10 @@
     <value />
   </data>
   <data name="label30.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 82</value>
+    <value>5, 67</value>
   </data>
   <data name="&gt;&gt;tabModeling.Parent" xml:space="preserve">
     <value>tabControl1</value>
-  </data>
-  <data name="txtWSpeedZero.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btnOpenReadFromFile.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="&gt;&gt;ArduinoName.Name" xml:space="preserve">
     <value>ArduinoName</value>
@@ -253,19 +253,16 @@
     <value />
   </data>
   <data name="K7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 17</value>
+    <value>20, 13</value>
   </data>
   <data name="&gt;&gt;label25.Parent" xml:space="preserve">
     <value>groupBox9</value>
-  </data>
-  <data name="label32.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
   </data>
   <data name="&gt;&gt;label28.Name" xml:space="preserve">
     <value>label28</value>
   </data>
   <data name="btnReset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 30</value>
+    <value>110, 24</value>
   </data>
   <data name="txtBoltwoodFileLocation.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -283,7 +280,7 @@
     <value>txtHeaterWetThreshold</value>
   </data>
   <data name="chkNarodMon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>221, 21</value>
+    <value>173, 17</value>
   </data>
   <data name="label23.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
@@ -318,11 +315,8 @@
   <data name="label37.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="txtNarodmonMAC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="txtSerialFileOut.Location" type="System.Drawing.Point, System.Drawing">
-    <value>127, 89</value>
+    <value>95, 72</value>
   </data>
   <data name="&gt;&gt;chkNarodMon.ZOrder" xml:space="preserve">
     <value>10</value>
@@ -356,13 +350,13 @@ If you have two of them - use "Both" unless you face problems</value>
     <value>groupBox9</value>
   </data>
   <data name="txtLogFileLocation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 25</value>
+    <value>112, 20</value>
   </data>
   <data name="groupBox8.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="txtVeryWindyLimit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 80</value>
+    <value>148, 65</value>
   </data>
   <data name="txtCSDecreasingMinDelta.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -371,13 +365,10 @@ If you have two of them - use "Both" unless you face problems</value>
     <value>0</value>
   </data>
   <data name="groupBox11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>428, 177</value>
+    <value>321, 144</value>
   </data>
-  <data name="groupBox2.Error" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cmbBaseTempSensor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="btnSetGaugeInc.ToolTip" xml:space="preserve">
+    <value>Manually set value for incremental rain counter</value>
   </data>
   <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -392,7 +383,7 @@ If you have two of them - use "Both" unless you face problems</value>
     <value>MiddleRight</value>
   </data>
   <data name="chkCSVFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 21</value>
+    <value>89, 17</value>
   </data>
   <data name="chkNarodMon.ToolTip" xml:space="preserve">
     <value>Send data to NARODMON.RU service flag.
@@ -416,8 +407,8 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
   <data name="label11.Error" xml:space="preserve">
     <value />
   </data>
-  <data name="tabHeater.Text" xml:space="preserve">
-    <value>Heater</value>
+  <data name="btnBoltwoodPathBrowse.Error" xml:space="preserve">
+    <value />
   </data>
   <data name="label37.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -437,6 +428,9 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
   <data name="chkWebData.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
   </data>
@@ -447,10 +441,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>0</value>
   </data>
   <data name="groupBox9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 123</value>
+    <value>8, 100</value>
   </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
+  <data name="label17.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="label18.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -467,8 +461,8 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
   <data name="&gt;&gt;label27.Parent" xml:space="preserve">
     <value>groupBox12</value>
   </data>
-  <data name="label23.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+  <data name="SensorEnabled.Width" type="System.Int32, mscorlib">
+    <value>50</value>
   </data>
   <data name="&gt;&gt;txtCSHeatingMax.Parent" xml:space="preserve">
     <value>groupBox9</value>
@@ -493,6 +487,9 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   </data>
   <data name="label39.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtSerialLogFileLocation.Name" xml:space="preserve">
     <value>txtSerialLogFileLocation</value>
@@ -519,13 +516,13 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value />
   </data>
   <data name="cmbPortList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 24</value>
+    <value>72, 21</value>
   </data>
   <data name="label21.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label28.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 17</value>
+    <value>25, 13</value>
   </data>
   <data name="&gt;&gt;chkCSVFileFlag.Parent" xml:space="preserve">
     <value>groupBox3</value>
@@ -563,6 +560,9 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="label27.Error" xml:space="preserve">
     <value />
   </data>
+  <data name="label41.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="groupBox6.Error" xml:space="preserve">
     <value />
   </data>
@@ -577,9 +577,6 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   </data>
   <data name="&gt;&gt;label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnOk.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="tabSensors.ToolTip" xml:space="preserve">
     <value />
@@ -621,10 +618,10 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>0</value>
   </data>
   <data name="txtK4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 39</value>
+    <value>103, 32</value>
   </data>
-  <data name="txtVeryWindyLimit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+  <data name="label34.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 13</value>
   </data>
   <data name="label36.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -654,19 +651,22 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>groupBox3</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 17</value>
+    <value>112, 13</value>
   </data>
   <data name="&gt;&gt;txtSerialFileOut.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>715, 471</value>
+    <value>536, 383</value>
+  </data>
+  <data name="label38.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="txtSerialFileIn.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>409, 124</value>
+    <value>307, 101</value>
   </data>
   <data name="&gt;&gt;label23.Parent" xml:space="preserve">
     <value>groupBox12</value>
@@ -681,19 +681,13 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>6</value>
   </data>
   <data name="chkWebData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 21</value>
+    <value>142, 17</value>
   </data>
   <data name="groupBox5.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label24.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
   <data name="btnOpenWriteToFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="label39.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
   </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -713,6 +707,9 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="label39.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="btnSetGaugeInc.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
   <data name="&gt;&gt;label28.Parent" xml:space="preserve">
     <value>groupBox12</value>
   </data>
@@ -727,6 +724,9 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   </data>
   <data name="label31.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
+  </data>
+  <data name="txtGaugeInc.Error" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;groupBox5.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -749,8 +749,8 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="&gt;&gt;txtWebDataURL.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="txtSerialFileOut.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="&gt;&gt;btnBoltwoodPathBrowse.Parent" xml:space="preserve">
+    <value>groupBox3</value>
   </data>
   <data name="label33.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -759,8 +759,8 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>Wet sensor value after reaching which heating started automaticaly. 
 Set 0 to disable</value>
   </data>
-  <data name="label39.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 17</value>
+  <data name="&gt;&gt;txtRGScale.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="btnOpenReadFromFile.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -768,14 +768,11 @@ Set 0 to disable</value>
   <data name="label32.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label25.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;groupBox7.Name" xml:space="preserve">
+    <value>groupBox7</value>
   </data>
   <data name="chkCSVFileFlag.Error" xml:space="preserve">
     <value />
-  </data>
-  <data name="label15.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -788,12 +785,6 @@ Set 0 to disable</value>
   </data>
   <data name="&gt;&gt;groupBox7.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="txtWebDataURL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="chkLogFileFlag.Error" xml:space="preserve">
-    <value />
   </data>
   <data name="&gt;&gt;txtLogFileLocation.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -819,8 +810,8 @@ Set 0 to disable</value>
   <data name="groupBox7.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="btnBoltwoodPathBrowse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="groupBox2.Error" xml:space="preserve">
+    <value />
   </data>
   <data name="label7.ToolTip" xml:space="preserve">
     <value />
@@ -879,9 +870,6 @@ Note that data actualy could be sent only at multiples of Refresh interval setti
   <data name="&gt;&gt;groupBox8.Parent" xml:space="preserve">
     <value>tabGeneral</value>
   </data>
-  <data name="txtRefreshInterval.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
   <data name="txtK4.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
@@ -889,7 +877,7 @@ Note that data actualy could be sent only at multiples of Refresh interval setti
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 17</value>
+    <value>20, 13</value>
   </data>
   <data name="&gt;&gt;label24.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -915,8 +903,8 @@ Note that data actualy could be sent only at multiples of Refresh interval setti
   <data name="ArduinoName.HeaderText" xml:space="preserve">
     <value>Arduino Name</value>
   </data>
-  <data name="groupBox8.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="label37.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="btnOpenWriteToFile.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -927,11 +915,11 @@ Note that data actualy could be sent only at multiples of Refresh interval setti
   <data name="txtRefreshNarodmonInterval.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="txtRefreshWebDataInterval.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
   <data name="&gt;&gt;txtCSHeatingMax.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label42.Location" type="System.Drawing.Point, System.Drawing">
+    <value>216, 88</value>
   </data>
   <data name="btnSerialLogPathBrowse.Text" xml:space="preserve">
     <value>...</value>
@@ -940,10 +928,10 @@ Note that data actualy could be sent only at multiples of Refresh interval setti
     <value>4</value>
   </data>
   <data name="chkWatchdog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 21</value>
+    <value>130, 17</value>
   </data>
   <data name="tabHeater.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
+    <value>4, 22</value>
   </data>
   <data name="label21.ToolTip" xml:space="preserve">
     <value>Calibration value for zero wind speed
@@ -959,8 +947,8 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
   <data name="&gt;&gt;chkShowDebugPannels.Name" xml:space="preserve">
     <value>chkShowDebugPannels</value>
   </data>
-  <data name="tabControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="label29.Error" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;K7.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -980,8 +968,8 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
   <data name="&gt;&gt;label38.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;txtWindyLimit.Name" xml:space="preserve">
-    <value>txtWindyLimit</value>
+  <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -993,7 +981,7 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
     <value />
   </data>
   <data name="label36.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 17</value>
+    <value>72, 13</value>
   </data>
   <data name="txtCSDecreasingMaxDelta.Error" xml:space="preserve">
     <value />
@@ -1008,16 +996,16 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtCSHeaterPauseTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 53</value>
+    <value>148, 43</value>
   </data>
   <data name="chkSerialLogFileFlag.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 86</value>
+    <value>7, 70</value>
   </data>
   <data name="btnResetSensorList.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="&gt;&gt;txtRainLimit.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>11</value>
   </data>
   <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -1028,9 +1016,6 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
   <data name="&gt;&gt;txtRefreshInterval.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBox11.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="&gt;&gt;txtCSHeatingMin.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
@@ -1040,8 +1025,8 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
   <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
     <value>groupBox3</value>
   </data>
-  <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="groupBox8.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;txtMaxPoints.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -1059,7 +1044,7 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
     <value>0</value>
   </data>
   <data name="groupBox8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>387, 165</value>
+    <value>290, 134</value>
   </data>
   <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1067,8 +1052,8 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
   <data name="label25.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label26.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="chkCSVFileFlag.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
   </data>
   <data name="txtCSHeatingMin.ToolTip" xml:space="preserve">
     <value>Minimum cloud sensor value, when auto heating could be switched on</value>
@@ -1083,10 +1068,10 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
     <value>Wet threshold switching on</value>
   </data>
   <data name="txtMaxPoints.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 46</value>
+    <value>148, 37</value>
   </data>
   <data name="txtBoltwoodFileLocation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 22</value>
+    <value>156, 20</value>
   </data>
   <data name="label28.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1098,13 +1083,13 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
     <value>4</value>
   </data>
   <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>409, 123</value>
+    <value>307, 100</value>
   </data>
   <data name="&gt;&gt;cmbLogLevel.Parent" xml:space="preserve">
     <value>groupBox3</value>
   </data>
   <data name="chkWebData.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 25</value>
+    <value>7, 20</value>
   </data>
   <data name="&gt;&gt;btnSerialLogPathBrowse.Name" xml:space="preserve">
     <value>btnSerialLogPathBrowse</value>
@@ -1113,19 +1098,19 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
     <value>groupBox5</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 17</value>
+    <value>20, 13</value>
   </data>
   <data name="label2.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
-  <data name="chkTrayIcon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="chkWatchdog.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="cmbLogLevel.Items" xml:space="preserve">
     <value>1 - Common messages</value>
   </data>
   <data name="label32.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 17</value>
+    <value>40, 13</value>
   </data>
   <data name="&gt;&gt;cmbPortList.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1146,7 +1131,7 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
     <value>MiddleRight</value>
   </data>
   <data name="label21.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 17</value>
+    <value>137, 13</value>
   </data>
   <data name="label20.Error" xml:space="preserve">
     <value />
@@ -1160,9 +1145,6 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
   <data name="txtSerialFileIn.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
-  <data name="label12.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
   <data name="label28.ToolTip" xml:space="preserve">
     <value />
   </data>
@@ -1171,6 +1153,9 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
   </data>
   <data name="&gt;&gt;txtRefreshNarodmonInterval.Parent" xml:space="preserve">
     <value>groupBox11</value>
+  </data>
+  <data name="label41.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="chkShowDebugPannels.Error" xml:space="preserve">
     <value />
@@ -1188,7 +1173,7 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
     <value>8</value>
   </data>
   <data name="tabGeneral.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
+    <value>4, 22</value>
   </data>
   <data name="groupBox10.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -1217,9 +1202,6 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
   <data name="label18.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;btnOpenWriteToFile.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="txtNarodmonMAC.Error" xml:space="preserve">
     <value />
   </data>
@@ -1227,19 +1209,16 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
     <value>Heater settings</value>
   </data>
   <data name="groupBox12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>391, 116</value>
+    <value>293, 94</value>
   </data>
   <data name="label12.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="txtLogFileLocation.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="label28.Text" xml:space="preserve">
     <value>m/s</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 4</value>
+    <value>8, 3</value>
   </data>
   <data name="label14.Error" xml:space="preserve">
     <value />
@@ -1251,7 +1230,7 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
     <value>Read from file</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>836, 509</value>
+    <value>627, 414</value>
   </data>
   <data name="&gt;&gt;txtK5.Name" xml:space="preserve">
     <value>txtK5</value>
@@ -1259,8 +1238,14 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
   <data name="&gt;&gt;txtHeaterWetThreshold.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnSerialLogPathBrowse.ToolTip" xml:space="preserve">
-    <value />
+  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
+    <value>tabGeneral</value>
+  </data>
+  <data name="label40.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label31.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="txtVeryWindyLimit.Error" xml:space="preserve">
     <value />
@@ -1286,8 +1271,8 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
   <data name="&gt;&gt;label22.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="label20.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="&gt;&gt;txtGaugeInc.Name" xml:space="preserve">
+    <value>txtGaugeInc</value>
   </data>
   <data name="&gt;&gt;btnGenerateMac.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1307,14 +1292,14 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
   <data name="label4.Error" xml:space="preserve">
     <value />
   </data>
+  <data name="label41.Text" xml:space="preserve">
+    <value>RG-11 precipitation scale</value>
+  </data>
   <data name="txtCSHeatingMax.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
   <data name="label20.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="txtWindyLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="&gt;&gt;label30.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -1323,10 +1308,10 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
     <value>NoControl</value>
   </data>
   <data name="txtCloudysky.Location" type="System.Drawing.Point, System.Drawing">
-    <value>257, 50</value>
+    <value>193, 41</value>
   </data>
   <data name="btnOpenReadFromFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>365, 54</value>
+    <value>274, 44</value>
   </data>
   <data name="label30.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1337,17 +1322,14 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
   <data name="cmbWetMode.Items2" xml:space="preserve">
     <value>RGC only</value>
   </data>
-  <data name="txtCSVFileLocation.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="txtK6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 32</value>
   </data>
   <data name="chkNarodMon.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
   <data name="label26.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 53</value>
-  </data>
-  <data name="txtCloudysky.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>7, 43</value>
   </data>
   <data name="txtHeaterMaxTemp.ToolTip" xml:space="preserve">
     <value>Maximum temperature delta which can be reached during heating. Measured by MLX temperature sensor (ATemp) minus "Base temp sensor" value</value>
@@ -1355,8 +1337,8 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
   <data name="SendToNarodmon.HeaderText" xml:space="preserve">
     <value>Send to Narodmon</value>
   </data>
-  <data name="txtCSVFileLocation.Error" xml:space="preserve">
-    <value />
+  <data name="btnSetGaugeInc.Location" type="System.Drawing.Point, System.Drawing">
+    <value>218, 105</value>
   </data>
   <data name="label17.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1365,7 +1347,7 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
     <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 17</value>
+    <value>103, 13</value>
   </data>
   <data name="txtK5.Error" xml:space="preserve">
     <value />
@@ -1404,7 +1386,10 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
     <value>0</value>
   </data>
   <data name="txtCSDecreasingMinDelta.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 82</value>
+    <value>148, 67</value>
+  </data>
+  <data name="&gt;&gt;txtK2.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="label32.Text" xml:space="preserve">
     <value>millisec</value>
@@ -1416,7 +1401,7 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
     <value />
   </data>
   <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 53</value>
+    <value>7, 43</value>
   </data>
   <data name="&gt;&gt;groupBox7.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1436,20 +1421,20 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
   <data name="btnOk.Error" xml:space="preserve">
     <value />
   </data>
+  <data name="label42.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
+  </data>
   <data name="btnReadFromSerial.ToolTip" xml:space="preserve">
     <value>Not implemented yet</value>
   </data>
   <data name="chkMinMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>316, 21</value>
+    <value>243, 17</value>
   </data>
   <data name="label21.Text" xml:space="preserve">
     <value>Zero wind speed calibration</value>
   </data>
-  <data name="txtCloudysky.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox1.ToolTip" xml:space="preserve">
-    <value />
+  <data name="&gt;&gt;MyToolTip.Name" xml:space="preserve">
+    <value>MyToolTip</value>
   </data>
   <data name="tabGeneral.Text" xml:space="preserve">
     <value>General</value>
@@ -1457,17 +1442,17 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="&gt;&gt;label36.Name" xml:space="preserve">
+    <value>label36</value>
+  </data>
   <data name="&gt;&gt;label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>183, 20</value>
+    <value>137, 16</value>
   </data>
   <data name="txtCSHeatingMin.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
-  </data>
-  <data name="SensorType.Width" type="System.Int32, mscorlib">
-    <value>80</value>
   </data>
   <data name="&gt;&gt;txtCloudysky.Name" xml:space="preserve">
     <value>txtCloudysky</value>
@@ -1476,13 +1461,16 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
     <value>NoControl</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>409, 92</value>
+    <value>307, 75</value>
   </data>
   <data name="chkSerialLogFileFlag.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="txtSerialFileIn.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="txtRGScale.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="label20.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1497,7 +1485,7 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
     <value>MiddleRight</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 20</value>
+    <value>47, 16</value>
   </data>
   <data name="txtWetLimit.ToolTip" xml:space="preserve">
     <value>Wet threshold limit. All values higher then this will be treated as a dry condition
@@ -1508,13 +1496,13 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
     <value>0</value>
   </data>
   <data name="txtK4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 22</value>
+    <value>24, 20</value>
   </data>
   <data name="label26.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="label28.Location" type="System.Drawing.Point, System.Drawing">
-    <value>280, 82</value>
+    <value>210, 67</value>
   </data>
   <data name="&gt;&gt;txtMaxLogWindowLines.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1525,8 +1513,8 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
   <data name="&gt;&gt;txtK2.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBox2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="txtCSHeatingMax.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="txtCSHeatingMax.Error" xml:space="preserve">
     <value />
@@ -1535,7 +1523,7 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
     <value>groupBox3</value>
   </data>
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>409, 185</value>
+    <value>307, 150</value>
   </data>
   <data name="chkWatchdog.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1544,19 +1532,16 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
     <value>0</value>
   </data>
   <data name="txtSerialFileOut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>229, 22</value>
+    <value>173, 20</value>
   </data>
   <data name="btnSerialLogPathBrowse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 25</value>
+    <value>27, 20</value>
   </data>
   <data name="&gt;&gt;txtCSHeatingMax.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="txtRainLimit.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="txtSerialLogFileLocation.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="cmbLogLevel.Text" xml:space="preserve">
     <value>1 - Common messages</value>
@@ -1568,28 +1553,25 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
     <value>NoControl</value>
   </data>
   <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>409, 112</value>
-  </data>
-  <data name="txtHeaterMaxTemp.Error" xml:space="preserve">
-    <value />
+    <value>307, 91</value>
   </data>
   <data name="txtK6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 22</value>
-  </data>
-  <data name="groupBox6.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>24, 20</value>
   </data>
   <data name="&gt;&gt;txtMaxLogWindowLines.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 86</value>
+    <value>7, 70</value>
   </data>
   <data name="label28.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="chkShowDebugPannels.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="chkNarodMon.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label41.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;txtK1.Parent" xml:space="preserve">
     <value>groupBox10</value>
@@ -1607,19 +1589,19 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
     <value>0</value>
   </data>
   <data name="dataGridSensors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>805, 327</value>
+    <value>604, 266</value>
   </data>
   <data name="txtWSpeedZero.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>409, 122</value>
+    <value>307, 139</value>
   </data>
   <data name="chkShowDebugPannels.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label30.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 17</value>
+  <data name="txtCloudysky.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="txtRefreshNarodmonInterval.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1630,9 +1612,6 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
   <data name="label14.ToolTip" xml:space="preserve">
     <value>Program main tick interval</value>
   </data>
-  <data name="txtK6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>217, 39</value>
-  </data>
   <data name="txtHeaterWetThreshold.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
@@ -1640,13 +1619,13 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
     <value>groupBox4</value>
   </data>
   <data name="label21.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 23</value>
+    <value>7, 19</value>
   </data>
-  <data name="btnReset.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="label16.Error" xml:space="preserve">
+    <value />
   </data>
   <data name="txtRainLimit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="&gt;&gt;label33.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -1661,7 +1640,7 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
     <value>Right</value>
   </data>
   <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>409, 104</value>
+    <value>307, 84</value>
   </data>
   <data name="SensorName.HeaderText" xml:space="preserve">
     <value>Sensor</value>
@@ -1672,9 +1651,6 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
   <data name="&gt;&gt;cmbWetMode.Name" xml:space="preserve">
     <value>cmbWetMode</value>
   </data>
-  <data name="label16.Error" xml:space="preserve">
-    <value />
-  </data>
   <data name="&gt;&gt;txtSerialFileOut.Name" xml:space="preserve">
     <value>txtSerialFileOut</value>
   </data>
@@ -1682,7 +1658,7 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
     <value>NoControl</value>
   </data>
   <data name="label23.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 82</value>
+    <value>7, 67</value>
   </data>
   <data name="txtCSVFileLocation.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1705,17 +1681,20 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
   <data name="chkShowDebugPannels.ToolTip" xml:space="preserve">
     <value>Requires restart</value>
   </data>
+  <data name="label20.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
   <data name="&gt;&gt;txtHeaterWetThreshold.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 23</value>
+  <data name="txtRGScale.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
   </data>
-  <data name="txtCSHeatingMax.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
   </data>
   <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 198</value>
+    <value>8, 161</value>
   </data>
   <data name="txtNarodmonMAC.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -1765,8 +1744,8 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
   <data name="&gt;&gt;label39.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;btnBoltwoodPathBrowse.Parent" xml:space="preserve">
-    <value>groupBox3</value>
+  <data name="&gt;&gt;txtGaugeInc.Parent" xml:space="preserve">
+    <value>groupBox5</value>
   </data>
   <data name="label3.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1777,14 +1756,17 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
   <data name="&gt;&gt;label18.Parent" xml:space="preserve">
     <value>groupBox9</value>
   </data>
+  <data name="btnSetGaugeInc.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="label12.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
   <data name="chkNarodMon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 122</value>
+    <value>7, 99</value>
   </data>
   <data name="txtCSHeatingMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="groupBox1.Error" xml:space="preserve">
     <value />
@@ -1802,16 +1784,13 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
     <value>SensorEnabled</value>
   </data>
   <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 17</value>
+    <value>97, 13</value>
   </data>
   <data name="label38.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 17</value>
+    <value>55, 13</value>
   </data>
   <data name="&gt;&gt;groupBox8.Name" xml:space="preserve">
     <value>groupBox8</value>
-  </data>
-  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
   </data>
   <data name="&gt;&gt;groupBox5.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -1823,16 +1802,16 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
     <value>groupBox5</value>
   </data>
   <data name="label24.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 57</value>
+    <value>6, 46</value>
   </data>
   <data name="label22.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
-  <data name="btnCancel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="&gt;&gt;chkLogFileFlag.Parent" xml:space="preserve">
+    <value>groupBox3</value>
   </data>
-  <data name="K7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+  <data name="txtRGScale.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 85</value>
   </data>
   <data name="&gt;&gt;txtHeaterWetThreshold.Parent" xml:space="preserve">
     <value>groupBox4</value>
@@ -1849,8 +1828,8 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+  <data name="chkWebData.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="label22.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1858,14 +1837,11 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
   <data name="&gt;&gt;label15.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;WebCustomName.Name" xml:space="preserve">
-    <value>WebCustomName</value>
+  <data name="label41.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 13</value>
   </data>
   <data name="txtRefreshInterval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
-  </data>
-  <data name="tabGeneral.Size" type="System.Drawing.Size, System.Drawing">
-    <value>828, 435</value>
+    <value>53, 20</value>
   </data>
   <data name="&gt;&gt;cmbLogLevel.Name" xml:space="preserve">
     <value>cmbLogLevel</value>
@@ -1877,16 +1853,13 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
     <value>2</value>
   </data>
   <data name="label29.Location" type="System.Drawing.Point, System.Drawing">
-    <value>280, 53</value>
+    <value>210, 43</value>
   </data>
   <data name="&gt;&gt;groupBox12.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="btnOpenWriteToFile.ToolTip" xml:space="preserve">
     <value>Указать путь и имя файла</value>
-  </data>
-  <data name="chkWatchdog.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="label18.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1901,13 +1874,10 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
     <value>4</value>
   </data>
   <data name="chkTrayIcon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 21</value>
+    <value>133, 17</value>
   </data>
   <data name="&gt;&gt;groupBox12.Parent" xml:space="preserve">
     <value>tabModeling</value>
-  </data>
-  <data name="label6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
   </data>
   <data name="btnCancel.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -1918,8 +1888,11 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
   </data>
+  <data name="label33.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
   <data name="label25.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 17</value>
+    <value>129, 13</value>
   </data>
   <data name="btnGenerateMac.Error" xml:space="preserve">
     <value />
@@ -1952,25 +1925,25 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
 </value>
   </data>
   <data name="txtRefreshWebDataInterval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>212, 79</value>
+    <value>159, 64</value>
   </data>
   <data name="tabModeling.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
   <data name="txtCSHeatingMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>287, 23</value>
+    <value>215, 19</value>
   </data>
   <data name="&gt;&gt;SensorName.Name" xml:space="preserve">
     <value>SensorName</value>
   </data>
   <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 78</value>
+    <value>7, 63</value>
   </data>
   <data name="txtK7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>257, 39</value>
+    <value>193, 32</value>
   </data>
-  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+  <data name="txtRefreshInterval.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="txtCSHeatingMax.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1978,8 +1951,8 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
   <data name="txtRefreshNarodmonInterval.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
-  <data name="btnResetSensorList.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="txtRGScale.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
   </data>
   <data name="txtVeryWindyLimit.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -2013,17 +1986,26 @@ Generally it should be around Arduino sensor measurement cycle (can me measured 
   <data name="label13.Error" xml:space="preserve">
     <value />
   </data>
+  <data name="label41.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="&gt;&gt;label8.Name" xml:space="preserve">
     <value>label8</value>
+  </data>
+  <data name="txtGaugeInc.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="chkBoltwoodFileFlag.Text" xml:space="preserve">
     <value>Boltwood CS file</value>
   </data>
-  <data name="&gt;&gt;label10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;label40.Parent" xml:space="preserve">
+    <value>groupBox5</value>
   </data>
   <data name="groupBox9.ToolTip" xml:space="preserve">
     <value />
+  </data>
+  <data name="label42.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 13</value>
   </data>
   <data name="label38.ToolTip" xml:space="preserve">
     <value />
@@ -2040,11 +2022,8 @@ Generally it should be around Arduino sensor measurement cycle (can me measured 
   <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="chkLogFileFlag.ToolTip" xml:space="preserve">
-    <value>Path to program log file. If left empty - program directory</value>
-  </data>
   <data name="cmbLang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 24</value>
+    <value>144, 21</value>
   </data>
   <data name="txtK1.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2056,13 +2035,13 @@ Generally it should be around Arduino sensor measurement cycle (can me measured 
     <value>0</value>
   </data>
   <data name="btnLogPathBrowse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 25</value>
+    <value>27, 20</value>
   </data>
-  <data name="label3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="&gt;&gt;chkCSVFileFlag.Name" xml:space="preserve">
+    <value>chkCSVFileFlag</value>
   </data>
   <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 17</value>
+    <value>135, 13</value>
   </data>
   <data name="&gt;&gt;label11.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2070,14 +2049,17 @@ Generally it should be around Arduino sensor measurement cycle (can me measured 
   <data name="chkWebData.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="txtHeaterMaxDuration.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="&gt;&gt;label41.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="tabHeater.Text" xml:space="preserve">
+    <value>Heater</value>
   </data>
   <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 23</value>
+    <value>4, 19</value>
   </data>
-  <data name="groupBox8.Text" xml:space="preserve">
-    <value>Interface options</value>
+  <data name="chkLogFileFlag.Error" xml:space="preserve">
+    <value />
   </data>
   <data name="label32.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2094,20 +2076,17 @@ Generally it should be around Arduino sensor measurement cycle (can me measured 
   <data name="btnOpenReadFromFile.Text" xml:space="preserve">
     <value>...</value>
   </data>
-  <data name="&gt;&gt;groupBox7.Name" xml:space="preserve">
-    <value>groupBox7</value>
-  </data>
-  <data name="chkLogFileFlag.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="label22.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="&gt;&gt;label16.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label18.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+  <data name="&gt;&gt;btnOpenWriteToFile.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;txtHeaterMaxTemp.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="txtGaugeInc.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="label34.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2125,19 +2104,13 @@ Generally it should be around Arduino sensor measurement cycle (can me measured 
     <value>0</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
+    <value>6, 13</value>
   </data>
   <data name="label16.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="txtHeaterWetThreshold.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="txtMaxPoints.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
-  </data>
-  <data name="label2.Error" xml:space="preserve">
-    <value />
   </data>
   <data name="&gt;&gt;chkWatchdog.Name" xml:space="preserve">
     <value>chkWatchdog</value>
@@ -2149,13 +2122,13 @@ Generally it should be around Arduino sensor measurement cycle (can me measured 
     <value />
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 53</value>
+    <value>7, 43</value>
+  </data>
+  <data name="label42.Text" xml:space="preserve">
+    <value>mm per tick</value>
   </data>
   <data name="btnOk.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="tabModeling.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2174,6 +2147,9 @@ Generally it should be around Arduino sensor measurement cycle (can me measured 
   </data>
   <data name="&gt;&gt;txtSerialFileIn.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="label41.Error" xml:space="preserve">
+    <value />
   </data>
   <data name="txtLogFileLocation.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2194,13 +2170,13 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value />
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 17</value>
+    <value>75, 13</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
   </data>
   <data name="label36.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 58</value>
+    <value>7, 47</value>
   </data>
   <data name="&gt;&gt;txtCSHeaterPauseTime.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2214,8 +2190,8 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="&gt;&gt;label19.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="cmbWetMode.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;txtCloudysky.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2231,9 +2207,6 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   </data>
   <data name="&gt;&gt;tabModeling.Name" xml:space="preserve">
     <value>tabModeling</value>
-  </data>
-  <data name="btnGenerateMac.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="&gt;&gt;txtK7.Name" xml:space="preserve">
     <value>txtK7</value>
@@ -2274,20 +2247,23 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="&gt;&gt;label12.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
+  <data name="&gt;&gt;label42.Parent" xml:space="preserve">
+    <value>groupBox5</value>
   </data>
   <data name="&gt;&gt;chkLogFileFlag.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;label40.Name" xml:space="preserve">
+    <value>label40</value>
+  </data>
   <data name="&gt;&gt;txtCSDecreasingMaxDelta.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="txtCSDecreasingMinDelta.Error" xml:space="preserve">
+  <data name="chkWatchdog.Error" xml:space="preserve">
     <value />
   </data>
   <data name="txtRefreshNarodmonInterval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>212, 181</value>
+    <value>159, 147</value>
   </data>
   <data name="&gt;&gt;txtCSHeaterPauseTime.Parent" xml:space="preserve">
     <value>groupBox9</value>
@@ -2298,23 +2274,20 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="&gt;&gt;txtRefreshWebDataInterval.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="chkMinMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 26</value>
-  </data>
   <data name="cmbPortList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 23</value>
+    <value>7, 19</value>
   </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>groupBox2</value>
+  <data name="txtBoltwoodFileLocation.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
   </data>
   <data name="txtHeaterMaxTemp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="&gt;&gt;txtCSDecreasingMinDelta.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
   <data name="txtMaxLogWindowLines.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 72</value>
+    <value>148, 58</value>
   </data>
   <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -2328,17 +2301,23 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="&gt;&gt;label34.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtVeryWindyLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="txtGaugeInc.ToolTip" xml:space="preserve">
+    <value>All time RG-11 rain counter incremental value.
+
+It used by narodmon to display rain intensity.
+
+Can be manually set to any value by entering it here and pressing "Set" button
+
+</value>
   </data>
-  <data name="txtWetLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="&gt;&gt;txtCSHeatingMin.Parent" xml:space="preserve">
+    <value>groupBox9</value>
   </data>
   <data name="&gt;&gt;txtK1.Name" xml:space="preserve">
     <value>txtK1</value>
   </data>
   <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 82</value>
+    <value>7, 67</value>
   </data>
   <data name="txtCSVFileLocation.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2352,11 +2331,8 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="txtRainLimit.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
-  <data name="label17.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
   <data name="label29.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 17</value>
+    <value>25, 13</value>
   </data>
   <data name="label17.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2365,7 +2341,7 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>1</value>
   </data>
   <data name="txtK3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 39</value>
+    <value>73, 32</value>
   </data>
   <data name="&gt;&gt;label18.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2386,7 +2362,7 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>Send data to web every </value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 17</value>
+    <value>20, 13</value>
   </data>
   <data name="chkMinMode.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2401,7 +2377,7 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>Path to program log file. If left empty - program directory</value>
   </data>
   <data name="btnReset.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 471</value>
+    <value>7, 383</value>
   </data>
   <data name="btnGenerateMac.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -2412,8 +2388,8 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="chkTrayIcon.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
-  <data name="label5.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="label3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="chkShowDebugPannels.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2443,7 +2419,7 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>True</value>
   </data>
   <data name="txtRefreshInterval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 20</value>
+    <value>148, 16</value>
   </data>
   <data name="groupBox4.ToolTip" xml:space="preserve">
     <value />
@@ -2468,11 +2444,8 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="groupBox9.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="chkNarodMon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="label31.Location" type="System.Drawing.Point, System.Drawing">
-    <value>307, 82</value>
+    <value>230, 67</value>
   </data>
   <data name="groupBox2.Text" xml:space="preserve">
     <value>Cloud sensor model</value>
@@ -2483,11 +2456,11 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="btnSerialLogPathBrowse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="&gt;&gt;label34.Parent" xml:space="preserve">
     <value>groupBox11</value>
+  </data>
+  <data name="label40.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 13</value>
   </data>
   <data name="label18.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -2498,20 +2471,23 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="label10.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>Base temp sensor</value>
-  </data>
   <data name="btnReadFromSerial.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 28</value>
+    <value>139, 23</value>
   </data>
-  <data name="txtSerialFileIn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="label36.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="txtHeaterWetThreshold.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="label9.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="label16.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="&gt;&gt;label42.Name" xml:space="preserve">
+    <value>label42</value>
   </data>
   <data name="label22.Error" xml:space="preserve">
     <value />
@@ -2521,16 +2497,16 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
 </value>
   </data>
   <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 50</value>
+    <value>7, 41</value>
   </data>
   <data name="&gt;&gt;label31.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnCSVPathBrowse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>365, 110</value>
+    <value>274, 89</value>
   </data>
-  <data name="groupBox3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="label5.Error" xml:space="preserve">
+    <value />
   </data>
   <data name="groupBox3.Text" xml:space="preserve">
     <value>Log data</value>
@@ -2548,16 +2524,16 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>txtHeaterMaxTemp</value>
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 4</value>
+    <value>8, 3</value>
   </data>
   <data name="&gt;&gt;chkMinMode.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="txtClearsky.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="label27.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 17</value>
+    <value>25, 13</value>
   </data>
   <data name="&gt;&gt;btnCSVPathBrowse.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -2575,7 +2551,7 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value />
   </data>
   <data name="btnOpenWriteToFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 25</value>
+    <value>27, 20</value>
   </data>
   <data name="txtK4.Error" xml:space="preserve">
     <value />
@@ -2583,11 +2559,8 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="label19.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 30</value>
+    <value>79, 24</value>
   </data>
   <data name="&gt;&gt;txtBoltwoodFileLocation.Name" xml:space="preserve">
     <value>txtBoltwoodFileLocation</value>
@@ -2608,19 +2581,16 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>Rain sensor model</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 17</value>
+    <value>20, 13</value>
   </data>
   <data name="chkSerialLogFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 21</value>
+    <value>85, 17</value>
   </data>
   <data name="&gt;&gt;label37.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tabHeater.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="&gt;&gt;chkLogFileFlag.Parent" xml:space="preserve">
-    <value>groupBox3</value>
   </data>
   <data name="txtHeaterWetThreshold.Error" xml:space="preserve">
     <value />
@@ -2631,14 +2601,8 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="label20.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="chkWebData.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label29.Text" xml:space="preserve">
     <value>m/s</value>
-  </data>
-  <data name="label32.Location" type="System.Drawing.Point, System.Drawing">
-    <value>273, 23</value>
   </data>
   <data name="txtSerialFileOut.Error" xml:space="preserve">
     <value />
@@ -2650,7 +2614,7 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>Productivity settings</value>
   </data>
   <data name="K7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>263, 20</value>
+    <value>197, 16</value>
   </data>
   <data name="label37.Error" xml:space="preserve">
     <value />
@@ -2661,8 +2625,8 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="&gt;&gt;label30.Parent" xml:space="preserve">
     <value>groupBox11</value>
   </data>
-  <data name="txtCSHeaterPauseTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+  <data name="btnLogPathBrowse.Text" xml:space="preserve">
+    <value>...</value>
   </data>
   <data name="label12.Error" xml:space="preserve">
     <value />
@@ -2701,7 +2665,7 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>txtRefreshWebDataInterval</value>
   </data>
   <data name="label39.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 75</value>
+    <value>4, 61</value>
   </data>
   <data name="&gt;&gt;label31.Parent" xml:space="preserve">
     <value>groupBox11</value>
@@ -2709,17 +2673,11 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="K7.Text" xml:space="preserve">
     <value>K7</value>
   </data>
-  <data name="chkLogFileFlag.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="label25.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label11.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
   <data name="label23.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 17</value>
+    <value>104, 13</value>
   </data>
   <data name="label19.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2731,28 +2689,25 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>3</value>
   </data>
   <data name="txtSerialFileIn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>229, 22</value>
+    <value>173, 20</value>
   </data>
   <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="txtCloudysky.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
   <data name="groupBox7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>355, 60</value>
+    <value>266, 49</value>
   </data>
-  <data name="groupBox8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="label24.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;label32.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="groupBox3.Error" xml:space="preserve">
     <value />
-  </data>
-  <data name="label34.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 17</value>
   </data>
   <data name="&gt;&gt;cmbBaseTempSensor.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -2769,14 +2724,14 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="chkShowDebugPannels.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="btnSetGaugeInc.Error" xml:space="preserve">
+    <value />
+  </data>
   <data name="label28.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
   <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -2784,17 +2739,14 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="&gt;&gt;label37.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="SensorEnabled.Width" type="System.Int32, mscorlib">
-    <value>50</value>
-  </data>
   <data name="&gt;&gt;label33.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtWSpeedZero.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="groupBox9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="chkLogFileFlag.ToolTip" xml:space="preserve">
+    <value>Path to program log file. If left empty - program directory</value>
   </data>
   <data name="&gt;&gt;chkSerialLogFileFlag.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2806,7 +2758,7 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>2</value>
   </data>
   <data name="txtWetLimit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 20</value>
+    <value>148, 16</value>
   </data>
   <data name="label36.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2815,7 +2767,7 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>3</value>
   </data>
   <data name="label34.Location" type="System.Drawing.Point, System.Drawing">
-    <value>307, 185</value>
+    <value>230, 150</value>
   </data>
   <data name="&gt;&gt;dataGridSensors.Name" xml:space="preserve">
     <value>dataGridSensors</value>
@@ -2838,14 +2790,11 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="label30.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="chkCSVFileFlag.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="txtK2.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 23</value>
   </data>
   <data name="&gt;&gt;label38.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2860,7 +2809,10 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>MiddleRight</value>
   </data>
   <data name="txtCSHeatingMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 23</value>
+    <value>148, 19</value>
+  </data>
+  <data name="txtGaugeInc.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
   </data>
   <data name="SensorName.MinimumWidth" type="System.Int32, mscorlib">
     <value>50</value>
@@ -2875,7 +2827,7 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value />
   </data>
   <data name="&gt;&gt;label19.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;txtK4.Parent" xml:space="preserve">
     <value>groupBox10</value>
@@ -2895,11 +2847,17 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="&gt;&gt;cmbPortList.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 13</value>
+  </data>
   <data name="txtCSDecreasingMinDelta.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
   <data name="label27.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="&gt;&gt;txtGaugeInc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSerialLogPathBrowse.Parent" xml:space="preserve">
     <value>groupBox3</value>
@@ -2908,7 +2866,7 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>groupBox3</value>
   </data>
   <data name="btnOk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 30</value>
+    <value>79, 24</value>
   </data>
   <data name="btnReadFromSerial.Error" xml:space="preserve">
     <value />
@@ -2919,8 +2877,8 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="btnReset.Error" xml:space="preserve">
     <value />
   </data>
-  <data name="cmbPortList.Error" xml:space="preserve">
-    <value />
+  <data name="btnSetGaugeInc.Text" xml:space="preserve">
+    <value>Set</value>
   </data>
   <data name="&gt;&gt;label5.Parent" xml:space="preserve">
     <value>groupBox10</value>
@@ -2943,14 +2901,23 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="chkTrayIcon.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="label37.Text" xml:space="preserve">
+    <value>Write to file</value>
+  </data>
   <data name="&gt;&gt;groupBox4.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtK3.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="label42.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;btnReadFromSerial.Parent" xml:space="preserve">
     <value>tabSensors</value>
+  </data>
+  <data name="txtCSHeaterPauseTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
   <data name="btnReadFromSerial.Text" xml:space="preserve">
     <value>Read from serial port</value>
@@ -2965,10 +2932,10 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value />
   </data>
   <data name="groupBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 323</value>
+    <value>8, 262</value>
   </data>
   <data name="tabSensors.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>3, 3, 3, 3</value>
   </data>
   <data name="btnResetSensorList.Error" xml:space="preserve">
     <value />
@@ -2985,11 +2952,8 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
     <value>tabControl1</value>
   </data>
-  <data name="groupBox12.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="label17.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="label16.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
   </data>
   <data name="label31.Error" xml:space="preserve">
     <value />
@@ -3002,9 +2966,6 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   </data>
   <data name="label22.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="tabGeneral.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="txtWindyLimit.Error" xml:space="preserve">
     <value />
@@ -3027,26 +2988,32 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="&gt;&gt;label39.Parent" xml:space="preserve">
     <value>groupBox6</value>
   </data>
-  <data name="tabHeater.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="label40.Text" xml:space="preserve">
+    <value>Rain gauge override</value>
+  </data>
+  <data name="chkShowDebugPannels.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 73</value>
   </data>
   <data name="chkTrayIcon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 57</value>
+    <value>6, 46</value>
+  </data>
+  <data name="&gt;&gt;WebCustomName.Name" xml:space="preserve">
+    <value>WebCustomName</value>
   </data>
   <data name="cmbBaseTempSensor.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 20</value>
+    <value>77, 16</value>
   </data>
   <data name="&gt;&gt;txtK5.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label37.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 91</value>
+    <value>7, 74</value>
   </data>
   <data name="txtHeaterWetThreshold.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -3059,9 +3026,6 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   </data>
   <data name="&gt;&gt;txtCSHeaterPauseTime.Name" xml:space="preserve">
     <value>txtCSHeaterPauseTime</value>
-  </data>
-  <data name="txtBoltwoodFileLocation.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
   </data>
   <data name="cmbBaseTempSensor.ToolTip" xml:space="preserve">
     <value />
@@ -3078,9 +3042,6 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="cmbLogLevel.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="chkLogFileFlag.Text" xml:space="preserve">
-    <value>Program log file</value>
-  </data>
   <data name="chkBoltwoodFileFlag.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
@@ -3092,6 +3053,12 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   </data>
   <data name="chkTrayIcon.Text" xml:space="preserve">
     <value>Minimize to system tray</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label30.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="btnLogPathBrowse.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -3105,20 +3072,20 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="cmbPortList.ToolTip" xml:space="preserve">
     <value>При выборе File Emulation вместо COM порта данные читаются/пишутся из/в файл</value>
   </data>
-  <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="groupBox10.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="&gt;&gt;txtRefreshWebDataInterval.Parent" xml:space="preserve">
     <value>groupBox11</value>
   </data>
+  <data name="btnSetGaugeInc.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
+  </data>
   <data name="txtK1.Error" xml:space="preserve">
     <value />
   </data>
   <data name="txtK2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>57, 39</value>
+    <value>43, 32</value>
   </data>
   <data name="chkMinMode.Text" xml:space="preserve">
     <value>Minimize button switch program to MIN MODE</value>
@@ -3135,8 +3102,8 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="txtWetLimit.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="&gt;&gt;MyToolTip.Name" xml:space="preserve">
-    <value>MyToolTip</value>
+  <data name="label2.Error" xml:space="preserve">
+    <value />
   </data>
   <data name="K7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3144,17 +3111,14 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="txtWindyLimit.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
-  <data name="groupBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="label10.Error" xml:space="preserve">
     <value />
   </data>
   <data name="&gt;&gt;label7.Parent" xml:space="preserve">
     <value>groupBox10</value>
   </data>
-  <data name="groupBox11.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="chkLogFileFlag.Text" xml:space="preserve">
+    <value>Program log file</value>
   </data>
   <data name="groupBox5.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -3165,14 +3129,8 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="&gt;&gt;txtHeaterMaxDuration.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
-  <data name="groupBox10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="label27.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="groupBox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="tabHeater.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3180,8 +3138,14 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="label5.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
+  <data name="btnSetGaugeInc.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 22</value>
+  </data>
   <data name="btnOpenReadFromFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 25</value>
+    <value>27, 20</value>
+  </data>
+  <data name="btnGenerateMac.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 119</value>
   </data>
   <data name="txtCSDecreasingMinDelta.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3190,7 +3154,7 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>groupBox6</value>
   </data>
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 17</value>
+    <value>87, 13</value>
   </data>
   <data name="chkSerialLogFileFlag.ToolTip" xml:space="preserve">
     <value>Path to serial data exchange with Arduino log file. If left empty - program directory</value>
@@ -3199,16 +3163,16 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value />
   </data>
   <data name="label38.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 134</value>
+    <value>5, 109</value>
   </data>
   <data name="txtWSpeedZero.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
   <data name="cmbLang.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="txtLogFileLocation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 22</value>
+    <value>156, 20</value>
   </data>
   <data name="&gt;&gt;txtSerialFileOut.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3219,11 +3183,14 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="&gt;&gt;txtK3.Name" xml:space="preserve">
     <value>txtK3</value>
   </data>
+  <data name="label40.Error" xml:space="preserve">
+    <value />
+  </data>
   <data name="&gt;&gt;txtCSVFileLocation.Name" xml:space="preserve">
     <value>txtCSVFileLocation</value>
   </data>
-  <data name="groupBox4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="&gt;&gt;txtCSVFileLocation.Parent" xml:space="preserve">
+    <value>groupBox3</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3232,7 +3199,7 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>MiddleRight</value>
   </data>
   <data name="label33.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 185</value>
+    <value>5, 150</value>
   </data>
   <data name="&gt;&gt;groupBox9.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -3252,14 +3219,11 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="txtHeaterMaxTemp.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="groupBox7.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="btnResetSensorList.Text" xml:space="preserve">
+    <value>Reset sensor list to default</value>
   </data>
   <data name="label17.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="groupBox5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="label32.ToolTip" xml:space="preserve">
     <value />
@@ -3268,10 +3232,10 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>K7</value>
   </data>
   <data name="txtSerialLogFileLocation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 82</value>
+    <value>112, 67</value>
   </data>
   <data name="txtHeaterWetThreshold.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 80</value>
+    <value>148, 65</value>
   </data>
   <data name="label30.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -3285,11 +3249,8 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="&gt;&gt;txtHeaterMaxDuration.Name" xml:space="preserve">
     <value>txtHeaterMaxDuration</value>
   </data>
-  <data name="label25.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="txtMaxLogWindowLines.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="txtVeryWindyLimit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
   <data name="&gt;&gt;txtClearsky.Parent" xml:space="preserve">
     <value>groupBox2</value>
@@ -3297,26 +3258,20 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="&gt;&gt;btnOpenReadFromFile.Name" xml:space="preserve">
     <value>btnOpenReadFromFile</value>
   </data>
-  <data name="label13.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
   <data name="&gt;&gt;txtCSHeatingMin.Name" xml:space="preserve">
     <value>txtCSHeatingMin</value>
   </data>
-  <data name="txtRefreshInterval.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="txtNarodmonMAC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>45, 150</value>
+    <value>34, 122</value>
   </data>
-  <data name="label24.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="txtRefreshWebDataInterval.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="label31.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
+  </data>
+  <data name="&gt;&gt;cmbWetMode.Parent" xml:space="preserve">
+    <value>groupBox5</value>
   </data>
   <data name="&gt;&gt;txtSerialLogFileLocation.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3330,23 +3285,20 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="groupBox8.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="&gt;&gt;chkWebData.Parent" xml:space="preserve">
     <value>groupBox11</value>
   </data>
-  <data name="txtRefreshWebDataInterval.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="groupBox7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="tabGeneral.Size" type="System.Drawing.Size, System.Drawing">
+    <value>619, 351</value>
   </data>
   <data name="&gt;&gt;btnCSVPathBrowse.Parent" xml:space="preserve">
     <value>groupBox3</value>
   </data>
   <data name="txtCSDecreasingMaxDelta.Location" type="System.Drawing.Point, System.Drawing">
-    <value>287, 82</value>
+    <value>215, 67</value>
   </data>
   <data name="K7.Error" xml:space="preserve">
     <value />
@@ -3355,22 +3307,19 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtHeaterMaxTemp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 20</value>
+    <value>148, 16</value>
   </data>
   <data name="txtCSHeatingMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
-  </data>
-  <data name="tabHeater.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+    <value>53, 20</value>
   </data>
   <data name="label29.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="chkCSVFileFlag.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 114</value>
+    <value>7, 93</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>223, 20</value>
+    <value>167, 16</value>
   </data>
   <data name="label9.ToolTip" xml:space="preserve">
     <value />
@@ -3389,7 +3338,7 @@ Default value (suits for my conditions) 83 units</value>
     <value>4</value>
   </data>
   <data name="label31.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 17</value>
+    <value>24, 13</value>
   </data>
   <data name="label9.Error" xml:space="preserve">
     <value />
@@ -3437,23 +3386,14 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="txtK3.Error" xml:space="preserve">
     <value />
   </data>
-  <data name="txtK1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="cmbWetMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 24</value>
-  </data>
-  <data name="btnResetSensorList.Text" xml:space="preserve">
-    <value>Reset sensor list to default</value>
+    <value>129, 21</value>
   </data>
   <data name="&gt;&gt;label13.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label10.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
-  </data>
-  <data name="chkCSVFileFlag.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="label5.ToolTip" xml:space="preserve">
     <value />
@@ -3464,26 +3404,20 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="groupBox6.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="txtCSHeatingMax.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="txtWetLimit.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="label31.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 17</value>
+  <data name="label32.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
-  <data name="txtHeaterWetThreshold.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="label25.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
   </data>
   <data name="&gt;&gt;tabHeater.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cmbWetMode.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
   </data>
   <data name="groupBox10.Text" xml:space="preserve">
     <value>AAG Cloud Sensor model</value>
@@ -3509,20 +3443,20 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="chkSerialLogFileFlag.Text" xml:space="preserve">
     <value>Serial log file</value>
   </data>
-  <data name="chkWebData.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="groupBox12.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label14.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+  <data name="txtHeaterMaxDuration.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="tabSensors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
+    <value>4, 22</value>
   </data>
   <data name="label26.ToolTip" xml:space="preserve">
     <value />
+  </data>
+  <data name="groupBox8.Text" xml:space="preserve">
+    <value>Interface options</value>
   </data>
   <data name="txtSerialFileOut.ToolTip" xml:space="preserve">
     <value>File name where program writes data for serial communications in Serial File Emulation Mode (disabled in normal serial port mode)
@@ -3532,7 +3466,7 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>5</value>
   </data>
   <data name="chkLogFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 21</value>
+    <value>98, 17</value>
   </data>
   <data name="label1.ToolTip" xml:space="preserve">
     <value />
@@ -3558,11 +3492,8 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="&gt;&gt;label9.Parent" xml:space="preserve">
     <value>groupBox7</value>
   </data>
-  <data name="btnCSVPathBrowse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 17</value>
+    <value>133, 13</value>
   </data>
   <data name="txtSerialFileOut.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -3574,16 +3505,19 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>label35</value>
   </data>
   <data name="txtCSDecreasingMaxDelta.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="&gt;&gt;txtSerialFileIn.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 17</value>
+    <value>96, 13</value>
   </data>
   <data name="&gt;&gt;cmbLang.Name" xml:space="preserve">
     <value>cmbLang</value>
+  </data>
+  <data name="label34.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label23.Error" xml:space="preserve">
     <value />
@@ -3599,6 +3533,9 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   </data>
   <data name="&gt;&gt;txtLogFileLocation.ZOrder" xml:space="preserve">
     <value>7</value>
+  </data>
+  <data name="label42.Error" xml:space="preserve">
+    <value />
   </data>
   <data name="chkNarodMon.Text" xml:space="preserve">
     <value>Send data to NARODMON.RU</value>
@@ -3618,9 +3555,6 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="&gt;&gt;chkWebData.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBox12.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="txtNarodmonMAC.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
@@ -3631,16 +3565,19 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>10</value>
   </data>
   <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>836, 464</value>
+    <value>627, 377</value>
   </data>
   <data name="txtVeryWindyLimit.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
   <data name="cmbLogLevel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="&gt;&gt;label10.Name" xml:space="preserve">
+    <value>label10</value>
   </data>
   <data name="label35.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 153</value>
+    <value>6, 124</value>
   </data>
   <data name="&gt;&gt;txtCloudysky.Parent" xml:space="preserve">
     <value>groupBox2</value>
@@ -3661,7 +3598,7 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>3</value>
   </data>
   <data name="txtNarodmonMAC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 22</value>
+    <value>119, 20</value>
   </data>
   <data name="label11.Text" xml:space="preserve">
     <value>Max temperature delta</value>
@@ -3684,9 +3621,6 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="txtRefreshWebDataInterval.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
-  <data name="&gt;&gt;tabHeater.Name" xml:space="preserve">
-    <value>tabHeater</value>
-  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>SettingsForm</value>
   </data>
@@ -3694,7 +3628,7 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>0</value>
   </data>
   <data name="txtWebDataURL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 47</value>
+    <value>7, 38</value>
   </data>
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>groupBox10</value>
@@ -3712,10 +3646,10 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>0</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 17</value>
+    <value>73, 13</value>
   </data>
   <data name="label24.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 17</value>
+    <value>93, 13</value>
   </data>
   <data name="tabHeater.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -3741,17 +3675,20 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="btnOpenWriteToFile.Error" xml:space="preserve">
     <value />
   </data>
-  <data name="btnGenerateMac.Location" type="System.Drawing.Point, System.Drawing">
-    <value>212, 146</value>
+  <data name="label41.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 88</value>
   </data>
   <data name="chkWatchdog.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
   <data name="btnReadFromSerial.Location" type="System.Drawing.Point, System.Drawing">
-    <value>404, 359</value>
+    <value>303, 292</value>
   </data>
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 30</value>
+    <value>6, 24</value>
+  </data>
+  <data name="chkWebData.Text" xml:space="preserve">
+    <value>Send data to web server</value>
   </data>
   <data name="&gt;&gt;txtHeaterMaxTemp.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3759,20 +3696,26 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="label37.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="cmbPortList.Error" xml:space="preserve">
+    <value />
+  </data>
   <data name="label31.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="&gt;&gt;groupBox11.Name" xml:space="preserve">
     <value>groupBox11</value>
   </data>
-  <data name="&gt;&gt;label36.Name" xml:space="preserve">
-    <value>label36</value>
+  <data name="chkMinMode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 21</value>
   </data>
   <data name="txtClearsky.Location" type="System.Drawing.Point, System.Drawing">
-    <value>257, 20</value>
+    <value>193, 16</value>
   </data>
   <data name="tabHeater.Size" type="System.Drawing.Size, System.Drawing">
-    <value>828, 435</value>
+    <value>619, 351</value>
+  </data>
+  <data name="&gt;&gt;btnSetGaugeInc.Parent" xml:space="preserve">
+    <value>groupBox5</value>
   </data>
   <data name="label24.Error" xml:space="preserve">
     <value />
@@ -3784,22 +3727,25 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>1</value>
   </data>
   <data name="txtK2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 22</value>
+    <value>24, 20</value>
   </data>
   <data name="chkMinMode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btnCSVPathBrowse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 25</value>
+    <value>27, 20</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 20</value>
+    <value>107, 16</value>
   </data>
   <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 133</value>
+    <value>8, 108</value>
   </data>
   <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>568, 471</value>
+    <value>426, 383</value>
+  </data>
+  <data name="label27.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="label34.Error" xml:space="preserve">
     <value />
@@ -3823,13 +3769,10 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>True</value>
   </data>
   <data name="txtK5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 22</value>
-  </data>
-  <data name="chkCSVFileFlag.ToolTip" xml:space="preserve">
-    <value />
+    <value>24, 20</value>
   </data>
   <data name="chkBoltwoodFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 21</value>
+    <value>103, 17</value>
   </data>
   <data name="&gt;&gt;txtCloudysky.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -3844,13 +3787,13 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>MiddleRight</value>
   </data>
   <data name="chkBoltwoodFileFlag.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 144</value>
+    <value>7, 117</value>
   </data>
   <data name="txtCSHeatingMax.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
   <data name="cmbLogLevel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 24</value>
+    <value>129, 21</value>
   </data>
   <data name="&gt;&gt;label24.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3865,16 +3808,13 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>Modeling</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 17</value>
+    <value>91, 13</value>
   </data>
   <data name="&gt;&gt;folderBrowserDialog.Name" xml:space="preserve">
     <value>folderBrowserDialog</value>
   </data>
   <data name="chkSerialLogFileFlag.Error" xml:space="preserve">
     <value />
-  </data>
-  <data name="label16.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
   </data>
   <data name="btnOpenWriteToFile.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3886,7 +3826,7 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="groupBox12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>428, 4</value>
+    <value>321, 3</value>
   </data>
   <data name="label27.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -3910,10 +3850,7 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>2</value>
   </data>
   <data name="txtK7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 22</value>
-  </data>
-  <data name="chkMinMode.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>24, 20</value>
   </data>
   <data name="K7.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -3925,13 +3862,20 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value />
   </data>
   <data name="groupBox11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>387, 238</value>
+    <value>290, 193</value>
   </data>
   <data name="&gt;&gt;btnResetSensorList.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="chkWatchdog.Error" xml:space="preserve">
-    <value />
+  <data name="txtRGScale.ToolTip" xml:space="preserve">
+    <value>Conversion multiplier to convert from RG-11 counter to mm of percipitation
+
+Should correspond to RG-11 hardware switch settings (can be 0.2 mm, 0.01 mm, 0.001 mm, 0.01", 0.001", 0.0001")
+
+Recomended 0.01mm</value>
+  </data>
+  <data name="label41.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;tabSensors.Parent" xml:space="preserve">
     <value>tabControl1</value>
@@ -3945,6 +3889,9 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="cmbLogLevel.Error" xml:space="preserve">
     <value />
   </data>
+  <data name="label24.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
+  </data>
   <data name="tabHeater.Error" xml:space="preserve">
     <value />
   </data>
@@ -3957,14 +3904,14 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="ArduinoName.Width" type="System.Int32, mscorlib">
     <value>80</value>
   </data>
+  <data name="txtGaugeInc.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
+  </data>
   <data name="label13.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="txtHeaterMaxDuration.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 20</value>
+    <value>17, 16</value>
   </data>
   <data name="txtRefreshInterval.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3975,14 +3922,11 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="label34.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="chkNarodMon.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;label33.Name" xml:space="preserve">
     <value>label33</value>
   </data>
   <data name="txtK1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 22</value>
+    <value>26, 20</value>
   </data>
   <data name="tabSensors.Text" xml:space="preserve">
     <value>Sensors</value>
@@ -3990,20 +3934,23 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="&gt;&gt;btnResetSensorList.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="chkShowDebugPannels.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="label10.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="cmbBaseTempSensor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 26</value>
+    <value>133, 21</value>
   </data>
   <data name="label11.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <data name="label40.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
+  </data>
   <data name="&gt;&gt;txtK6.Name" xml:space="preserve">
     <value>txtK6</value>
-  </data>
-  <data name="label26.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
   </data>
   <data name="txtCloudysky.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -4019,9 +3966,6 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   </data>
   <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="label15.Text" xml:space="preserve">
-    <value>Max points on graph</value>
   </data>
   <data name="txtCSHeaterPauseTime.ToolTip" xml:space="preserve">
     <value>Interval between two autoheating cycles, seconds
@@ -4048,6 +3992,9 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="SensorType.HeaderText" xml:space="preserve">
     <value>Type</value>
   </data>
+  <data name="txtGaugeInc.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="chkMinMode.ToolTip" xml:space="preserve">
     <value>When you press minimize button on main window, program first switches to minimalistic mode and only second press fully minizes program window
 </value>
@@ -4062,7 +4009,7 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtRainLimit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 47</value>
+    <value>148, 38</value>
   </data>
   <data name="label15.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -4076,17 +4023,17 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="SensorName.Width" type="System.Int32, mscorlib">
     <value>120</value>
   </data>
-  <data name="txtK6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="btnBoltwoodPathBrowse.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 114</value>
   </data>
   <data name="cmbLang.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
   <data name="txtK3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 22</value>
+    <value>24, 20</value>
   </data>
   <data name="txtWetLimit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="groupBox10.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4113,11 +4060,11 @@ Program determines when Cloud Sensor need heating based on some conditions:
   <data name="&gt;&gt;groupBox9.Parent" xml:space="preserve">
     <value>tabHeater</value>
   </data>
-  <data name="&gt;&gt;label10.Name" xml:space="preserve">
-    <value>label10</value>
+  <data name="txtRGScale.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="label26.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 17</value>
+    <value>83, 13</value>
   </data>
   <data name="&gt;&gt;txtK3.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -4134,9 +4081,6 @@ Program determines when Cloud Sensor need heating based on some conditions:
   <data name="label3.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="chkBoltwoodFileFlag.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="btnBoltwoodPathBrowse.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -4144,7 +4088,7 @@ Program determines when Cloud Sensor need heating based on some conditions:
     <value>Settings</value>
   </data>
   <data name="label35.Size" type="System.Drawing.Size, System.Drawing">
-    <value>21, 17</value>
+    <value>18, 13</value>
   </data>
   <data name="&gt;&gt;label11.Name" xml:space="preserve">
     <value>label11</value>
@@ -4153,7 +4097,7 @@ Program determines when Cloud Sensor need heating based on some conditions:
     <value>btnOk</value>
   </data>
   <data name="label22.Location" type="System.Drawing.Point, System.Drawing">
-    <value>273, 27</value>
+    <value>205, 22</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -4166,6 +4110,9 @@ Program determines when Cloud Sensor need heating based on some conditions:
   </data>
   <data name="txtMaxLogWindowLines.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;btnSetGaugeInc.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="txtHeaterMaxTemp.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4183,16 +4130,16 @@ Program determines when Cloud Sensor need heating based on some conditions:
     <value>Choose file for Serial emulation</value>
   </data>
   <data name="label25.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 27</value>
+    <value>6, 22</value>
   </data>
   <data name="&gt;&gt;txtK4.Name" xml:space="preserve">
     <value>txtK4</value>
   </data>
   <data name="groupBox7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 342</value>
+    <value>6, 278</value>
   </data>
   <data name="btnLogPathBrowse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>365, 23</value>
+    <value>274, 19</value>
   </data>
   <data name="tabControl1.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -4200,22 +4147,25 @@ Program determines when Cloud Sensor need heating based on some conditions:
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="groupBox4.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 13</value>
   </data>
   <data name="chkBoltwoodFileFlag.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
   <data name="groupBox8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>428, 4</value>
+    <value>321, 3</value>
   </data>
   <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 23</value>
+    <value>6, 19</value>
   </data>
   <data name="&gt;&gt;groupBox10.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="dataGridSensors.Error" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtRGScale.Error" xml:space="preserve">
     <value />
   </data>
   <data name="&gt;&gt;tabModeling.ZOrder" xml:space="preserve">
@@ -4242,29 +4192,26 @@ Program determines when Cloud Sensor need heating based on some conditions:
   <data name="&gt;&gt;chkMinMode.Parent" xml:space="preserve">
     <value>groupBox8</value>
   </data>
-  <data name="label21.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
   <data name="&gt;&gt;groupBox10.Parent" xml:space="preserve">
     <value>tabModeling</value>
   </data>
   <data name="&gt;&gt;cmbWetMode.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="tabControl1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 49</value>
+    <value>4, 40</value>
   </data>
-  <data name="txtK2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="chkLogFileFlag.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
   </data>
   <data name="label22.Size" type="System.Drawing.Size, System.Drawing">
-    <value>13, 17</value>
+    <value>10, 13</value>
   </data>
   <data name="txtRefreshWebDataInterval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 22</value>
+    <value>60, 20</value>
   </data>
   <data name="label18.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4280,6 +4227,9 @@ Program determines when Cloud Sensor need heating based on some conditions:
 
 Service demand that it should be at least 5 min for free accounts.
 Note that data would be sent only in multiples of Refresh interval settings</value>
+  </data>
+  <data name="label40.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 110</value>
   </data>
   <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -4299,14 +4249,11 @@ Note that data would be sent only in multiples of Refresh interval settings</val
   <data name="label10.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="chkSerialLogFileFlag.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="label35.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="txtK5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="&gt;&gt;tabHeater.Name" xml:space="preserve">
+    <value>tabHeater</value>
   </data>
   <data name="&gt;&gt;label9.Name" xml:space="preserve">
     <value>label9</value>
@@ -4318,10 +4265,7 @@ Note that data would be sent only in multiples of Refresh interval settings</val
     <value>NoControl</value>
   </data>
   <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 4</value>
-  </data>
-  <data name="tabHeater.ToolTip" xml:space="preserve">
-    <value />
+    <value>8, 3</value>
   </data>
   <data name="btnCSVPathBrowse.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -4345,7 +4289,7 @@ Program determines when Cloud Sensor need heating based on some conditions:
 - It is dark now</value>
   </data>
   <data name="tabModeling.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
+    <value>4, 22</value>
   </data>
   <data name="&gt;&gt;errorProvider1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ErrorProvider, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -4368,23 +4312,20 @@ Program determines when Cloud Sensor need heating based on some conditions:
   <data name="tabGeneral.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="txtK4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="&gt;&gt;txtRefreshInterval.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="&gt;&gt;label12.Name" xml:space="preserve">
     <value>label12</value>
   </data>
-  <data name="btnLogPathBrowse.Text" xml:space="preserve">
-    <value>...</value>
+  <data name="label42.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="label22.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label24.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="&gt;&gt;label40.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="label36.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -4392,26 +4333,17 @@ Program determines when Cloud Sensor need heating based on some conditions:
   <data name="&gt;&gt;label8.Parent" xml:space="preserve">
     <value>groupBox10</value>
   </data>
-  <data name="chkCSVFileFlag.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
-  </data>
   <data name="cmbWetMode.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="label5.Error" xml:space="preserve">
-    <value />
   </data>
   <data name="btnGenerateMac.Text" xml:space="preserve">
     <value>Generate</value>
   </data>
-  <data name="txtCSDecreasingMaxDelta.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="txtK7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="label33.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtHeaterMaxTemp.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="label23.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -4433,20 +4365,20 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
   <data name="&gt;&gt;label13.Name" xml:space="preserve">
     <value>label13</value>
   </data>
-  <data name="groupBox10.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="label26.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;groupBox4.Parent" xml:space="preserve">
     <value>tabHeater</value>
   </data>
+  <data name="&gt;&gt;label41.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="chkTrayIcon.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="txtCSHeaterPauseTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="cmbPortList.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="label15.Text" xml:space="preserve">
+    <value>Max points on graph</value>
   </data>
   <data name="txtRefreshNarodmonInterval.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -4478,8 +4410,11 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
   <data name="txtSerialFileIn.Error" xml:space="preserve">
     <value />
   </data>
-  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 17</value>
+  <data name="&gt;&gt;btnSetGaugeInc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tabHeater.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;fileChooseDialog.Type" xml:space="preserve">
     <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -4494,19 +4429,19 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
     <value>True</value>
   </data>
   <data name="tabModeling.Size" type="System.Drawing.Size, System.Drawing">
-    <value>828, 435</value>
+    <value>619, 351</value>
   </data>
-  <data name="txtCSDecreasingMinDelta.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="label40.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;label19.Name" xml:space="preserve">
     <value>label19</value>
   </data>
-  <data name="txtMaxPoints.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="groupBox1.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="cmbBaseTempSensor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 24</value>
+    <value>121, 21</value>
   </data>
   <data name="label30.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4514,29 +4449,26 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
   <data name="txtHeaterWetThreshold.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
+  <data name="txtRGScale.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
+  </data>
   <data name="btnReadFromSerial.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="txtRainLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="btnCancel.Error" xml:space="preserve">
     <value />
   </data>
   <data name="txtWebDataURL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 22</value>
+    <value>277, 20</value>
   </data>
   <data name="txtHeaterMaxTemp.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="txtCloudysky.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtK3.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
-  </data>
-  <data name="tabGeneral.Error" xml:space="preserve">
-    <value />
   </data>
   <data name="txtK6.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -4544,11 +4476,17 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
   <data name="btnGenerateMac.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
+  <data name="label10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
   <data name="label33.Error" xml:space="preserve">
     <value />
   </data>
-  <data name="label25.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="label40.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;label41.Name" xml:space="preserve">
+    <value>label41</value>
   </data>
   <data name="label18.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4566,7 +4504,7 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnGenerateMac.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 28</value>
+    <value>59, 23</value>
   </data>
   <data name="label22.Text" xml:space="preserve">
     <value>-</value>
@@ -4580,13 +4518,13 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
   <data name="groupBox3.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;txtCSHeatingMin.Parent" xml:space="preserve">
-    <value>groupBox9</value>
+  <data name="label39.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 13</value>
   </data>
-  <data name="txtK3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="txtRainLimit.Error" xml:space="preserve">
+    <value />
   </data>
-  <data name="chkWatchdog.ToolTip" xml:space="preserve">
+  <data name="tabGeneral.Error" xml:space="preserve">
     <value />
   </data>
   <data name="&gt;&gt;txtNarodmonMAC.Type" xml:space="preserve">
@@ -4599,7 +4537,10 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
     <value>True</value>
   </data>
   <data name="txtRefreshNarodmonInterval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 22</value>
+    <value>60, 20</value>
+  </data>
+  <data name="label28.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label36.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -4608,34 +4549,46 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
     <value>0</value>
   </data>
   <data name="cmbLang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 130</value>
+    <value>76, 106</value>
   </data>
   <data name="&gt;&gt;cmbLang.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnBoltwoodPathBrowse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>365, 140</value>
-  </data>
   <data name="chkWatchdog.Location" type="System.Drawing.Point, System.Drawing">
-    <value>127, 23</value>
+    <value>95, 19</value>
   </data>
   <data name="&gt;&gt;txtRefreshNarodmonInterval.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="txtCSVFileLocation.Error" xml:space="preserve">
+    <value />
+  </data>
   <data name="&gt;&gt;btnGenerateMac.Parent" xml:space="preserve">
     <value>groupBox11</value>
+  </data>
+  <data name="label29.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="&gt;&gt;label42.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="chkTrayIcon.Error" xml:space="preserve">
     <value />
   </data>
-  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+  <data name="label5.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtGaugeInc.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="btnSerialLogPathBrowse.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="txtCSHeatingMin.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
   <data name="txtCSVFileLocation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 22</value>
+    <value>156, 20</value>
   </data>
   <data name="label1.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -4646,17 +4599,14 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
   <data name="btnOpenReadFromFile.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label35.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="txtMaxPoints.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="tabGeneral.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>3, 3, 3, 3</value>
   </data>
-  <data name="&gt;&gt;cmbWetMode.Parent" xml:space="preserve">
-    <value>groupBox5</value>
+  <data name="label30.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 13</value>
+  </data>
+  <data name="&gt;&gt;label40.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label37.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -4666,9 +4616,6 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
   </data>
   <data name="label12.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="btnBoltwoodPathBrowse.Error" xml:space="preserve">
-    <value />
   </data>
   <data name="chkWebData.Error" xml:space="preserve">
     <value />
@@ -4686,7 +4633,7 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
     <value />
   </data>
   <data name="txtK5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 39</value>
+    <value>133, 32</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4697,8 +4644,8 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
   <data name="label5.Text" xml:space="preserve">
     <value>K3</value>
   </data>
-  <data name="groupBox9.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="&gt;&gt;label41.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label33.ToolTip" xml:space="preserve">
     <value />
@@ -4707,7 +4654,7 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
     <value>NoControl</value>
   </data>
   <data name="btnBoltwoodPathBrowse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 25</value>
+    <value>27, 20</value>
   </data>
   <data name="txtMaxLogWindowLines.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -4715,17 +4662,23 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
   <data name="&gt;&gt;label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+  <data name="tabHeater.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
   </data>
   <data name="label39.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label20.Size" type="System.Drawing.Size, System.Drawing">
-    <value>13, 17</value>
+    <value>10, 13</value>
   </data>
   <data name="&gt;&gt;txtHeaterMaxTemp.Parent" xml:space="preserve">
     <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;btnSetGaugeInc.Name" xml:space="preserve">
+    <value>btnSetGaugeInc</value>
+  </data>
+  <data name="label42.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
   <data name="txtWSpeedZero.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -4739,20 +4692,17 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
   <data name="txtRefreshInterval.Error" xml:space="preserve">
     <value />
   </data>
-  <data name="txtHeaterMaxTemp.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="chkNarodMon.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="label20.Location" type="System.Drawing.Point, System.Drawing">
-    <value>273, 86</value>
+    <value>205, 70</value>
   </data>
   <data name="btnResetSensorList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>628, 359</value>
+    <value>471, 292</value>
   </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="label37.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 13</value>
   </data>
   <data name="label31.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -4764,7 +4714,7 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
     <value />
   </data>
   <data name="&gt;&gt;txtWetLimit.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>8</value>
   </data>
   <data name="&gt;&gt;btnLogPathBrowse.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -4787,29 +4737,17 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
   <data name="label6.Text" xml:space="preserve">
     <value>K4</value>
   </data>
-  <data name="label8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="chkLogFileFlag.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="txtWetLimit.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="tabSensors.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="label38.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
   <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 57</value>
+    <value>4, 46</value>
   </data>
   <data name="btnBoltwoodPathBrowse.Text" xml:space="preserve">
     <value>...</value>
@@ -4818,13 +4756,16 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>Rain sensors mode</value>
   </data>
   <data name="txtHeaterMaxDuration.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="chkShowDebugPannels.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 21</value>
+    <value>131, 17</value>
   </data>
   <data name="label39.Text" xml:space="preserve">
     <value>Max log window lines</value>
+  </data>
+  <data name="label27.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="&gt;&gt;chkLogFileFlag.Name" xml:space="preserve">
     <value>chkLogFileFlag</value>
@@ -4835,11 +4776,8 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="txtCSDecreasingMinDelta.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
-  </data>
   <data name="cmbLogLevel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 50</value>
+    <value>112, 41</value>
   </data>
   <data name="&gt;&gt;btnReset.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4858,6 +4796,9 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
   </data>
   <data name="cmbWetMode.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
+  </data>
+  <data name="label40.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="label17.ToolTip" xml:space="preserve">
     <value />
@@ -4883,20 +4824,14 @@ Default 500 lines. </value>
   <data name="txtCSHeaterPauseTime.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
-  <data name="label29.Error" xml:space="preserve">
-    <value />
-  </data>
   <data name="txtSerialLogFileLocation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 22</value>
+    <value>156, 20</value>
   </data>
   <data name="btnReset.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
   <data name="cmbLogLevel.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
-  </data>
-  <data name="txtRainLimit.Error" xml:space="preserve">
-    <value />
   </data>
   <data name="txtK2.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -4916,14 +4851,14 @@ Default 500 lines. </value>
   <data name="chkWatchdog.Text" xml:space="preserve">
     <value>Connection watchdog</value>
   </data>
-  <data name="&gt;&gt;txtK2.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="&gt;&gt;label42.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label33.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 17</value>
+    <value>150, 13</value>
   </data>
   <data name="txtClearsky.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="chkSerialLogFileFlag.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -4934,8 +4869,8 @@ Default 500 lines. </value>
   <data name="&gt;&gt;btnOpenReadFromFile.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="chkWebData.Text" xml:space="preserve">
-    <value>Send data to web server</value>
+  <data name="chkBoltwoodFileFlag.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;groupBox6.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -4946,17 +4881,20 @@ Default 500 lines. </value>
   <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnLogPathBrowse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Base temp sensor</value>
   </data>
-  <data name="&gt;&gt;btnLogPathBrowse.Parent" xml:space="preserve">
-    <value>groupBox3</value>
+  <data name="label32.Location" type="System.Drawing.Point, System.Drawing">
+    <value>205, 19</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="&gt;&gt;chkSerialLogFileFlag.ZOrder" xml:space="preserve">
     <value>11</value>
+  </data>
+  <data name="label41.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
   </data>
   <data name="label26.Error" xml:space="preserve">
     <value />
@@ -4991,8 +4929,8 @@ Default 500 lines. </value>
   <data name="&gt;&gt;txtCSHeatingMax.Name" xml:space="preserve">
     <value>txtCSHeatingMax</value>
   </data>
-  <data name="label27.IconPadding" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;txtRGScale.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="groupBox8.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -5010,7 +4948,7 @@ Default 500 lines. </value>
     <value />
   </data>
   <data name="tabSensors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>828, 435</value>
+    <value>619, 351</value>
   </data>
   <data name="groupBox6.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -5054,11 +4992,20 @@ Default 500 lines. </value>
   <data name="btnOk.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <data name="&gt;&gt;txtRGScale.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
   <data name="groupBox7.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label42.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="label24.Text" xml:space="preserve">
     <value>Heater pause time</value>
+  </data>
+  <data name="label25.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="btnOpenReadFromFile.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -5070,7 +5017,7 @@ Default 500 lines. </value>
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtK1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 39</value>
+    <value>11, 32</value>
   </data>
   <data name="label12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -5091,7 +5038,7 @@ This type of curve appears to work better during the cold season in cold climate
 K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 17</value>
+    <value>20, 13</value>
   </data>
   <data name="&gt;&gt;label24.Name" xml:space="preserve">
     <value>label24</value>
@@ -5105,8 +5052,8 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="&gt;&gt;cmbBaseTempSensor.Parent" xml:space="preserve">
     <value>groupBox7</value>
   </data>
-  <data name="chkShowDebugPannels.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 90</value>
+  <data name="&gt;&gt;txtWindyLimit.Name" xml:space="preserve">
+    <value>txtWindyLimit</value>
   </data>
   <data name="label29.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -5117,8 +5064,8 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="chkCSVFileFlag.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;chkCSVFileFlag.Name" xml:space="preserve">
-    <value>chkCSVFileFlag</value>
+  <data name="btnSetGaugeInc.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="chkBoltwoodFileFlag.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5136,19 +5083,19 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>0</value>
   </data>
   <data name="btnOpenWriteToFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>365, 87</value>
+    <value>274, 71</value>
   </data>
   <data name="txtWetLimit.Error" xml:space="preserve">
     <value />
   </data>
   <data name="groupBox10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 103</value>
+    <value>8, 84</value>
   </data>
   <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtMaxLogWindowLines.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="label14.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -5162,11 +5109,14 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="label18.Error" xml:space="preserve">
     <value />
   </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
   <data name="&gt;&gt;ArduinoName.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 17</value>
+    <value>20, 13</value>
   </data>
   <data name="label38.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -5186,8 +5136,8 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="groupBox4.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="chkBoltwoodFileFlag.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="txtMaxPoints.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="label32.Error" xml:space="preserve">
     <value />
@@ -5210,14 +5160,14 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="label38.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnReadFromSerial.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="btnReset.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="groupBox10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>409, 87</value>
+    <value>307, 71</value>
+  </data>
+  <data name="&gt;&gt;label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tabGeneral.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
@@ -5245,10 +5195,10 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>3</value>
   </data>
   <data name="cmbWetMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 75</value>
+    <value>148, 61</value>
   </data>
   <data name="btnSerialLogPathBrowse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>365, 82</value>
+    <value>274, 67</value>
   </data>
   <data name="groupBox2.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
@@ -5266,7 +5216,7 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>label20</value>
   </data>
   <data name="txtHeaterMaxDuration.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 50</value>
+    <value>148, 41</value>
   </data>
   <data name="cmbLang.Error" xml:space="preserve">
     <value />
@@ -5280,17 +5230,14 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="label9.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;txtCSVFileLocation.Parent" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
   <data name="txtBoltwoodFileLocation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 142</value>
+    <value>112, 115</value>
   </data>
   <data name="txtSerialFileIn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>127, 55</value>
+    <value>95, 45</value>
   </data>
   <data name="cmbWetMode.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="btnGenerateMac.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
@@ -5305,7 +5252,7 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnResetSensorList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 28</value>
+    <value>139, 23</value>
   </data>
   <data name="groupBox8.Error" xml:space="preserve">
     <value />
@@ -5319,44 +5266,23 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
   <data name="btnReset.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="txtK7.ToolTip" xml:space="preserve">
-    <value>- The software coefficient K1 mainly affects the slope of the curve in its linear section (i.e. ambient temperature below 25ºC);
-- K2 mainly affects the x-axis crossing point - it shifts the curve upwards as K2 gets smaller and vice-versa;
-- K3, K4 and K5  have a large effect on the shape of the curve for ambient temperatures above 30ºC;
-- K6 and K7 introduce an S bent around x-axis crossing point;
-
-Defalut:
-K1 = 33.0; K2 = 0.0; K3 = 4.0; K4 = 100.0; K5 = 100.0; K6 = 0.0; K7 = 0.0
-
-This type of curve appears to work better during the cold season in cold climate regions where the sky temperature is lower than in mild climate regions:
-K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</value>
+  <data name="label32.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
   </data>
   <data name="txtK4.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="txtCSHeatingMin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="txtMaxLogWindowLines.Error" xml:space="preserve">
     <value />
   </data>
   <data name="txtCSVFileLocation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 111</value>
+    <value>112, 90</value>
   </data>
   <data name="groupBox2.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
   <data name="&gt;&gt;label26.Name" xml:space="preserve">
     <value>label26</value>
-  </data>
-  <data name="label37.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 17</value>
-  </data>
-  <data name="dataGridSensors.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="&gt;&gt;SendToNarodmon.Name" xml:space="preserve">
     <value>SendToNarodmon</value>
@@ -5367,20 +5293,29 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="label14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="txtGaugeInc.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 107</value>
+  </data>
   <data name="&gt;&gt;btnSerialLogPathBrowse.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 17</value>
+    <value>122, 13</value>
+  </data>
+  <data name="&gt;&gt;txtRGScale.Name" xml:space="preserve">
+    <value>txtRGScale</value>
   </data>
   <data name="txtWindyLimit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
-  <data name="txtBoltwoodFileLocation.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="txtCSDecreasingMinDelta.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
   <data name="cmbLang.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
+  </data>
+  <data name="label20.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
   </data>
   <data name="&gt;&gt;cmbBaseTempSensor.Name" xml:space="preserve">
     <value>cmbBaseTempSensor</value>
@@ -5389,7 +5324,7 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>Rain threshold limit. All values higher then this will be treated as a wet condition, and lower as a rain condition</value>
   </data>
   <data name="txtMaxPoints.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtK2.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -5415,6 +5350,9 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="label17.Error" xml:space="preserve">
     <value />
   </data>
+  <data name="txtCSDecreasingMinDelta.Error" xml:space="preserve">
+    <value />
+  </data>
   <data name="label4.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
     <value>MiddleRight</value>
   </data>
@@ -5427,11 +5365,11 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label16.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
-    <value>MiddleRight</value>
+  <data name="txtHeaterMaxTemp.Error" xml:space="preserve">
+    <value />
   </data>
   <data name="dataGridSensors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 7</value>
+    <value>6, 6</value>
   </data>
   <data name="label20.Text" xml:space="preserve">
     <value>-</value>
@@ -5447,9 +5385,6 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   </metadata>
   <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>293, 3</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>ru</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>34</value>

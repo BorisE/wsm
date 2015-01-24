@@ -136,6 +136,12 @@ namespace WeatherStation
             cmbLang.ValueMember = "Name";
             cmbLang.SelectedValue = ParentMainForm.currentLang;
 
+            //Load current value to Rain Gauge Incremental value
+            if (ParentMainForm.Hardware.RGC_Cumulative < 0)
+            {
+                ParentMainForm.Hardware.RGC_Cumulative = Logging.LoadRGCValue(out ParentMainForm.Hardware.RGC_Cumulative_LastReset);
+            }
+            txtGaugeInc.Text = ParentMainForm.Hardware.RGC_Cumulative.ToString();
 
 
             //Workaround about "Controls contained in a TabPage are not created until the tab page is shown, and any data bindings in these controls are not activated until the tab page is shown."
@@ -181,13 +187,14 @@ namespace WeatherStation
 
                 ParentMainForm.Hardware.RAININDEX_WET_LIMIT = Convert.ToDouble(txtWetLimit.Text);
                 ParentMainForm.Hardware.RAININDEX_RAIN_LIMIT = Convert.ToDouble(txtRainLimit.Text);
+                Logging.Log("Preferences: RAININDEX_WET_LIMIT: " + txtWetLimit.Text, 2);
+                Logging.Log("Preferences: RAININDEX_RAIN_LIMIT: " + txtRainLimit.Text, 2);
 
                 //Wet combobox
                 Properties.Settings.Default.WetSensorsMode = cmbWetMode.SelectedIndex.ToString();
                 ParentMainForm.Hardware.RainConditionMode = (WetSensorsMode)(cmbWetMode.SelectedIndex);
 
-                Logging.Log("Preferences: RAININDEX_WET_LIMIT: " + txtWetLimit.Text, 2);
-                Logging.Log("Preferences: RAININDEX_RAIN_LIMIT: " + txtRainLimit.Text, 2);
+                ParentMainForm.Hardware.RGC_ONETICK_VALUE = Convert.ToDouble(txtGaugeInc.Text);
 
                 ParentMainForm.Hardware.WINDSPEED_WINDY = Convert.ToDouble(txtWindyLimit.Text);
                 ParentMainForm.Hardware.WINDSPEED_VERYWINDY = Convert.ToDouble(txtVeryWindyLimit.Text);
@@ -645,6 +652,23 @@ namespace WeatherStation
             }
         
         
+        }
+
+        private void btnSetGaugeInc_Click(object sender, EventArgs e)
+        {
+            ParentMainForm.Hardware.RGC_Cumulative_LastReset=DateTime.Now;
+
+            try
+            {
+                ParentMainForm.Hardware.RGC_Cumulative = Convert.ToInt32(txtGaugeInc.Text);
+            }
+            catch {
+                Logging.Log("Hardware.RGC_Cumulative conversion error");
+                ParentMainForm.Hardware.RGC_Cumulative = 0;
+            }
+            
+            //Save current RGC cumulative value for narodmon
+            Logging.SaveRGCValue((int)ParentMainForm.Hardware.RGC_Cumulative, ParentMainForm.Hardware.RGC_Cumulative_LastReset);
         }
 
 

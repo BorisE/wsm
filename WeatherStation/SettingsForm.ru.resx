@@ -128,9 +128,6 @@
   <data name="btnOk.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="btnOk.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="btnOk.ToolTip" xml:space="preserve">
     <value />
   </data>
@@ -142,9 +139,6 @@
   </data>
   <data name="btnCancel.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="btnCancel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>Отмена</value>
@@ -160,9 +154,6 @@
   </data>
   <data name="btnReset.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="btnReset.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="btnReset.Text" xml:space="preserve">
     <value>По умолчанию</value>
@@ -198,9 +189,6 @@
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>Inherit</value>
   </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Настройки</value>
   </data>
@@ -216,9 +204,6 @@
   <data name="label35.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label35.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label35.ToolTip" xml:space="preserve">
     <value />
   </data>
@@ -232,7 +217,7 @@
     <value>0</value>
   </data>
   <data name="label34.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 17</value>
+    <value>28, 13</value>
   </data>
   <data name="label34.Text" xml:space="preserve">
     <value>сек.</value>
@@ -250,7 +235,7 @@
     <value>0</value>
   </data>
   <data name="label31.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 17</value>
+    <value>28, 13</value>
   </data>
   <data name="label31.Text" xml:space="preserve">
     <value>сек.</value>
@@ -268,7 +253,7 @@
     <value>0</value>
   </data>
   <data name="label33.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 17</value>
+    <value>110, 13</value>
   </data>
   <data name="label33.Text" xml:space="preserve">
     <value>Отправлять каждые</value>
@@ -286,7 +271,7 @@
     <value>0</value>
   </data>
   <data name="label30.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 17</value>
+    <value>110, 13</value>
   </data>
   <data name="label30.Text" xml:space="preserve">
     <value>Отправлять каждые</value>
@@ -303,9 +288,6 @@
   <data name="txtRefreshNarodmonInterval.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtRefreshNarodmonInterval.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="btnGenerateMac.Error" xml:space="preserve">
     <value />
   </data>
@@ -314,9 +296,6 @@
   </data>
   <data name="btnGenerateMac.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="btnGenerateMac.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="btnGenerateMac.Text" xml:space="preserve">
     <value>Генер.</value>
@@ -330,9 +309,6 @@
   <data name="txtRefreshWebDataInterval.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtRefreshWebDataInterval.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="txtNarodmonMAC.Error" xml:space="preserve">
     <value />
   </data>
@@ -341,9 +317,6 @@
   </data>
   <data name="txtNarodmonMAC.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="txtNarodmonMAC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="txtWebDataURL.Error" xml:space="preserve">
     <value />
@@ -354,9 +327,6 @@
   <data name="txtWebDataURL.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtWebDataURL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="chkNarodMon.Error" xml:space="preserve">
     <value />
   </data>
@@ -366,11 +336,8 @@
   <data name="chkNarodMon.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="chkNarodMon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="chkNarodMon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 21</value>
+    <value>187, 17</value>
   </data>
   <data name="chkNarodMon.Text" xml:space="preserve">
     <value>Отправлять на NARODMON.RU</value>
@@ -384,11 +351,8 @@
   <data name="chkWebData.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="chkWebData.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="chkWebData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>262, 21</value>
+    <value>204, 17</value>
   </data>
   <data name="chkWebData.Text" xml:space="preserve">
     <value>Отправлять данные на web сервер</value>
@@ -404,12 +368,6 @@
   </data>
   <data name="groupBox11.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="groupBox11.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="groupBox11.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox11.Text" xml:space="preserve">
     <value>Интернет</value>
@@ -447,11 +405,8 @@
   <data name="chkShowDebugPannels.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="chkShowDebugPannels.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="chkShowDebugPannels.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 21</value>
+    <value>208, 17</value>
   </data>
   <data name="chkShowDebugPannels.Text" xml:space="preserve">
     <value>Показывать элементы для отладки</value>
@@ -465,11 +420,8 @@
   <data name="chkTrayIcon.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="chkTrayIcon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="chkTrayIcon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 21</value>
+    <value>149, 17</value>
   </data>
   <data name="chkTrayIcon.Text" xml:space="preserve">
     <value>Минимизировать в трей</value>
@@ -483,11 +435,8 @@
   <data name="chkMinMode.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="chkMinMode.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="chkMinMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>324, 21</value>
+    <value>254, 17</value>
   </data>
   <data name="chkMinMode.Text" xml:space="preserve">
     <value>Переключение в минималистический режим</value>
@@ -500,12 +449,6 @@
   </data>
   <data name="groupBox8.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="groupBox8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="groupBox8.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox8.Text" xml:space="preserve">
     <value>Интерфейс</value>
@@ -523,7 +466,7 @@
     <value>0</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 17</value>
+    <value>75, 13</value>
   </data>
   <data name="label10.Text" xml:space="preserve">
     <value>Детализация</value>
@@ -550,7 +493,7 @@
     <value>3 - Отладка</value>
   </data>
   <data name="cmbLogLevel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 24</value>
+    <value>156, 21</value>
   </data>
   <data name="cmbLogLevel.Text" xml:space="preserve">
     <value>1 - Основные сообщения</value>
@@ -567,9 +510,6 @@
   <data name="btnBoltwoodPathBrowse.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="btnBoltwoodPathBrowse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="btnBoltwoodPathBrowse.ToolTip" xml:space="preserve">
     <value />
   </data>
@@ -581,9 +521,6 @@
   </data>
   <data name="btnSerialLogPathBrowse.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="btnSerialLogPathBrowse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="btnSerialLogPathBrowse.ToolTip" xml:space="preserve">
     <value />
@@ -597,9 +534,6 @@
   <data name="btnCSVPathBrowse.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="btnCSVPathBrowse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="btnCSVPathBrowse.ToolTip" xml:space="preserve">
     <value />
   </data>
@@ -611,9 +545,6 @@
   </data>
   <data name="btnLogPathBrowse.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="btnLogPathBrowse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="btnLogPathBrowse.ToolTip" xml:space="preserve">
     <value />
@@ -627,9 +558,6 @@
   <data name="txtBoltwoodFileLocation.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtBoltwoodFileLocation.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="txtLogFileLocation.Error" xml:space="preserve">
     <value />
   </data>
@@ -638,9 +566,6 @@
   </data>
   <data name="txtLogFileLocation.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="txtLogFileLocation.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="txtSerialLogFileLocation.Error" xml:space="preserve">
     <value />
@@ -651,9 +576,6 @@
   <data name="txtSerialLogFileLocation.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtSerialLogFileLocation.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="txtCSVFileLocation.Error" xml:space="preserve">
     <value />
   </data>
@@ -662,9 +584,6 @@
   </data>
   <data name="txtCSVFileLocation.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="txtCSVFileLocation.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="chkBoltwoodFileFlag.Error" xml:space="preserve">
     <value />
@@ -675,11 +594,8 @@
   <data name="chkBoltwoodFileFlag.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="chkBoltwoodFileFlag.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="chkBoltwoodFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 21</value>
+    <value>111, 17</value>
   </data>
   <data name="chkBoltwoodFileFlag.Text" xml:space="preserve">
     <value>Файл состояния</value>
@@ -693,11 +609,8 @@
   <data name="chkSerialLogFileFlag.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="chkSerialLogFileFlag.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="chkSerialLogFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 21</value>
+    <value>77, 17</value>
   </data>
   <data name="chkSerialLogFileFlag.Text" xml:space="preserve">
     <value>Лог порта</value>
@@ -711,11 +624,8 @@
   <data name="chkCSVFileFlag.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="chkCSVFileFlag.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="chkCSVFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 21</value>
+    <value>85, 17</value>
   </data>
   <data name="chkCSVFileFlag.Text" xml:space="preserve">
     <value>Лог данных</value>
@@ -732,11 +642,8 @@
   <data name="chkLogFileFlag.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="chkLogFileFlag.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="chkLogFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 21</value>
+    <value>107, 17</value>
   </data>
   <data name="chkLogFileFlag.Text" xml:space="preserve">
     <value>Лог программы</value>
@@ -749,12 +656,6 @@
   </data>
   <data name="groupBox3.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="groupBox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="groupBox3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox3.Text" xml:space="preserve">
     <value>Логи</value>
@@ -772,7 +673,7 @@
     <value>0</value>
   </data>
   <data name="label32.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 17</value>
+    <value>60, 13</value>
   </data>
   <data name="label32.Text" xml:space="preserve">
     <value>миллисек.</value>
@@ -789,11 +690,8 @@
   <data name="label14.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label14.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 17</value>
+    <value>119, 13</value>
   </data>
   <data name="label14.Text" xml:space="preserve">
     <value>Интервал обновления</value>
@@ -808,7 +706,7 @@
     <value>0</value>
   </data>
   <data name="label39.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 17</value>
+    <value>131, 13</value>
   </data>
   <data name="label39.Text" xml:space="preserve">
     <value>Макс. строк в окне лога</value>
@@ -825,11 +723,8 @@
   <data name="label15.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label15.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 17</value>
+    <value>126, 13</value>
   </data>
   <data name="label15.Text" xml:space="preserve">
     <value>Макс.точек на графике</value>
@@ -845,9 +740,6 @@
   </data>
   <data name="txtRefreshInterval.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="txtRefreshInterval.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="txtMaxLogWindowLines.Error" xml:space="preserve">
     <value />
@@ -873,9 +765,6 @@
   <data name="txtMaxPoints.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtMaxPoints.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="groupBox6.Error" xml:space="preserve">
     <value />
   </data>
@@ -884,12 +773,6 @@
   </data>
   <data name="groupBox6.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="groupBox6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="groupBox6.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox6.Text" xml:space="preserve">
     <value>Производительность</value>
@@ -907,7 +790,7 @@
     <value>0</value>
   </data>
   <data name="label37.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 17</value>
+    <value>53, 13</value>
   </data>
   <data name="label37.Text" xml:space="preserve">
     <value>Писать в</value>
@@ -925,7 +808,7 @@
     <value>0</value>
   </data>
   <data name="label36.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 17</value>
+    <value>58, 13</value>
   </data>
   <data name="label36.Text" xml:space="preserve">
     <value>Читать из</value>
@@ -942,9 +825,6 @@
   <data name="txtSerialFileOut.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtSerialFileOut.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="txtSerialFileIn.Error" xml:space="preserve">
     <value />
   </data>
@@ -953,9 +833,6 @@
   </data>
   <data name="txtSerialFileIn.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="txtSerialFileIn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="txtSerialFileIn.ToolTip" xml:space="preserve">
     <value>Путь к файлу в режиме Serial File Emulation, из которого программа будет читать данные. Недоступно в нормально режиме</value>
@@ -969,11 +846,8 @@
   <data name="chkWatchdog.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="chkWatchdog.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="chkWatchdog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 21</value>
+    <value>164, 17</value>
   </data>
   <data name="chkWatchdog.Text" xml:space="preserve">
     <value>Отслеживание соединения</value>
@@ -990,9 +864,6 @@
   <data name="btnOpenWriteToFile.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="btnOpenWriteToFile.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="btnOpenReadFromFile.Error" xml:space="preserve">
     <value />
   </data>
@@ -1001,9 +872,6 @@
   </data>
   <data name="btnOpenReadFromFile.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="btnOpenReadFromFile.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="cmbPortList.Error" xml:space="preserve">
     <value />
@@ -1014,9 +882,6 @@
   <data name="cmbPortList.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="cmbPortList.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="groupBox1.Error" xml:space="preserve">
     <value />
   </data>
@@ -1025,12 +890,6 @@
   </data>
   <data name="groupBox1.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="groupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox1.Text" xml:space="preserve">
     <value>COM порт</value>
@@ -1046,9 +905,6 @@
   </data>
   <data name="tabGeneral.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="tabGeneral.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="tabGeneral.Text" xml:space="preserve">
     <value>Общие</value>
@@ -1066,7 +922,7 @@
     <value>0</value>
   </data>
   <data name="label28.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 17</value>
+    <value>26, 13</value>
   </data>
   <data name="label28.Text" xml:space="preserve">
     <value>м/с</value>
@@ -1084,7 +940,7 @@
     <value>0</value>
   </data>
   <data name="label29.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 17</value>
+    <value>26, 13</value>
   </data>
   <data name="label29.Text" xml:space="preserve">
     <value>м/с</value>
@@ -1113,11 +969,8 @@
   <data name="label26.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label26.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label26.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 17</value>
+    <value>65, 13</value>
   </data>
   <data name="label26.Text" xml:space="preserve">
     <value>"Ветренно"</value>
@@ -1134,11 +987,8 @@
   <data name="label21.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label21.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label21.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 17</value>
+    <value>82, 13</value>
   </data>
   <data name="label21.Text" xml:space="preserve">
     <value>Нулевой порог</value>
@@ -1152,9 +1002,6 @@
   <data name="txtWSpeedZero.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtWSpeedZero.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="label23.Error" xml:space="preserve">
     <value />
   </data>
@@ -1164,11 +1011,8 @@
   <data name="label23.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label23.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label23.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 17</value>
+    <value>98, 13</value>
   </data>
   <data name="label23.Text" xml:space="preserve">
     <value>"Очень ветренно"</value>
@@ -1185,9 +1029,6 @@
   <data name="txtVeryWindyLimit.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtVeryWindyLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="txtWindyLimit.Error" xml:space="preserve">
     <value />
   </data>
@@ -1197,9 +1038,6 @@
   <data name="txtWindyLimit.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtWindyLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="groupBox12.Error" xml:space="preserve">
     <value />
   </data>
@@ -1208,12 +1046,6 @@
   </data>
   <data name="groupBox12.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="groupBox12.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="groupBox12.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox12.Text" xml:space="preserve">
     <value>Скорость ветра</value>
@@ -1230,9 +1062,6 @@
   <data name="K7.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="K7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="K7.ToolTip" xml:space="preserve">
     <value />
   </data>
@@ -1244,9 +1073,6 @@
   </data>
   <data name="label8.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="label8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
   </data>
   <data name="label8.ToolTip" xml:space="preserve">
     <value />
@@ -1260,9 +1086,6 @@
   <data name="label7.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label7.ToolTip" xml:space="preserve">
     <value />
   </data>
@@ -1274,9 +1097,6 @@
   </data>
   <data name="label6.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="label6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
   </data>
   <data name="label6.ToolTip" xml:space="preserve">
     <value />
@@ -1290,9 +1110,6 @@
   <data name="label5.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label5.ToolTip" xml:space="preserve">
     <value />
   </data>
@@ -1304,9 +1121,6 @@
   </data>
   <data name="label4.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
   </data>
   <data name="label4.ToolTip" xml:space="preserve">
     <value />
@@ -1320,9 +1134,6 @@
   <data name="txtK1.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtK1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="label3.Error" xml:space="preserve">
     <value />
   </data>
@@ -1331,9 +1142,6 @@
   </data>
   <data name="label3.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
   </data>
   <data name="label3.ToolTip" xml:space="preserve">
     <value />
@@ -1347,9 +1155,6 @@
   <data name="txtK2.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtK2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="txtK7.Error" xml:space="preserve">
     <value />
   </data>
@@ -1358,9 +1163,6 @@
   </data>
   <data name="txtK7.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="txtK7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="txtK3.Error" xml:space="preserve">
     <value />
@@ -1371,9 +1173,6 @@
   <data name="txtK3.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtK3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="txtK6.Error" xml:space="preserve">
     <value />
   </data>
@@ -1382,9 +1181,6 @@
   </data>
   <data name="txtK6.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="txtK6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="txtK4.Error" xml:space="preserve">
     <value />
@@ -1395,9 +1191,6 @@
   <data name="txtK4.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtK4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="txtK5.Error" xml:space="preserve">
     <value />
   </data>
@@ -1406,9 +1199,6 @@
   </data>
   <data name="txtK5.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="txtK5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox10.Error" xml:space="preserve">
     <value />
@@ -1419,17 +1209,44 @@
   <data name="groupBox10.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="groupBox10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="groupBox10.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="groupBox10.Text" xml:space="preserve">
     <value>Модель AAG</value>
   </data>
   <data name="groupBox10.ToolTip" xml:space="preserve">
     <value />
+  </data>
+  <data name="label42.Error" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label42.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
+  </data>
+  <data name="label42.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label42.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 13</value>
+  </data>
+  <data name="label42.Text" xml:space="preserve">
+    <value>mm в отчете</value>
+  </data>
+  <data name="label42.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnSetGaugeInc.Error" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnSetGaugeInc.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
+  </data>
+  <data name="btnSetGaugeInc.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnSetGaugeInc.Text" xml:space="preserve">
+    <value>Установить</value>
+  </data>
+  <data name="btnSetGaugeInc.ToolTip" xml:space="preserve">
+    <value>Установить значение накопительного счетчика осадков</value>
   </data>
   <data name="label12.Error" xml:space="preserve">
     <value />
@@ -1440,11 +1257,8 @@
   <data name="label12.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label12.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 17</value>
+    <value>89, 13</value>
   </data>
   <data name="label12.Text" xml:space="preserve">
     <value>Порог "влажно"</value>
@@ -1473,6 +1287,42 @@
   <data name="cmbWetMode.Text" xml:space="preserve">
     <value>Оба датчика</value>
   </data>
+  <data name="label41.Error" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label41.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
+  </data>
+  <data name="label41.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label41.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 13</value>
+  </data>
+  <data name="label41.Text" xml:space="preserve">
+    <value>Масштаб показаний RGC</value>
+  </data>
+  <data name="label41.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label40.Error" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label40.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
+  </data>
+  <data name="label40.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label40.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 13</value>
+  </data>
+  <data name="label40.Text" xml:space="preserve">
+    <value>Сброс накоп.значения</value>
+  </data>
+  <data name="label40.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="label19.Error" xml:space="preserve">
     <value />
   </data>
@@ -1482,11 +1332,8 @@
   <data name="label19.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label19.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 17</value>
+    <value>126, 13</value>
   </data>
   <data name="label19.Text" xml:space="preserve">
     <value>Режим датчиков дождя</value>
@@ -1503,11 +1350,8 @@
   <data name="label13.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label13.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 17</value>
+    <value>83, 13</value>
   </data>
   <data name="label13.Text" xml:space="preserve">
     <value>Порог "дождь"</value>
@@ -1524,8 +1368,31 @@
   <data name="txtWetLimit.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtWetLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
+  <data name="txtGaugeInc.Error" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtGaugeInc.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
+  </data>
+  <data name="txtGaugeInc.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtGaugeInc.ToolTip" xml:space="preserve">
+    <value>Текущее значение накопительного счетчика осадков RG-11
+Используется для narodmon из-за их особого алгоритма обработки данных
+
+В этом окне можно вручную установить нужно значение, введя его в окне и  нажав кнопку "Установить"
+
+</value>
+  </data>
+  <data name="txtRGScale.Error" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtRGScale.IconAlignment" type="System.Windows.Forms.ErrorIconAlignment, System.Windows.Forms">
+    <value>MiddleRight</value>
+  </data>
+  <data name="txtRGScale.IconPadding" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="txtRainLimit.Error" xml:space="preserve">
     <value />
@@ -1536,9 +1403,6 @@
   <data name="txtRainLimit.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtRainLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="groupBox5.Error" xml:space="preserve">
     <value />
   </data>
@@ -1548,11 +1412,8 @@
   <data name="groupBox5.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="groupBox5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="groupBox5.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
+  <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 145</value>
   </data>
   <data name="groupBox5.Text" xml:space="preserve">
     <value>Датчики дождя</value>
@@ -1569,11 +1430,8 @@
   <data name="label2.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 17</value>
+    <value>162, 13</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Порог "облачно"/"оч.облачно"</value>
@@ -1590,11 +1448,8 @@
   <data name="label1.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 17</value>
+    <value>131, 13</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Порог "ясно"/"облачно"</value>
@@ -1611,9 +1466,6 @@
   <data name="txtCloudysky.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtCloudysky.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="txtClearsky.Error" xml:space="preserve">
     <value />
   </data>
@@ -1623,9 +1475,6 @@
   <data name="txtClearsky.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtClearsky.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="groupBox2.Error" xml:space="preserve">
     <value />
   </data>
@@ -1634,12 +1483,6 @@
   </data>
   <data name="groupBox2.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="groupBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="groupBox2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox2.Text" xml:space="preserve">
     <value>Датчик облачности</value>
@@ -1655,9 +1498,6 @@
   </data>
   <data name="tabModeling.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="tabModeling.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="tabModeling.Text" xml:space="preserve">
     <value>Модели</value>
@@ -1698,9 +1538,6 @@
   <data name="dataGridSensors.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="dataGridSensors.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="dataGridSensors.ToolTip" xml:space="preserve">
     <value />
   </data>
@@ -1713,11 +1550,8 @@
   <data name="label9.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 17</value>
+    <value>114, 13</value>
   </data>
   <data name="label9.Text" xml:space="preserve">
     <value>Датчик температуры</value>
@@ -1734,9 +1568,6 @@
   <data name="cmbBaseTempSensor.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="cmbBaseTempSensor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="cmbBaseTempSensor.ToolTip" xml:space="preserve">
     <value />
   </data>
@@ -1748,12 +1579,6 @@
   </data>
   <data name="groupBox7.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="groupBox7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="groupBox7.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox7.Text" xml:space="preserve">
     <value>Основной датчик температуры</value>
@@ -1770,9 +1595,6 @@
   <data name="btnResetSensorList.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="btnResetSensorList.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="btnResetSensorList.Text" xml:space="preserve">
     <value>Значения по умолчанию</value>
   </data>
@@ -1785,9 +1607,6 @@
   <data name="btnReadFromSerial.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="btnReadFromSerial.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="btnReadFromSerial.Text" xml:space="preserve">
     <value>Читать из порта</value>
   </data>
@@ -1799,9 +1618,6 @@
   </data>
   <data name="tabSensors.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="tabSensors.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="tabSensors.Text" xml:space="preserve">
     <value>Сенсоры</value>
@@ -1842,11 +1658,8 @@
   <data name="label24.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label24.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label24.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 17</value>
+    <value>146, 13</value>
   </data>
   <data name="label24.Text" xml:space="preserve">
     <value>Пауза между включениями</value>
@@ -1863,11 +1676,8 @@
   <data name="label18.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label18.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 17</value>
+    <value>91, 13</value>
   </data>
   <data name="label18.Text" xml:space="preserve">
     <value>Порог снижения</value>
@@ -1884,11 +1694,8 @@
   <data name="label25.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label25.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label25.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 17</value>
+    <value>96, 13</value>
   </data>
   <data name="label25.Text" xml:space="preserve">
     <value>Порог включения</value>
@@ -1905,9 +1712,6 @@
   <data name="txtCSHeaterPauseTime.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtCSHeaterPauseTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="txtCSDecreasingMaxDelta.Error" xml:space="preserve">
     <value />
   </data>
@@ -1916,9 +1720,6 @@
   </data>
   <data name="txtCSDecreasingMaxDelta.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="txtCSDecreasingMaxDelta.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="txtCSHeatingMax.Error" xml:space="preserve">
     <value />
@@ -1929,9 +1730,6 @@
   <data name="txtCSHeatingMax.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtCSHeatingMax.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="txtCSDecreasingMinDelta.Error" xml:space="preserve">
     <value />
   </data>
@@ -1940,9 +1738,6 @@
   </data>
   <data name="txtCSDecreasingMinDelta.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="txtCSDecreasingMinDelta.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="txtCSHeatingMin.Error" xml:space="preserve">
     <value />
@@ -1953,9 +1748,6 @@
   <data name="txtCSHeatingMin.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtCSHeatingMin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="groupBox9.Error" xml:space="preserve">
     <value />
   </data>
@@ -1964,12 +1756,6 @@
   </data>
   <data name="groupBox9.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="groupBox9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="groupBox9.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox9.Text" xml:space="preserve">
     <value>Автообогрев датчика облачности</value>
@@ -1986,11 +1772,8 @@
   <data name="label11.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label11.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 17</value>
+    <value>144, 13</value>
   </data>
   <data name="label11.Text" xml:space="preserve">
     <value>Макс. разница температур</value>
@@ -2007,11 +1790,8 @@
   <data name="label17.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label17.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 17</value>
+    <value>134, 13</value>
   </data>
   <data name="label17.Text" xml:space="preserve">
     <value>Порог включения по Wet</value>
@@ -2028,11 +1808,8 @@
   <data name="label16.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label16.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 0, 5, 0</value>
-  </data>
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 17</value>
+    <value>110, 13</value>
   </data>
   <data name="label16.Text" xml:space="preserve">
     <value>Макс. длительность</value>
@@ -2049,9 +1826,6 @@
   <data name="txtHeaterWetThreshold.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtHeaterWetThreshold.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="txtHeaterMaxTemp.Error" xml:space="preserve">
     <value />
   </data>
@@ -2060,9 +1834,6 @@
   </data>
   <data name="txtHeaterMaxTemp.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="txtHeaterMaxTemp.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="txtHeaterMaxDuration.Error" xml:space="preserve">
     <value />
@@ -2073,9 +1844,6 @@
   <data name="txtHeaterMaxDuration.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="txtHeaterMaxDuration.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="groupBox4.Error" xml:space="preserve">
     <value />
   </data>
@@ -2084,12 +1852,6 @@
   </data>
   <data name="groupBox4.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="groupBox4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="groupBox4.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="groupBox4.Text" xml:space="preserve">
     <value>Настройки обогрева</value>
@@ -2106,9 +1868,6 @@
   <data name="tabHeater.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="tabHeater.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
   <data name="tabHeater.Text" xml:space="preserve">
     <value>Обогрев</value>
   </data>
@@ -2123,9 +1882,6 @@
   </data>
   <data name="tabControl1.IconPadding" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="tabControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
   </data>
   <data name="tabControl1.ToolTip" xml:space="preserve">
     <value />

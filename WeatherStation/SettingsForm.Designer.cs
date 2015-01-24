@@ -111,11 +111,17 @@
             this.txtK4 = new System.Windows.Forms.TextBox();
             this.txtK5 = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.btnSetGaugeInc = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.cmbWetMode = new System.Windows.Forms.ComboBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtWetLimit = new System.Windows.Forms.TextBox();
+            this.txtGaugeInc = new System.Windows.Forms.TextBox();
+            this.txtRGScale = new System.Windows.Forms.TextBox();
             this.txtRainLimit = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -1113,11 +1119,17 @@
             // groupBox5
             // 
             resources.ApplyResources(this.groupBox5, "groupBox5");
+            this.groupBox5.Controls.Add(this.label42);
+            this.groupBox5.Controls.Add(this.btnSetGaugeInc);
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.cmbWetMode);
+            this.groupBox5.Controls.Add(this.label41);
+            this.groupBox5.Controls.Add(this.label40);
             this.groupBox5.Controls.Add(this.label19);
             this.groupBox5.Controls.Add(this.label13);
             this.groupBox5.Controls.Add(this.txtWetLimit);
+            this.groupBox5.Controls.Add(this.txtGaugeInc);
+            this.groupBox5.Controls.Add(this.txtRGScale);
             this.groupBox5.Controls.Add(this.txtRainLimit);
             this.errorProvider1.SetError(this.groupBox5, resources.GetString("groupBox5.Error"));
             this.errorProvider1.SetIconAlignment(this.groupBox5, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("groupBox5.IconAlignment"))));
@@ -1125,6 +1137,26 @@
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.TabStop = false;
             this.MyToolTip.SetToolTip(this.groupBox5, resources.GetString("groupBox5.ToolTip"));
+            // 
+            // label42
+            // 
+            resources.ApplyResources(this.label42, "label42");
+            this.errorProvider1.SetError(this.label42, resources.GetString("label42.Error"));
+            this.errorProvider1.SetIconAlignment(this.label42, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label42.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label42, ((int)(resources.GetObject("label42.IconPadding"))));
+            this.label42.Name = "label42";
+            this.MyToolTip.SetToolTip(this.label42, resources.GetString("label42.ToolTip"));
+            // 
+            // btnSetGaugeInc
+            // 
+            resources.ApplyResources(this.btnSetGaugeInc, "btnSetGaugeInc");
+            this.errorProvider1.SetError(this.btnSetGaugeInc, resources.GetString("btnSetGaugeInc.Error"));
+            this.errorProvider1.SetIconAlignment(this.btnSetGaugeInc, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("btnSetGaugeInc.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.btnSetGaugeInc, ((int)(resources.GetObject("btnSetGaugeInc.IconPadding"))));
+            this.btnSetGaugeInc.Name = "btnSetGaugeInc";
+            this.MyToolTip.SetToolTip(this.btnSetGaugeInc, resources.GetString("btnSetGaugeInc.ToolTip"));
+            this.btnSetGaugeInc.UseVisualStyleBackColor = true;
+            this.btnSetGaugeInc.Click += new System.EventHandler(this.btnSetGaugeInc_Click);
             // 
             // label12
             // 
@@ -1148,6 +1180,24 @@
             resources.GetString("cmbWetMode.Items2")});
             this.cmbWetMode.Name = "cmbWetMode";
             this.MyToolTip.SetToolTip(this.cmbWetMode, resources.GetString("cmbWetMode.ToolTip"));
+            // 
+            // label41
+            // 
+            resources.ApplyResources(this.label41, "label41");
+            this.errorProvider1.SetError(this.label41, resources.GetString("label41.Error"));
+            this.errorProvider1.SetIconAlignment(this.label41, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label41.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label41, ((int)(resources.GetObject("label41.IconPadding"))));
+            this.label41.Name = "label41";
+            this.MyToolTip.SetToolTip(this.label41, resources.GetString("label41.ToolTip"));
+            // 
+            // label40
+            // 
+            resources.ApplyResources(this.label40, "label40");
+            this.errorProvider1.SetError(this.label40, resources.GetString("label40.Error"));
+            this.errorProvider1.SetIconAlignment(this.label40, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("label40.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.label40, ((int)(resources.GetObject("label40.IconPadding"))));
+            this.label40.Name = "label40";
+            this.MyToolTip.SetToolTip(this.label40, resources.GetString("label40.ToolTip"));
             // 
             // label19
             // 
@@ -1178,6 +1228,28 @@
             this.txtWetLimit.Text = global::WeatherStation.Properties.Settings.Default.WetLimit;
             this.MyToolTip.SetToolTip(this.txtWetLimit, resources.GetString("txtWetLimit.ToolTip"));
             this.txtWetLimit.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
+            // 
+            // txtGaugeInc
+            // 
+            resources.ApplyResources(this.txtGaugeInc, "txtGaugeInc");
+            this.errorProvider1.SetError(this.txtGaugeInc, resources.GetString("txtGaugeInc.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtGaugeInc, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtGaugeInc.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtGaugeInc, ((int)(resources.GetObject("txtGaugeInc.IconPadding"))));
+            this.txtGaugeInc.Name = "txtGaugeInc";
+            this.MyToolTip.SetToolTip(this.txtGaugeInc, resources.GetString("txtGaugeInc.ToolTip"));
+            this.txtGaugeInc.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
+            // 
+            // txtRGScale
+            // 
+            resources.ApplyResources(this.txtRGScale, "txtRGScale");
+            this.txtRGScale.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "RGCScale", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.errorProvider1.SetError(this.txtRGScale, resources.GetString("txtRGScale.Error"));
+            this.errorProvider1.SetIconAlignment(this.txtRGScale, ((System.Windows.Forms.ErrorIconAlignment)(resources.GetObject("txtRGScale.IconAlignment"))));
+            this.errorProvider1.SetIconPadding(this.txtRGScale, ((int)(resources.GetObject("txtRGScale.IconPadding"))));
+            this.txtRGScale.Name = "txtRGScale";
+            this.txtRGScale.Text = global::WeatherStation.Properties.Settings.Default.RGCScale;
+            this.MyToolTip.SetToolTip(this.txtRGScale, resources.GetString("txtRGScale.ToolTip"));
+            this.txtRGScale.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckFloatPos_Validating);
             // 
             // txtRainLimit
             // 
@@ -1846,5 +1918,11 @@
         private System.Windows.Forms.ComboBox cmbLang;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TextBox txtMaxLogWindowLines;
+        private System.Windows.Forms.Button btnSetGaugeInc;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.TextBox txtGaugeInc;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.TextBox txtRGScale;
+        private System.Windows.Forms.Label label42;
     }
 }
