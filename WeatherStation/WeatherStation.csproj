@@ -119,6 +119,7 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="COMTest.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="WinFormStrings.ru.Designer.cs">
       <DependentUpon>WinFormStrings.ru.resx</DependentUpon>

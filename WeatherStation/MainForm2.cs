@@ -91,7 +91,7 @@ namespace WeatherStation
             LocRM = new ResourceManager("WeatherStation.WinFormStrings", Assembly.GetExecutingAssembly()); //create resource manager
 
             LogForm = new LogWindow(this);
-            Hardware = new WeatherStationSerial(this);
+            Hardware = new WeatherStationSerial();
             //PrefForm = new PreferencesForm(this);
             SetForm = new SettingsForm(this);
             //SerialFile = new SerialFromFile();
