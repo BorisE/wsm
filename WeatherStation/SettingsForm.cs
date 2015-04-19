@@ -475,9 +475,9 @@ namespace WeatherStation
                 }
             }
             Logging.Log("Preferences: PopulateSensorListGrid(): ended", 3);
-
         }
 
+        #region Validating handlers ==============================================
         private void txtCheckIntPos_Validating(object sender, CancelEventArgs e)
         {
             txtCheckIntPos_TextChanged(sender, e);
@@ -569,6 +569,7 @@ namespace WeatherStation
                 errorProvider1.Clear();
             }
         }
+        #endregion Validating handlers ==============================================
 
         private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -669,6 +670,10 @@ namespace WeatherStation
             
             //Save current RGC cumulative value for narodmon
             Logging.SaveRGCValue((int)ParentMainForm.Hardware.RGC_Cumulative, ParentMainForm.Hardware.RGC_Cumulative_LastReset);
+        }
+
+        private void PopulateRainConditions()
+        {
         }
 
 

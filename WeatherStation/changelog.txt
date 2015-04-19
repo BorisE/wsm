@@ -2,6 +2,9 @@ WeatherStation Project
 (c) 2013-2015 by Emchenko Boris
 
 Change log
+1.6.51a (2015-01-23)
+- started to implement rain conditions settings (NOT WORKING YET)
+
 1.6.51 (2015-01-23)
 - added RG-11 conversion coefficient
 - added RG incremental value override
