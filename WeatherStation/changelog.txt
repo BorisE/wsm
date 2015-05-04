@@ -2,11 +2,15 @@ WeatherStation Project
 (c) 2013-2015 by Emchenko Boris
 
 Change log
-1.6.51b (2015-01-23)
-- started to implement rain conditions settings (NOT WORKING YET)
 to do:
 - rain condtions settings
 - socket interface to query data from program and even to control some procceses
+
+1.6.51c (2015-05-04)
+- started socket interface interface implementation (NOT WORKING YET)
+
+1.6.51b (2015-01-23)
+- started to implement rain conditions settings (NOT WORKING YET)
 
 1.6.51 (2015-01-23)
 - added RG-11 conversion coefficient

@@ -8,6 +8,16 @@ using System.Windows.Forms;
 
 namespace WeatherStation
 {
+        /// <summary>
+        /// ADDED FOR COMPATABILITY WITH NEXT LOGGER VERSION
+        /// </summary>
+        public enum Highlight
+        {
+            Normal = 0,
+            Error = 1,
+            Hoghlight = 2
+        }
+    
     public static class Logging
     {
         private static TextWriter LogFile = null;
@@ -98,6 +108,17 @@ namespace WeatherStation
             }
         }
         #endregion
+
+        /// <summary>
+        /// Add log record function. ADDED AS A WRAPPER FOR COMPATABILITY WITH NEXT VERSION LOGGER CLASS (used in Observatory control)
+        /// </summary>
+        /// <param name="logMessage"></param>
+        /// <param name="LogLevel"></param>
+        /// <param name="ColorHoghlight"></param>
+        public static void AddLog(string logMessage, byte LogLevel = 1, Highlight ColorHoghlight = Highlight.Normal)
+        {
+            Log(logMessage, LogLevel);
+        }
 
         /// <summary>
         /// Serial log procedures
