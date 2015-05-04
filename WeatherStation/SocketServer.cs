@@ -207,21 +207,23 @@ namespace WeatherStation
         public string SocketCommandInterpretator(string cmd)
         {
             string msg = "";
-            
+
             switch (cmd)
             {
                 case "TheEnd":
-                // Освобождаем сокет
-                    Logging.AddLog("Client [" + ClientSocket.RemoteEndPoint + "] has ended connection",1);
+                    // Освобождаем сокет
+                    Logging.AddLog("Client [" + ClientSocket.RemoteEndPoint + "] has ended connection", 1);
                     ClientSocket.Shutdown(SocketShutdown.Both);
                     ClientSocket.Close();
                     msg = "";
                     break;
                 default:
-                    if (ParentMainForm.Hardware.CommandParser.ParseSingleCommand(cmd))
+                    string cmd_output = "";
+                    if (ParentMainForm.Hardware.CommandParser.ParseSingleCommand(cmd, out cmd_output))
                     {
                         Logging.AddLog("Client [" + ClientSocket.RemoteEndPoint + "]: " + "command [" + cmd + "] successfully run", 1, Highlight.Normal);
-                        msg = "Command [" + cmd + "] was run";
+                        Logging.AddLog("Client [" + ClientSocket.RemoteEndPoint + "]: " + "command [" + cmd + "] successfully run. Output: " + cmd_output, 2, Highlight.Normal);
+                        msg = "Command [" + cmd + "] was run. Output: " + cmd_output;
                     }
                     else
                     {
@@ -234,7 +236,6 @@ namespace WeatherStation
 
             return msg;
         }
-
     
     
     }

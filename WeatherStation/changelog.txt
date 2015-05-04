@@ -6,7 +6,7 @@ to do:
 - rain condtions settings
 - socket interface to query data from program and even to control some procceses
 
-1.6.51c (2015-05-04)
+1.6.51d (2015-05-04)
 - started socket interface interface implementation (NOT WORKING YET)
 
 1.6.51b (2015-01-23)

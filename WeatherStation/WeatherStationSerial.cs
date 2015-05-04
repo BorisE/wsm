@@ -96,7 +96,6 @@ namespace WeatherStation
         /// <summary>
         /// Command dictionary for interpretator
         /// </summary>
-        Dictionary<string, Action> Commands;
         public CommandInterpretator CommandParser;
         
         /// <summary>
@@ -363,7 +362,7 @@ namespace WeatherStation
             initSensorArray();
 
             InitComandInterpretator();
-            CommandParser = new CommandInterpretator(Commands);
+            CommandParser = new CommandInterpretator();
 
         }
 
@@ -593,30 +592,29 @@ namespace WeatherStation
         /// </summary>
         public void InitComandInterpretator()
         {
-            Commands = new Dictionary<string, Action>();
-            /*Commands.Add("MAXIM_RUN", () => this.startMaximDL());
-            Commands.Add("FOCUSMAX_RUN", () => this.startFocusMax());
-            Commands.Add("CdC_RUN", () => this.startPlanetarium());
-            Commands.Add("CCDAP_RUN", () => this.startCCDAP());
+            /*
+            CommandParser.Commands.Add("MAXIM_RUN", () => this.startMaximDL());
+            CommandParser.Commands.Add("FOCUSMAX_RUN", () => this.startFocusMax());
+            CommandParser.Commands.Add("CdC_RUN", () => this.startPlanetarium());
+            CommandParser.Commands.Add("CCDAP_RUN", () => this.startCCDAP());
+            CommandParser.Commands.Add("POWER_MOUNT_ON", () => this.PowerMountOn());
+            CommandParser.Commands.Add("POWER_MOUNT_OFF", () => this.PowerMountOff());
 
-            Commands.Add("POWER_MOUNT_ON", () => this.PowerMountOn());
-            Commands.Add("POWER_MOUNT_OFF", () => this.PowerMountOff());
+            CommandParser.Commands.Add("POWER_CAMERA_ON", () => this.PowerCameraOn());
+            CommandParser.Commands.Add("POWER_CAMERA_OFF", () => this.PowerCameraOff());
 
-            Commands.Add("POWER_CAMERA_ON", () => this.PowerCameraOn());
-            Commands.Add("POWER_CAMERA_OFF", () => this.PowerCameraOff());
+            CommandParser.Commands.Add("POWER_FOCUSER_ON", () => this.PowerFocuserOn());
+            CommandParser.Commands.Add("POWER_FOCUSER_OFF", () => this.PowerFocuserOff());
 
-            Commands.Add("POWER_FOCUSER_ON", () => this.PowerFocuserOn());
-            Commands.Add("POWER_FOCUSER_OFF", () => this.PowerFocuserOff());
+            CommandParser.Commands.Add("POWER_ROOF_ON", () => this.PowerRoofOn());
+            CommandParser.Commands.Add("POWER_ROOF_OFF", () => this.PowerRoofOff());
 
-            Commands.Add("POWER_ROOF_ON", () => this.PowerRoofOn());
-            Commands.Add("POWER_ROOF_OFF", () => this.PowerRoofOff());
+            CommandParser.Commands.Add("MAXIM_CAMERA_CONNECT", () => MaximObj.ConnectCamera());
+            CommandParser.Commands.Add("MAXIM_CAMERA_SETCOOLING", () => MaximObj.SetCameraCooling());
+            CommandParser.Commands.Add("MAXIM_TELESCOPE_CONNECT", () => MaximObj.ConnectTelescope());
+            CommandParser.Commands.Add("MAXIM_FOCUSER_CONNECT", () => MaximObj.ConnectFocuser());
 
-            Commands.Add("MAXIM_CAMERA_CONNECT", () => MaximObj.ConnectCamera());
-            Commands.Add("MAXIM_CAMERA_SETCOOLING", () => MaximObj.SetCameraCooling());
-            Commands.Add("MAXIM_TELESCOPE_CONNECT", () => MaximObj.ConnectTelescope());
-            Commands.Add("MAXIM_FOCUSER_CONNECT", () => MaximObj.ConnectFocuser());
-
-            Commands.Add("CdC_TELESCOPE_CONNECT", () => this.CdC_connectTelescope());
+            CommandParser.Commands.Add("CdC_TELESCOPE_CONNECT", () => this.CdC_connectTelescope());
              */
         }
 
