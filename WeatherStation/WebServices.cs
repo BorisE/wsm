@@ -35,13 +35,15 @@ namespace WeatherStation
         /// <param name="queryst">Get query string in the from "param1=1&param2=2&..."</param>
         public static void sendToServer(string queryst)
         {
+            Logging.Log("WebServices.sendToServer enter", 3);
             // Send http query
             try
             {
                 WebClient client = new WebClient();
                 client.DownloadDataCompleted += client_DownloadDataCompleted;
                 Uri urlToRequest = new Uri(siteipURL + "?" + queryst);
-                client.DownloadDataAsync(urlToRequest);
+                Logging.Log("WebServices.sendToServer query: " + urlToRequest.ToString(), 2);
+                //client.DownloadDataAsync(urlToRequest);
 
             }
             catch (WebException e)
@@ -51,6 +53,7 @@ namespace WeatherStation
                 //return ipdata;
                 // report a problem with the port name (never get there)
             }
+            Logging.Log("WebServices.sendToServer exit", 3);
         }
 
         // Data received event handler
@@ -83,6 +86,7 @@ namespace WeatherStation
         /// <param name="queryst">string in the form "mac1=1&mac2=2&..."</param>
         public static void sendDataToNarodmon(string queryst)
         {
+            Logging.Log("WebServices.sendDataToNarodmon enter", 3);
             
             string DevPrefix=Narodmon_MAC.Replace("-", "");
             if (queryst == "") queryst = "&" + DevPrefix+"01" + "=10.2"+"&" + DevPrefix+"02" + "=754";
@@ -152,6 +156,7 @@ namespace WeatherStation
                 if (reader != null) reader.Close();
             }
 
+            Logging.Log("WebServices.sendDataToNarodmon exit", 3);
         }
 
 

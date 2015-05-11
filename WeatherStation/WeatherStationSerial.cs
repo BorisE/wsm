@@ -204,8 +204,8 @@ namespace WeatherStation
         public int RGCVal = 0;
         public double RainIntensityVal = 0.0;
 
-        public double RGC_Cumulative = -1;
-        public double RGC_Cumulative_mm = -1;
+        public double RGC_Cumulative = 0;
+        public double RGC_Cumulative_mm = 0;
         public double RGC_ONETICK_VALUE = 0.01; //number of mm of precipitation per 1 count (tick)
         public DateTime RGC_Cumulative_LastReset;
 
@@ -361,8 +361,8 @@ namespace WeatherStation
             
             initSensorArray();
 
-            InitComandInterpretator();
             CommandParser = new CommandInterpretator();
+            InitComandInterpretator();
 
         }
 
@@ -592,8 +592,8 @@ namespace WeatherStation
         /// </summary>
         public void InitComandInterpretator()
         {
+            CommandParser.Commands.Add("GET_SENSOR_VALUES", () => this.getSensorsString());
             /*
-            CommandParser.Commands.Add("MAXIM_RUN", () => this.startMaximDL());
             CommandParser.Commands.Add("FOCUSMAX_RUN", () => this.startFocusMax());
             CommandParser.Commands.Add("CdC_RUN", () => this.startPlanetarium());
             CommandParser.Commands.Add("CCDAP_RUN", () => this.startCCDAP());
@@ -1930,6 +1930,31 @@ namespace WeatherStation
             double RVal = Math.Round(windspeed_raw, 1); //round value to 0.1
 
             return RVal;
+        }
+
+        public string getSensorsString()
+        {
+            Logging.Log("getSensorsString enter", 3);
+
+            string st = "";
+            int SensIdx = -1;
+            foreach (SensorElement DataSensor in SensorsArray)
+            {
+                SensIdx++;
+                if (DataSensor != null)
+                {
+                    if (DataSensor.Enabled)
+                    {
+                        st += Convert.ToString(DataSensor.SensorName) + "=" + Convert.ToString(DataSensor.LastValue) + Logging.CSVseparator;
+                    }
+                }
+            }
+
+            st += "CloudIdx="+ Convert.ToString(CloudIdx) + Logging.CSVseparator;
+            st += "CloudIdxCorr=" + Convert.ToString(CloudIdxCorr) + Logging.CSVseparator;
+
+            Logging.Log("getSensorsString exit, ret: ["+st+"]", 3);
+            return st;
         }
 
     }

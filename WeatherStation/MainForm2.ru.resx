@@ -120,8 +120,14 @@
   <data name="btnStart.Text" xml:space="preserve">
     <value>Старт</value>
   </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>Датчик давления</value>
+  <data name="btnStart.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFldPress.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFldBTemp.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="txtFldBTemp.ToolTip" xml:space="preserve">
     <value>Датчик температуры барометра</value>
@@ -129,8 +135,11 @@
   <data name="txtFldPress.ToolTip" xml:space="preserve">
     <value>Атмосферное давление, мм.рт.ст</value>
   </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>Датчик влажности</value>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Датчик давления</value>
+  </data>
+  <data name="groupBox2.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="txtFldHum1.ToolTip" xml:space="preserve">
     <value>Относительная влажность, %</value>
@@ -139,8 +148,17 @@
     <value>Показания температуры датчика влажности, С
 </value>
   </data>
-  <data name="groupBox4.Text" xml:space="preserve">
-    <value>Датчик влажности 2</value>
+  <data name="lblFldDTemp1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFldHum1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Датчик влажности</value>
+  </data>
+  <data name="groupBox3.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="txtFldHum2.ToolTip" xml:space="preserve">
     <value>Показания относительной влажности второго датчика, %</value>
@@ -148,14 +166,29 @@
   <data name="txtFldDTemp2.ToolTip" xml:space="preserve">
     <value>Показания температуры второго датчика влажности, С</value>
   </data>
-  <data name="groupBox5.Text" xml:space="preserve">
-    <value>Датчик освещенности</value>
+  <data name="lblFldDTemp2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFldHum2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Датчик влажности 2</value>
+  </data>
+  <data name="groupBox4.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="txtFldIllum.ToolTip" xml:space="preserve">
     <value>Освещенность, люкс</value>
   </data>
-  <data name="groupBox6.Text" xml:space="preserve">
-    <value>Датчик облачности</value>
+  <data name="lblFldIllum.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupBox5.Text" xml:space="preserve">
+    <value>Датчик освещенности</value>
+  </data>
+  <data name="groupBox5.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="txtFldObj.ToolTip" xml:space="preserve">
     <value>Температура неба, C</value>
@@ -163,14 +196,29 @@
   <data name="txtFldATemp.ToolTip" xml:space="preserve">
     <value>Температура корпуса датчика облачности, С</value>
   </data>
+  <data name="lblFldATemp.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFldObj.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupBox6.Text" xml:space="preserve">
+    <value>Датчик облачности</value>
+  </data>
+  <data name="groupBox6.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="btnPreferences.Text" xml:space="preserve">
     <value>Настройки</value>
+  </data>
+  <data name="btnPreferences.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="btnLogWindow.Text" xml:space="preserve">
     <value>Лог</value>
   </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Датчики дождя</value>
+  <data name="btnLogWindow.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="txtFldRGCCumulative.ToolTip" xml:space="preserve">
     <value>Количество срабатываний RG-11 накопительным итогом.
@@ -196,14 +244,41 @@
 "wet" - повышенная влажность на сенсоре была зафиксирована в последнюю минуту
 </value>
   </data>
+  <data name="lblFldRGC.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="txtFldWet.ToolTip" xml:space="preserve">
     <value>Текущее значение Wet Sensor</value>
+  </data>
+  <data name="lblFldWet.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Датчики дождя</value>
+  </data>
+  <data name="groupBox1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFldTemp2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFldTemp1.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="groupBox7.Text" xml:space="preserve">
     <value>Датчики температуры</value>
   </data>
+  <data name="groupBox7.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="btnAbout.Text" xml:space="preserve">
     <value>О ...</value>
+  </data>
+  <data name="btnAbout.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chart1.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="txtRainCond.ToolTip" xml:space="preserve">
     <value>Текущее состояние дождя, расчитываемое в соответстии с параметрами модели, указанными в "Настройках".
@@ -217,11 +292,17 @@
   <data name="label15.Text" xml:space="preserve">
     <value>Облачность:</value>
   </data>
+  <data name="label15.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 17</value>
   </data>
   <data name="label16.Text" xml:space="preserve">
     <value>Дождь:</value>
+  </data>
+  <data name="label16.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
     <value>219, 31</value>
@@ -232,8 +313,8 @@
   <data name="label17.Text" xml:space="preserve">
     <value>Освещенность:</value>
   </data>
-  <data name="groupBox8.Text" xml:space="preserve">
-    <value>Состояние флагов Boltwood cloud sensor</value>
+  <data name="label17.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="label30.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 17</value>
@@ -241,17 +322,26 @@
   <data name="label30.Text" xml:space="preserve">
     <value>Ветер:</value>
   </data>
+  <data name="label30.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 17</value>
   </data>
   <data name="label19.Text" xml:space="preserve">
     <value>Влажность:</value>
   </data>
+  <data name="label19.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 17</value>
   </data>
   <data name="label18.Text" xml:space="preserve">
     <value>Идет дождь:</value>
+  </data>
+  <data name="label18.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="txtWindCond.ToolTip" xml:space="preserve">
     <value>Сила ветра на основании показаний датчика скорости ветра.
@@ -279,11 +369,20 @@
     <value>Текущее состояние облачности, расчитываемое по одному из иднексов (обычный или AAG).
 В соответствии со спецификацией Boltwood Cloud Sensor II</value>
   </data>
+  <data name="groupBox8.Text" xml:space="preserve">
+    <value>Состояние флагов Boltwood cloud sensor</value>
+  </data>
+  <data name="groupBox8.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="label21.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 17</value>
   </data>
   <data name="label21.Text" xml:space="preserve">
     <value>CloudIdx</value>
+  </data>
+  <data name="label21.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="label20.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 17</value>
@@ -291,14 +390,26 @@
   <data name="label20.Text" xml:space="preserve">
     <value>CloudIdx AAG</value>
   </data>
+  <data name="label20.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="btnSimulate.Text" xml:space="preserve">
     <value>Симуляция</value>
+  </data>
+  <data name="btnSimulate.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="groupBox9.Text" xml:space="preserve">
     <value>Индекс облачности</value>
   </data>
-  <data name="groupBox10.Text" xml:space="preserve">
-    <value>Обогрев</value>
+  <data name="groupBox9.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label22.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label23.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="txtCSNeedHeating.ToolTip" xml:space="preserve">
     <value>Флаг "Датчик облачности нуждается в обогреве".
@@ -328,14 +439,77 @@
     <value>Прошло секунд с момент последнего выключения обогрева
 </value>
   </data>
+  <data name="groupBox10.Text" xml:space="preserve">
+    <value>Обогрев</value>
+  </data>
+  <data name="groupBox10.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="txtFldWSpeed.ToolTip" xml:space="preserve">
     <value>Скорость ветра, м/с</value>
+  </data>
+  <data name="panelDebug.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFldWSpeed.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="groupBox11.Text" xml:space="preserve">
     <value>Датчик ветра</value>
   </data>
+  <data name="groupBox11.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pannelMaximum.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label29.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnIndRelay.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label28.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnIndRain.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label27.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnIndCloud.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label9.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label26.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label25.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtMinWind.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label24.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="btnStart_min.Text" xml:space="preserve">
     <value>Старт</value>
+  </data>
+  <data name="btnStart_min.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="chart2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pannelMinimum.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="contextMenuStrip1.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="notifyIcon1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -616,5 +790,8 @@
         AAAAAP//AAAAAAAA//8AAAAAAAD//wAAAAAAAP//AAAAAAAA//8AAAAAAAD//wAAAAAAAP//AAAAAAAA
         //8AAAAAAAD//wAAAAAAAP//AAAAAAAA//8=
 </value>
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
   </data>
 </root>

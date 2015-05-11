@@ -584,13 +584,13 @@ waiting 10000
                 {
                     txtRainLastMinute.Text = "Rain";
                     txtRainLastMinute.BackColor = Color.LightSkyBlue;
-                    btnIndRain.BackColor = Color.MistyRose;
+                    btnIndRain.BackColor = Color.LightCoral;
                 }
                 else
                 {
                     txtRainLastMinute.Text = "-";
                     txtRainLastMinute.BackColor = Color.Empty;
-                    btnIndRain.BackColor = Color.PaleGreen;
+                    btnIndRain.BackColor = Color.Empty;
                 }
             }
             catch { }
@@ -696,6 +696,7 @@ waiting 10000
         /// </summary>
         private void SendDataToCustomSite()
         {
+            Logging.Log("Main.SendDataToCustomSite enter", 3);
             string webstr = "";
             Hardware.Web_date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
@@ -714,6 +715,7 @@ waiting 10000
             //Send web query
             string queryst = "date=" + Hardware.Web_date + webstr;
             WebServices.sendToServer(queryst);
+            Logging.Log("Main.SendDataToCustomSite exit", 3);
         }
 
         /// <summary>
@@ -722,7 +724,7 @@ waiting 10000
         /// </summary>
         private void SendDataToNarodmon()
         {
-            //Присвоить прочитанное значение нужному сенсору
+            //Присвоить ``прочитанное значение нужному сенсору
             string DevPrefix = WebServices.Narodmon_MAC.Replace("-", "");
             string narodmonst="";
 
@@ -738,6 +740,12 @@ waiting 10000
                         {
                             if (DataSensor.SensorName=="RGC"){
                                 narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(Hardware.RGC_Cumulative_mm);
+                                //Hardware.RGC_Cumulative = 0;
+                                //Hardware.RGC_Cumulative_mm = 0;
+                            }
+                            else if (DataSensor.SensorName == "WSp")
+                            {
+                                narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(Hardware.WindSpeedVal);
                                 //Hardware.RGC_Cumulative = 0;
                                 //Hardware.RGC_Cumulative_mm = 0;
                             }else{

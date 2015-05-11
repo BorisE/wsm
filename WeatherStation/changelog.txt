@@ -6,6 +6,10 @@ to do:
 - rain condtions settings
 - socket interface to query data from program and even to control some procceses
 
+1.6.52 (2015-05-12)
+- windspeed reported correctly
+- minorbugfixes
+
 1.6.51d (2015-05-04)
 - started socket interface interface implementation (NOT WORKING YET)
 

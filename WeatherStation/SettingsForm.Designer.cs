@@ -85,6 +85,12 @@
             this.btnOpenReadFromFile = new System.Windows.Forms.Button();
             this.cmbPortList = new System.Windows.Forms.ComboBox();
             this.tabModeling = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.RGC_conditions = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rainUnknown = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.rainWet = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.rainRain = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.rainDry = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -169,12 +175,6 @@
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.fileChooseDialog = new System.Windows.Forms.SaveFileDialog();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.RGC_conditions = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rainUnknown = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.rainWet = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.rainRain = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.rainDry = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -183,6 +183,7 @@
             this.groupBox6.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabModeling.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox12.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -194,7 +195,6 @@
             this.groupBox9.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -655,6 +655,52 @@
             resources.ApplyResources(this.tabModeling, "tabModeling");
             this.tabModeling.Name = "tabModeling";
             this.tabModeling.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RGC_conditions,
+            this.rainUnknown,
+            this.rainWet,
+            this.rainRain,
+            this.rainDry});
+            resources.ApplyResources(this.dataGridView1, "dataGridView1");
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.MyToolTip.SetToolTip(this.dataGridView1, resources.GetString("dataGridView1.ToolTip"));
+            // 
+            // RGC_conditions
+            // 
+            this.RGC_conditions.Frozen = true;
+            resources.ApplyResources(this.RGC_conditions, "RGC_conditions");
+            this.RGC_conditions.Name = "RGC_conditions";
+            // 
+            // rainUnknown
+            // 
+            this.rainUnknown.Frozen = true;
+            resources.ApplyResources(this.rainUnknown, "rainUnknown");
+            this.rainUnknown.Name = "rainUnknown";
+            // 
+            // rainWet
+            // 
+            this.rainWet.Frozen = true;
+            resources.ApplyResources(this.rainWet, "rainWet");
+            this.rainWet.Name = "rainWet";
+            // 
+            // rainRain
+            // 
+            this.rainRain.Frozen = true;
+            resources.ApplyResources(this.rainRain, "rainRain");
+            this.rainRain.Name = "rainRain";
+            // 
+            // rainDry
+            // 
+            this.rainDry.Frozen = true;
+            resources.ApplyResources(this.rainDry, "rainDry");
+            this.rainDry.Name = "rainDry";
             // 
             // groupBox12
             // 
@@ -1288,51 +1334,6 @@
             this.fileChooseDialog.InitialDirectory = "MyComputer";
             resources.ApplyResources(this.fileChooseDialog, "fileChooseDialog");
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RGC_conditions,
-            this.rainUnknown,
-            this.rainWet,
-            this.rainRain,
-            this.rainDry});
-            resources.ApplyResources(this.dataGridView1, "dataGridView1");
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            // 
-            // RGC_conditions
-            // 
-            this.RGC_conditions.Frozen = true;
-            resources.ApplyResources(this.RGC_conditions, "RGC_conditions");
-            this.RGC_conditions.Name = "RGC_conditions";
-            // 
-            // rainUnknown
-            // 
-            this.rainUnknown.Frozen = true;
-            resources.ApplyResources(this.rainUnknown, "rainUnknown");
-            this.rainUnknown.Name = "rainUnknown";
-            // 
-            // rainWet
-            // 
-            this.rainWet.Frozen = true;
-            resources.ApplyResources(this.rainWet, "rainWet");
-            this.rainWet.Name = "rainWet";
-            // 
-            // rainRain
-            // 
-            this.rainRain.Frozen = true;
-            resources.ApplyResources(this.rainRain, "rainRain");
-            this.rainRain.Name = "rainRain";
-            // 
-            // rainDry
-            // 
-            this.rainDry.Frozen = true;
-            resources.ApplyResources(this.rainDry, "rainDry");
-            this.rainDry.Name = "rainDry";
-            // 
             // SettingsForm
             // 
             this.AcceptButton = this.btnOk;
@@ -1364,6 +1365,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabModeling.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             this.groupBox10.ResumeLayout(false);
@@ -1382,7 +1384,6 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
