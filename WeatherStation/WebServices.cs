@@ -43,8 +43,8 @@ namespace WeatherStation
                 client.DownloadDataCompleted += client_DownloadDataCompleted;
                 Uri urlToRequest = new Uri(siteipURL + "?" + queryst);
                 Logging.Log("WebServices.sendToServer query: " + urlToRequest.ToString(), 2);
-                //client.DownloadDataAsync(urlToRequest);
-
+                
+                client.DownloadDataAsync(urlToRequest);
             }
             catch (WebException e)
             {
