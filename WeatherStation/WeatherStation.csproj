@@ -32,7 +32,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>wsminstall.htm</WebPage>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>36</ApplicationRevision>
+    <ApplicationRevision>37</ApplicationRevision>
     <ApplicationVersion>1.6.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -62,7 +62,7 @@
     <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logo_48_blue.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\logo_weather.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>WeatherStation.Program</StartupObject>
@@ -246,6 +246,8 @@
     <Content Include="changelog.txt" />
     <Content Include="logo_48_blue.ico" />
     <Content Include="readme.txt" />
+    <None Include="Resources\logo_weather.ico" />
+    <None Include="Resources\logo_weather.png" />
   </ItemGroup>
   <ItemGroup>
     <PublishFile Include="System.Data.SQLite">
