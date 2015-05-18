@@ -708,7 +708,15 @@ waiting 10000
                 if (DataSensor != null)
                 {
                     if (DataSensor.Enabled && DataSensor.SendToWebFlag)
-                        webstr += "&" + DataSensor.WebCustomName + "=" + Convert.ToString(DataSensor.LastValue);
+                    {
+                        double TempDataValue = DataSensor.LastValue;
+                        if (Hardware.AverageDataFlag)
+                        {
+                            TempDataValue = DataSensor.AverageBetweenDataSend_Web_SUM / DataSensor.AverageBetweenDataSend_Web_COUNT;
+                        }
+                        Hardware.SensorsArray[Hardware.SensorsArrayHash[DataSensor.SensorName]].ClearValuesWeb();
+                        webstr += "&" + DataSensor.WebCustomName + "=" + Convert.ToString(TempDataValue);
+                    }
                 }
             }
 
@@ -738,6 +746,13 @@ waiting 10000
                     {
                         if (Hardware.CheckData(Convert.ToDouble(DataSensor.LastValue), DataSensor.SensorType))
                         {
+                            double TempDataValue = DataSensor.LastValue;
+                            if (Hardware.AverageDataFlag)
+                            {
+                                TempDataValue = DataSensor.AverageBetweenDataSend_Narodmon_SUM / DataSensor.AverageBetweenDataSend_Narodmon_COUNT;
+                            }
+                            Hardware.SensorsArray[Hardware.SensorsArrayHash[DataSensor.SensorName]].ClearValuesNarodmon();
+                            
                             if (DataSensor.SensorName=="RGC"){
                                 narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(Hardware.RGC_Cumulative_mm);
                                 //Hardware.RGC_Cumulative = 0;
@@ -749,7 +764,7 @@ waiting 10000
                                 //Hardware.RGC_Cumulative = 0;
                                 //Hardware.RGC_Cumulative_mm = 0;
                             }else{
-                                narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(DataSensor.LastValue);
+                                narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(TempDataValue);
                             }
                         }
                     }
@@ -997,6 +1012,8 @@ waiting 10000
 
                 WebServices.SendToNarodmonFlag = Properties.Settings.Default.SendToNarodmon;
                 WebServices.Narodmon_MAC = Properties.Settings.Default.Narodmon_MAC;
+
+                Hardware.AverageDataFlag = Properties.Settings.Default.AverageData;
 
                 Logging.LogFilePath = Properties.Settings.Default.logFileLocation;
                 Logging.DataFilePath = Properties.Settings.Default.CSVFileLocation;

@@ -175,6 +175,7 @@
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.fileChooseDialog = new System.Windows.Forms.SaveFileDialog();
+            this.chkAverageData = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -220,6 +221,7 @@
             // 
             // groupBox11
             // 
+            this.groupBox11.Controls.Add(this.chkAverageData);
             this.groupBox11.Controls.Add(this.label35);
             this.groupBox11.Controls.Add(this.label34);
             this.groupBox11.Controls.Add(this.label31);
@@ -1334,6 +1336,15 @@
             this.fileChooseDialog.InitialDirectory = "MyComputer";
             resources.ApplyResources(this.fileChooseDialog, "fileChooseDialog");
             // 
+            // chkAverageData
+            // 
+            resources.ApplyResources(this.chkAverageData, "chkAverageData");
+            this.chkAverageData.Checked = global::WeatherStation.Properties.Settings.Default.AverageData;
+            this.chkAverageData.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "AverageData", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkAverageData.Name = "chkAverageData";
+            this.MyToolTip.SetToolTip(this.chkAverageData, resources.GetString("chkAverageData.ToolTip"));
+            this.chkAverageData.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             this.AcceptButton = this.btnOk;
@@ -1534,5 +1545,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn rainWet;
         private System.Windows.Forms.DataGridViewCheckBoxColumn rainRain;
         private System.Windows.Forms.DataGridViewCheckBoxColumn rainDry;
+        private System.Windows.Forms.CheckBox chkAverageData;
     }
 }

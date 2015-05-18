@@ -185,5 +185,8 @@
     <Setting Name="RGCScale" Type="System.String" Scope="User">
       <Value Profile="(Default)">0.01</Value>
     </Setting>
+    <Setting Name="AverageData" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

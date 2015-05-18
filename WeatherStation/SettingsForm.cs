@@ -235,6 +235,8 @@ namespace WeatherStation
                 WebServices.SendToNarodmonFlag = chkNarodMon.Checked;
                 WebServices.Narodmon_MAC = txtNarodmonMAC.Text;
 
+                ParentMainForm.Hardware.AverageDataFlag = chkAverageData.Checked;
+
                 //Store log settings
                 Logging.LogFilePath = txtLogFileLocation.Text;
                 Logging.SerialLogFilePath = txtSerialLogFileLocation.Text;

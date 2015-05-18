@@ -122,13 +122,47 @@
     <value>Top, Bottom, Left, Right</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="chkAverageData.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="chkAverageData.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 216</value>
+  </data>
+  <data name="chkAverageData.Size" type="System.Drawing.Size, System.Drawing">
+    <value>287, 21</value>
+  </data>
+  <data name="chkAverageData.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="chkAverageData.Text" xml:space="preserve">
+    <value>Average sensors data between sendings</value>
+  </data>
+  <metadata name="MyToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>14, 4</value>
+  </metadata>
+  <data name="chkAverageData.ToolTip" xml:space="preserve">
+    <value>Checking this box will lead to averaging sensors data on interval between sendings to server (separetly for web server and narodmon). 
+If unchecked - will send last available data</value>
+  </data>
+  <data name="&gt;&gt;chkAverageData.Name" xml:space="preserve">
+    <value>chkAverageData</value>
+  </data>
+  <data name="&gt;&gt;chkAverageData.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkAverageData.Parent" xml:space="preserve">
+    <value>groupBox11</value>
+  </data>
+  <data name="&gt;&gt;chkAverageData.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="label35.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label35.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label35.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 153</value>
   </data>
@@ -154,7 +188,7 @@
     <value>groupBox11</value>
   </data>
   <data name="&gt;&gt;label35.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="label34.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -184,7 +218,7 @@
     <value>groupBox11</value>
   </data>
   <data name="&gt;&gt;label34.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="label31.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -214,7 +248,7 @@
     <value>groupBox11</value>
   </data>
   <data name="&gt;&gt;label31.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="label33.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -244,7 +278,7 @@
     <value>groupBox11</value>
   </data>
   <data name="&gt;&gt;label33.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="label30.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -274,7 +308,7 @@
     <value>groupBox11</value>
   </data>
   <data name="&gt;&gt;label30.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="txtRefreshNarodmonInterval.Location" type="System.Drawing.Point, System.Drawing">
     <value>212, 181</value>
@@ -291,9 +325,6 @@
   <data name="txtRefreshNarodmonInterval.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <metadata name="MyToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>14, 4</value>
-  </metadata>
   <data name="txtRefreshNarodmonInterval.ToolTip" xml:space="preserve">
     <value>Specify how ofter data should be sent to narodmon.ru
 
@@ -310,7 +341,7 @@ Note that data would be sent only in multiples of Refresh interval settings</val
     <value>groupBox11</value>
   </data>
   <data name="&gt;&gt;txtRefreshNarodmonInterval.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="btnGenerateMac.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -343,7 +374,7 @@ Note that data would be sent only in multiples of Refresh interval settings</val
     <value>groupBox11</value>
   </data>
   <data name="&gt;&gt;btnGenerateMac.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="txtRefreshWebDataInterval.Location" type="System.Drawing.Point, System.Drawing">
     <value>212, 79</value>
@@ -376,7 +407,7 @@ Note that data actualy could be sent only at multiples of Refresh interval setti
     <value>groupBox11</value>
   </data>
   <data name="&gt;&gt;txtRefreshWebDataInterval.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="txtNarodmonMAC.Location" type="System.Drawing.Point, System.Drawing">
     <value>45, 150</value>
@@ -405,7 +436,7 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
     <value>groupBox11</value>
   </data>
   <data name="&gt;&gt;txtNarodmonMAC.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="txtWebDataURL.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 47</value>
@@ -432,7 +463,7 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
     <value>groupBox11</value>
   </data>
   <data name="&gt;&gt;txtWebDataURL.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="chkNarodMon.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -469,7 +500,7 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>groupBox11</value>
   </data>
   <data name="&gt;&gt;chkNarodMon.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="chkWebData.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -502,7 +533,7 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>groupBox11</value>
   </data>
   <data name="&gt;&gt;chkWebData.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="groupBox11.Location" type="System.Drawing.Point, System.Drawing">
     <value>428, 177</value>
@@ -514,7 +545,7 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>4, 4, 4, 4</value>
   </data>
   <data name="groupBox11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>387, 238</value>
+    <value>387, 248</value>
   </data>
   <data name="groupBox11.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>

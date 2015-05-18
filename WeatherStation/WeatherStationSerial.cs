@@ -45,7 +45,14 @@ public class SensorElement
     public List<double> ValuesLastFiveMin = new List<double>(); 
     public double AverageHistoryValues = -100.0;
     public int ValuesCount = 0;
-    
+
+    public double AverageBetweenDataSend_Narodmon_SUM = 0.0;
+    public int AverageBetweenDataSend_Narodmon_COUNT = 0;
+
+    public double AverageBetweenDataSend_Web_SUM = 0.0;
+    public int AverageBetweenDataSend_Web_COUNT = 0;
+
+
     //Method for adding values
     public void AddValue(double NewValue)
     {
@@ -71,10 +78,31 @@ public class SensorElement
         }
         ValuesLastFiveMin[0] = NewValue;
 
+        //Average in last stored values
         AverageHistoryValues = ValuesLastFiveMin.Average();
 
+        //Average between sendings Web
+        AverageBetweenDataSend_Web_SUM += NewValue;
+        AverageBetweenDataSend_Web_COUNT++;
+
+        //Average between sendings Narodmon
+        AverageBetweenDataSend_Narodmon_SUM += NewValue;
+        AverageBetweenDataSend_Narodmon_COUNT++;
      }
 
+    //Method for clearing data between sendings WEB
+    public void ClearValuesWeb()
+    {
+        AverageBetweenDataSend_Web_SUM = 0;
+        AverageBetweenDataSend_Web_COUNT = 0;
+    }
+
+    //Method for clearing data between sendings NARODMON
+    public void ClearValuesNarodmon()
+    {
+        AverageBetweenDataSend_Narodmon_SUM = 0;
+        AverageBetweenDataSend_Narodmon_COUNT = 0;
+    }
 }
 
 public class ArduinoSettingsClass
@@ -208,6 +236,8 @@ namespace WeatherStation
         public double RGC_Cumulative_mm = 0;
         public double RGC_ONETICK_VALUE = 0.01; //number of mm of precipitation per 1 count (tick)
         public DateTime RGC_Cumulative_LastReset;
+
+        public bool AverageDataFlag = false;
 
         public int MeasureCycleLen = 14530;
 
@@ -1056,7 +1086,7 @@ namespace WeatherStation
                                 }
                             }
 
-                            //2. PARSING PARTICLUAR CASES
+                            //2. PARSING PARTICULAR CASES
                             if (tagName == "Obj")
                             {
                             }
