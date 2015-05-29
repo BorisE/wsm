@@ -709,12 +709,27 @@ waiting 10000
                 {
                     if (DataSensor.Enabled && DataSensor.SendToWebFlag)
                     {
-                        double TempDataValue = DataSensor.LastValue;
+                        double TempDataValue=0.0; 
                         if (Hardware.AverageDataFlag)
                         {
                             TempDataValue = DataSensor.AverageBetweenDataSend_Web_SUM / DataSensor.AverageBetweenDataSend_Web_COUNT;
                         }
+                        else
+                        {
+                            TempDataValue = DataSensor.LastValue;
+                        }
+                        if (DataSensor.SensorName == "RGC")
+                        //always use increment value for RGC sensor
+                        {
+                            TempDataValue = DataSensor.AverageBetweenDataSend_Web_SUM;
+                        }
+                        else if (DataSensor.SensorName == "RL1")
+                        //always use last value for Relay
+                        {
+                            TempDataValue = DataSensor.LastValue;
+                        }
                         Hardware.SensorsArray[Hardware.SensorsArrayHash[DataSensor.SensorName]].ClearValuesWeb();
+
                         webstr += "&" + DataSensor.WebCustomName + "=" + Convert.ToString(TempDataValue);
                     }
                 }
@@ -746,26 +761,33 @@ waiting 10000
                     {
                         if (Hardware.CheckData(Convert.ToDouble(DataSensor.LastValue), DataSensor.SensorType))
                         {
-                            double TempDataValue = DataSensor.LastValue;
+                            double TempDataValue = 0.0;
                             if (Hardware.AverageDataFlag)
                             {
                                 TempDataValue = DataSensor.AverageBetweenDataSend_Narodmon_SUM / DataSensor.AverageBetweenDataSend_Narodmon_COUNT;
                             }
-                            Hardware.SensorsArray[Hardware.SensorsArrayHash[DataSensor.SensorName]].ClearValuesNarodmon();
-                            
-                            if (DataSensor.SensorName=="RGC"){
-                                narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(Hardware.RGC_Cumulative_mm);
-                                //Hardware.RGC_Cumulative = 0;
-                                //Hardware.RGC_Cumulative_mm = 0;
+                            else
+                            {
+                                TempDataValue = DataSensor.LastValue;
+                            }
+                            if (DataSensor.SensorName == "RGC")
+                            //always use increment value in mm for RGC sensor
+                            {
+                                TempDataValue = Hardware.RGC_Cumulative_mm;
+                            }
+                            else if (DataSensor.SensorName == "RL1")
+                            //always use last value for Relay
+                            {
+                                TempDataValue = DataSensor.LastValue;
                             }
                             else if (DataSensor.SensorName == "WSp")
+                            //Calculate wind speed on sensor value
                             {
-                                narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(Hardware.WindSpeedVal);
-                                //Hardware.RGC_Cumulative = 0;
-                                //Hardware.RGC_Cumulative_mm = 0;
-                            }else{
-                                narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(TempDataValue);
+                                TempDataValue = Hardware.calcWindSpeed(TempDataValue);
                             }
+                            Hardware.SensorsArray[Hardware.SensorsArrayHash[DataSensor.SensorName]].ClearValuesNarodmon();
+                            
+                            narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(TempDataValue);
                         }
                     }
                                 

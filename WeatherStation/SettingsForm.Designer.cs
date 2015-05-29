@@ -34,6 +34,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabGeneral = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.chkAverageData = new System.Windows.Forms.CheckBox();
             this.label35 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -175,7 +176,6 @@
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.fileChooseDialog = new System.Windows.Forms.SaveFileDialog();
-            this.chkAverageData = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -237,6 +237,16 @@
             resources.ApplyResources(this.groupBox11, "groupBox11");
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.TabStop = false;
+            // 
+            // chkAverageData
+            // 
+            resources.ApplyResources(this.chkAverageData, "chkAverageData");
+            this.chkAverageData.Checked = global::WeatherStation.Properties.Settings.Default.AverageData;
+            this.chkAverageData.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAverageData.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "AverageData", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkAverageData.Name = "chkAverageData";
+            this.MyToolTip.SetToolTip(this.chkAverageData, resources.GetString("chkAverageData.ToolTip"));
+            this.chkAverageData.UseVisualStyleBackColor = true;
             // 
             // label35
             // 
@@ -1335,15 +1345,6 @@
             // 
             this.fileChooseDialog.InitialDirectory = "MyComputer";
             resources.ApplyResources(this.fileChooseDialog, "fileChooseDialog");
-            // 
-            // chkAverageData
-            // 
-            resources.ApplyResources(this.chkAverageData, "chkAverageData");
-            this.chkAverageData.Checked = global::WeatherStation.Properties.Settings.Default.AverageData;
-            this.chkAverageData.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "AverageData", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkAverageData.Name = "chkAverageData";
-            this.MyToolTip.SetToolTip(this.chkAverageData, resources.GetString("chkAverageData.ToolTip"));
-            this.chkAverageData.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
             // 

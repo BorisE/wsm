@@ -21,7 +21,8 @@ namespace WeatherStation
     public static class Logging
     {
         private static TextWriter LogFile = null;
-        public static string LogFileName = "weather_station.log"; //Text log
+        public static string LogFileName = "weather_station_"; //Text log
+        public static string LogFileExt = ".log"; //Text log
         public static string LogFilePath = "";
         public static bool LogFileFlag = true;
 
@@ -65,7 +66,7 @@ namespace WeatherStation
             if (LogFilePath == "") LogFilePath = ApplicationFilePath;
             try
             {
-                LogFile = File.AppendText(LogFilePath + LogFileName);
+                LogFile = File.AppendText(LogFilePath + LogFileName + DateTime.Now.ToString("yyyy-MM-dd") + LogFileExt);
             }
             catch {
                 MessageBox.Show("Cannot open log file");
@@ -97,7 +98,7 @@ namespace WeatherStation
                         OpenLogFile();
                     }
 
-                    LogFile.Write("{0} {1} [{2}]:", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString(), LogLevel);
+                    LogFile.Write("{0} {1} [{2}]:", DateTime.Now.ToString("yyyy-MM-dd"), DateTime.Now.ToString("HH:mm:ss.fff"), LogLevel);
                     LogFile.WriteLine("{0}", logMessage);
                 }
                 catch {

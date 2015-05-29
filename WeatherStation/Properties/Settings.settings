@@ -186,7 +186,7 @@
       <Value Profile="(Default)">0.01</Value>
     </Setting>
     <Setting Name="AverageData" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

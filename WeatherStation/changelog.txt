@@ -6,6 +6,13 @@ to do:
 - rain condtions settings
 - socket interface to query data from program and even to control some procceses
 
+1.6.53 (2015-05-29)
+- program log file named with day in it
+- program log file date format changed
+
+1.6.52beta (2015-05-18)
+- send averaged (new) or last (old school style) sensor value to narodmon / web
+
 1.6.52 (2015-05-13)
 - windspeed reported correctly
 - minorbugfixes

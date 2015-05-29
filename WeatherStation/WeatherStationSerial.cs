@@ -12,105 +12,111 @@ using System.Windows.Forms;
 /// </summary>
 #region Custom data types for Sensors, Boltwood and so on
 
-public enum SensorTypeEnum { Temp, Press, Hum, Illum, Wet, RGC, Relay, WSp };
+/// <summary>
+/// Sensor type
+/// </summary>
+    public enum SensorTypeEnum { Temp, Press, Hum, Illum, Wet, RGC, Relay, WSp };
 
 /// <summary>
 /// Boltwood Data Types
 /// </summary>
-public enum CloudCond { cloudUnknown = 0, cloudClear = 1, cloudCloudy = 2, cloudVeryCloudy = 3 }
-public enum WindCond { windUnknown = 0, windCalm=1, windWindy=2, windVeryWindy=3 }
-public enum RainCond { rainUnknown = 0, rainDry = 1, rainWet = 2, rainRain = 3 }
-public enum DayCond { dayUnknown = 0, dayDark = 1, dayLight = 2, dayVeryLight = 3 }
+    public enum CloudCond { cloudUnknown = 0, cloudClear = 1, cloudCloudy = 2, cloudVeryCloudy = 3 }
+    public enum WindCond { windUnknown = 0, windCalm=1, windWindy=2, windVeryWindy=3 }
+    public enum RainCond { rainUnknown = 0, rainDry = 1, rainWet = 2, rainRain = 3 }
+    public enum DayCond { dayUnknown = 0, dayDark = 1, dayLight = 2, dayVeryLight = 3 }
+    public enum RainFlag { rainFlagDry = 0, rainFlagLastminute = 1, rainFlagRightnow = 2 }
+    public enum WetFlag { wetFlagDry = 0, wetFlagLastminute = 1, wetFlagRightnow = 2 }
+    public enum WetSensorsMode { wetSensBoth = 0, wetSensWetOnly = 1, wetSensRGCOnly = 2 }
 
-public enum RainFlag { rainFlagDry = 0, rainFlagLastminute = 1, rainFlagRightnow = 2 }
-public enum WetFlag { wetFlagDry = 0, wetFlagLastminute = 1, wetFlagRightnow = 2 }
-
-public enum WetSensorsMode { wetSensBoth = 0, wetSensWetOnly = 1, wetSensRGCOnly = 2 }
-
-public class SensorElement
-{
-    public string SensorName="";
-    public SensorTypeEnum SensorType;
-    public bool Enabled = true;
-    public bool SendToWebFlag=true;
-    public bool SendToNarodMon=false;
-    public string SensorArduinoField = "";
-    public string WebCustomName = "";
-    public string NarodMonID = "";
-    public string SensorFormField = "";
-    public double LastValue = -100.0;
-    public DateTime LastValueReadTime = DateTime.MinValue;
-
-    private const byte SENSOR_HISTORY_LENGTH = 25; //approx 5 min (25 * 14.3 sec)
-    public List<double> ValuesLastFiveMin = new List<double>(); 
-    public double AverageHistoryValues = -100.0;
-    public int ValuesCount = 0;
-
-    public double AverageBetweenDataSend_Narodmon_SUM = 0.0;
-    public int AverageBetweenDataSend_Narodmon_COUNT = 0;
-
-    public double AverageBetweenDataSend_Web_SUM = 0.0;
-    public int AverageBetweenDataSend_Web_COUNT = 0;
-
-
-    //Method for adding values
-    public void AddValue(double NewValue)
+/// <summary>
+/// Sensor element class
+/// </summary>
+    public class SensorElement
     {
-        //LastValue
-        LastValue = NewValue;
-        LastValueReadTime = DateTime.Now;
-        ValuesCount++;
+        public string SensorName="";
+        public SensorTypeEnum SensorType;
+        public bool Enabled = true;
+        public bool SendToWebFlag=true;
+        public bool SendToNarodMon=false;
+        public string SensorArduinoField = "";
+        public string WebCustomName = "";
+        public string NarodMonID = "";
+        public string SensorFormField = "";
+        public double LastValue = -100.0;
+        public DateTime LastValueReadTime = DateTime.MinValue;
+
+        private const byte SENSOR_HISTORY_LENGTH = 25; //approx 5 min (25 * 14.3 sec)
+        public List<double> ValuesLastFiveMin = new List<double>(); 
+        public double AverageHistoryValues = -100.0;
+        public int ValuesCount = 0;
+
+        public double AverageBetweenDataSend_Narodmon_SUM = 0.0;
+        public int AverageBetweenDataSend_Narodmon_COUNT = 0;
+
+        public double AverageBetweenDataSend_Web_SUM = 0.0;
+        public int AverageBetweenDataSend_Web_COUNT = 0;
+
+        //Method for adding values
+        public void AddValue(double NewValue)
+        {
+            //LastValue
+            LastValue = NewValue;
+            LastValueReadTime = DateTime.Now;
+            ValuesCount++;
         
-        //Add to LastValuesArray
-        int startIdx;
-        if (ValuesLastFiveMin.Count < SENSOR_HISTORY_LENGTH)
+            //Add to LastValuesArray
+            int startIdx;
+            if (ValuesLastFiveMin.Count < SENSOR_HISTORY_LENGTH)
+            {
+                startIdx = ValuesLastFiveMin.Count()-1;
+                ValuesLastFiveMin.Add(-100.0);
+            }
+            else
+            {
+                startIdx = ValuesLastFiveMin.Count() - 2;
+            }
+            for (int i = startIdx; i >= 0; i--)
+            {
+                ValuesLastFiveMin[i + 1] = ValuesLastFiveMin[i];
+            }
+            ValuesLastFiveMin[0] = NewValue;
+
+            //Average in last stored values
+            AverageHistoryValues = ValuesLastFiveMin.Average();
+
+            //Average between sendings Web
+            AverageBetweenDataSend_Web_SUM += NewValue;
+            AverageBetweenDataSend_Web_COUNT++;
+
+            //Average between sendings Narodmon
+            AverageBetweenDataSend_Narodmon_SUM += NewValue;
+            AverageBetweenDataSend_Narodmon_COUNT++;
+         }
+
+        //Method for clearing data between sendings WEB
+        public void ClearValuesWeb()
         {
-            startIdx = ValuesLastFiveMin.Count()-1;
-            ValuesLastFiveMin.Add(-100.0);
+            AverageBetweenDataSend_Web_SUM = 0;
+            AverageBetweenDataSend_Web_COUNT = 0;
         }
-        else
+
+        //Method for clearing data between sendings NARODMON
+        public void ClearValuesNarodmon()
         {
-            startIdx = ValuesLastFiveMin.Count() - 2;
+            AverageBetweenDataSend_Narodmon_SUM = 0;
+            AverageBetweenDataSend_Narodmon_COUNT = 0;
         }
-        for (int i = startIdx; i >= 0; i--)
-        {
-            ValuesLastFiveMin[i + 1] = ValuesLastFiveMin[i];
-        }
-        ValuesLastFiveMin[0] = NewValue;
-
-        //Average in last stored values
-        AverageHistoryValues = ValuesLastFiveMin.Average();
-
-        //Average between sendings Web
-        AverageBetweenDataSend_Web_SUM += NewValue;
-        AverageBetweenDataSend_Web_COUNT++;
-
-        //Average between sendings Narodmon
-        AverageBetweenDataSend_Narodmon_SUM += NewValue;
-        AverageBetweenDataSend_Narodmon_COUNT++;
-     }
-
-    //Method for clearing data between sendings WEB
-    public void ClearValuesWeb()
-    {
-        AverageBetweenDataSend_Web_SUM = 0;
-        AverageBetweenDataSend_Web_COUNT = 0;
     }
 
-    //Method for clearing data between sendings NARODMON
-    public void ClearValuesNarodmon()
+
+/// <summary>
+/// Settings element (TD, WT, RT)
+/// </summary>
+    public class ArduinoSettingsClass
     {
-        AverageBetweenDataSend_Narodmon_SUM = 0;
-        AverageBetweenDataSend_Narodmon_COUNT = 0;
+        public string Value = "";
+        public DateTime ReadTime = new DateTime();
     }
-}
-
-public class ArduinoSettingsClass
-{
-    public string Value = "";
-    public DateTime ReadTime = new DateTime();
-}
-
 #endregion
 
 namespace WeatherStation
@@ -210,7 +216,7 @@ namespace WeatherStation
         /// <summary>
         /// Sensors vars and misc settings
         /// </summary>        
-        #region Different sensor settings
+    #region Different sensor settings
         public double CloudIdx = -100.0;
         public double CloudIdxCorr = -100.0;        
         
@@ -262,7 +268,7 @@ namespace WeatherStation
         private const int SKYSENSOR_HISTORY_LENGTH = 12;
         public List<double> SkyIndex5min = new List<double>(); 
         private int SkyIndexAlreadyAddedMinute = -1;
-        #endregion
+    #endregion
 
         /// <summary>
         /// Relay and Heating settings
@@ -1946,7 +1952,7 @@ namespace WeatherStation
         /// </summary>
         /// <param name="WSVal">Wind speed sensor value</param>
         /// <returns>Wind speed in m/s</returns>
-        public double calcWindSpeed(int WSVal)
+        public double calcWindSpeed(double WSVal)
         {
 
             double minVoltage= WindSpeed_ZeroSpeedValue * 5.0 / 1023.0; // minVoltage = minValue * 5 / 1023
