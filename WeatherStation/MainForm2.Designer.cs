@@ -171,6 +171,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem_exit = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.backgroundWorker_SocketServer = new System.ComponentModel.BackgroundWorker();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -1330,6 +1331,11 @@
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Click += new System.EventHandler(this.notifyIcon1_Click);
             // 
+            // backgroundWorker_SocketServer
+            // 
+            this.backgroundWorker_SocketServer.WorkerSupportsCancellation = true;
+            this.backgroundWorker_SocketServer.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_SocketServer_DoWork);
+            // 
             // MainForm
             // 
             this.AcceptButton = this.btnStart;
@@ -1492,6 +1498,7 @@
         private System.Windows.Forms.TextBox txtMinWind;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox txtWindCond;
+        private System.ComponentModel.BackgroundWorker backgroundWorker_SocketServer;
     }
 }
 

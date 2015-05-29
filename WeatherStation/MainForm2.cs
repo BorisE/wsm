@@ -47,6 +47,11 @@ namespace WeatherStation
         public SettingsForm SetForm;
 
         /// <summary>
+        /// Socket server
+        /// </summary>
+        public SocketServerClass SocketServer;
+        
+        /// <summary>
         /// Link to serial from file methods
         /// </summary>
         //public SerialFromFile SerialFile;
@@ -78,6 +83,8 @@ namespace WeatherStation
         public int RefreshWebInterval=60;
         public int RefreshNarodmonInterval = 60;
 
+        public bool bRunSocketServerFlag = true;
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -95,7 +102,9 @@ namespace WeatherStation
             //PrefForm = new PreferencesForm(this);
             SetForm = new SettingsForm(this);
             //SerialFile = new SerialFromFile();
-
+            
+            //Create SocketServer obj (even if it wouldn't run)
+            SocketServer = new SocketServerClass(this);
 
             InitializeComponent();
         }
@@ -160,6 +169,13 @@ namespace WeatherStation
             //SWITCH TO MAXIMUM MODE
             Form_Normal_Width = this.Width;
             Form_SwitchTo_Maximum_Mode();
+
+
+            //Start tcp server
+            if (bRunSocketServerFlag)
+            {
+                RunSocketServer();
+            }
         }
 
 #region Button handlers
@@ -246,7 +262,7 @@ namespace WeatherStation
         /// Starts two timer ticks:
         /// 1. Simulation of asynchroneous serial data read to buffer:
         ///     - first by timer_debug_changetext tick form BUFFER TEXT in SerialBufferFullSim
-        ///     - then start fast timer_debug_portread tick, which emulates arbitrary number of bytes read to Serail Buffer
+        ///     - then start fast timer_debug_portread tick, which emulates arbitrary number of incomingBuffer read to Serail Buffer
         /// 2. Working (as in case of productive cycle) with data from Serial Buffer
         /// </summary>
         private void btnSimulate_Click(object sender, EventArgs e)
@@ -1036,6 +1052,8 @@ waiting 10000
                 WebServices.Narodmon_MAC = Properties.Settings.Default.Narodmon_MAC;
 
                 Hardware.AverageDataFlag = Properties.Settings.Default.AverageData;
+                bRunSocketServerFlag = Properties.Settings.Default.RunSocketServer;
+                SocketServer.serverPort = Convert.ToInt32(Properties.Settings.Default.SocketServerPort);
 
                 Logging.LogFilePath = Properties.Settings.Default.logFileLocation;
                 Logging.DataFilePath = Properties.Settings.Default.CSVFileLocation;
@@ -1293,6 +1311,30 @@ waiting 10000
             this.WindowState = FormWindowState.Normal;
         }
 #endregion Minimize to tray
+
+        public void RunSocketServer(Int32 PortNumber=0)
+        {
+            StopSocketServer(); //try to stop if it was running
+            backgroundWorker_SocketServer.RunWorkerAsync();
+        }
+
+        /// <summary>
+        /// Actualy not working - need to implement Worker.CancellationPending, but it to complex cause also includes client threads management
+        /// </summary>
+        public void StopSocketServer()
+        {
+            if (backgroundWorker_SocketServer.IsBusy)
+            //Stop if run before
+            {
+                backgroundWorker_SocketServer.CancelAsync();
+            }
+        }
+        
+
+        private void backgroundWorker_SocketServer_DoWork(object sender, DoWorkEventArgs e)
+        {
+            SocketServer.StartListenSocket();
+        }
 
 
 

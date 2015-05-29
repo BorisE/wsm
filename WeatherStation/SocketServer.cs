@@ -10,13 +10,14 @@ using System.Diagnostics;
 
 namespace WeatherStation
 {
+    
     public class SocketServerClass
     {
         /// <summary>
         /// Server parameters
         /// </summary>
         IPAddress serverIP=IPAddress.Any;
-        Int32 serverPort=1400;
+        public Int32 serverPort=1400;
 
         /// <summary>
         /// Main socket listener
@@ -33,7 +34,6 @@ namespace WeatherStation
         /// </summary>
         public MainForm ParentMainForm;
 
-
         /// <summary>
         /// Conctructor
         /// </summary>
@@ -41,14 +41,15 @@ namespace WeatherStation
         {
             ParentMainForm=MF;
         }
-        
-        public void ListenSocket()
+
+        public void StartListenSocket()
         {
             try
             {
                 listenerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 listenerSocket.Bind(new IPEndPoint(serverIP, serverPort));
                 listenerSocket.Listen(200);
+
                 while (true)
                 {
                     // Программа приостановлена. Ожидаем входящего соединения
@@ -60,7 +61,7 @@ namespace WeatherStation
             }
             catch (Exception Ex)
             {
-                Logging.AddLog("Server connection errror [" + Ex.Message+"]",0,Highlight.Error);
+                Logging.AddLog("Server connection errror [" + Ex.Message + "]", 0, Highlight.Error);
             }
         }
 
@@ -159,9 +160,10 @@ namespace WeatherStation
         /// </summary>
         public MainForm ParentMainForm;
 
+        const string STOP_MESSAGE = "TheEnd";
 
         // Буфер для входящих данных
-        byte[] bytes = new byte[1024];
+        byte[] incomingBuffer = new byte[1024];
 
         public ClientManager(MainForm MF)
         {
@@ -182,21 +184,35 @@ namespace WeatherStation
         {
 
             //Отправляем приветственное сообщение
-            byte[] msg = Encoding.UTF8.GetBytes("Connected to ObservatoryCenter\n\r");
-            ClientSocket.Send(msg);
+            byte[] welcomeMsg = Encoding.UTF8.GetBytes("Connected to WeatherStation Monitor\n\r");
+            ClientSocket.Send(welcomeMsg);
 
-            while (true)
+            try
             {
-                // Получаем ответ от клиента
-                int bytesRec = ClientSocket.Receive(bytes);
+                while (true)
+                {
+                    // Получаем ответ от клиента
+                    int bytesRec = ClientSocket.Receive(incomingBuffer);
 
-                string responseMess = Encoding.UTF8.GetString(bytes, 0, bytesRec);
-                Logging.AddLog("Message from сlient [" + ClientSocket.RemoteEndPoint + "]: " + responseMess,1);
+                    if (!(bytesRec == 2 && incomingBuffer[0] == 13 && incomingBuffer[1] == 10))
+                    {
+                        string incomingMess = Encoding.UTF8.GetString(incomingBuffer, 0, bytesRec);
+                        Logging.AddLog("Message from сlient [" + ClientSocket.RemoteEndPoint + "]: " + incomingMess, 1);
 
-                string cmdMess=SocketCommandInterpretator(responseMess);
+                        string cmdMess = SocketCommandInterpretator(incomingMess);
+                        if (cmdMess == STOP_MESSAGE)
+                        {
+                            break;
+                        }
 
-                byte[] msg2 = Encoding.UTF8.GetBytes(cmdMess + "\n\r");
-                ClientSocket.Send(msg2);
+                        byte[] msg2 = Encoding.UTF8.GetBytes(cmdMess + "\n\r");
+                        ClientSocket.Send(msg2);
+                    }
+                }
+            }
+            catch (Exception ex) 
+            {
+                Logging.AddLog("Socket client [" + ClientSocket.RemoteEndPoint + "] exception: " + ex.ToString(), 1);
             }
 
 
@@ -210,12 +226,12 @@ namespace WeatherStation
 
             switch (cmd)
             {
-                case "TheEnd":
+                case STOP_MESSAGE:
                     // Освобождаем сокет
                     Logging.AddLog("Client [" + ClientSocket.RemoteEndPoint + "] has ended connection", 1);
                     ClientSocket.Shutdown(SocketShutdown.Both);
                     ClientSocket.Close();
-                    msg = "";
+                    msg = STOP_MESSAGE;
                     break;
                 default:
                     string cmd_output = "";

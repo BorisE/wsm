@@ -237,6 +237,15 @@ namespace WeatherStation
 
                 ParentMainForm.Hardware.AverageDataFlag = chkAverageData.Checked;
 
+                ParentMainForm.SocketServer.serverPort=Convert.ToInt32(txtSocketServerPort.Text);
+                bool old_bRunSocketServerFlag = ParentMainForm.bRunSocketServerFlag;
+                ParentMainForm.bRunSocketServerFlag = chkSocketServer.Checked;
+                if (ParentMainForm.bRunSocketServerFlag && !old_bRunSocketServerFlag)
+                //if wasn't checked earlier - run socket server. Can't stop it btw
+                {
+                    ParentMainForm.RunSocketServer();
+                }
+
                 //Store log settings
                 Logging.LogFilePath = txtLogFileLocation.Text;
                 Logging.SerialLogFilePath = txtSerialLogFileLocation.Text;

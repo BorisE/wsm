@@ -43,9 +43,13 @@ namespace WeatherStation
             if (!Commands.ContainsKey(CommandString))
             {
                 Logging.AddLog("Команды [" + CommandString + "] не существует", 0, Highlight.Error);
+                cmd_output = "";
                 ret = false;
             }
-            cmd_output = Commands[CommandString]();
+            else
+            {
+                cmd_output = Commands[CommandString]();
+            }
             return ret;
         }
 

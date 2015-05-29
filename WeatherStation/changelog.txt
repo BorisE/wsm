@@ -6,6 +6,9 @@ to do:
 - rain condtions settings
 - socket interface to query data from program and even to control some procceses
 
+1.6.54beta1 (2015-05-30)
+- socket server working
+
 1.6.53 (2015-05-29)
 - program log file named with day in it
 - program log file date format changed
