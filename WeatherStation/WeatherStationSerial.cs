@@ -630,6 +630,7 @@ namespace WeatherStation
         {
             CommandParser.Commands.Add("GET_SENSOR_VALUES", () => this.getSensorsString());
             CommandParser.Commands.Add("HELP", () => CommandParser.ListCommands());
+            CommandParser.Commands.Add("VERSION", () => VersionData.getVersionString());
         }
 
 
@@ -1113,10 +1114,12 @@ namespace WeatherStation
                             else if (tagName == "ver")
                             {
                                 SketchVersion = tagValue;
+                                VersionData.HardwareVersionSt = SketchVersion;
                             }
                             else if (tagName == "ved")
                             {
                                 SketchVersionDate = tagValue;
+                                VersionData.HardwareCompileTimeSt = SketchVersionDate;
                             }
                             else if (tagName == "!en")
                             {

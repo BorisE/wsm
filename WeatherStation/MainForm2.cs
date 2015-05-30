@@ -106,6 +106,9 @@ namespace WeatherStation
             //Create SocketServer obj (even if it wouldn't run)
             SocketServer = new SocketServerClass(this);
 
+            //Init versiondata static class
+            VersionData.initVersionData();
+
             InitializeComponent();
         }
 
@@ -202,7 +205,7 @@ namespace WeatherStation
         /// </summary>
         private void btnAbout_Click(object sender, EventArgs e)
         {
-            aboutForm = new About(Hardware.SketchVersion, Hardware.SketchVersionDate);
+            aboutForm = new About();
             aboutForm.ShowDialog();
         }
 
