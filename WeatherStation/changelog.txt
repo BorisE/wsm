@@ -9,6 +9,7 @@ to do:
 1.6.54 (2015-05-30)
 - cloud index AAG inverted
 - some graph changed
+- localization resourses optimized
 
 1.6.54beta1 (2015-05-30)
 - socket server working
