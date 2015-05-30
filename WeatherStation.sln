@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherStation", "WeatherStation\WeatherStation.csproj", "{79152F63-712D-4864-A633-08271CFEFD4D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WeatherStationEmul", "..\..\..\Arduino\WeatherStationEmul\WeatherStationEmul.vcxproj", "{FB75CAE5-7D23-434C-BC99-FC899DA4B63D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "ConsoleApplication1\Test.csproj", "{908BDE5C-CACE-43A3-A4EA-00500918711A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{541169D7-7498-4CC7-9996-63FAEBF4EC66}"
@@ -29,16 +27,6 @@ Global
 		{79152F63-712D-4864-A633-08271CFEFD4D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{79152F63-712D-4864-A633-08271CFEFD4D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{79152F63-712D-4864-A633-08271CFEFD4D}.Release|Win32.ActiveCfg = Release|Any CPU
-		{FB75CAE5-7D23-434C-BC99-FC899DA4B63D}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{FB75CAE5-7D23-434C-BC99-FC899DA4B63D}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
-		{FB75CAE5-7D23-434C-BC99-FC899DA4B63D}.Debug|Mixed Platforms.Build.0 = Debug|Win32
-		{FB75CAE5-7D23-434C-BC99-FC899DA4B63D}.Debug|Win32.ActiveCfg = Debug|Win32
-		{FB75CAE5-7D23-434C-BC99-FC899DA4B63D}.Debug|Win32.Build.0 = Debug|Win32
-		{FB75CAE5-7D23-434C-BC99-FC899DA4B63D}.Release|Any CPU.ActiveCfg = Release|Win32
-		{FB75CAE5-7D23-434C-BC99-FC899DA4B63D}.Release|Mixed Platforms.ActiveCfg = Release|Win32
-		{FB75CAE5-7D23-434C-BC99-FC899DA4B63D}.Release|Mixed Platforms.Build.0 = Release|Win32
-		{FB75CAE5-7D23-434C-BC99-FC899DA4B63D}.Release|Win32.ActiveCfg = Release|Win32
-		{FB75CAE5-7D23-434C-BC99-FC899DA4B63D}.Release|Win32.Build.0 = Release|Win32
 		{908BDE5C-CACE-43A3-A4EA-00500918711A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{908BDE5C-CACE-43A3-A4EA-00500918711A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{908BDE5C-CACE-43A3-A4EA-00500918711A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

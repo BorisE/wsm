@@ -629,29 +629,7 @@ namespace WeatherStation
         public void InitComandInterpretator()
         {
             CommandParser.Commands.Add("GET_SENSOR_VALUES", () => this.getSensorsString());
-            /*
-            CommandParser.Commands.Add("FOCUSMAX_RUN", () => this.startFocusMax());
-            CommandParser.Commands.Add("CdC_RUN", () => this.startPlanetarium());
-            CommandParser.Commands.Add("CCDAP_RUN", () => this.startCCDAP());
-            CommandParser.Commands.Add("POWER_MOUNT_ON", () => this.PowerMountOn());
-            CommandParser.Commands.Add("POWER_MOUNT_OFF", () => this.PowerMountOff());
-
-            CommandParser.Commands.Add("POWER_CAMERA_ON", () => this.PowerCameraOn());
-            CommandParser.Commands.Add("POWER_CAMERA_OFF", () => this.PowerCameraOff());
-
-            CommandParser.Commands.Add("POWER_FOCUSER_ON", () => this.PowerFocuserOn());
-            CommandParser.Commands.Add("POWER_FOCUSER_OFF", () => this.PowerFocuserOff());
-
-            CommandParser.Commands.Add("POWER_ROOF_ON", () => this.PowerRoofOn());
-            CommandParser.Commands.Add("POWER_ROOF_OFF", () => this.PowerRoofOff());
-
-            CommandParser.Commands.Add("MAXIM_CAMERA_CONNECT", () => MaximObj.ConnectCamera());
-            CommandParser.Commands.Add("MAXIM_CAMERA_SETCOOLING", () => MaximObj.SetCameraCooling());
-            CommandParser.Commands.Add("MAXIM_TELESCOPE_CONNECT", () => MaximObj.ConnectTelescope());
-            CommandParser.Commands.Add("MAXIM_FOCUSER_CONNECT", () => MaximObj.ConnectFocuser());
-
-            CommandParser.Commands.Add("CdC_TELESCOPE_CONNECT", () => this.CdC_connectTelescope());
-             */
+            CommandParser.Commands.Add("HELP", () => CommandParser.ListCommands());
         }
 
 
@@ -1750,7 +1728,7 @@ namespace WeatherStation
 
             double Td = (K1 / 100) * (Tamb - K2 / 10) + (K3 / 100) * Math.Pow(Math.Exp(K4 / 1000 * Tamb), (K5 / 100)) + T67;
 
-            double Tcorr = Tsky - Td;
+            double Tcorr = Td-Tsky;
 
             return Tcorr;
         }

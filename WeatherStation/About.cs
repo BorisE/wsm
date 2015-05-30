@@ -54,7 +54,7 @@ namespace WeatherStation
             //lblVersion.Text += Environment.NewLine + "Product version " + productVersion;
           
             //MessageBox.Show("Application " + assemName.Name + ", Version " + ver.ToString());
-            lblVersion.Text += Environment.NewLine+"Compile time: "+RetrieveLinkerTimestamp();
+            lblVersion.Text += Environment.NewLine+"Compile time: "+RetrieveLinkerTimestamp().ToString("yyyy-MM-dd HH:mm:ss");
 
             // Put Arduino sketch version
             if (HardwareVerExt == "") HardwareVerExt = "n/a";

@@ -53,5 +53,17 @@ namespace WeatherStation
             return ret;
         }
 
+
+        public string ListCommands()
+        {
+            string st = "";
+
+            foreach (KeyValuePair<string, Func<string>> entry in Commands)
+            {
+                st += entry.Key + ";";
+            }
+
+            return st;
+        }
     }
 }

@@ -6,6 +6,10 @@ to do:
 - rain condtions settings
 - socket interface to query data from program and even to control some procceses
 
+1.6.54 (2015-05-30)
+- cloud index AAG inverted
+- some graph changed
+
 1.6.54beta1 (2015-05-30)
 - socket server working
 

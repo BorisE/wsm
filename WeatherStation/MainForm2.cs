@@ -464,7 +464,7 @@ waiting 10000
 
             //Calculated fields (custom fields)
             txtCloudIndex1.Text = Convert.ToString(Hardware.CloudIdx);
-            txtCloudIndex2.Text = Convert.ToString(Math.Round(Hardware.CloudIdxCorr, 2));
+            txtCloudIndex2.Text = Convert.ToString(Math.Round(Hardware.CloudIdxCorr, 1));
             txtFldWSpeed.Text = Convert.ToString(Hardware.WindSpeedVal);//WindSpeed
             
             //Heating button
@@ -514,7 +514,7 @@ waiting 10000
             }
             catch { }
 
-            //Since laset relay on/off
+            //Since last relay on/off
             try { 
                 txtSinceHeatingOn.Text = Convert.ToString(Hardware.HeatingOn_SecondsPassed);
                 txtSinceHeatingOff.Text = Convert.ToString(Hardware.HeatingOff_SecondsPassed);
@@ -629,6 +629,19 @@ waiting 10000
             CS_color = System.Drawing.ColorTranslator.FromHtml(CS_Colors_arr[CS_coloridx]);
             btnIndCloud.BackColor = CS_color;
             txtCloudIndex1.BackColor = CS_color;
+
+            Color CS_color2 = Color.Blue;
+            if (Hardware.CloudIdxCorr > 5)
+            {
+                CS_coloridx = 8;
+            }
+            else
+            {
+                CS_coloridx = Convert.ToInt16(Math.Max(Math.Floor(Hardware.CloudIdxCorr+3) + 1, 0));
+            }
+            CS_color2 = System.Drawing.ColorTranslator.FromHtml(CS_Colors_arr[CS_coloridx]);
+            txtCloudIndex2.BackColor = CS_color2;
+
 
             ///////////////////////////////////////////////////////////////////////////////////////////
             //MINIMUN DATA FIELDS
