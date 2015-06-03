@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Reflection;
+
 using System.Globalization;
-using System.Deployment.Application;
-using System.Diagnostics;
+
+using System.Reflection; //for assembly version
+using System.Deployment.Application; //for publish version
+using System.Diagnostics; //for file verision
 
 namespace WeatherStation
 {

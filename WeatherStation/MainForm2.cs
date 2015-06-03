@@ -845,27 +845,23 @@ waiting 10000
             //Graph1 & 2
             if (Hardware.CheckData(Hardware.CloudIdx, SensorTypeEnum.Temp))
             {
-                addGraphicsPoint(chart1, 0, curX, Hardware.CloudIdx); 
+                addGraphicsPoint(chart1, "CloudIndex", curX, Hardware.CloudIdx); 
             }
             if (Hardware.CheckData(Hardware.CloudIdxCorr, SensorTypeEnum.Temp))
             {
-                addGraphicsPoint(chart1, 1, curX, Hardware.CloudIdxCorr);
-            }
-            if (Hardware.CheckData(Hardware.ObjTempVal, SensorTypeEnum.Temp))
-            {
-                addGraphicsPoint(chart1, 2, curX, Hardware.ObjTempVal); 
+                addGraphicsPoint(chart1, "CloudIndex2", curX, Hardware.CloudIdxCorr);
             }
 
             //Graph3 (Temperature)
             if (Hardware.CheckData(Hardware.BaseTempVal, SensorTypeEnum.Temp)) {
-                addGraphicsPoint(chart1, 3, curX, Hardware.BaseTempVal);
+                addGraphicsPoint(chart1, "Temp1", curX, Hardware.BaseTempVal);
             }
             if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["Temp2"]].LastValue, SensorTypeEnum.Temp)) {
-                addGraphicsPoint(chart1, 4, curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["Temp2"]].LastValue); 
+                addGraphicsPoint(chart1, "Temp2", curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["Temp2"]].LastValue); 
             }
             if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["ATemp"]]))
             {
-                addGraphicsPoint(chart1, 11, curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["ATemp"]].LastValue);
+                addGraphicsPoint(chart1, "ATemp", curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["ATemp"]].LastValue);
             }
 
             /*            if (Hardware.CheckData(Convert.ToDouble(txtTemp2.Text), SensorTypeEnum.Temp))
@@ -876,15 +872,15 @@ waiting 10000
             //Graph4
             if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["Wet"]].LastValue, SensorTypeEnum.Wet))
             {
-                addGraphicsPoint(chart1, 6, curX, (1024 - (int)Hardware.SensorsArray[Hardware.SensorsArrayHash["Wet"]].LastValue));
+                addGraphicsPoint(chart1, "Wet", curX, (1024 - (int)Hardware.SensorsArray[Hardware.SensorsArrayHash["Wet"]].LastValue));
             }
             if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["RGC"]].LastValue, SensorTypeEnum.RGC))
             {
-                addGraphicsPoint(chart1, 7, curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["RGC"]].LastValue);
+                addGraphicsPoint(chart1, "RGC", curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["RGC"]].LastValue);
             }
             if (Hardware.CheckData(Hardware.HumidityVal, SensorTypeEnum.Hum))
             {
-                addGraphicsPoint(chart1, 8, curX, Hardware.HumidityVal);
+                addGraphicsPoint(chart1, "Hum", curX, Hardware.HumidityVal);
             }
             //if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["Hum2"]].LastValue, SensorTypeEnum.Hum))
             //{
@@ -894,17 +890,21 @@ waiting 10000
             //Graph5
             if (Hardware.CheckData(Hardware.IllumVal, SensorTypeEnum.Illum))
             {
-                addGraphicsPoint(chart1, 9, curX, Hardware.IllumVal);
+                addGraphicsPoint(chart1, "Illum", curX, Hardware.IllumVal);
             }
             if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["RL1"]]))
             {
-                addGraphicsPoint(chart1, 10, curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["RL1"]].LastValue);
+                addGraphicsPoint(chart1, "RL1", curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["RL1"]].LastValue);
             }
             if (Hardware.CheckData(Hardware.WindSpeedVal, SensorTypeEnum.WSp))
             {
                 addGraphicsPoint(chart1, "WindSpeed", curX, Hardware.WindSpeedVal);
             }
 
+            if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["Press"]].LastValue, SensorTypeEnum.Press))
+            {
+                addGraphicsPoint(chart1, "Press", curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["Press"]].LastValue);
+            }
 
             ///////////////////////////////////////////////////////////////////////////////////////////
             //MINIMUN GRAPH

@@ -32,10 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.StripLine stripLine1 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
-            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine2 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine3 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
-            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine4 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
+            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine2 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
@@ -59,8 +57,8 @@
             System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine5 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
-            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine6 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
+            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine3 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
+            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine4 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
             System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.btnStart = new System.Windows.Forms.Button();
@@ -492,7 +490,8 @@
             chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
             chartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Silver;
-            chartArea1.AxisY.Maximum = 30D;
+            chartArea1.AxisY.Maximum = 25D;
+            chartArea1.AxisY.Minimum = 0D;
             chartArea1.AxisY.ScrollBar.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             chartArea1.AxisY.ScrollBar.LineColor = System.Drawing.Color.Silver;
             stripLine1.BackColor = System.Drawing.Color.White;
@@ -501,11 +500,10 @@
             stripLine1.StripWidth = 15D;
             chartArea1.AxisY.StripLines.Add(stripLine1);
             chartArea1.AxisY.ToolTip = "Cloud index plot";
+            chartArea1.AxisY2.Interval = 5D;
             chartArea1.AxisY2.MajorGrid.Enabled = false;
-            stripLine2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            stripLine2.IntervalOffset = -5D;
-            stripLine2.StripWidth = 5D;
-            chartArea1.AxisY2.StripLines.Add(stripLine2);
+            chartArea1.AxisY2.Maximum = 15D;
+            chartArea1.AxisY2.Minimum = -10D;
             chartArea1.BackSecondaryColor = System.Drawing.Color.White;
             chartArea1.BorderColor = System.Drawing.Color.Silver;
             chartArea1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
@@ -531,25 +529,18 @@
             chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Silver;
             chartArea2.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Silver;
-            stripLine3.IntervalOffset = 20D;
-            stripLine3.StripWidth = 5D;
-            chartArea2.AxisX.StripLines.Add(stripLine3);
+            stripLine2.IntervalOffset = 20D;
+            stripLine2.StripWidth = 5D;
+            chartArea2.AxisX.StripLines.Add(stripLine2);
             chartArea2.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea2.AxisY.Interval = 5D;
+            chartArea2.AxisY.IsStartedFromZero = false;
             chartArea2.AxisY.LabelAutoFitMaxFontSize = 7;
             chartArea2.AxisY.LabelAutoFitMinFontSize = 7;
             chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
             chartArea2.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Silver;
-            chartArea2.AxisY.Maximum = 10D;
-            chartArea2.AxisY.Minimum = -5D;
-            stripLine4.BackColor = System.Drawing.Color.White;
-            stripLine4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            stripLine4.BackSecondaryColor = System.Drawing.Color.LightSteelBlue;
-            stripLine4.IntervalOffset = -5D;
-            stripLine4.StripWidth = 10D;
-            chartArea2.AxisY.StripLines.Add(stripLine4);
             chartArea2.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.AxisY2.Maximum = 10D;
             chartArea2.BorderColor = System.Drawing.Color.Silver;
             chartArea2.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             chartArea2.CursorX.IsUserEnabled = true;
@@ -561,7 +552,7 @@
             chartArea2.InnerPlotPosition.Width = 91.87197F;
             chartArea2.InnerPlotPosition.X = 6.520894F;
             chartArea2.InnerPlotPosition.Y = 7.875004F;
-            chartArea2.Name = "ChartArea2_cloud2";
+            chartArea2.Name = "ChartArea2_press";
             chartArea2.Position.Auto = false;
             chartArea2.Position.Height = 20F;
             chartArea2.Position.Width = 98F;
@@ -685,92 +676,90 @@
             series1.ToolTip = "Cloud index (#VAL{F1} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{F1} \\nmin:#M" +
     "IN{F1} max:#MAX{F1} avg:#AVG{F1}";
             series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            series2.BorderWidth = 3;
-            series2.ChartArea = "ChartArea2_cloud2";
+            series2.ChartArea = "ChartArea1_cloud";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series2.Legend = "Legend1";
             series2.Name = "CloudIndex2";
             series2.ToolTip = "Cloud idx by AAG (#VAL{F1} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{F1} \\nm" +
     "in:#MIN{F1} max:#MAX{F1} avg:#AVG{F1}\\n\\n";
             series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            series3.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            series3.ChartArea = "ChartArea2_cloud2";
+            series2.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series3.BorderWidth = 2;
+            series3.ChartArea = "ChartArea3_temp";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series3.Legend = "Legend1";
-            series3.Name = "SkyTemp";
-            series3.ToolTip = "Sky temperature (#VAL{F1} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{F1} \\nmi" +
-    "n:#MIN{F1} max:#MAX{F1} avg:#AVG{F1}";
-            series4.BorderWidth = 2;
+            series3.Name = "Temp1";
+            series3.ToolTip = "Temp1 (#VAL{F1} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{F1} \\nmin:#MIN{F1}" +
+    " max:#MAX{F1} avg:#AVG{F1}\\n";
             series4.ChartArea = "ChartArea3_temp";
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series4.Legend = "Legend1";
-            series4.Name = "Temp1";
-            series4.ToolTip = "Temp1 (#VAL{F1} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{F1} \\nmin:#MIN{F1}" +
+            series4.Name = "Temp2";
+            series4.ToolTip = "Temp2 #VAL{F1} (at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{F1} \\nmin:#MIN{F1}" +
     " max:#MAX{F1} avg:#AVG{F1}\\n";
             series5.ChartArea = "ChartArea3_temp";
             series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series5.Legend = "Legend1";
-            series5.Name = "Temp2";
-            series5.ToolTip = "Temp2 #VAL{F1} (at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{F1} \\nmin:#MIN{F1}" +
+            series5.Name = "Temp3";
+            series5.ToolTip = "Temp3 (#VAL{F1} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{F1} \\nmin:#MIN{F1}" +
     " max:#MAX{F1} avg:#AVG{F1}\\n";
-            series6.ChartArea = "ChartArea3_temp";
+            series6.BorderWidth = 2;
+            series6.ChartArea = "ChartArea4_rain";
             series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series6.Legend = "Legend1";
-            series6.Name = "Temp3";
-            series6.ToolTip = "Temp3 (#VAL{F1} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{F1} \\nmin:#MIN{F1}" +
-    " max:#MAX{F1} avg:#AVG{F1}\\n";
-            series7.BorderWidth = 2;
+            series6.Name = "Wet";
+            series6.ToolTip = "Rain index (#VAL{D} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{D} \\nmin:#MIN{" +
+    "D} max:#MAX{D} avg:#AVG{D}\\n";
+            series7.BorderWidth = 3;
             series7.ChartArea = "ChartArea4_rain";
             series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series7.IsValueShownAsLabel = true;
+            series7.Label = "#VAL";
             series7.Legend = "Legend1";
-            series7.Name = "Wet";
-            series7.ToolTip = "Rain index (#VAL{D} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{D} \\nmin:#MIN{" +
-    "D} max:#MAX{D} avg:#AVG{D}\\n";
-            series8.BorderWidth = 3;
+            series7.Name = "RGC";
+            series7.ToolTip = "Rain gauge counter (#VAL{D} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{D} \\nm" +
+    "in:#MIN{D} max:#MAX{D} avg:#AVG{D}\\n";
+            series7.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series8.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             series8.ChartArea = "ChartArea4_rain";
             series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series8.IsValueShownAsLabel = true;
-            series8.Label = "#VAL";
             series8.Legend = "Legend1";
-            series8.Name = "RGC";
-            series8.ToolTip = "Rain gauge counter (#VAL{D} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{D} \\nm" +
-    "in:#MIN{D} max:#MAX{D} avg:#AVG{D}\\n";
+            series8.Name = "Hum";
+            series8.ToolTip = "Humidity (#VAL{D}% at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{D}%\\nmin:#MIN{D" +
+    "}% max:#MAX{D}% avg:#AVG{D}%\\n";
             series8.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series9.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            series9.ChartArea = "ChartArea4_rain";
+            series9.ChartArea = "ChartArea5_illum";
             series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series9.Legend = "Legend1";
-            series9.Name = "Hum";
-            series9.ToolTip = "Humidity (#VAL{D}% at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{D}%\\nmin:#MIN{D" +
-    "}% max:#MAX{D}% avg:#AVG{D}%\\n";
-            series9.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series9.Name = "Illum";
+            series9.ToolTip = "Illuminance (#VAL{D}lx at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{D} \\nmin:#M" +
+    "IN{D} max:#MAX{D} avg:#AVG{D}\\n";
             series10.ChartArea = "ChartArea5_illum";
             series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series10.Color = System.Drawing.Color.Black;
             series10.Legend = "Legend1";
-            series10.Name = "Illum";
-            series10.ToolTip = "Illuminance (#VAL{D}lx at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{D} \\nmin:#M" +
-    "IN{D} max:#MAX{D} avg:#AVG{D}\\n";
-            series11.ChartArea = "ChartArea5_illum";
+            series10.Name = "RL1";
+            series10.ToolTip = "Relay (#VAL{D} at #VALX{dd.MM.yyyy HH:mm})\\n";
+            series10.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series11.ChartArea = "ChartArea3_temp";
             series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series11.Color = System.Drawing.Color.Black;
             series11.Legend = "Legend1";
-            series11.Name = "RL1";
-            series11.ToolTip = "Relay (#VAL{D} at #VALX{dd.MM.yyyy HH:mm})\\n";
-            series11.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series12.ChartArea = "ChartArea3_temp";
+            series11.Name = "ATemp";
+            series11.ToolTip = "Case temp (#VAL{F1} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{F1} \\nmin:#MIN" +
+    "{F1} max:#MAX{F1} avg:#AVG{F1}\\n";
+            series12.ChartArea = "ChartArea2_press";
             series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series12.Legend = "Legend1";
-            series12.Name = "ATemp";
-            series12.ToolTip = "Case temp (#VAL{F1} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{F1} \\nmin:#MIN" +
-    "{F1} max:#MAX{F1} avg:#AVG{F1}\\n";
+            series12.Name = "WindSpeed";
+            series12.ToolTip = "Illuminance (#VAL{D} m/s at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{D} \\nmin:" +
+    "#MIN{D} max:#MAX{D} avg:#AVG{D}\\n";
+            series12.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
             series13.BorderWidth = 2;
-            series13.ChartArea = "ChartArea5_illum";
+            series13.ChartArea = "ChartArea2_press";
             series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series13.Legend = "Legend1";
-            series13.Name = "WindSpeed";
-            series13.ToolTip = "Illuminance (#VAL{D} m/s at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{D} \\nmin:" +
-    "#MIN{D} max:#MAX{D} avg:#AVG{D}\\n";
-            series13.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series13.Name = "Press";
+            series13.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
             this.chart1.Series.Add(series3);
@@ -788,12 +777,12 @@
             title1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             title1.ForeColor = System.Drawing.Color.LightGray;
             title1.Name = "Title1";
-            title1.Text = "Cloud Index (usual)";
-            title2.DockedToChartArea = "ChartArea2_cloud2";
+            title1.Text = "Cloud Index";
+            title2.DockedToChartArea = "ChartArea2_press";
             title2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             title2.ForeColor = System.Drawing.Color.LightGray;
             title2.Name = "Title2";
-            title2.Text = "Cloud Index (by AAG)";
+            title2.Text = "Pressure";
             title3.DockedToChartArea = "ChartArea3_temp";
             title3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             title3.ForeColor = System.Drawing.Color.LightGray;
@@ -1263,19 +1252,19 @@
             chartArea6.AxisY.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea6.AxisY.ScrollBar.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             chartArea6.AxisY.ScrollBar.LineColor = System.Drawing.Color.Silver;
-            stripLine5.BackColor = System.Drawing.Color.LightSkyBlue;
-            stripLine5.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            stripLine5.BackSecondaryColor = System.Drawing.Color.White;
-            stripLine5.Interval = 30D;
-            stripLine5.IntervalOffset = 10D;
-            stripLine5.StripWidth = 10D;
-            chartArea6.AxisY.StripLines.Add(stripLine5);
+            stripLine3.BackColor = System.Drawing.Color.LightSkyBlue;
+            stripLine3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            stripLine3.BackSecondaryColor = System.Drawing.Color.White;
+            stripLine3.Interval = 30D;
+            stripLine3.IntervalOffset = 10D;
+            stripLine3.StripWidth = 10D;
+            chartArea6.AxisY.StripLines.Add(stripLine3);
             chartArea6.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
             chartArea6.AxisY2.MajorGrid.Enabled = false;
-            stripLine6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            stripLine6.IntervalOffset = -5D;
-            stripLine6.StripWidth = 5D;
-            chartArea6.AxisY2.StripLines.Add(stripLine6);
+            stripLine4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            stripLine4.IntervalOffset = -5D;
+            stripLine4.StripWidth = 5D;
+            chartArea6.AxisY2.StripLines.Add(stripLine4);
             chartArea6.BackSecondaryColor = System.Drawing.Color.White;
             chartArea6.BorderColor = System.Drawing.Color.Silver;
             chartArea6.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;

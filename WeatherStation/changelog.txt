@@ -6,6 +6,9 @@ to do:
 - rain condtions settings
 - socket interface to query data from program and even to control some procceses
 
+1.7.56 (2015-06-03)
+- new chart grouping, pressure graph
+
 1.7.55 (2015-05-30)
 - new about handling
 - new socket command: VERSION
