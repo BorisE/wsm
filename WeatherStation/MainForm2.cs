@@ -118,11 +118,21 @@ namespace WeatherStation
         private void MainForm_Load(object sender, EventArgs e)
         {
             //Load current settings
-
             SetForm.LoadSensorArrayFromSettings();
             LoadParams();
 
-            Logging.Log("Program started",1);
+            Logging.Log("Program started", 1);
+
+            //Sky Chart borders
+            chart1.ChartAreas[0].AxisY.StripLines[1].IntervalOffset = Hardware.CLOUDINDEX_CLOUDY;
+            chart1.ChartAreas[0].AxisY.StripLines[0].StripWidth = chart1.ChartAreas[0].AxisY.StripLines[1].IntervalOffset + 1D;
+            chart1.ChartAreas[0].AxisY.StripLines[1].StripWidth = Hardware.CLOUDINDEX_CLEAR - Hardware.CLOUDINDEX_CLOUDY+1;
+            chart1.ChartAreas[0].AxisY.StripLines[2].IntervalOffset = Hardware.CLOUDINDEX_CLEAR;
+            chart1.ChartAreas[0].AxisY.StripLines[2].StripWidth = 30-Hardware.CLOUDINDEX_CLEAR;
+            //chart1.ChartAreas["chartArea1"].AxisY.StripLines.["stripLine2"].IntervalOffset = 13D;
+            //chart1.ChartAreas["chartArea1"].AxisY.StripLines.stripLine2.StripWidth = 8D;
+            //chart1.ChartAreas["chartArea1"].AxisY.StripLines.stripLine3.IntervalOffset = 20D;
+            //chart1.ChartAreas["chartArea1"].AxisY.StripLines.stripLine3.StripWidth = 5D;
 
             //INIT GRAPHICS
             //chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.ToOADate();
