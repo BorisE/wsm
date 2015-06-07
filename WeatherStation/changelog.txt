@@ -4,7 +4,11 @@ WeatherStation Project
 Change log
 to do:
 - rain condtions settings
-- socket interface to query data from program and even to control some procceses
+- socket commands: relay switching, parameters querying
+- normal pressure
+
+1.7.57 (2015-06-07)
+- swithcing between two sky sensor models: classic and AAG
 
 1.7.56 (2015-06-03)
 - new chart grouping, pressure graph

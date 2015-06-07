@@ -170,10 +170,26 @@ namespace WeatherStation
                 SerialFromFile.SerialFileNameIn = txtSerialFileIn.Text;
                 SerialFromFile.SerialFileNameOut = txtSerialFileOut.Text;
 
+                ParentMainForm.Hardware.CLOUDMODEL = (radioCloudSensorModel_Classic.Checked ? CloudSensorModel.Classic : CloudSensorModel.AAG);
+                Properties.Settings.Default.CloudModelClassic = (radioCloudSensorModel_Classic.Checked);
+                Properties.Settings.Default.CloudModelAAG = (radioCloudSensorModel_AAG.Checked);
+                Logging.Log("Preferences: CLOUDSENSOR_MODEL: " + ParentMainForm.Hardware.CLOUDMODEL.ToString(), 2);
+                
                 ParentMainForm.Hardware.CLOUDINDEX_CLEAR = Convert.ToDouble(txtClearsky.Text);
                 ParentMainForm.Hardware.CLOUDINDEX_CLOUDY = Convert.ToDouble(txtCloudysky.Text);
                 Logging.Log("Preferences: CLOUDINDEX_CLEAR: " + txtClearsky.Text, 2);
                 Logging.Log("Preferences: CLOUDINDEX_CLOUDY: " + txtCloudysky.Text, 2);
+
+                ParentMainForm.Hardware.CLOUDINDEXAAG_CLEAR = Convert.ToDouble(txtClearskyAAG.Text);
+                ParentMainForm.Hardware.CLOUDINDEXAAG_CLOUDY = Convert.ToDouble(txtCloudyskyAAG.Text);
+                Logging.Log("Preferences: CLOUDINDEXAAG_CLEAR: " + txtClearskyAAG.Text, 2);
+                Logging.Log("Preferences: CLOUDINDEXAAG_CLOUDY: " + txtCloudyskyAAG.Text, 2);
+
+                //Wet combobox
+                Properties.Settings.Default.WetSensorsMode = cmbWetMode.SelectedIndex.ToString();
+                ParentMainForm.Hardware.RainConditionMode = (WetSensorsMode)(cmbWetMode.SelectedIndex);
+
+
 
                 ParentMainForm.Hardware.K1 = Convert.ToDouble(txtK1.Text);
                 ParentMainForm.Hardware.K2 = Convert.ToDouble(txtK2.Text);

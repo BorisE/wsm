@@ -477,7 +477,7 @@ waiting 10000
 
             //Calculated fields (custom fields)
             txtCloudIndex1.Text = Convert.ToString(Hardware.CloudIdx);
-            txtCloudIndex2.Text = Convert.ToString(Math.Round(Hardware.CloudIdxCorr, 1));
+            txtCloudIndex2.Text = Convert.ToString(Math.Round(Hardware.CloudIdxAAG, 1));
             txtFldWSpeed.Text = Convert.ToString(Hardware.WindSpeedVal);//WindSpeed
             
             //Heating button
@@ -644,13 +644,13 @@ waiting 10000
             txtCloudIndex1.BackColor = CS_color;
 
             Color CS_color2 = Color.Blue;
-            if (Hardware.CloudIdxCorr > 5)
+            if (Hardware.CloudIdxAAG > 5)
             {
                 CS_coloridx = 8;
             }
             else
             {
-                CS_coloridx = Convert.ToInt16(Math.Max(Math.Floor(Hardware.CloudIdxCorr+3) + 1, 0));
+                CS_coloridx = Convert.ToInt16(Math.Max(Math.Floor(Hardware.CloudIdxAAG+3) + 1, 0));
             }
             CS_color2 = System.Drawing.ColorTranslator.FromHtml(CS_Colors_arr[CS_coloridx]);
             txtCloudIndex2.BackColor = CS_color2;
@@ -857,9 +857,9 @@ waiting 10000
             {
                 addGraphicsPoint(chart1, "CloudIndex", curX, Hardware.CloudIdx); 
             }
-            if (Hardware.CheckData(Hardware.CloudIdxCorr, SensorTypeEnum.Temp))
+            if (Hardware.CheckData(Hardware.CloudIdxAAG, SensorTypeEnum.Temp))
             {
-                addGraphicsPoint(chart1, "CloudIndex2", curX, Hardware.CloudIdxCorr);
+                addGraphicsPoint(chart1, "CloudIndex2", curX, Hardware.CloudIdxAAG);
             }
 
             //Graph3 (Temperature)
@@ -1020,8 +1020,14 @@ waiting 10000
                 SerialFromFile.SerialFileNameIn = Properties.Settings.Default.SerialFileIn;
                 SerialFromFile.SerialFileNameOut = Properties.Settings.Default.SerialFileOut;
 
+
+                Hardware.CLOUDMODEL = (Properties.Settings.Default.CloudModelClassic ? CloudSensorModel.Classic : CloudSensorModel.AAG);
+
                 Hardware.CLOUDINDEX_CLEAR = Convert.ToDouble(Properties.Settings.Default.Clearsky);
                 Hardware.CLOUDINDEX_CLOUDY = Convert.ToDouble(Properties.Settings.Default.Cloudysky);
+
+                Hardware.CLOUDINDEXAAG_CLEAR = Convert.ToDouble(Properties.Settings.Default.ClearSkyAAG);
+                Hardware.CLOUDINDEXAAG_CLOUDY = Convert.ToDouble(Properties.Settings.Default.CloudySkyAAG);
 
                 Hardware.K1 = Convert.ToDouble(Properties.Settings.Default.K1);
                 Hardware.K2 = Convert.ToDouble(Properties.Settings.Default.K2);
@@ -1045,7 +1051,6 @@ waiting 10000
 
                 Hardware.WINDSPEED_WINDY = Convert.ToDouble(Properties.Settings.Default.WindyLimit);
                 Hardware.WINDSPEED_VERYWINDY = Convert.ToDouble(Properties.Settings.Default.VeryWindyLimit);
-
 
                 Hardware.HEATER_MAX_DURATION = Convert.ToInt16(Properties.Settings.Default.HeatingMaxDuration);
                 Hardware.HEATER_MAX_TEMPERATURE_DELTA = Convert.ToInt16(Properties.Settings.Default.HeatingMaxTemp);

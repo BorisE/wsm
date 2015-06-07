@@ -117,6 +117,9 @@ using System.Windows.Forms;
         public string Value = "";
         public DateTime ReadTime = new DateTime();
     }
+
+    public enum CloudSensorModel { Classic=1, AAG=2}
+
 #endregion
 
 namespace WeatherStation
@@ -217,8 +220,8 @@ namespace WeatherStation
         /// Sensors vars and misc settings
         /// </summary>        
     #region Different sensor settings
-        public double CloudIdx = -100.0;
-        public double CloudIdxCorr = -100.0;        
+        public double CloudIdx = -100.0; // Classic model
+        public double CloudIdxAAG = -100.0; // AAG model
         
         public double IllumVal = -1.0;
         public double ObjTempVal = -100.0;
@@ -325,9 +328,17 @@ namespace WeatherStation
         /// Limits for classic cloud index values
         /// </summary>        
         #region Clolud sensor limits
+
+        public CloudSensorModel CLOUDMODEL = CloudSensorModel.Classic;
+        
         public double CLOUDINDEX_CLEAR = 10;
         public double CLOUDINDEX_CLOUDY = 5;
         public double CLOUDINDEX_CLOUDY_BAD = -10;
+
+        public double CLOUDINDEXAAG_CLEAR = 5;
+        public double CLOUDINDEXAAG_CLOUDY = 0;
+        public double CLOUDINDEXAAG_CLOUDY_BAD = -20;
+        
         #endregion
 
         /// <summary>
@@ -1203,7 +1214,7 @@ namespace WeatherStation
                 if (Relay1 == 0 && (SensorCaseTempVal < (BaseTempVal + HEATER_MAX_TEMPERATURE_DELTA * 0.7))) //0.7 - need to try
                 {
                     CloudIdx = calcCloudIndex(ObjTempVal, BaseTempVal);
-                    CloudIdxCorr = calcCloudIndexCorr(ObjTempVal, BaseTempVal);
+                    CloudIdxAAG = calcCloudIndexCorr(ObjTempVal, BaseTempVal);
                 }
             }
             
@@ -1470,9 +1481,18 @@ namespace WeatherStation
 
             //Cloud condition
             //CloudIdx = Temp1 - ObjTemp;
-            if (CloudIdx > CLOUDINDEX_CLEAR) { Bolt_CloudCond = CloudCond.cloudClear; }
-            else if (CloudIdx > CLOUDINDEX_CLOUDY) { Bolt_CloudCond = CloudCond.cloudCloudy; }
-            else if (CloudIdx >= CLOUDINDEX_CLOUDY_BAD) { Bolt_CloudCond = CloudCond.cloudVeryCloudy; }
+            if (CLOUDMODEL == CloudSensorModel.Classic)
+            {
+                if (CloudIdx > CLOUDINDEX_CLEAR) { Bolt_CloudCond = CloudCond.cloudClear; }
+                else if (CloudIdx > CLOUDINDEX_CLOUDY) { Bolt_CloudCond = CloudCond.cloudCloudy; }
+                else if (CloudIdx >= CLOUDINDEX_CLOUDY_BAD) { Bolt_CloudCond = CloudCond.cloudVeryCloudy; }
+            }
+            else
+            {
+                if (CloudIdxAAG > CLOUDINDEXAAG_CLEAR) { Bolt_CloudCond = CloudCond.cloudClear; }
+                else if (CloudIdxAAG > CLOUDINDEXAAG_CLOUDY) { Bolt_CloudCond = CloudCond.cloudCloudy; }
+                else if (CloudIdxAAG >= CLOUDINDEXAAG_CLOUDY_BAD) { Bolt_CloudCond = CloudCond.cloudVeryCloudy; }
+            }
 
             //Bolt_WindCond: windCalm, windWindy, windVeryWindy
             Bolt_WindCond = WindCond.windUnknown;
@@ -1563,7 +1583,7 @@ namespace WeatherStation
             }
 
             st += Convert.ToString(CloudIdx) + Logging.CSVseparator;
-            st += Convert.ToString(CloudIdxCorr) + Logging.CSVseparator;
+            st += Convert.ToString(CloudIdxAAG) + Logging.CSVseparator;
 
             Logging.Log("getCSVline exit", 3);
             return st;
@@ -1599,7 +1619,7 @@ namespace WeatherStation
                 }
             }
             st += "CloudIdx" + Logging.CSVseparator;
-            st += "CloudIdxCorr" + Logging.CSVseparator;
+            st += "CloudIdxAAG" + Logging.CSVseparator;
 
             Logging.Log("getCSVHeaderline exit", 3);
             return st;
@@ -1968,7 +1988,7 @@ namespace WeatherStation
             }
 
             st += "CloudIdx="+ Convert.ToString(CloudIdx) + Logging.CSVseparator;
-            st += "CloudIdxCorr=" + Convert.ToString(CloudIdxCorr) + Logging.CSVseparator;
+            st += "CloudIdxAAG=" + Convert.ToString(CloudIdxAAG) + Logging.CSVseparator;
 
             Logging.Log("getSensorsString exit, ret: ["+st+"]", 3);
             return st;
