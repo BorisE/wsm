@@ -130,13 +130,13 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="chkAverageData.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 217</value>
+    <value>8, 176</value>
   </data>
   <data name="chkAverageData.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="chkAverageData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>287, 21</value>
+    <value>218, 17</value>
   </data>
   <data name="chkAverageData.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -170,13 +170,10 @@ If unchecked - will send last available data</value>
     <value>NoControl</value>
   </data>
   <data name="label35.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 153</value>
-  </data>
-  <data name="label35.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>6, 124</value>
   </data>
   <data name="label35.Size" type="System.Drawing.Size, System.Drawing">
-    <value>21, 17</value>
+    <value>18, 13</value>
   </data>
   <data name="label35.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -203,10 +200,13 @@ If unchecked - will send last available data</value>
     <value>NoControl</value>
   </data>
   <data name="label34.Location" type="System.Drawing.Point, System.Drawing">
-    <value>307, 185</value>
+    <value>230, 150</value>
+  </data>
+  <data name="label34.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label34.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 17</value>
+    <value>24, 13</value>
   </data>
   <data name="label34.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -233,10 +233,13 @@ If unchecked - will send last available data</value>
     <value>NoControl</value>
   </data>
   <data name="label31.Location" type="System.Drawing.Point, System.Drawing">
-    <value>307, 82</value>
+    <value>230, 67</value>
+  </data>
+  <data name="label31.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label31.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 17</value>
+    <value>24, 13</value>
   </data>
   <data name="label31.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -263,10 +266,13 @@ If unchecked - will send last available data</value>
     <value>NoControl</value>
   </data>
   <data name="label33.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 185</value>
+    <value>5, 150</value>
+  </data>
+  <data name="label33.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label33.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 17</value>
+    <value>150, 13</value>
   </data>
   <data name="label33.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -293,10 +299,13 @@ If unchecked - will send last available data</value>
     <value>NoControl</value>
   </data>
   <data name="label30.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 82</value>
+    <value>5, 67</value>
+  </data>
+  <data name="label30.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label30.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 17</value>
+    <value>123, 13</value>
   </data>
   <data name="label30.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -317,13 +326,10 @@ If unchecked - will send last available data</value>
     <value>5</value>
   </data>
   <data name="txtRefreshNarodmonInterval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>212, 181</value>
-  </data>
-  <data name="txtRefreshNarodmonInterval.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>159, 147</value>
   </data>
   <data name="txtRefreshNarodmonInterval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 22</value>
+    <value>60, 20</value>
   </data>
   <data name="txtRefreshNarodmonInterval.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -353,13 +359,10 @@ Note that data would be sent only in multiples of Refresh interval settings</val
     <value>NoControl</value>
   </data>
   <data name="btnGenerateMac.Location" type="System.Drawing.Point, System.Drawing">
-    <value>212, 146</value>
-  </data>
-  <data name="btnGenerateMac.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>159, 119</value>
   </data>
   <data name="btnGenerateMac.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 28</value>
+    <value>59, 23</value>
   </data>
   <data name="btnGenerateMac.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -383,13 +386,10 @@ Note that data would be sent only in multiples of Refresh interval settings</val
     <value>7</value>
   </data>
   <data name="txtRefreshWebDataInterval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>212, 79</value>
-  </data>
-  <data name="txtRefreshWebDataInterval.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>159, 64</value>
   </data>
   <data name="txtRefreshWebDataInterval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 22</value>
+    <value>60, 20</value>
   </data>
   <data name="txtRefreshWebDataInterval.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -416,13 +416,10 @@ Note that data actualy could be sent only at multiples of Refresh interval setti
     <value>8</value>
   </data>
   <data name="txtNarodmonMAC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>45, 150</value>
-  </data>
-  <data name="txtNarodmonMAC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>34, 122</value>
   </data>
   <data name="txtNarodmonMAC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 22</value>
+    <value>119, 20</value>
   </data>
   <data name="txtNarodmonMAC.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -445,13 +442,10 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
     <value>9</value>
   </data>
   <data name="txtWebDataURL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 47</value>
-  </data>
-  <data name="txtWebDataURL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>7, 38</value>
   </data>
   <data name="txtWebDataURL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 22</value>
+    <value>277, 20</value>
   </data>
   <data name="txtWebDataURL.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -478,13 +472,10 @@ The service recommend to use Ethernet MAC address. Pressing "Genereate" button w
     <value>NoControl</value>
   </data>
   <data name="chkNarodMon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 122</value>
-  </data>
-  <data name="chkNarodMon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>7, 99</value>
   </data>
   <data name="chkNarodMon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>221, 21</value>
+    <value>173, 17</value>
   </data>
   <data name="chkNarodMon.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -515,13 +506,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>NoControl</value>
   </data>
   <data name="chkWebData.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 25</value>
-  </data>
-  <data name="chkWebData.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>7, 20</value>
   </data>
   <data name="chkWebData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 21</value>
+    <value>142, 17</value>
   </data>
   <data name="chkWebData.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -542,16 +530,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>12</value>
   </data>
   <data name="groupBox11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>428, 177</value>
-  </data>
-  <data name="groupBox11.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox11.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>321, 144</value>
   </data>
   <data name="groupBox11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>387, 249</value>
+    <value>290, 202</value>
   </data>
   <data name="groupBox11.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -578,10 +560,13 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>NoControl</value>
   </data>
   <data name="label38.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 134</value>
+    <value>5, 109</value>
+  </data>
+  <data name="label38.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label38.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 17</value>
+    <value>55, 13</value>
   </data>
   <data name="label38.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -602,13 +587,13 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>0</value>
   </data>
   <data name="cmbLang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 130</value>
+    <value>76, 106</value>
   </data>
   <data name="cmbLang.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="cmbLang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 24</value>
+    <value>144, 21</value>
   </data>
   <data name="cmbLang.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -636,13 +621,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>NoControl</value>
   </data>
   <data name="chkShowDebugPannels.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 90</value>
-  </data>
-  <data name="chkShowDebugPannels.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>6, 73</value>
   </data>
   <data name="chkShowDebugPannels.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 21</value>
+    <value>131, 17</value>
   </data>
   <data name="chkShowDebugPannels.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -672,13 +654,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>NoControl</value>
   </data>
   <data name="chkTrayIcon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 57</value>
-  </data>
-  <data name="chkTrayIcon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>6, 46</value>
   </data>
   <data name="chkTrayIcon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 21</value>
+    <value>133, 17</value>
   </data>
   <data name="chkTrayIcon.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -708,13 +687,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>NoControl</value>
   </data>
   <data name="chkMinMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 26</value>
-  </data>
-  <data name="chkMinMode.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>6, 21</value>
   </data>
   <data name="chkMinMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>316, 21</value>
+    <value>243, 17</value>
   </data>
   <data name="chkMinMode.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -739,16 +715,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>4</value>
   </data>
   <data name="groupBox8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>428, 4</value>
-  </data>
-  <data name="groupBox8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox8.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>321, 3</value>
   </data>
   <data name="groupBox8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>387, 165</value>
+    <value>290, 134</value>
   </data>
   <data name="groupBox8.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -775,10 +745,13 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>NoControl</value>
   </data>
   <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 57</value>
+    <value>4, 46</value>
+  </data>
+  <data name="label10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 17</value>
+    <value>70, 13</value>
   </data>
   <data name="label10.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -808,13 +781,13 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>3 - All debug info</value>
   </data>
   <data name="cmbLogLevel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 50</value>
+    <value>112, 41</value>
   </data>
   <data name="cmbLogLevel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="cmbLogLevel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 24</value>
+    <value>129, 21</value>
   </data>
   <data name="cmbLogLevel.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -841,13 +814,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>NoControl</value>
   </data>
   <data name="btnBoltwoodPathBrowse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>365, 140</value>
-  </data>
-  <data name="btnBoltwoodPathBrowse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>274, 114</value>
   </data>
   <data name="btnBoltwoodPathBrowse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 25</value>
+    <value>27, 20</value>
   </data>
   <data name="btnBoltwoodPathBrowse.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -871,13 +841,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>NoControl</value>
   </data>
   <data name="btnSerialLogPathBrowse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>365, 82</value>
-  </data>
-  <data name="btnSerialLogPathBrowse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>274, 67</value>
   </data>
   <data name="btnSerialLogPathBrowse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 25</value>
+    <value>27, 20</value>
   </data>
   <data name="btnSerialLogPathBrowse.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -901,13 +868,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>NoControl</value>
   </data>
   <data name="btnCSVPathBrowse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>365, 110</value>
-  </data>
-  <data name="btnCSVPathBrowse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>274, 89</value>
   </data>
   <data name="btnCSVPathBrowse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 25</value>
+    <value>27, 20</value>
   </data>
   <data name="btnCSVPathBrowse.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -931,13 +895,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>NoControl</value>
   </data>
   <data name="btnLogPathBrowse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>365, 23</value>
-  </data>
-  <data name="btnLogPathBrowse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>274, 19</value>
   </data>
   <data name="btnLogPathBrowse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 25</value>
+    <value>27, 20</value>
   </data>
   <data name="btnLogPathBrowse.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -958,13 +919,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>5</value>
   </data>
   <data name="txtBoltwoodFileLocation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 142</value>
-  </data>
-  <data name="txtBoltwoodFileLocation.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>112, 115</value>
   </data>
   <data name="txtBoltwoodFileLocation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 22</value>
+    <value>156, 20</value>
   </data>
   <data name="txtBoltwoodFileLocation.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -985,13 +943,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>6</value>
   </data>
   <data name="txtLogFileLocation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 25</value>
-  </data>
-  <data name="txtLogFileLocation.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>112, 20</value>
   </data>
   <data name="txtLogFileLocation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 22</value>
+    <value>156, 20</value>
   </data>
   <data name="txtLogFileLocation.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1012,13 +967,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>7</value>
   </data>
   <data name="txtSerialLogFileLocation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 82</value>
-  </data>
-  <data name="txtSerialLogFileLocation.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>112, 67</value>
   </data>
   <data name="txtSerialLogFileLocation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 22</value>
+    <value>156, 20</value>
   </data>
   <data name="txtSerialLogFileLocation.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -1039,13 +991,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>8</value>
   </data>
   <data name="txtCSVFileLocation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 111</value>
-  </data>
-  <data name="txtCSVFileLocation.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>112, 90</value>
   </data>
   <data name="txtCSVFileLocation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 22</value>
+    <value>156, 20</value>
   </data>
   <data name="txtCSVFileLocation.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1072,13 +1021,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>NoControl</value>
   </data>
   <data name="chkBoltwoodFileFlag.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 144</value>
-  </data>
-  <data name="chkBoltwoodFileFlag.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>7, 117</value>
   </data>
   <data name="chkBoltwoodFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 21</value>
+    <value>103, 17</value>
   </data>
   <data name="chkBoltwoodFileFlag.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -1108,13 +1054,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>NoControl</value>
   </data>
   <data name="chkSerialLogFileFlag.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 86</value>
-  </data>
-  <data name="chkSerialLogFileFlag.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>7, 70</value>
   </data>
   <data name="chkSerialLogFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 21</value>
+    <value>85, 17</value>
   </data>
   <data name="chkSerialLogFileFlag.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1144,13 +1087,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>NoControl</value>
   </data>
   <data name="chkCSVFileFlag.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 114</value>
-  </data>
-  <data name="chkCSVFileFlag.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>7, 93</value>
   </data>
   <data name="chkCSVFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 21</value>
+    <value>89, 17</value>
   </data>
   <data name="chkCSVFileFlag.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -1177,13 +1117,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>NoControl</value>
   </data>
   <data name="chkLogFileFlag.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 27</value>
-  </data>
-  <data name="chkLogFileFlag.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>7, 22</value>
   </data>
   <data name="chkLogFileFlag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 21</value>
+    <value>98, 17</value>
   </data>
   <data name="chkLogFileFlag.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1207,16 +1144,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>13</value>
   </data>
   <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 133</value>
-  </data>
-  <data name="groupBox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>8, 108</value>
   </data>
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>409, 185</value>
+    <value>307, 150</value>
   </data>
   <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1243,10 +1174,13 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>NoControl</value>
   </data>
   <data name="label32.Location" type="System.Drawing.Point, System.Drawing">
-    <value>273, 23</value>
+    <value>205, 19</value>
+  </data>
+  <data name="label32.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label32.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 17</value>
+    <value>40, 13</value>
   </data>
   <data name="label32.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1273,13 +1207,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>NoControl</value>
   </data>
   <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 23</value>
-  </data>
-  <data name="label14.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>4, 19</value>
   </data>
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 17</value>
+    <value>87, 13</value>
   </data>
   <data name="label14.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1309,13 +1240,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>NoControl</value>
   </data>
   <data name="label39.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 75</value>
-  </data>
-  <data name="label39.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>4, 61</value>
   </data>
   <data name="label39.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 17</value>
+    <value>107, 13</value>
   </data>
   <data name="label39.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1342,13 +1270,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>NoControl</value>
   </data>
   <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 49</value>
-  </data>
-  <data name="label15.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>4, 40</value>
   </data>
   <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 17</value>
+    <value>103, 13</value>
   </data>
   <data name="label15.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1369,13 +1294,10 @@ This is happened not often then 5 minutes (narodmon limitation)</value>
     <value>3</value>
   </data>
   <data name="txtRefreshInterval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 20</value>
-  </data>
-  <data name="txtRefreshInterval.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>148, 16</value>
   </data>
   <data name="txtRefreshInterval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtRefreshInterval.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1407,13 +1329,10 @@ Generally it should be around Arduino sensor measurement cycle (can me measured 
     <value>4</value>
   </data>
   <data name="txtMaxLogWindowLines.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 71</value>
-  </data>
-  <data name="txtMaxLogWindowLines.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>148, 58</value>
   </data>
   <data name="txtMaxLogWindowLines.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtMaxLogWindowLines.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1440,13 +1359,10 @@ Default 500 lines. </value>
     <value>5</value>
   </data>
   <data name="txtMaxPoints.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 46</value>
-  </data>
-  <data name="txtMaxPoints.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>148, 37</value>
   </data>
   <data name="txtMaxPoints.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtMaxPoints.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1473,16 +1389,10 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>6</value>
   </data>
   <data name="groupBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 322</value>
-  </data>
-  <data name="groupBox6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox6.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>8, 262</value>
   </data>
   <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>409, 103</value>
+    <value>307, 84</value>
   </data>
   <data name="groupBox6.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1509,10 +1419,13 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>NoControl</value>
   </data>
   <data name="label37.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 91</value>
+    <value>7, 74</value>
+  </data>
+  <data name="label37.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label37.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 17</value>
+    <value>60, 13</value>
   </data>
   <data name="label37.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1539,10 +1452,13 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>NoControl</value>
   </data>
   <data name="label36.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 58</value>
+    <value>7, 47</value>
+  </data>
+  <data name="label36.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label36.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 17</value>
+    <value>72, 13</value>
   </data>
   <data name="label36.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1566,13 +1482,10 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>False</value>
   </data>
   <data name="txtSerialFileOut.Location" type="System.Drawing.Point, System.Drawing">
-    <value>127, 89</value>
-  </data>
-  <data name="txtSerialFileOut.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>95, 72</value>
   </data>
   <data name="txtSerialFileOut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>229, 22</value>
+    <value>173, 20</value>
   </data>
   <data name="txtSerialFileOut.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -1597,13 +1510,10 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>False</value>
   </data>
   <data name="txtSerialFileIn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>127, 55</value>
-  </data>
-  <data name="txtSerialFileIn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>95, 45</value>
   </data>
   <data name="txtSerialFileIn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>229, 22</value>
+    <value>173, 20</value>
   </data>
   <data name="txtSerialFileIn.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1630,13 +1540,10 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>NoControl</value>
   </data>
   <data name="chkWatchdog.Location" type="System.Drawing.Point, System.Drawing">
-    <value>127, 23</value>
-  </data>
-  <data name="chkWatchdog.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>95, 19</value>
   </data>
   <data name="chkWatchdog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 21</value>
+    <value>130, 17</value>
   </data>
   <data name="chkWatchdog.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1663,13 +1570,10 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>NoControl</value>
   </data>
   <data name="btnOpenWriteToFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>365, 87</value>
-  </data>
-  <data name="btnOpenWriteToFile.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>274, 71</value>
   </data>
   <data name="btnOpenWriteToFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 25</value>
+    <value>27, 20</value>
   </data>
   <data name="btnOpenWriteToFile.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -1699,13 +1603,10 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>NoControl</value>
   </data>
   <data name="btnOpenReadFromFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>365, 54</value>
-  </data>
-  <data name="btnOpenReadFromFile.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>274, 44</value>
   </data>
   <data name="btnOpenReadFromFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 25</value>
+    <value>27, 20</value>
   </data>
   <data name="btnOpenReadFromFile.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1729,13 +1630,10 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>6</value>
   </data>
   <data name="cmbPortList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 23</value>
-  </data>
-  <data name="cmbPortList.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>7, 19</value>
   </data>
   <data name="cmbPortList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 24</value>
+    <value>72, 21</value>
   </data>
   <data name="cmbPortList.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1756,16 +1654,10 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>7</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 4</value>
-  </data>
-  <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>8, 3</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>409, 124</value>
+    <value>307, 101</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1786,16 +1678,13 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>4</value>
   </data>
   <data name="tabGeneral.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="tabGeneral.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>4, 22</value>
   </data>
   <data name="tabGeneral.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>3, 3, 3, 3</value>
   </data>
   <data name="tabGeneral.Size" type="System.Drawing.Size, System.Drawing">
-    <value>828, 435</value>
+    <value>619, 351</value>
   </data>
   <data name="tabGeneral.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1885,13 +1774,10 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>TextField name</value>
   </data>
   <data name="dataGridSensors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 7</value>
-  </data>
-  <data name="dataGridSensors.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>6, 6</value>
   </data>
   <data name="dataGridSensors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>805, 327</value>
+    <value>604, 266</value>
   </data>
   <data name="dataGridSensors.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1915,13 +1801,10 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>NoControl</value>
   </data>
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 30</value>
-  </data>
-  <data name="label9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>6, 24</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 17</value>
+    <value>91, 13</value>
   </data>
   <data name="label9.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1942,13 +1825,10 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>0</value>
   </data>
   <data name="cmbBaseTempSensor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 26</value>
-  </data>
-  <data name="cmbBaseTempSensor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>133, 21</value>
   </data>
   <data name="cmbBaseTempSensor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 24</value>
+    <value>121, 21</value>
   </data>
   <data name="cmbBaseTempSensor.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1966,16 +1846,10 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>1</value>
   </data>
   <data name="groupBox7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 342</value>
-  </data>
-  <data name="groupBox7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox7.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>6, 278</value>
   </data>
   <data name="groupBox7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>355, 60</value>
+    <value>266, 49</value>
   </data>
   <data name="groupBox7.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1999,13 +1873,10 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>NoControl</value>
   </data>
   <data name="btnResetSensorList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>628, 359</value>
-  </data>
-  <data name="btnResetSensorList.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>471, 292</value>
   </data>
   <data name="btnResetSensorList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 28</value>
+    <value>139, 23</value>
   </data>
   <data name="btnResetSensorList.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2032,13 +1903,10 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>NoControl</value>
   </data>
   <data name="btnReadFromSerial.Location" type="System.Drawing.Point, System.Drawing">
-    <value>404, 359</value>
-  </data>
-  <data name="btnReadFromSerial.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>303, 292</value>
   </data>
   <data name="btnReadFromSerial.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 28</value>
+    <value>139, 23</value>
   </data>
   <data name="btnReadFromSerial.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2062,16 +1930,13 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>3</value>
   </data>
   <data name="tabSensors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="tabSensors.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>4, 22</value>
   </data>
   <data name="tabSensors.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>3, 3, 3, 3</value>
   </data>
   <data name="tabSensors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>828, 435</value>
+    <value>619, 351</value>
   </data>
   <data name="tabSensors.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2098,10 +1963,13 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>NoControl</value>
   </data>
   <data name="radioCloudSensorModel_AAG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>227, 22</value>
+    <value>170, 18</value>
+  </data>
+  <data name="radioCloudSensorModel_AAG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="radioCloudSensorModel_AAG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 21</value>
+    <value>47, 17</value>
   </data>
   <data name="radioCloudSensorModel_AAG.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2128,10 +1996,13 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>NoControl</value>
   </data>
   <data name="radioCloudSensorModel_Classic.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 22</value>
+    <value>11, 18</value>
+  </data>
+  <data name="radioCloudSensorModel_Classic.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="radioCloudSensorModel_Classic.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 21</value>
+    <value>58, 17</value>
   </data>
   <data name="radioCloudSensorModel_Classic.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2152,10 +2023,16 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>1</value>
   </data>
   <data name="groupBox14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 10</value>
+    <value>6, 8</value>
+  </data>
+  <data name="groupBox14.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="groupBox14.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="groupBox14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>410, 51</value>
+    <value>308, 41</value>
   </data>
   <data name="groupBox14.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2206,13 +2083,10 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>rainDry</value>
   </data>
   <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>431, 172</value>
-  </data>
-  <data name="dataGridView1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>323, 140</value>
   </data>
   <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>380, 116</value>
+    <value>285, 94</value>
   </data>
   <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2240,10 +2114,13 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>NoControl</value>
   </data>
   <data name="label28.Location" type="System.Drawing.Point, System.Drawing">
-    <value>280, 82</value>
+    <value>210, 67</value>
+  </data>
+  <data name="label28.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label28.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 17</value>
+    <value>25, 13</value>
   </data>
   <data name="label28.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -2270,10 +2147,13 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>NoControl</value>
   </data>
   <data name="label29.Location" type="System.Drawing.Point, System.Drawing">
-    <value>280, 53</value>
+    <value>210, 43</value>
+  </data>
+  <data name="label29.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label29.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 17</value>
+    <value>25, 13</value>
   </data>
   <data name="label29.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2300,10 +2180,13 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>NoControl</value>
   </data>
   <data name="label27.Location" type="System.Drawing.Point, System.Drawing">
-    <value>280, 53</value>
+    <value>210, 43</value>
+  </data>
+  <data name="label27.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label27.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 17</value>
+    <value>25, 13</value>
   </data>
   <data name="label27.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2330,13 +2213,10 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>NoControl</value>
   </data>
   <data name="label26.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 53</value>
-  </data>
-  <data name="label26.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>7, 43</value>
   </data>
   <data name="label26.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 17</value>
+    <value>83, 13</value>
   </data>
   <data name="label26.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2363,13 +2243,10 @@ So if you want to see last 24h on your graphs, and have 10 sec main tick interva
     <value>NoControl</value>
   </data>
   <data name="label21.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 23</value>
-  </data>
-  <data name="label21.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>7, 19</value>
   </data>
   <data name="label21.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 17</value>
+    <value>137, 13</value>
   </data>
   <data name="label21.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2395,13 +2272,10 @@ Stop wind speed sensor and enter value which would lead to 0 speed value. Defaul
     <value>4</value>
   </data>
   <data name="txtWSpeedZero.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 20</value>
-  </data>
-  <data name="txtWSpeedZero.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>148, 16</value>
   </data>
   <data name="txtWSpeedZero.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtWSpeedZero.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2435,13 +2309,10 @@ Default value (suits for my conditions) 83 units</value>
     <value>NoControl</value>
   </data>
   <data name="label23.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 82</value>
-  </data>
-  <data name="label23.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>7, 67</value>
   </data>
   <data name="label23.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 17</value>
+    <value>104, 13</value>
   </data>
   <data name="label23.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -2462,13 +2333,10 @@ Default value (suits for my conditions) 83 units</value>
     <value>6</value>
   </data>
   <data name="txtVeryWindyLimit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 80</value>
-  </data>
-  <data name="txtVeryWindyLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>148, 65</value>
   </data>
   <data name="txtVeryWindyLimit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtVeryWindyLimit.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -2494,13 +2362,10 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>7</value>
   </data>
   <data name="txtWindyLimit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 50</value>
-  </data>
-  <data name="txtWindyLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>148, 41</value>
   </data>
   <data name="txtWindyLimit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtWindyLimit.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2525,16 +2390,10 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>8</value>
   </data>
   <data name="groupBox12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 315</value>
-  </data>
-  <data name="groupBox12.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox12.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>8, 256</value>
   </data>
   <data name="groupBox12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>407, 116</value>
+    <value>305, 94</value>
   </data>
   <data name="groupBox12.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2561,13 +2420,10 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>NoControl</value>
   </data>
   <data name="label44.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 109</value>
-  </data>
-  <data name="label44.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>9, 89</value>
   </data>
   <data name="label44.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 17</value>
+    <value>164, 13</value>
   </data>
   <data name="label44.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -2594,13 +2450,10 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>NoControl</value>
   </data>
   <data name="label45.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 79</value>
-  </data>
-  <data name="label45.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>9, 64</value>
   </data>
   <data name="label45.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 17</value>
+    <value>133, 13</value>
   </data>
   <data name="label45.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -2621,13 +2474,10 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>1</value>
   </data>
   <data name="txtCloudyskyAAG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>260, 106</value>
-  </data>
-  <data name="txtCloudyskyAAG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>195, 86</value>
   </data>
   <data name="txtCloudyskyAAG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtCloudyskyAAG.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -2651,13 +2501,10 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>2</value>
   </data>
   <data name="txtClearskyAAG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>260, 76</value>
-  </data>
-  <data name="txtClearskyAAG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>195, 62</value>
   </data>
   <data name="txtClearskyAAG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtClearskyAAG.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -2687,13 +2534,10 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>NoControl</value>
   </data>
   <data name="K7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>263, 20</value>
-  </data>
-  <data name="K7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>197, 16</value>
   </data>
   <data name="K7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 17</value>
+    <value>20, 13</value>
   </data>
   <data name="K7.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -2720,13 +2564,10 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>NoControl</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>223, 20</value>
-  </data>
-  <data name="label8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>167, 16</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 17</value>
+    <value>20, 13</value>
   </data>
   <data name="label8.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -2753,13 +2594,10 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>NoControl</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>183, 20</value>
-  </data>
-  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>137, 16</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 17</value>
+    <value>20, 13</value>
   </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2786,13 +2624,10 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>NoControl</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 20</value>
-  </data>
-  <data name="label6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>107, 16</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 17</value>
+    <value>20, 13</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2819,13 +2654,10 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>NoControl</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 20</value>
-  </data>
-  <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>77, 16</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 17</value>
+    <value>20, 13</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2852,13 +2684,10 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>NoControl</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 20</value>
-  </data>
-  <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>47, 16</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 17</value>
+    <value>20, 13</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2879,13 +2708,10 @@ You can use Beaufort Scale (see https://en.wikipedia.org/wiki/Beaufort_scale) fo
     <value>9</value>
   </data>
   <data name="txtK1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 39</value>
-  </data>
-  <data name="txtK1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>11, 32</value>
   </data>
   <data name="txtK1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 22</value>
+    <value>26, 20</value>
   </data>
   <data name="txtK1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -2924,13 +2750,10 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 20</value>
-  </data>
-  <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>17, 16</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 17</value>
+    <value>20, 13</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2954,13 +2777,10 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>11</value>
   </data>
   <data name="txtK2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>57, 39</value>
-  </data>
-  <data name="txtK2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>43, 32</value>
   </data>
   <data name="txtK2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 22</value>
+    <value>24, 20</value>
   </data>
   <data name="txtK2.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -2993,13 +2813,10 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>12</value>
   </data>
   <data name="txtK7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>257, 39</value>
-  </data>
-  <data name="txtK7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>193, 32</value>
   </data>
   <data name="txtK7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 22</value>
+    <value>24, 20</value>
   </data>
   <data name="txtK7.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -3032,13 +2849,10 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>13</value>
   </data>
   <data name="txtK3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 39</value>
-  </data>
-  <data name="txtK3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>73, 32</value>
   </data>
   <data name="txtK3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 22</value>
+    <value>24, 20</value>
   </data>
   <data name="txtK3.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -3071,13 +2885,10 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>14</value>
   </data>
   <data name="txtK6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>217, 39</value>
-  </data>
-  <data name="txtK6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>163, 32</value>
   </data>
   <data name="txtK6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 22</value>
+    <value>24, 20</value>
   </data>
   <data name="txtK6.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -3110,13 +2921,10 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>15</value>
   </data>
   <data name="txtK4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 39</value>
-  </data>
-  <data name="txtK4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>103, 32</value>
   </data>
   <data name="txtK4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 22</value>
+    <value>24, 20</value>
   </data>
   <data name="txtK4.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -3149,13 +2957,10 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>16</value>
   </data>
   <data name="txtK5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 39</value>
-  </data>
-  <data name="txtK5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>133, 32</value>
   </data>
   <data name="txtK5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 22</value>
+    <value>24, 20</value>
   </data>
   <data name="txtK5.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -3188,16 +2993,10 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>17</value>
   </data>
   <data name="groupBox10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 167</value>
-  </data>
-  <data name="groupBox10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox10.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>7, 136</value>
   </data>
   <data name="groupBox10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>409, 140</value>
+    <value>307, 114</value>
   </data>
   <data name="groupBox10.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -3224,13 +3023,10 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>NoControl</value>
   </data>
   <data name="label42.Location" type="System.Drawing.Point, System.Drawing">
-    <value>288, 108</value>
-  </data>
-  <data name="label42.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>216, 88</value>
   </data>
   <data name="label42.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 17</value>
+    <value>61, 13</value>
   </data>
   <data name="label42.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -3254,13 +3050,10 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>NoControl</value>
   </data>
   <data name="btnSetGaugeInc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>291, 129</value>
-  </data>
-  <data name="btnSetGaugeInc.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>218, 105</value>
   </data>
   <data name="btnSetGaugeInc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 27</value>
+    <value>59, 22</value>
   </data>
   <data name="btnSetGaugeInc.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -3290,13 +3083,10 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>NoControl</value>
   </data>
   <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 23</value>
-  </data>
-  <data name="label12.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>6, 19</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 17</value>
+    <value>73, 13</value>
   </data>
   <data name="label12.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3326,13 +3116,13 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>RGC only</value>
   </data>
   <data name="cmbWetMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 75</value>
+    <value>148, 61</value>
   </data>
   <data name="cmbWetMode.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="cmbWetMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 24</value>
+    <value>129, 21</value>
   </data>
   <data name="cmbWetMode.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -3363,13 +3153,10 @@ If you have two of them - use "Both" unless you face problems</value>
     <value>NoControl</value>
   </data>
   <data name="label41.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 108</value>
-  </data>
-  <data name="label41.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>8, 88</value>
   </data>
   <data name="label41.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 17</value>
+    <value>126, 13</value>
   </data>
   <data name="label41.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -3396,13 +3183,10 @@ If you have two of them - use "Both" unless you face problems</value>
     <value>NoControl</value>
   </data>
   <data name="label40.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 135</value>
-  </data>
-  <data name="label40.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>8, 110</value>
   </data>
   <data name="label40.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 17</value>
+    <value>103, 13</value>
   </data>
   <data name="label40.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -3429,13 +3213,10 @@ If you have two of them - use "Both" unless you face problems</value>
     <value>NoControl</value>
   </data>
   <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 78</value>
-  </data>
-  <data name="label19.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>7, 63</value>
   </data>
   <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 17</value>
+    <value>97, 13</value>
   </data>
   <data name="label19.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -3462,13 +3243,10 @@ If you have two of them - use "Both" unless you face problems</value>
     <value>NoControl</value>
   </data>
   <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 50</value>
-  </data>
-  <data name="label13.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>7, 41</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 17</value>
+    <value>75, 13</value>
   </data>
   <data name="label13.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3489,13 +3267,10 @@ If you have two of them - use "Both" unless you face problems</value>
     <value>7</value>
   </data>
   <data name="txtWetLimit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 20</value>
-  </data>
-  <data name="txtWetLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>148, 16</value>
   </data>
   <data name="txtWetLimit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtWetLimit.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -3521,13 +3296,10 @@ IMPORTANT. Because when Boltwood Rain Condition is signaling "Wet", software lik
     <value>8</value>
   </data>
   <data name="txtGaugeInc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 132</value>
-  </data>
-  <data name="txtGaugeInc.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>148, 107</value>
   </data>
   <data name="txtGaugeInc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtGaugeInc.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -3557,13 +3329,10 @@ Can be manually set to any value by entering it here and pressing "Set" button
     <value>9</value>
   </data>
   <data name="txtRGScale.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 105</value>
-  </data>
-  <data name="txtRGScale.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>148, 85</value>
   </data>
   <data name="txtRGScale.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtRGScale.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -3591,13 +3360,10 @@ Recomended 0.01mm</value>
     <value>10</value>
   </data>
   <data name="txtRainLimit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 47</value>
-  </data>
-  <data name="txtRainLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>148, 38</value>
   </data>
   <data name="txtRainLimit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtRainLimit.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -3621,16 +3387,10 @@ Recomended 0.01mm</value>
     <value>11</value>
   </data>
   <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>426, 10</value>
-  </data>
-  <data name="groupBox5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox5.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>320, 8</value>
   </data>
   <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>393, 297</value>
+    <value>295, 241</value>
   </data>
   <data name="groupBox5.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3657,13 +3417,10 @@ Recomended 0.01mm</value>
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 53</value>
-  </data>
-  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>7, 43</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 17</value>
+    <value>164, 13</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3690,13 +3447,10 @@ Recomended 0.01mm</value>
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 23</value>
-  </data>
-  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>7, 19</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 17</value>
+    <value>133, 13</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3717,13 +3471,10 @@ Recomended 0.01mm</value>
     <value>1</value>
   </data>
   <data name="txtCloudysky.Location" type="System.Drawing.Point, System.Drawing">
-    <value>257, 50</value>
-  </data>
-  <data name="txtCloudysky.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>193, 41</value>
   </data>
   <data name="txtCloudysky.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtCloudysky.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -3747,13 +3498,10 @@ Recomended 0.01mm</value>
     <value>2</value>
   </data>
   <data name="txtClearsky.Location" type="System.Drawing.Point, System.Drawing">
-    <value>257, 20</value>
-  </data>
-  <data name="txtClearsky.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>193, 16</value>
   </data>
   <data name="txtClearsky.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtClearsky.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -3777,16 +3525,10 @@ Recomended 0.01mm</value>
     <value>3</value>
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 68</value>
-  </data>
-  <data name="groupBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>7, 55</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>409, 92</value>
+    <value>307, 75</value>
   </data>
   <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3807,13 +3549,10 @@ Recomended 0.01mm</value>
     <value>5</value>
   </data>
   <data name="tabModeling.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="tabModeling.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>4, 22</value>
   </data>
   <data name="tabModeling.Size" type="System.Drawing.Size, System.Drawing">
-    <value>828, 435</value>
+    <value>619, 351</value>
   </data>
   <data name="tabModeling.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -3840,10 +3579,13 @@ Recomended 0.01mm</value>
     <value>NoControl</value>
   </data>
   <data name="label20.Location" type="System.Drawing.Point, System.Drawing">
-    <value>273, 86</value>
+    <value>205, 70</value>
+  </data>
+  <data name="label20.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label20.Size" type="System.Drawing.Size, System.Drawing">
-    <value>13, 17</value>
+    <value>10, 13</value>
   </data>
   <data name="label20.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -3870,10 +3612,13 @@ Recomended 0.01mm</value>
     <value>NoControl</value>
   </data>
   <data name="label22.Location" type="System.Drawing.Point, System.Drawing">
-    <value>273, 27</value>
+    <value>205, 22</value>
+  </data>
+  <data name="label22.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label22.Size" type="System.Drawing.Size, System.Drawing">
-    <value>13, 17</value>
+    <value>10, 13</value>
   </data>
   <data name="label22.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3900,13 +3645,10 @@ Recomended 0.01mm</value>
     <value>NoControl</value>
   </data>
   <data name="label24.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 57</value>
-  </data>
-  <data name="label24.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>6, 46</value>
   </data>
   <data name="label24.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 17</value>
+    <value>93, 13</value>
   </data>
   <data name="label24.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -3933,13 +3675,10 @@ Recomended 0.01mm</value>
     <value>NoControl</value>
   </data>
   <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 86</value>
-  </data>
-  <data name="label18.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>7, 70</value>
   </data>
   <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 17</value>
+    <value>122, 13</value>
   </data>
   <data name="label18.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -3966,13 +3705,10 @@ Recomended 0.01mm</value>
     <value>NoControl</value>
   </data>
   <data name="label25.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 27</value>
-  </data>
-  <data name="label25.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>6, 22</value>
   </data>
   <data name="label25.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 17</value>
+    <value>129, 13</value>
   </data>
   <data name="label25.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3993,13 +3729,10 @@ Recomended 0.01mm</value>
     <value>4</value>
   </data>
   <data name="txtCSHeaterPauseTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 53</value>
-  </data>
-  <data name="txtCSHeaterPauseTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>148, 43</value>
   </data>
   <data name="txtCSHeaterPauseTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtCSHeaterPauseTime.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -4024,13 +3757,10 @@ Recomended 0.01mm</value>
     <value>5</value>
   </data>
   <data name="txtCSDecreasingMaxDelta.Location" type="System.Drawing.Point, System.Drawing">
-    <value>287, 82</value>
-  </data>
-  <data name="txtCSDecreasingMaxDelta.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>215, 67</value>
   </data>
   <data name="txtCSDecreasingMaxDelta.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtCSDecreasingMaxDelta.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -4064,13 +3794,10 @@ Program determines when Cloud Sensor need heating based on some conditions:
     <value>6</value>
   </data>
   <data name="txtCSHeatingMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>287, 23</value>
-  </data>
-  <data name="txtCSHeatingMax.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>215, 19</value>
   </data>
   <data name="txtCSHeatingMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtCSHeatingMax.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -4095,13 +3822,10 @@ Program determines when Cloud Sensor need heating based on some conditions:
     <value>7</value>
   </data>
   <data name="txtCSDecreasingMinDelta.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 82</value>
-  </data>
-  <data name="txtCSDecreasingMinDelta.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>148, 67</value>
   </data>
   <data name="txtCSDecreasingMinDelta.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtCSDecreasingMinDelta.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -4134,13 +3858,10 @@ Program determines when Cloud Sensor need heating based on some conditions:
     <value>8</value>
   </data>
   <data name="txtCSHeatingMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 23</value>
-  </data>
-  <data name="txtCSHeatingMin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>148, 19</value>
   </data>
   <data name="txtCSHeatingMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtCSHeatingMin.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -4164,16 +3885,10 @@ Program determines when Cloud Sensor need heating based on some conditions:
     <value>9</value>
   </data>
   <data name="groupBox9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 123</value>
-  </data>
-  <data name="groupBox9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox9.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>8, 100</value>
   </data>
   <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>409, 123</value>
+    <value>307, 100</value>
   </data>
   <data name="groupBox9.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -4200,13 +3915,10 @@ Program determines when Cloud Sensor need heating based on some conditions:
     <value>NoControl</value>
   </data>
   <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 23</value>
-  </data>
-  <data name="label11.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>6, 19</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 17</value>
+    <value>112, 13</value>
   </data>
   <data name="label11.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4233,13 +3945,10 @@ Program determines when Cloud Sensor need heating based on some conditions:
     <value>NoControl</value>
   </data>
   <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 82</value>
-  </data>
-  <data name="label17.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>7, 67</value>
   </data>
   <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 17</value>
+    <value>135, 13</value>
   </data>
   <data name="label17.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -4266,13 +3975,10 @@ Program determines when Cloud Sensor need heating based on some conditions:
     <value>NoControl</value>
   </data>
   <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 53</value>
-  </data>
-  <data name="label16.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>7, 43</value>
   </data>
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 17</value>
+    <value>96, 13</value>
   </data>
   <data name="label16.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -4293,13 +3999,10 @@ Program determines when Cloud Sensor need heating based on some conditions:
     <value>2</value>
   </data>
   <data name="txtHeaterWetThreshold.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 80</value>
-  </data>
-  <data name="txtHeaterWetThreshold.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>148, 65</value>
   </data>
   <data name="txtHeaterWetThreshold.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtHeaterWetThreshold.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -4324,13 +4027,10 @@ Set 0 to disable</value>
     <value>3</value>
   </data>
   <data name="txtHeaterMaxTemp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 20</value>
-  </data>
-  <data name="txtHeaterMaxTemp.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>148, 16</value>
   </data>
   <data name="txtHeaterMaxTemp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtHeaterMaxTemp.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -4354,13 +4054,10 @@ Set 0 to disable</value>
     <value>4</value>
   </data>
   <data name="txtHeaterMaxDuration.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 50</value>
-  </data>
-  <data name="txtHeaterMaxDuration.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>148, 41</value>
   </data>
   <data name="txtHeaterMaxDuration.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 22</value>
+    <value>53, 20</value>
   </data>
   <data name="txtHeaterMaxDuration.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -4384,16 +4081,10 @@ Set 0 to disable</value>
     <value>5</value>
   </data>
   <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 4</value>
-  </data>
-  <data name="groupBox4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox4.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>8, 3</value>
   </data>
   <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>409, 112</value>
+    <value>307, 91</value>
   </data>
   <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4414,13 +4105,10 @@ Set 0 to disable</value>
     <value>1</value>
   </data>
   <data name="tabHeater.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="tabHeater.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>4, 22</value>
   </data>
   <data name="tabHeater.Size" type="System.Drawing.Size, System.Drawing">
-    <value>828, 435</value>
+    <value>619, 351</value>
   </data>
   <data name="tabHeater.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -4447,13 +4135,10 @@ Set 0 to disable</value>
     <value>NoControl</value>
   </data>
   <data name="label43.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 48</value>
-  </data>
-  <data name="label43.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>3, 39</value>
   </data>
   <data name="label43.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 17</value>
+    <value>64, 13</value>
   </data>
   <data name="label43.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -4474,13 +4159,10 @@ Set 0 to disable</value>
     <value>0</value>
   </data>
   <data name="txtSocketServerPort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>167, 44</value>
-  </data>
-  <data name="txtSocketServerPort.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>125, 36</value>
   </data>
   <data name="txtSocketServerPort.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 22</value>
+    <value>58, 20</value>
   </data>
   <data name="txtSocketServerPort.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -4504,13 +4186,10 @@ Set 0 to disable</value>
     <value>NoControl</value>
   </data>
   <data name="chkSocketServer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 23</value>
-  </data>
-  <data name="chkSocketServer.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>6, 19</value>
   </data>
   <data name="chkSocketServer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 21</value>
+    <value>113, 17</value>
   </data>
   <data name="chkSocketServer.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4531,16 +4210,10 @@ Set 0 to disable</value>
     <value>2</value>
   </data>
   <data name="groupBox13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 4</value>
-  </data>
-  <data name="groupBox13.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox13.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>8, 3</value>
   </data>
   <data name="groupBox13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 134</value>
+    <value>196, 109</value>
   </data>
   <data name="groupBox13.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4561,13 +4234,10 @@ Set 0 to disable</value>
     <value>0</value>
   </data>
   <data name="tabSocket.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="tabSocket.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>4, 22</value>
   </data>
   <data name="tabSocket.Size" type="System.Drawing.Size, System.Drawing">
-    <value>828, 435</value>
+    <value>619, 351</value>
   </data>
   <data name="tabSocket.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -4590,11 +4260,8 @@ Set 0 to disable</value>
   <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="tabControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>836, 464</value>
+    <value>627, 377</value>
   </data>
   <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4618,13 +4285,10 @@ Set 0 to disable</value>
     <value>NoControl</value>
   </data>
   <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>568, 471</value>
-  </data>
-  <data name="btnOk.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>426, 383</value>
   </data>
   <data name="btnOk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 30</value>
+    <value>79, 24</value>
   </data>
   <data name="btnOk.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -4651,13 +4315,10 @@ Set 0 to disable</value>
     <value>NoControl</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>715, 471</value>
-  </data>
-  <data name="btnCancel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>536, 383</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 30</value>
+    <value>79, 24</value>
   </data>
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -4684,13 +4345,10 @@ Set 0 to disable</value>
     <value>NoControl</value>
   </data>
   <data name="btnReset.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 471</value>
-  </data>
-  <data name="btnReset.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>7, 383</value>
   </data>
   <data name="btnReset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 30</value>
+    <value>110, 24</value>
   </data>
   <data name="btnReset.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -4723,10 +4381,10 @@ Set 0 to disable</value>
     <value>34</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
+    <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>836, 510</value>
+    <value>627, 414</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -10899,9 +10557,6 @@ Set 0 to disable</value>
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
