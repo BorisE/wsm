@@ -70,6 +70,15 @@ namespace WeatherStation {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Socket data.
+        /// </summary>
+        internal static string _WORK_WITH_SOCKET_SERVER {
+            get {
+                return ResourceManager.GetString("_WORK_WITH_SOCKET_SERVER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Simulation start.
         /// </summary>
         internal static string SimulationStart {

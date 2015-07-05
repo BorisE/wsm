@@ -7,6 +7,9 @@ to do:
 - socket commands: relay switching, parameters querying
 - normal pressure
 
+1.8.58 (2015-07-05)
+- can receive sensor data from sockets (can't write for now)
+
 1.7.57 (2015-06-07)
 - swithcing between two sky sensor models: classic and AAG
 

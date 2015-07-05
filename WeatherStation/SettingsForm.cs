@@ -57,6 +57,7 @@ namespace WeatherStation
             foreach (string s in SerialPort.GetPortNames())
                 cmbPortList.Items.Add(s);
             cmbPortList.Items.Add(LocRM.GetString("_WORK_WITH_FILE_SERIAL")); //add File Emulation item
+            cmbPortList.Items.Add(LocRM.GetString("_WORK_WITH_SOCKET_SERVER")); //add File Emulation item
 
             //READ AND FILL SENSOR PARAMETERS
             LoadSensorArrayFromSettings();
@@ -122,8 +123,8 @@ namespace WeatherStation
             cmbLogLevel.SelectedIndex = Logging.DEBUG_LEVEL-1;
             cmbWetMode.SelectedIndex = (byte)ParentMainForm.Hardware.RainConditionMode; ;
 
-            //enable/disable serial file emulation
-            if (ParentMainForm.Hardware.UseFileEmulation)
+            //enable/disable serial file emulation/socket data read
+            if (ParentMainForm.Hardware.UseFileEmulation || ParentMainForm.Hardware.UseSocketRead)
             {
                 cmbPortList_SelectedIndexChanged(this,e);
             }
@@ -169,6 +170,8 @@ namespace WeatherStation
                 ParentMainForm.Hardware.UseFileEmulation= (cmbPortList.Text == LocRM.GetString("_WORK_WITH_FILE_SERIAL"));
                 SerialFromFile.SerialFileNameIn = txtSerialFileIn.Text;
                 SerialFromFile.SerialFileNameOut = txtSerialFileOut.Text;
+
+                ParentMainForm.Hardware.UseSocketRead = (cmbPortList.Text == LocRM.GetString("_WORK_WITH_SOCKET_SERVER"));
 
                 ParentMainForm.Hardware.CLOUDMODEL = (radioCloudSensorModel_Classic.Checked ? CloudSensorModel.Classic : CloudSensorModel.AAG);
                 Properties.Settings.Default.CloudModelClassic = (radioCloudSensorModel_Classic.Checked);
@@ -646,6 +649,17 @@ namespace WeatherStation
                 btnOpenWriteToFile.Enabled = true;
 
                 chkWatchdog.Enabled = false;
+            }
+            else if (cmbPortList.Text == LocRM.GetString("_WORK_WITH_SOCKET_SERVER"))
+            {
+                txtSerialFileIn.Enabled = false;
+                txtSerialFileOut.Enabled = false;
+                btnOpenReadFromFile.Enabled = false;
+                btnOpenWriteToFile.Enabled = false;
+
+                chkWatchdog.Enabled = false;
+
+                chkSocketServer.Checked = true;
             }
             else
             {

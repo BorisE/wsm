@@ -22,7 +22,7 @@ namespace WeatherStation
         /// <summary>
         /// Main socket listener
         /// </summary>
-        Socket listenerSocket;
+        public Socket listenerSocket;
 
         /// <summary>
         /// Client list
@@ -33,6 +33,15 @@ namespace WeatherStation
         /// Back link to form
         /// </summary>
         public MainForm ParentMainForm;
+
+        public DateTime LastTimeDataRead;
+
+
+        /// <summary>
+        /// command buffer for mode when data is receiving from socket
+        /// </summary>
+        public string SocketServerCommandBuffer = "";
+        public UInt32 MAX_BUFFER_LEN = 0; //would be synced with this value in hardware
 
         /// <summary>
         /// Conctructor
@@ -70,7 +79,7 @@ namespace WeatherStation
             Logging.AddLog("Connection from " + curSocket.RemoteEndPoint + " accepted",1);
 
             //Создаем объект для обработки клиента
-            ClientManager NewClient=new ClientManager(ParentMainForm);
+            ClientManager NewClient=new ClientManager(this);
             
             //Добавляем его в список
             clientsList.Add(NewClient);
@@ -80,8 +89,11 @@ namespace WeatherStation
 
             //Отображаем кол-во соединений в форме
             //ParentMainForm.toolStripStatus_Connection.Text = "CONNECTIONS: " + clientsList.Count;
+        }
 
-
+        public int OpenedConnectionsCount()
+        {
+            return clientsList.Count;
         }
 
         public void MakeClientConnectionToServer(IPAddress ipAddr, Int32 port, string message)
@@ -156,18 +168,21 @@ namespace WeatherStation
         Thread curThread;
 
         /// <summary>
-        /// Back link to form
+        /// Back link to socket server
         /// </summary>
-        public MainForm ParentMainForm;
+        public SocketServerClass ParentSocketServer;
+        public MainForm ParentMainFormLink;
 
+        private byte[] welcomeMsg = Encoding.UTF8.GetBytes("Connected to WeatherStation Monitor\n\r");
         const string STOP_MESSAGE = "TheEnd";
 
         // Буфер для входящих данных
         byte[] incomingBuffer = new byte[1024];
 
-        public ClientManager(MainForm MF)
+        public ClientManager(SocketServerClass SockSrv)
         {
-            ParentMainForm = MF;
+            ParentSocketServer = SockSrv;
+            ParentMainFormLink = ParentSocketServer.ParentMainForm;
         }
 
         public void CreateNewClientManager(Socket NewClient)
@@ -184,7 +199,6 @@ namespace WeatherStation
         {
 
             //Отправляем приветственное сообщение
-            byte[] welcomeMsg = Encoding.UTF8.GetBytes("Connected to WeatherStation Monitor\n\r");
             ClientSocket.Send(welcomeMsg);
 
             try
@@ -196,15 +210,17 @@ namespace WeatherStation
 
                     if (!(bytesRec == 2 && incomingBuffer[0] == 13 && incomingBuffer[1] == 10))
                     {
+                        //Convert message from UTF8
                         string incomingMess = Encoding.UTF8.GetString(incomingBuffer, 0, bytesRec);
                         Logging.AddLog("Message from сlient [" + ClientSocket.RemoteEndPoint + "]: " + incomingMess, 1);
 
+                        //Interpret incoming message and run appropriate command
                         string cmdMess = SocketCommandInterpretator(incomingMess);
-                        if (cmdMess == STOP_MESSAGE)
-                        {
-                            break;
-                        }
 
+                        //If it was STOP command, break (all other neccessary stuff was made in CommandInterpretator
+                        if (cmdMess == STOP_MESSAGE) {break; }
+
+                        //Output return string
                         byte[] msg2 = Encoding.UTF8.GetBytes(cmdMess + "\n\r");
                         ClientSocket.Send(msg2);
                     }
@@ -220,35 +236,76 @@ namespace WeatherStation
             //ParentMainForm.toolStripStatus_Connection.Text = "CONNECTION: " + clientsList.Count;
         }
 
+        public string SendCommandToClient(string cmd)
+        {
+            //not working yet
+            byte[] msg = Encoding.UTF8.GetBytes(cmd + "\n\r");
+            Logging.AddLog("Send command to сlient [" + ClientSocket.RemoteEndPoint + "]: " + cmd, 1);
+            ClientSocket.Send(msg);
+
+            // Получаем ответ от клиента
+            int bytesRec = ClientSocket.Receive(incomingBuffer);
+
+            if (!(bytesRec == 2 && incomingBuffer[0] == 13 && incomingBuffer[1] == 10))
+            {
+                string incomingMess = Encoding.UTF8.GetString(incomingBuffer, 0, bytesRec);
+                Logging.AddLog("Response from сlient [" + ClientSocket.RemoteEndPoint + "]: " + incomingMess, 1);
+            }
+
+            return cmd;
+        }
+
         public string SocketCommandInterpretator(string cmd)
         {
             string msg = "";
 
-            switch (cmd)
+            //if it is sensor value - add ir to buffer
+            if (cmd.StartsWith("[!"))
             {
-                case STOP_MESSAGE:
-                    // Освобождаем сокет
-                    Logging.AddLog("Client [" + ClientSocket.RemoteEndPoint + "] has ended connection", 1);
-                    ClientSocket.Shutdown(SocketShutdown.Both);
-                    ClientSocket.Close();
-                    msg = STOP_MESSAGE;
-                    break;
-                default:
-                    string cmd_output = "";
-                    if (ParentMainForm.Hardware.CommandParser.ParseSingleCommand(cmd, out cmd_output))
-                    {
-                        Logging.AddLog("Client [" + ClientSocket.RemoteEndPoint + "]: " + "command [" + cmd + "] successfully run", 1, Highlight.Normal);
-                        Logging.AddLog("Client [" + ClientSocket.RemoteEndPoint + "]: " + "command [" + cmd + "] successfully run. Output: " + cmd_output, 2, Highlight.Normal);
-                        msg = "Command [" + cmd + "] was run. Output: " + cmd_output;
-                    }
-                    else
-                    {
-                        Logging.AddLog("Client [" + ClientSocket.RemoteEndPoint + "]: " + "Unknown command [" + cmd + "]", 1, Highlight.Error);
-                        msg = "Unknown command [" + cmd + "]";
-                    }
-                    break;
-            }
+                ParentSocketServer.SocketServerCommandBuffer += cmd + Environment.NewLine;
 
+                //mark last read data
+                ParentSocketServer.LastTimeDataRead= DateTime.Now;
+
+                //return message
+                msg = "OK";
+
+                //cut buffer if it too large
+                if (ParentSocketServer.SocketServerCommandBuffer.Length > ParentSocketServer.MAX_BUFFER_LEN)
+                {
+                    ParentSocketServer.SocketServerCommandBuffer = ParentSocketServer.SocketServerCommandBuffer.Substring((Int16)(ParentSocketServer.SocketServerCommandBuffer.Length - ParentSocketServer.MAX_BUFFER_LEN));
+                    Logging.Log("SerialBuffer was cut to " + ParentSocketServer.MAX_BUFFER_LEN, 3);
+                }
+
+            }
+            else
+            //else - try to parse as a command
+            {
+                switch (cmd)
+                {
+                    case STOP_MESSAGE:
+                        // Освобождаем сокет
+                        Logging.AddLog("Client [" + ClientSocket.RemoteEndPoint + "] has ended connection", 1);
+                        ClientSocket.Shutdown(SocketShutdown.Both);
+                        ClientSocket.Close();
+                        msg = STOP_MESSAGE;
+                        break;
+                    default:
+                        string cmd_output = "";
+                        if (ParentMainFormLink.Hardware.CommandParser.ParseSingleCommand(cmd, out cmd_output))
+                        {
+                            Logging.AddLog("Client [" + ClientSocket.RemoteEndPoint + "]: " + "command [" + cmd + "] successfully run", 1, Highlight.Normal);
+                            Logging.AddLog("Client [" + ClientSocket.RemoteEndPoint + "]: " + "command [" + cmd + "] successfully run. Output: " + cmd_output, 2, Highlight.Normal);
+                            msg = "Command [" + cmd + "] was run. Output: " + cmd_output;
+                        }
+                        else
+                        {
+                            Logging.AddLog("Client [" + ClientSocket.RemoteEndPoint + "]: " + "Unknown command [" + cmd + "]", 1, Highlight.Error);
+                            msg = "Unknown command [" + cmd + "]";
+                        }
+                        break;
+                }
+            }
 
             return msg;
         }

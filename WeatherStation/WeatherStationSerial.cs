@@ -141,6 +141,8 @@ namespace WeatherStation
         public string PortName = "COM5";
         public bool UseFileEmulation = false;
         public string _WORK_WITH_FILE_SERIAL = "File Emulation"; //CONSTANT, CAN BE SET FROM EXTERNAL PARAMETERS
+        public bool UseSocketRead = false;
+        
         /// <summary>
         /// The SerialPort object, which is used for communicating through the RS-232 port
         /// </summary>        
@@ -151,6 +153,12 @@ namespace WeatherStation
         /// </summary>        
         public string SerialBuffer = "";
         public UInt32 MAX_BUFFER_LEN = 10000;
+
+        /// <summary>
+        /// Link to Socket class
+        /// </summary>
+        public SocketServerClass SocketServer;
+        public string SerialBufferFromSocket = "";//serial buffer from socket server should be put here by external process
 
         /// <summary>
         /// Simulation mode vars
@@ -687,7 +695,15 @@ namespace WeatherStation
             // If the port is not open
             if (!comport.IsOpen)
             {
-                if (UseFileEmulation)
+
+                if (UseSocketRead)
+                {
+                    //nothing much to check...
+                    sendParametersToSerial();
+                    queryParametersFromSerial();
+                    if (!error) Logging.Log("Socket data read was opened", 2);
+                }
+                else if (UseFileEmulation)
                 {
                     error=!SerialFromFile.Open();
                     sendParametersToSerial();
@@ -733,14 +749,21 @@ namespace WeatherStation
             Logging.Log("stopReadData command issued", 2);
             
             // If the port is open, close it.
-            if (comport.IsOpen)
+            if (UseFileEmulation)
             {
-                if (UseFileEmulation)
-                {
-                    error = SerialFromFile.Close();
-                    if (!error) Logging.Log("FileEmulation was closed", 2);
-                }
-                else
+                error = SerialFromFile.Close();
+                if (!error) Logging.Log("FileEmulation was closed", 2);
+            }
+            else if (UseSocketRead)
+            {
+                //if it was socket data - do nothing - data could be receiving even in stop mode (I think for now at least...)
+                //error = !.Close();
+                error = false;
+                if (!error) Logging.Log("Socket read command was received, but no need to stop in this mode", 2);
+            }
+            else
+            {
+                if (comport.IsOpen)
                 {
                     try
                     {
@@ -790,7 +813,6 @@ namespace WeatherStation
             {
                 SerialBuffer = SerialBuffer.Substring((Int16)(SerialBuffer.Length - MAX_BUFFER_LEN));
                 Logging.Log("SerialBuffer was cut to " + MAX_BUFFER_LEN, 3);
-
             }
 
             Logging.Log("SerialBuffer data was received", 3);
@@ -850,7 +872,16 @@ namespace WeatherStation
             string FullCommandSt = "(" + CommandSt + ")";
             bool error = false;
 
-            if (UseFileEmulation)
+
+            if (UseSocketRead)
+            {
+                //error = !.WriteData(FullCommandSt);
+                //if (!error) Logging.Log("Command to Serial File Emulation was sent: " + FullCommandSt);
+                error = false;
+                Logging.Log("Command to socket client isn't implemented yet: " + FullCommandSt);
+                return !error;
+            }
+            else if (UseFileEmulation)
             {
                 error = !SerialFromFile.WriteData(FullCommandSt);
                 if (!error) Logging.Log("Command to Serial File Emulation was sent: " + FullCommandSt);
@@ -956,6 +987,11 @@ namespace WeatherStation
             {
                 SinceLastRead_sec = SerialFromFile.SinceLastModification();
             }
+            else if (UseSocketRead)
+            {
+                TimeSpan SinceLastRead = DateTime.Now.Subtract(SocketServer.LastTimeDataRead);
+                SinceLastRead_sec = (UInt32)Math.Round(SinceLastRead.TotalSeconds, 0);
+            }
             else
             {
                 TimeSpan SinceLastRead = DateTime.Now.Subtract(LastTimeDataRead);
@@ -995,6 +1031,10 @@ namespace WeatherStation
             {
                 ret = SerialFromFile.ConsideredOpen;
             }
+            else if (UseSocketRead)
+            {
+                ret = (SocketServer.listenerSocket.IsBound);
+            }
             else
             {
                 ret=comport.IsOpen;
@@ -1016,8 +1056,11 @@ namespace WeatherStation
         /// </summary>        
         public void LOOP_CYCLE(out string curSerBuffer)
         {
-            //0. If Serial file emulation, read file
+            //0.1 If Serial file emulation, read file
             if (UseFileEmulation && !UseSimulation) SerialBuffer = SerialFromFile.Read();
+
+            //0.2. If use socket data mode, all data should be already put into var from MainForm
+            if (UseSocketRead && !UseSimulation) SerialBuffer = SocketServer.SocketServerCommandBuffer;
             
             //1. PARSE BUFFER
             ParseBufferData();

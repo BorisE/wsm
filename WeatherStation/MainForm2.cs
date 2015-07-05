@@ -50,7 +50,7 @@ namespace WeatherStation
         /// Socket server
         /// </summary>
         public SocketServerClass SocketServer;
-        
+
         /// <summary>
         /// Link to serial from file methods
         /// </summary>
@@ -90,7 +90,7 @@ namespace WeatherStation
         /// </summary>
         public MainForm()
         {
-            //Load language on creation
+            //Load language on form creation
             currentLang = Properties.Settings.Default.currentLang;
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(currentLang);
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(currentLang);
@@ -105,6 +105,11 @@ namespace WeatherStation
             
             //Create SocketServer obj (even if it wouldn't run)
             SocketServer = new SocketServerClass(this);
+            //Give a link to it for Harware class
+            Hardware.SocketServer = SocketServer;
+
+            //Sync consntans 
+            SocketServer.MAX_BUFFER_LEN = Hardware.MAX_BUFFER_LEN;
 
             //Init versiondata static class
             VersionData.initVersionData();
@@ -225,7 +230,7 @@ namespace WeatherStation
         private void btnStart_Click(object sender, EventArgs e)
         {
             // If the port is open, close it.
-            if (Hardware.IsOpened())
+            if ((Hardware.UseSocketRead && timer_main.Enabled) || (!Hardware.UseSocketRead && Hardware.IsOpened()))
             {
                 if (!Hardware.stopReadData())
                 {
@@ -997,8 +1002,8 @@ waiting 10000
 
             if (!Hardware.stopReadData())
             {
-                Logging.Log("Could not close the COM port");
-                LogForm.AppendLogText("Could not close the COM port");
+                Logging.Log("Could not close the COM port (or other source)");
+                LogForm.AppendLogText("Could not close the COM port (or other source)");
             }
             Logging.Log("Application closed");
             Logging.CloseLogFile();
@@ -1016,10 +1021,11 @@ waiting 10000
                 Hardware.PortName = Properties.Settings.Default.comport;
                 Hardware.WatchDog = Properties.Settings.Default.ComWatchdog;
 
-                Hardware.UseFileEmulation = (Hardware.PortName == LocRM.GetString("_WORK_WITH_FILE_SERIAL"));                
+                Hardware.UseFileEmulation = (Hardware.PortName == LocRM.GetString("_WORK_WITH_FILE_SERIAL"));
                 SerialFromFile.SerialFileNameIn = Properties.Settings.Default.SerialFileIn;
                 SerialFromFile.SerialFileNameOut = Properties.Settings.Default.SerialFileOut;
 
+                Hardware.UseSocketRead = (Hardware.PortName == LocRM.GetString("_WORK_WITH_SOCKET_SERVER"));
 
                 Hardware.CLOUDMODEL = (Properties.Settings.Default.CloudModelClassic ? CloudSensorModel.Classic : CloudSensorModel.AAG);
 
@@ -1123,10 +1129,11 @@ waiting 10000
                     messstr += String.Format("{0}:{1}({2},{3})", frame.GetFileName(), frame.GetMethod().Name, frame.GetFileLineNumber(), frame.GetFileColumnNumber());
                 }
 
-                string FullMessage = "Error loading params. ";
+                string FullMessage = "Error loading settings. ";
                 FullMessage += "IOException source: " + ex.Data + " | " + ex.Message + " | " + messstr;
 
                 Logging.Log(FullMessage);
+                MessageBox.Show("Error loading settings [" + ex.Message + "]. Not all settings was loaded. Please check your settings, first of all decimal points!" + Environment.NewLine + Environment.NewLine + ex.ToString());
             }
             Logging.Log("Loading saved parameters end", 3);
         }

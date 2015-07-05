@@ -133,4 +133,8 @@
     <value>File Emulation</value>
     <comment>String with combobox name for working with file instead of serial</comment>
   </data>
+  <data name="_WORK_WITH_SOCKET_SERVER" xml:space="preserve">
+    <value>Socket data</value>
+    <comment>String with combobox name for working with socket data instead of serial</comment>
+  </data>
 </root>
