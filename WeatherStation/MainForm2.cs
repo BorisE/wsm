@@ -418,6 +418,8 @@ IP: 192.168.1.178
 
 [!RL1:" + String.Format("{0:N0}", 0 + rand.NextDouble()) + @"]
 
+[!RL2:" + String.Format("{0:N0}", 0 + rand.NextDouble()) + @"]
+
 [!?TD:" + ArdSetTD + @"]
 [!?WT:" + ArdSetWT + @"]
 [!?RT:" + ArdSetRT + @"]
@@ -534,9 +536,9 @@ waiting 10000
 
             //Since last relay on/off
             try { 
-                txtSinceHeatingOn.Text = Convert.ToString(Hardware.HeatingOn_SecondsPassed);
-                txtSinceHeatingOff.Text = Convert.ToString(Hardware.HeatingOff_SecondsPassed);
-                if (Hardware.HeatingOn_SecondsPassed < Hardware.HEATER_CS_PAUSE)
+                txtSinceHeatingOn.Text = Convert.ToString(Hardware.Heating1On_SecondsPassed);
+                txtSinceHeatingOff.Text = Convert.ToString(Hardware.Heating1Off_SecondsPassed);
+                if (Hardware.Heating1On_SecondsPassed < Hardware.HEATER_CS_PAUSE)
                 {
                     txtSinceHeatingOn.ForeColor = Color.Silver;
                 }
@@ -544,7 +546,7 @@ waiting 10000
                 {
                     txtSinceHeatingOn.ForeColor = Color.Empty;
                 }
-                if (Hardware.HeatingOff_SecondsPassed < Hardware.HEATER_CS_PAUSE)
+                if (Hardware.Heating1Off_SecondsPassed < Hardware.HEATER_CS_PAUSE)
                 {
                     txtSinceHeatingOff.ForeColor = Color.Silver;
                 }

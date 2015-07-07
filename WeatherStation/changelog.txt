@@ -7,6 +7,10 @@ to do:
 - socket commands: relay switching, parameters querying
 - normal pressure
 
+1.8.59 (2015-07-06)
+- 2nd heater handling
+- some exception handling
+
 1.8.58 (2015-07-05)
 - can receive sensor data from sockets (can't write for now)
 

@@ -106,6 +106,12 @@ using System.Windows.Forms;
             AverageBetweenDataSend_Narodmon_SUM = 0;
             AverageBetweenDataSend_Narodmon_COUNT = 0;
         }
+        //Note, that Last Five Min - approximate value, it can be changed
+        public double AverageLastFiveMin()
+        {
+            //return ValuesLastFiveMin.Average();
+            return 0;
+        }
     }
 
 
@@ -286,11 +292,17 @@ namespace WeatherStation
         /// </summary>
         #region Relay and Heating settings
         public int Relay1 = 0;
-        public DateTime LastHeatingSwitchOn =  new DateTime(2014, 1, 1, 0, 0, 1), LastHeatingSwitchOff = new DateTime(2014, 1, 1, 0, 0, 1);
-        public int SinceLastHeating;
+        public DateTime LastHeating1SwitchOn =  new DateTime(2014, 1, 1, 0, 0, 1), LastHeating1SwitchOff = new DateTime(2014, 1, 1, 0, 0, 1);
+        public int SinceLastHeating1;
         public bool CloudSensorNeedHeatingFlag = false;
-        public int HeatingOff_SecondsPassed=0, HeatingOn_SecondsPassed = 0;
+        public int Heating1Off_SecondsPassed=0, Heating1On_SecondsPassed = 0;
+
+        public int Relay2 = 0;
+        public DateTime LastHeating2SwitchOn = new DateTime(2014, 1, 1, 0, 0, 1), LastHeating2SwitchOff = new DateTime(2014, 1, 1, 0, 0, 1);
+        public int SinceLastHeating2;
+        public int Heating2Off_SecondsPassed = 0, Heating2On_SecondsPassed = 0;
         
+
         public double HEATER_CLOUDINDEX_MIN = 14.0;
         public double HEATER_CLOUDINDEX_MAX = 19.0;
         public int CS_NEEDHEATING_LOOKBACK_CYCLES = 5; //5 cycles per 5 min ~ 25 min
@@ -575,7 +587,7 @@ namespace WeatherStation
             SensorsArray[nI].SensorArduinoField = "RGC";
             SensorsArray[nI].WebCustomName="rgc";
 
-            //Relay
+            //Relay1
             nI++;
             SensorsArray[nI] = new SensorElement();
             SensorsArray[nI].SensorName = "RL1";
@@ -586,6 +598,18 @@ namespace WeatherStation
             SensorsArray[nI].SensorFormField = "";
             SensorsArray[nI].SensorArduinoField = "RL1";
             SensorsArray[nI].WebCustomName="rl1";
+
+            //Relay2
+            nI++;
+            SensorsArray[nI] = new SensorElement();
+            SensorsArray[nI].SensorName = "RL2";
+            SensorsArray[nI].SensorType = SensorTypeEnum.Relay;
+            SensorsArray[nI].Enabled = true;
+            SensorsArray[nI].SendToWebFlag = true;
+            SensorsArray[nI].SendToNarodMon = true;
+            SensorsArray[nI].SensorFormField = "";
+            SensorsArray[nI].SensorArduinoField = "RL2";
+            SensorsArray[nI].WebCustomName = "rl2";
 
             //Wind Speed
             nI++;
@@ -1101,6 +1125,7 @@ namespace WeatherStation
                             string tagName = aLine.Substring(tagStartPosition, tagEndPosition - tagStartPosition);
                             string tagValue_raw = aLine.Substring(tagEndPosition + 1, valEndPosition - tagEndPosition - 1);
                             
+                            //automatic decimal point correction
                             char Separator = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator[0];
                             char BadSeparator = '.';
                             
@@ -1118,8 +1143,24 @@ namespace WeatherStation
                                 SensIdx++;
                                 if (DataSensor != null) {
                                     if (DataSensor.SensorArduinoField == tagName){
-                                        if (CheckData(Convert.ToDouble(tagValue), DataSensor.SensorType)) {
-                                            SensorsArray[SensIdx].AddValue(Convert.ToDouble(tagValue));
+                                        try
+                                        {
+                                            //Trim value if it is too lengthy (in case of Arduino malfunction)
+                                            if (tagValue.Length > 20)
+                                            {
+                                                tagValue=tagValue.Substring(0, 20) + "[...]";
+                                                Logging.AddLog("TagValue is too long in ParseBufferData for pair [" + tagName + "][" + tagValue + "]", 2);
+                                            }
+                                            
+                                            //Convert to Double
+                                            if (CheckData(Convert.ToDouble(tagValue), DataSensor.SensorType))
+                                            {
+                                                SensorsArray[SensIdx].AddValue(Convert.ToDouble(tagValue));
+                                            }
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            Logging.AddLog("Exception in ParseBufferData for pair ["+tagName+"]["+tagValue+"], message: " + ex.Message + ". " + ex.ToString(), 1);
                                         }
                                     }
                                 }
@@ -1134,12 +1175,25 @@ namespace WeatherStation
                                 int Relay1_n= Convert.ToInt16(tagValue);
                                 if (Relay1 == 0 && Relay1_n == 1)
                                 {
-                                    LastHeatingSwitchOn = DateTime.Now;
+                                    LastHeating1SwitchOn = DateTime.Now;
                                 }
                                 else if (Relay1==1 && Relay1_n==0) {
-                                    LastHeatingSwitchOff = DateTime.Now;
+                                    LastHeating1SwitchOff = DateTime.Now;
                                 }
                                 Relay1=Relay1_n;
+                            }
+                            else if (tagName == "RL2")
+                            {
+                                int Relay2_n = Convert.ToInt16(tagValue);
+                                if (Relay2 == 0 && Relay2_n == 1)
+                                {
+                                    LastHeating2SwitchOn = DateTime.Now;
+                                }
+                                else if (Relay2 == 1 && Relay2_n == 0)
+                                {
+                                    LastHeating2SwitchOff = DateTime.Now;
+                                }
+                                Relay2 = Relay2_n;
                             }
                             else if (tagName == "WnV")
                             {
@@ -1325,12 +1379,12 @@ namespace WeatherStation
             if (CloudSensorNeedHeatingFlag) Logging.Log("Cloud sensor heating narrow condition is met, but need to test other", 2);
  
             // Check - how long has been passed since last switch on
-            TimeSpan SinceLastHeatingMF = DateTime.Now.Subtract(LastHeatingSwitchOff);
-            HeatingOff_SecondsPassed = (int)Math.Round(SinceLastHeatingMF.TotalSeconds, 0);
-            SinceLastHeatingMF = DateTime.Now.Subtract(LastHeatingSwitchOn);
-            HeatingOn_SecondsPassed = (int)Math.Round(SinceLastHeatingMF.TotalSeconds, 0);
-            SinceLastHeating = Math.Min(HeatingOff_SecondsPassed, HeatingOn_SecondsPassed);
-            bool CSNeedsHeating_SinceLastHeatingMet = (SinceLastHeating > HEATER_CS_PAUSE); //since last heating session passed enough time
+            TimeSpan SinceLastHeatingMF = DateTime.Now.Subtract(LastHeating1SwitchOff);
+            Heating1Off_SecondsPassed = (int)Math.Round(SinceLastHeatingMF.TotalSeconds, 0);
+            SinceLastHeatingMF = DateTime.Now.Subtract(LastHeating1SwitchOn);
+            Heating1On_SecondsPassed = (int)Math.Round(SinceLastHeatingMF.TotalSeconds, 0);
+            SinceLastHeating1 = Math.Min(Heating1Off_SecondsPassed, Heating1On_SecondsPassed);
+            bool CSNeedsHeating_SinceLastHeatingMet = (SinceLastHeating1 > HEATER_CS_PAUSE); //since last heating session passed enough time
             //Relay off now?
             bool CSNeedsHeating_RelayOffNow = (SensorsArray[SensorsArrayHash["RL1"]].LastValue == 0); //heating not engaged already
 
@@ -1360,7 +1414,7 @@ namespace WeatherStation
         /// </summary>
         public bool HeatingOn()
         {
-            LastHeatingSwitchOn = DateTime.Now;
+            LastHeating1SwitchOn = DateTime.Now;
             Logging.Log("Heating on", 1);
             return WriteSerialData("RL1:1");
         }
@@ -1370,7 +1424,7 @@ namespace WeatherStation
         /// </summary>
         public bool HeatingOff()
         {
-            LastHeatingSwitchOff = DateTime.Now;
+            LastHeating1SwitchOff = DateTime.Now;
             Logging.Log("Heating off", 1);
             return WriteSerialData("RL1:0");
         }
