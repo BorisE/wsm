@@ -139,9 +139,6 @@ namespace WeatherStation
             //chart1.ChartAreas["chartArea1"].AxisY.StripLines.stripLine3.IntervalOffset = 20D;
             //chart1.ChartAreas["chartArea1"].AxisY.StripLines.stripLine3.StripWidth = 5D;
 
-            //normal pressure
-            chart1.ChartAreas[1].AxisY.StripLines[1].StripWidth = 30 - Hardware.CLOUDINDEX_CLEAR;
-
 
             //INIT GRAPHICS
             //chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.ToOADate();
