@@ -139,6 +139,10 @@ namespace WeatherStation
             //chart1.ChartAreas["chartArea1"].AxisY.StripLines.stripLine3.IntervalOffset = 20D;
             //chart1.ChartAreas["chartArea1"].AxisY.StripLines.stripLine3.StripWidth = 5D;
 
+            //normal pressure
+            chart1.ChartAreas[1].AxisY.StripLines[1].StripWidth = 30 - Hardware.CLOUDINDEX_CLEAR;
+
+
             //INIT GRAPHICS
             //chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.ToOADate();
             foreach (Series serNum in chart1.Series)
@@ -456,7 +460,7 @@ waiting 10000
 
             //Include all sensor that needed to display
             int SensIdx = -1;
-            foreach (SensorElement DataSensor in Hardware.SensorsArray)
+            foreach (SensorElement DataSensor in Hardware.SensorsList.Values)
             {
                 SensIdx++;
                 if (DataSensor != null)
@@ -751,7 +755,7 @@ waiting 10000
 
             //Include all sensor that needed to web query
             int SensIdx = -1;
-            foreach (SensorElement DataSensor in Hardware.SensorsArray)
+            foreach (SensorElement DataSensor in Hardware.SensorsList.Values)
             {
                 SensIdx++;
                 if (DataSensor != null)
@@ -777,7 +781,7 @@ waiting 10000
                         {
                             TempDataValue = DataSensor.LastValue;
                         }
-                        Hardware.SensorsArray[Hardware.SensorsArrayHash[DataSensor.SensorName]].ClearValuesWeb();
+                        Hardware.SensorsList[DataSensor.SensorName].ClearValuesWeb();
 
                         webstr += "&" + DataSensor.WebCustomName + "=" + Convert.ToString(TempDataValue);
                     }
@@ -801,7 +805,7 @@ waiting 10000
             string narodmonst="";
 
             int SensIdx = 0;
-            foreach (SensorElement DataSensor in Hardware.SensorsArray)
+            foreach (SensorElement DataSensor in Hardware.SensorsList.Values)
             {
                 SensIdx++;
                 if (DataSensor != null)
@@ -834,7 +838,7 @@ waiting 10000
                             {
                                 TempDataValue = Hardware.calcWindSpeed(TempDataValue);
                             }
-                            Hardware.SensorsArray[Hardware.SensorsArrayHash[DataSensor.SensorName]].ClearValuesNarodmon();
+                            Hardware.SensorsList[DataSensor.SensorName].ClearValuesNarodmon();
                             
                             narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(TempDataValue);
                         }
@@ -873,12 +877,13 @@ waiting 10000
             if (Hardware.CheckData(Hardware.BaseTempVal, SensorTypeEnum.Temp)) {
                 addGraphicsPoint(chart1, "Temp1", curX, Hardware.BaseTempVal);
             }
-            if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["Temp2"]].LastValue, SensorTypeEnum.Temp)) {
-                addGraphicsPoint(chart1, "Temp2", curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["Temp2"]].LastValue); 
-            }
-            if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["ATemp"]]))
+            if (Hardware.CheckData(Hardware.SensorsList["Temp2"].LastValue, SensorTypeEnum.Temp))
             {
-                addGraphicsPoint(chart1, "ATemp", curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["ATemp"]].LastValue);
+                addGraphicsPoint(chart1, "Temp2", curX, Hardware.SensorsList["Temp2"].LastValue); 
+            }
+            if (Hardware.CheckData(Hardware.SensorsList["ATemp"]))
+            {
+                addGraphicsPoint(chart1, "ATemp", curX, Hardware.SensorsList["ATemp"].LastValue);
             }
 
             /*            if (Hardware.CheckData(Convert.ToDouble(txtTemp2.Text), SensorTypeEnum.Temp))
@@ -887,13 +892,13 @@ waiting 10000
             }*/
 
             //Graph4
-            if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["Wet"]].LastValue, SensorTypeEnum.Wet))
+            if (Hardware.CheckData(Hardware.SensorsList["Wet"].LastValue, SensorTypeEnum.Wet))
             {
-                addGraphicsPoint(chart1, "Wet", curX, (1024 - (int)Hardware.SensorsArray[Hardware.SensorsArrayHash["Wet"]].LastValue));
+                addGraphicsPoint(chart1, "Wet", curX, (1024 - (int)Hardware.SensorsList["Wet"].LastValue));
             }
-            if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["RGC"]].LastValue, SensorTypeEnum.RGC))
+            if (Hardware.CheckData(Hardware.SensorsList["RGC"].LastValue, SensorTypeEnum.RGC))
             {
-                addGraphicsPoint(chart1, "RGC", curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["RGC"]].LastValue);
+                addGraphicsPoint(chart1, "RGC", curX, Hardware.SensorsList["RGC"].LastValue);
             }
             if (Hardware.CheckData(Hardware.HumidityVal, SensorTypeEnum.Hum))
             {
@@ -909,18 +914,18 @@ waiting 10000
             {
                 addGraphicsPoint(chart1, "Illum", curX, Hardware.IllumVal);
             }
-            if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["RL1"]]))
+            if (Hardware.CheckData(Hardware.SensorsList["RL1"]))
             {
-                addGraphicsPoint(chart1, "RL1", curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["RL1"]].LastValue);
+                addGraphicsPoint(chart1, "RL1", curX, Hardware.SensorsList["RL1"].LastValue);
             }
             if (Hardware.CheckData(Hardware.WindSpeedVal, SensorTypeEnum.WSp))
             {
                 addGraphicsPoint(chart1, "WindSpeed", curX, Hardware.WindSpeedVal);
             }
 
-            if (Hardware.CheckData(Hardware.SensorsArray[Hardware.SensorsArrayHash["Press"]].LastValue, SensorTypeEnum.Press))
+            if (Hardware.CheckData(Hardware.SensorsList["Press"].LastValue, SensorTypeEnum.Press))
             {
-                addGraphicsPoint(chart1, "Press", curX, Hardware.SensorsArray[Hardware.SensorsArrayHash["Press"]].LastValue);
+                addGraphicsPoint(chart1, "Press", curX, Hardware.SensorsList["Press"].LastValue);
             }
 
             ///////////////////////////////////////////////////////////////////////////////////////////
@@ -1109,10 +1114,10 @@ waiting 10000
 
                 //Load base temp sensor settings
                 string BaseTempSt = Properties.Settings.Default.BaseTempSensor;
-                if (Hardware.SensorsArrayHash.ContainsKey(BaseTempSt))
+                if (Hardware.SensorsList.ContainsKey(BaseTempSt))
                 {
                     Hardware.BaseTempName = BaseTempSt;
-                    Hardware.BaseTempIdx = Hardware.SensorsArrayHash[BaseTempSt];
+                    //Hardware.BaseTempIdx = Hardware.SensorsArrayHash[BaseTempSt];
                 }
                 else
                 {

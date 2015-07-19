@@ -278,10 +278,10 @@ namespace WeatherStation
 
                 //Store to vars base temp sensor settings (COMBOBOX)
                 string BaseTempSt = (string)cmbBaseTempSensor.SelectedItem;
-                if (ParentMainForm.Hardware.SensorsArrayHash.ContainsKey(BaseTempSt))
+                if (ParentMainForm.Hardware.SensorsList.ContainsKey(BaseTempSt))
                 {
                     ParentMainForm.Hardware.BaseTempName = BaseTempSt;
-                    ParentMainForm.Hardware.BaseTempIdx = ParentMainForm.Hardware.SensorsArrayHash[BaseTempSt];
+                    //ParentMainForm.Hardware.BaseTempIdx = ParentMainForm.Hardware.SensorsArrayHash[BaseTempSt];
                 }
                 else
                 {
@@ -400,11 +400,8 @@ namespace WeatherStation
 
         private void btnResetSensorList_Click(object sender, EventArgs e)
         {
-            //Clear current values
-            Array.Clear(ParentMainForm.Hardware.SensorsArray, 0, ParentMainForm.Hardware.SensorsArray.Length);
-
             //Load default values
-            ParentMainForm.Hardware.initSensorArray();
+            ParentMainForm.Hardware.initSensorList();
 
             //POPULATE DATAGRID
             PopulateSensorListGrid();
@@ -446,7 +443,7 @@ namespace WeatherStation
             if (SensorName != "")
             {
                 //Clear default values
-                Array.Clear(ParentMainForm.Hardware.SensorsArray, 0, ParentMainForm.Hardware.SensorsArray.Length);
+                ParentMainForm.Hardware.SensorsList.Clear();
 
                 //Fill in new from Settings
                 Int16 nI = -1;
@@ -455,16 +452,20 @@ namespace WeatherStation
                     if (SName != "")
                     {
                         nI++;
-                        ParentMainForm.Hardware.SensorsArray[nI] = new SensorElement();
-                        ParentMainForm.Hardware.SensorsArray[nI].SensorName = SName;
-                        ParentMainForm.Hardware.SensorsArray[nI].SensorType = ParentMainForm.Hardware.SensorTypeEnum_Dict[SensorTypeArr[nI]];
-                        ParentMainForm.Hardware.SensorsArray[nI].Enabled = Convert.ToBoolean(SensorEnabledArr[nI]);
-                        ParentMainForm.Hardware.SensorsArray[nI].SendToWebFlag = Convert.ToBoolean(SendToWebArr[nI]);
-                        ParentMainForm.Hardware.SensorsArray[nI].SendToNarodMon = Convert.ToBoolean(SendToNarodmonArr[nI]);
-                        //ParentMainForm.Hardware.SensorsArray[nI].SensorFormField = "";
-                        ParentMainForm.Hardware.SensorsArray[nI].SensorArduinoField = ArduinoNameArr[nI];
-                        ParentMainForm.Hardware.SensorsArray[nI].WebCustomName = WebCustomNameArr[nI];
-                        ParentMainForm.Hardware.SensorsArray[nI].SensorFormField = SensorFieldNameArr[nI];
+                        
+                        SensorElement SensorEl = new SensorElement();
+
+                        SensorEl.SensorName = SName;
+                        SensorEl.SensorType = ParentMainForm.Hardware.SensorTypeEnum_Dict[SensorTypeArr[nI]];
+                        SensorEl.Enabled = Convert.ToBoolean(SensorEnabledArr[nI]);
+                        SensorEl.SendToWebFlag = Convert.ToBoolean(SendToWebArr[nI]);
+                        SensorEl.SendToNarodMon = Convert.ToBoolean(SendToNarodmonArr[nI]);
+                        //SensorEl.SensorFormField = "";
+                        SensorEl.SensorArduinoField = ArduinoNameArr[nI];
+                        SensorEl.WebCustomName = WebCustomNameArr[nI];
+                        SensorEl.SensorFormField = SensorFieldNameArr[nI];
+
+                        ParentMainForm.Hardware.SensorsList.Add(SensorEl.SensorName, SensorEl);
                     }
                 }
             }
@@ -481,7 +482,7 @@ namespace WeatherStation
             int curRowIndex = 0;
             cmbBaseTempSensor.Items.Clear();
             dataGridSensors.Rows.Clear();
-            foreach (SensorElement DataSensor in ParentMainForm.Hardware.SensorsArray)
+            foreach (SensorElement DataSensor in ParentMainForm.Hardware.SensorsList.Values)
             {
                 if (DataSensor != null)
                 {

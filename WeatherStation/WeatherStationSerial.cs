@@ -209,13 +209,11 @@ namespace WeatherStation
         /// Sensor arrays and different settings
         /// </summary>        
         #region Sensor arrays
-        public SensorElement[] SensorsArray = new SensorElement[20];
-        
-        public Dictionary<string, int> SensorsArrayHash = new Dictionary<string, int>();
+        public Dictionary<String, SensorElement> SensorsList = new Dictionary<String,SensorElement>();
         public Dictionary<string, int> SensorsArrayHashArduino = new Dictionary<string, int>();
 
         public string BaseTempName = "Temp1";
-        public int BaseTempIdx = -1;
+        public int BaseTempIdx___ = -1;
         public double BaseTempVal = -100;
 
         public Dictionary<string, SensorTypeEnum> SensorTypeEnum_Dict = new Dictionary<string, SensorTypeEnum> {
@@ -233,7 +231,7 @@ namespace WeatherStation
         /// <summary>
         /// Sensors vars and misc settings
         /// </summary>        
-    #region Different sensor settings
+        #region Different sensor settings
         public double CloudIdx = -100.0; // Classic model
         public double CloudIdxAAG = -100.0; // AAG model
         
@@ -285,7 +283,7 @@ namespace WeatherStation
         private const int SKYSENSOR_HISTORY_LENGTH = 12;
         public List<double> SkyIndex5min = new List<double>(); 
         private int SkyIndexAlreadyAddedMinute = -1;
-    #endregion
+        #endregion
 
         /// <summary>
         /// Relay and Heating settings
@@ -426,228 +424,227 @@ namespace WeatherStation
             //if calling with parameter - using graphical form for displaying serial data
             //if (MF != null) ParentMainForm = MF; 
             
-            initSensorArray();
+            initSensorList();
 
             CommandParser = new CommandInterpretator();
             InitComandInterpretator();
 
         }
 
-        /// <summary>
-        /// Set default values for sensor array
-        /// </summary>     
-        public void initSensorArray()
+        public void initSensorList()
         {
-            Logging.Log("initSensorArray enter", 3);
+            Logging.Log("initSensorList enter", 3);
 
-            Int16 nI = -1;
+            //Clear current values
+            SensorsList.Clear();
+
+            SensorElement SensorEl = new SensorElement();
+
             //MLX
-            nI++;
-            SensorsArray[nI] = new SensorElement();
-            SensorsArray[nI].SensorName = "ObjTemp";
-            SensorsArray[nI].SensorType=SensorTypeEnum.Temp;
-            SensorsArray[nI].Enabled=true;
-            SensorsArray[nI].SendToWebFlag=true;
-            SensorsArray[nI].SendToNarodMon=false;
-            SensorsArray[nI].SensorFormField = "txtFldObj";
-            SensorsArray[nI].SensorArduinoField = "Obj";
-            SensorsArray[nI].WebCustomName="ot";
-            nI++;
-            SensorsArray[nI] = new SensorElement();
-            SensorsArray[nI].SensorName = "ATemp";
-            SensorsArray[nI].SensorType = SensorTypeEnum.Temp;
-            SensorsArray[nI].Enabled = true;
-            SensorsArray[nI].SendToWebFlag = true;
-            SensorsArray[nI].SendToNarodMon = true;
-            SensorsArray[nI].SensorFormField = "txtFldATemp";
-            SensorsArray[nI].SensorArduinoField = "Amb";
-            SensorsArray[nI].WebCustomName="at";
+            SensorEl.SensorName = "ObjTemp";
+            SensorEl.SensorType = SensorTypeEnum.Temp;
+            SensorEl.Enabled = true;
+            SensorEl.SendToWebFlag = true;
+            SensorEl.SendToNarodMon = false;
+            SensorEl.SensorFormField = "txtFldObj";
+            SensorEl.SensorArduinoField = "Obj";
+            SensorEl.WebCustomName = "ot";
+            SensorsList.Add(SensorEl.SensorName,SensorEl);
+
+
+            //Amb
+            SensorEl = new SensorElement();
+            SensorEl.SensorName = "ATemp";
+            SensorEl.SensorType = SensorTypeEnum.Temp;
+            SensorEl.Enabled = true;
+            SensorEl.SendToWebFlag = true;
+            SensorEl.SendToNarodMon = true;
+            SensorEl.SensorFormField = "txtFldATemp";
+            SensorEl.SensorArduinoField = "Amb";
+            SensorEl.WebCustomName = "at";
+            SensorsList.Add(SensorEl.SensorName, SensorEl);
 
             //BMP085
-            nI++;
-            SensorsArray[nI] = new SensorElement();
-            SensorsArray[nI].SensorName = "BTemp";
-            SensorsArray[nI].SensorType = SensorTypeEnum.Temp;
-            SensorsArray[nI].Enabled = true;
-            SensorsArray[nI].SendToWebFlag = true;
-            SensorsArray[nI].SendToNarodMon = false;
-            SensorsArray[nI].SensorFormField = "txtFldBTemp";
-            SensorsArray[nI].SensorArduinoField = "BTe";
-            SensorsArray[nI].WebCustomName="bt";
-            nI++;
-            SensorsArray[nI] = new SensorElement();
-            SensorsArray[nI].SensorName = "Press";
-            SensorsArray[nI].SensorType = SensorTypeEnum.Press;
-            SensorsArray[nI].Enabled = true;
-            SensorsArray[nI].SendToWebFlag = true;
-            SensorsArray[nI].SendToNarodMon = true;
-            SensorsArray[nI].SensorFormField = "txtFldPress";
-            SensorsArray[nI].SensorArduinoField = "Pre";
-            SensorsArray[nI].WebCustomName="bp";
+            SensorEl = new SensorElement();
+            SensorEl.SensorName = "BTemp";
+            SensorEl.SensorType = SensorTypeEnum.Temp;
+            SensorEl.Enabled = true;
+            SensorEl.SendToWebFlag = true;
+            SensorEl.SendToNarodMon = false;
+            SensorEl.SensorFormField = "txtFldBTemp";
+            SensorEl.SensorArduinoField = "BTe";
+            SensorEl.WebCustomName = "bt";
+            SensorsList.Add(SensorEl.SensorName, SensorEl);
+
+            SensorEl = new SensorElement();
+            SensorEl.SensorName = "Press";
+            SensorEl.SensorType = SensorTypeEnum.Press;
+            SensorEl.Enabled = true;
+            SensorEl.SendToWebFlag = true;
+            SensorEl.SendToNarodMon = true;
+            SensorEl.SensorFormField = "txtFldPress";
+            SensorEl.SensorArduinoField = "Pre";
+            SensorEl.WebCustomName = "bp";
+            SensorsList.Add(SensorEl.SensorName, SensorEl);
 
             //DHT22_1
-            nI++;
-            SensorsArray[nI] = new SensorElement();
-            SensorsArray[nI].SensorName = "Hum1";
-            SensorsArray[nI].SensorType = SensorTypeEnum.Hum;
-            SensorsArray[nI].Enabled = true;
-            SensorsArray[nI].SendToWebFlag = true;
-            SensorsArray[nI].SendToNarodMon = true;
-            SensorsArray[nI].SensorFormField = "txtFldHum1";
-            SensorsArray[nI].SensorArduinoField = "DH1";
-            SensorsArray[nI].WebCustomName="dh";
-            nI++;
-            SensorsArray[nI] = new SensorElement();
-            SensorsArray[nI].SensorName = "DTemp1";
-            SensorsArray[nI].SensorType = SensorTypeEnum.Temp;
-            SensorsArray[nI].Enabled = true;
-            SensorsArray[nI].SendToWebFlag = true;
-            SensorsArray[nI].SendToNarodMon = false;
-            SensorsArray[nI].SensorFormField = "txtFldDTemp1";
-            SensorsArray[nI].SensorArduinoField = "DT1";
-            SensorsArray[nI].WebCustomName="dt";
+            SensorEl = new SensorElement();
+            SensorEl.SensorName = "Hum1";
+            SensorEl.SensorType = SensorTypeEnum.Hum;
+            SensorEl.Enabled = true;
+            SensorEl.SendToWebFlag = true;
+            SensorEl.SendToNarodMon = true;
+            SensorEl.SensorFormField = "txtFldHum1";
+            SensorEl.SensorArduinoField = "DH1";
+            SensorEl.WebCustomName = "dh";
+            SensorsList.Add(SensorEl.SensorName, SensorEl);
+
+            SensorEl = new SensorElement();
+            SensorEl.SensorName = "DTemp1";
+            SensorEl.SensorType = SensorTypeEnum.Temp;
+            SensorEl.Enabled = true;
+            SensorEl.SendToWebFlag = true;
+            SensorEl.SendToNarodMon = false;
+            SensorEl.SensorFormField = "txtFldDTemp1";
+            SensorEl.SensorArduinoField = "DT1";
+            SensorEl.WebCustomName = "dt";
+            SensorsList.Add(SensorEl.SensorName, SensorEl);
 
             //DHT22_2
-            nI++;
-            SensorsArray[nI] = new SensorElement();
-            SensorsArray[nI].SensorName = "Hum2";
-            SensorsArray[nI].SensorType = SensorTypeEnum.Hum;
-            SensorsArray[nI].Enabled = true;
-            SensorsArray[nI].SendToWebFlag = true;
-            SensorsArray[nI].SendToNarodMon = false;
-            SensorsArray[nI].SensorFormField = "txtFldHum2";
-            SensorsArray[nI].SensorArduinoField = "DH2";
-            SensorsArray[nI].WebCustomName="dh2";
-            nI++;
-            SensorsArray[nI] = new SensorElement();
-            SensorsArray[nI].SensorName = "DTemp2";
-            SensorsArray[nI].SensorType = SensorTypeEnum.Temp;
-            SensorsArray[nI].Enabled = true;
-            SensorsArray[nI].SendToWebFlag = true;
-            SensorsArray[nI].SendToNarodMon = false;
-            SensorsArray[nI].SensorFormField = "txtFldDTemp2";
-            SensorsArray[nI].SensorArduinoField = "DT2";
-            SensorsArray[nI].WebCustomName="dt2";
+            SensorEl = new SensorElement();
+            SensorEl.SensorName = "Hum2";
+            SensorEl.SensorType = SensorTypeEnum.Hum;
+            SensorEl.Enabled = true;
+            SensorEl.SendToWebFlag = true;
+            SensorEl.SendToNarodMon = false;
+            SensorEl.SensorFormField = "txtFldHum2";
+            SensorEl.SensorArduinoField = "DH2";
+            SensorEl.WebCustomName = "dh2";
+            SensorsList.Add(SensorEl.SensorName, SensorEl);
+
+            SensorEl = new SensorElement();
+            SensorEl.SensorName = "DTemp2";
+            SensorEl.SensorType = SensorTypeEnum.Temp;
+            SensorEl.Enabled = true;
+            SensorEl.SendToWebFlag = true;
+            SensorEl.SendToNarodMon = false;
+            SensorEl.SensorFormField = "txtFldDTemp2";
+            SensorEl.SensorArduinoField = "DT2";
+            SensorEl.WebCustomName = "dt2";
+            SensorsList.Add(SensorEl.SensorName, SensorEl);
 
             //Illuminance
-            nI++;
-            SensorsArray[nI] = new SensorElement();
-            SensorsArray[nI].SensorName = "Illum";
-            SensorsArray[nI].SensorType = SensorTypeEnum.Illum;
-            SensorsArray[nI].Enabled = true;
-            SensorsArray[nI].SendToWebFlag = true;
-            SensorsArray[nI].SendToNarodMon = true;
-            SensorsArray[nI].SensorFormField = "txtFldIllum";
-            SensorsArray[nI].SensorArduinoField = "Lum";
-            SensorsArray[nI].WebCustomName="bhv";
+            SensorEl = new SensorElement();
+            SensorEl.SensorName = "Illum";
+            SensorEl.SensorType = SensorTypeEnum.Illum;
+            SensorEl.Enabled = true;
+            SensorEl.SendToWebFlag = true;
+            SensorEl.SendToNarodMon = true;
+            SensorEl.SensorFormField = "txtFldIllum";
+            SensorEl.SensorArduinoField = "Lum";
+            SensorEl.WebCustomName = "bhv";
+            SensorsList.Add(SensorEl.SensorName, SensorEl);
 
             //OneWire temp
-            nI++;
-            SensorsArray[nI] = new SensorElement();
-            SensorsArray[nI].SensorName = "Temp1";
-            SensorsArray[nI].SensorType = SensorTypeEnum.Temp;
-            SensorsArray[nI].Enabled = true;
-            SensorsArray[nI].SendToWebFlag = true;
-            SensorsArray[nI].SendToNarodMon = true;
-            SensorsArray[nI].SensorFormField = "txtFldTemp1";
-            SensorsArray[nI].SensorArduinoField = "Te1";
-            SensorsArray[nI].WebCustomName="owt1";
-            nI++;
-            SensorsArray[nI] = new SensorElement();
-            SensorsArray[nI].SensorName = "Temp2";
-            SensorsArray[nI].SensorType = SensorTypeEnum.Temp;
-            SensorsArray[nI].Enabled = true;
-            SensorsArray[nI].SendToWebFlag = true;
-            SensorsArray[nI].SendToNarodMon = true;
-            SensorsArray[nI].SensorFormField = "txtFldTemp2";
-            SensorsArray[nI].SensorArduinoField = "Te2";
-            SensorsArray[nI].WebCustomName="owt2";
+            SensorEl = new SensorElement();
+            SensorEl.SensorName = "Temp1";
+            SensorEl.SensorType = SensorTypeEnum.Temp;
+            SensorEl.Enabled = true;
+            SensorEl.SendToWebFlag = true;
+            SensorEl.SendToNarodMon = true;
+            SensorEl.SensorFormField = "txtFldTemp1";
+            SensorEl.SensorArduinoField = "Te1";
+            SensorEl.WebCustomName = "owt1";
+            SensorsList.Add(SensorEl.SensorName, SensorEl);
+
+            SensorEl = new SensorElement();
+            SensorEl.SensorName = "Temp2";
+            SensorEl.SensorType = SensorTypeEnum.Temp;
+            SensorEl.Enabled = true;
+            SensorEl.SendToWebFlag = true;
+            SensorEl.SendToNarodMon = true;
+            SensorEl.SensorFormField = "txtFldTemp2";
+            SensorEl.SensorArduinoField = "Te2";
+            SensorEl.WebCustomName = "owt2";
+            SensorsList.Add(SensorEl.SensorName, SensorEl);
 
             //Wet sensor
-            nI++;
-            SensorsArray[nI] = new SensorElement();
-            SensorsArray[nI].SensorName = "Wet";
-            SensorsArray[nI].SensorType = SensorTypeEnum.Wet;
-            SensorsArray[nI].Enabled = true;
-            SensorsArray[nI].SendToWebFlag = true;
-            SensorsArray[nI].SendToNarodMon = true;
-            SensorsArray[nI].SensorFormField = "txtFldWet";
-            SensorsArray[nI].SensorArduinoField = "Wet";
-            SensorsArray[nI].WebCustomName="wsv";
+            SensorEl = new SensorElement();
+            SensorEl.SensorName = "Wet";
+            SensorEl.SensorType = SensorTypeEnum.Wet;
+            SensorEl.Enabled = true;
+            SensorEl.SendToWebFlag = true;
+            SensorEl.SendToNarodMon = true;
+            SensorEl.SensorFormField = "txtFldWet";
+            SensorEl.SensorArduinoField = "Wet";
+            SensorEl.WebCustomName = "wsv";
+            SensorsList.Add(SensorEl.SensorName, SensorEl);
 
             //RGC sensor
-            nI++;
-            SensorsArray[nI] = new SensorElement();
-            SensorsArray[nI].SensorName = "RGC";
-            SensorsArray[nI].SensorType = SensorTypeEnum.RGC;
-            SensorsArray[nI].Enabled = true;
-            SensorsArray[nI].SendToWebFlag = true;
-            SensorsArray[nI].SendToNarodMon = true;
-            SensorsArray[nI].SensorFormField = "txtFldRGC";
-            SensorsArray[nI].SensorArduinoField = "RGC";
-            SensorsArray[nI].WebCustomName="rgc";
+            SensorEl = new SensorElement();
+            SensorEl.SensorName = "RGC";
+            SensorEl.SensorType = SensorTypeEnum.RGC;
+            SensorEl.Enabled = true;
+            SensorEl.SendToWebFlag = true;
+            SensorEl.SendToNarodMon = true;
+            SensorEl.SensorFormField = "txtFldRGC";
+            SensorEl.SensorArduinoField = "RGC";
+            SensorEl.WebCustomName = "rgc";
+            SensorsList.Add(SensorEl.SensorName, SensorEl);
 
             //Relay1
-            nI++;
-            SensorsArray[nI] = new SensorElement();
-            SensorsArray[nI].SensorName = "RL1";
-            SensorsArray[nI].SensorType = SensorTypeEnum.Relay;
-            SensorsArray[nI].Enabled = true;
-            SensorsArray[nI].SendToWebFlag = true;
-            SensorsArray[nI].SendToNarodMon = true;
-            SensorsArray[nI].SensorFormField = "";
-            SensorsArray[nI].SensorArduinoField = "RL1";
-            SensorsArray[nI].WebCustomName="rl1";
+            SensorEl = new SensorElement();
+            SensorEl.SensorName = "RL1";
+            SensorEl.SensorType = SensorTypeEnum.Relay;
+            SensorEl.Enabled = true;
+            SensorEl.SendToWebFlag = true;
+            SensorEl.SendToNarodMon = true;
+            SensorEl.SensorFormField = "";
+            SensorEl.SensorArduinoField = "RL1";
+            SensorEl.WebCustomName = "rl1";
+            SensorsList.Add(SensorEl.SensorName, SensorEl);
 
             //Relay2
-            nI++;
-            SensorsArray[nI] = new SensorElement();
-            SensorsArray[nI].SensorName = "RL2";
-            SensorsArray[nI].SensorType = SensorTypeEnum.Relay;
-            SensorsArray[nI].Enabled = true;
-            SensorsArray[nI].SendToWebFlag = true;
-            SensorsArray[nI].SendToNarodMon = true;
-            SensorsArray[nI].SensorFormField = "";
-            SensorsArray[nI].SensorArduinoField = "RL2";
-            SensorsArray[nI].WebCustomName = "rl2";
+            SensorEl = new SensorElement();
+            SensorEl.SensorName = "RL2";
+            SensorEl.SensorType = SensorTypeEnum.Relay;
+            SensorEl.Enabled = true;
+            SensorEl.SendToWebFlag = true;
+            SensorEl.SendToNarodMon = true;
+            SensorEl.SensorFormField = "";
+            SensorEl.SensorArduinoField = "RL2";
+            SensorEl.WebCustomName = "rl2";
+            SensorsList.Add(SensorEl.SensorName, SensorEl);
 
             //Wind Speed
-            nI++;
-            SensorsArray[nI] = new SensorElement();
-            SensorsArray[nI].SensorName = "WSp";
-            SensorsArray[nI].SensorType = SensorTypeEnum.WSp;
-            SensorsArray[nI].Enabled = true;
-            SensorsArray[nI].SendToWebFlag = true;
-            SensorsArray[nI].SendToNarodMon = true;
-            SensorsArray[nI].SensorFormField = "";
-            SensorsArray[nI].SensorArduinoField = "WnV";
-            SensorsArray[nI].WebCustomName = "wns";
-            
-            
+            SensorEl = new SensorElement();
+            SensorEl.SensorName = "WSp";
+            SensorEl.SensorType = SensorTypeEnum.WSp;
+            SensorEl.Enabled = true;
+            SensorEl.SendToWebFlag = true;
+            SensorEl.SendToNarodMon = true;
+            SensorEl.SensorFormField = "";
+            SensorEl.SensorArduinoField = "WnV";
+            SensorEl.WebCustomName = "wns";
+            SensorsList.Add(SensorEl.SensorName, SensorEl);
+
             //Make hash tables
-            int SensIdx=-1;
-            SensorsArrayHash.Clear();
+            int SensIdx = -1;
             SensorsArrayHashArduino.Clear();
-            foreach (SensorElement DataSensor in SensorsArray)
+            foreach (SensorElement DataSensor in SensorsList.Values)
             {
                 SensIdx++;
                 if (DataSensor != null)
                 {
-                    SensorsArrayHash.Add(DataSensor.SensorName, SensIdx);
                     SensorsArrayHashArduino.Add(DataSensor.SensorArduinoField, SensIdx);
                 }
             }
 
             //set base temp
-            BaseTempIdx = SensorsArrayHash[BaseTempName];
-            BaseTempVal=SensorsArray[SensorsArrayHash[BaseTempName]].LastValue;
+            BaseTempVal = SensorsList[BaseTempName].LastValue;
 
-/*
-            public double WindSpeed = 0.0;
-*/
+            Logging.Log("initSensorList exit", 3);
 
-            Logging.Log("initSensorArray exit", 3);
-        
         }
 
         /// <summary>
@@ -657,7 +654,7 @@ namespace WeatherStation
         {
             Logging.Log("searchSensors enter", 3);
 
-            foreach (SensorElement DataSensor in SensorsArray)
+            foreach (SensorElement DataSensor in SensorsList.Values)
             {
                 if (DataSensor != null)
                 {
@@ -1139,7 +1136,7 @@ namespace WeatherStation
                             
                             //1. WRITE IT TO SENSOR VALUE
                             int SensIdx = -1;
-                            foreach (SensorElement DataSensor in SensorsArray)
+                            foreach (SensorElement DataSensor in SensorsList.Values)
                             {
                                 SensIdx++;
                                 if (DataSensor != null) {
@@ -1156,7 +1153,7 @@ namespace WeatherStation
                                             //Convert to Double
                                             if (CheckData(Convert.ToDouble(tagValue), DataSensor.SensorType))
                                             {
-                                                SensorsArray[SensIdx].AddValue(Convert.ToDouble(tagValue));
+                                                SensorsList[DataSensor.SensorName].AddValue(Convert.ToDouble(tagValue));
                                             }
                                         }
                                         catch (Exception ex)
@@ -1284,23 +1281,23 @@ namespace WeatherStation
             //2. BASE TEMP SENSOR SETTING
             try
             {
-                if (SensorsArrayHash.ContainsKey(BaseTempName))
+                if (SensorsList.ContainsKey(BaseTempName))
                 {
-                    if (CheckData(SensorsArray[BaseTempIdx].LastValue, SensorTypeEnum.Temp))
+                    if (CheckData(SensorsList[BaseTempName].LastValue, SensorTypeEnum.Temp))
                     {
-                        BaseTempVal = SensorsArray[BaseTempIdx].LastValue;
+                        BaseTempVal = SensorsList[BaseTempName].LastValue;
                     }
                 }
             }
             catch { Logging.Log("Base temp calculation exception", 2); }
 
             //3. AUXILIARY SENSOR FIELDS
-            IllumVal = SensorsArray[SensorsArrayHash["Illum"]].LastValue;
-            ObjTempVal = SensorsArray[SensorsArrayHash["ObjTemp"]].LastValue;
-            SensorCaseTempVal = SensorsArray[SensorsArrayHash["ATemp"]].LastValue;
-            HumidityVal = SensorsArray[SensorsArrayHash["Hum1"]].LastValue;
-            WetVal = (int)SensorsArray[SensorsArrayHash["Wet"]].LastValue;
-            RGCVal = (int)SensorsArray[SensorsArrayHash["RGC"]].LastValue;
+            IllumVal = SensorsList["Illum"].LastValue;
+            ObjTempVal = SensorsList["ObjTemp"].LastValue;
+            SensorCaseTempVal = SensorsList["ATemp"].LastValue;
+            HumidityVal = SensorsList["Hum1"].LastValue;
+            WetVal = (int)SensorsList["Wet"].LastValue;
+            RGCVal = (int)SensorsList["RGC"].LastValue;
             RainIntensityVal = (RGCVal >= 0 ? RGCVal : 0) / (MeasureCycleLen / 1000.0) * 60 * RGC_ONETICK_VALUE; //mm per min
             RGC_Cumulative += (RGCVal >= 0 ? RGCVal : 0);
             RGC_Cumulative_mm += (RGCVal >= 0 ? RGCVal : 0) * RGC_ONETICK_VALUE;
@@ -1335,7 +1332,7 @@ namespace WeatherStation
                 {
                     SkyIndex5min[i + 1] = SkyIndex5min[i];
                 }
-                SkyIndex5min[0] = calcCloudIndex(SensorsArray[SensorsArrayHash["ObjTemp"]].AverageHistoryValues, SensorsArray[SensorsArrayHash[BaseTempName]].AverageHistoryValues);
+                SkyIndex5min[0] = calcCloudIndex(SensorsList["ObjTemp"].AverageHistoryValues, SensorsList[BaseTempName].AverageHistoryValues);
             }
 
             //4.3. CALC RAIN STATUS
@@ -1387,10 +1384,10 @@ namespace WeatherStation
             SinceLastHeating1 = Math.Min(Heating1Off_SecondsPassed, Heating1On_SecondsPassed);
             bool CSNeedsHeating_SinceLastHeatingMet = (SinceLastHeating1 > HEATER_CS_PAUSE); //since last heating session passed enough time
             //Relay off now?
-            bool CSNeedsHeating_RelayOffNow = (SensorsArray[SensorsArrayHash["RL1"]].LastValue == 0); //heating not engaged already
+            bool CSNeedsHeating_RelayOffNow = (SensorsList["RL1"].LastValue == 0); //heating not engaged already
 
             //Check - humidity is high?
-            bool CSNeedsHeating_HumidityMet = (SensorsArray[SensorsArrayHash["Hum1"]].LastValue >= 99.9); //high humidity
+            bool CSNeedsHeating_HumidityMet = (SensorsList["Hum1"].LastValue >= 99.9); //high humidity
 
             //Check - is it raining now?
             bool CSNeedsHeating_NotRainingMet = ( !RainLastMinute_Flag ); //no rain in last minute
@@ -1668,7 +1665,7 @@ namespace WeatherStation
             string st = "";
 
             int SensIdx = -1;
-            foreach (SensorElement DataSensor in SensorsArray)
+            foreach (SensorElement DataSensor in SensorsList.Values)
             {
                 SensIdx++;
                 if (DataSensor != null)
@@ -1698,7 +1695,7 @@ namespace WeatherStation
             string st = "Date" + Logging.CSVseparator;
 
             int SensIdx = -1;
-            foreach (SensorElement DataSensor in SensorsArray)
+            foreach (SensorElement DataSensor in SensorsList.Values)
             {
                 SensIdx++;
                 if (DataSensor != null)
@@ -1894,7 +1891,7 @@ namespace WeatherStation
                 RainNow_WetS_FlagC = RainCond.rainRain;
                 Logging.Log("Wet sensor detects rain now",3);
             }
-            if (! SensorsArray[SensorsArrayHash["Wet"]].Enabled)
+            if (! SensorsList["Wet"].Enabled)
                 RainNow_WetS_FlagC = RainCond.rainUnknown;
 
             /* Calculate RGC Sensor value */
@@ -1921,11 +1918,11 @@ namespace WeatherStation
             // Calculate rain last minute for RGC sensor 
 
             int countRRainCylcles=0;
-            for (int i = 1; i < Math.Min(NumValuesInMinute, SensorsArray[SensorsArrayHash["RGC"]].ValuesLastFiveMin.Count); i++)
+            for (int i = 1; i < Math.Min(NumValuesInMinute, SensorsList["RGC"].ValuesLastFiveMin.Count); i++)
             {
-                if (SensorsArray[SensorsArrayHash["RGC"]].ValuesLastFiveMin[i]>0) countRRainCylcles++;
+                if (SensorsList["RGC"].ValuesLastFiveMin[i]>0) countRRainCylcles++;
             }
-            if (countRRainCylcles > 0 && SensorsArray[SensorsArrayHash["RGC"]].Enabled) //
+            if (countRRainCylcles > 0 && SensorsList["RGC"].Enabled) //
             {
                 RainLastMinute_RGC_Flag = true;
                 Logging.Log("RGC sensed rain last minute",2);
@@ -1938,22 +1935,22 @@ namespace WeatherStation
              // Calculate rain last minute for WET sensor 
 
             int countWRainCylcles = 0, countWWetCylcles=0;
-            for (int i = 1; i < Math.Min(NumValuesInMinute, SensorsArray[SensorsArrayHash["Wet"]].ValuesLastFiveMin.Count); i++)
+            for (int i = 1; i < Math.Min(NumValuesInMinute, SensorsList["Wet"].ValuesLastFiveMin.Count); i++)
             {
-                if (SensorsArray[SensorsArrayHash["Wet"]].ValuesLastFiveMin[i] <= RAININDEX_RAIN_LIMIT) {countWRainCylcles++;}
-                else if (SensorsArray[SensorsArrayHash["Wet"]].ValuesLastFiveMin[i] <= RAININDEX_WET_LIMIT) {countWWetCylcles++;}
+                if (SensorsList["Wet"].ValuesLastFiveMin[i] <= RAININDEX_RAIN_LIMIT) {countWRainCylcles++;}
+                else if (SensorsList["Wet"].ValuesLastFiveMin[i] <= RAININDEX_WET_LIMIT) {countWWetCylcles++;}
             }
-            if (countWRainCylcles > 0 && SensorsArray[SensorsArrayHash["Wet"]].Enabled) //
+            if (countWRainCylcles > 0 && SensorsList["Wet"].Enabled) //
             {
                 RainLastMinute_WetS_FlagC = RainCond.rainRain;
                 Logging.Log("Wet sensed rain last minute", 3);
             }
-            else if (countWWetCylcles > 0  && SensorsArray[SensorsArrayHash["Wet"]].Enabled) //
+            else if (countWWetCylcles > 0  && SensorsList["Wet"].Enabled) //
             {
                 RainLastMinute_WetS_FlagC = RainCond.rainWet;
                 Logging.Log("Wet sensed wet last minute", 3);
             }
-            else if (SensorsArray[SensorsArrayHash["Wet"]].Enabled) //
+            else if (SensorsList["Wet"].Enabled) //
             {
                 RainLastMinute_WetS_FlagC = RainCond.rainDry;
             }
@@ -2073,7 +2070,7 @@ namespace WeatherStation
 
             string st = "";
             int SensIdx = -1;
-            foreach (SensorElement DataSensor in SensorsArray)
+            foreach (SensorElement DataSensor in SensorsList.Values)
             {
                 SensIdx++;
                 if (DataSensor != null)

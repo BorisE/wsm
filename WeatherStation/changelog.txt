@@ -7,6 +7,9 @@ to do:
 - socket commands: relay switching, parameters querying
 - normal pressure
 
+1.8.61 (2015-07-20)
+- to solve this bug some internal architecture was changed
+
 1.8.60 (2015-07-19)
 - new command GET_BASETEMP
 - new bug detected (15th sensor become null)
