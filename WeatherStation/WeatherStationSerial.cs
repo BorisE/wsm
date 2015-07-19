@@ -33,9 +33,9 @@ using System.Windows.Forms;
 /// </summary>
     public class SensorElement
     {
-        public string SensorName="";
-        public SensorTypeEnum SensorType;
-        public bool Enabled = true;
+        public string SensorName="";        //Sensor Name
+        public SensorTypeEnum SensorType;   //Sensor Type
+        public bool Enabled = true;         //Sensor Enabled flag
         public bool SendToWebFlag=true;
         public bool SendToNarodMon=false;
         public string SensorArduinoField = "";
@@ -671,6 +671,7 @@ namespace WeatherStation
         /// </summary>
         public void InitComandInterpretator()
         {
+            CommandParser.Commands.Add("GET_BASETEMP", () => this.getBaseTemp());
             CommandParser.Commands.Add("GET_SENSOR_VALUES", () => this.getSensorsString());
             CommandParser.Commands.Add("HELP", () => CommandParser.ListCommands());
             CommandParser.Commands.Add("VERSION", () => VersionData.getVersionString());
@@ -2088,6 +2089,18 @@ namespace WeatherStation
             st += "CloudIdxAAG=" + Convert.ToString(CloudIdxAAG) + Logging.CSVseparator;
 
             Logging.Log("getSensorsString exit, ret: ["+st+"]", 3);
+            return st;
+        }
+
+        public string getBaseTemp()
+        {
+            Logging.Log("getBaseTemp enter", 3);
+
+            string st = "";
+
+            st = String.Format("{0:0.0}",BaseTempVal);
+
+            Logging.Log("getBaseTemp exit, ret: [" + st + "]", 3);
             return st;
         }
 

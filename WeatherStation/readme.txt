@@ -39,3 +39,20 @@ It should be somethink like:
 - [start] optional parameter is used to automatically run sensor measuring after program start.
 - [com3] optional parameter can be used to override serial port name specified in program settings.
 
+*****************************
+Remote controlling
+*****************************
+WeatherStation Monitor can communicate with other programs using TCP sockets. It has built it socket server for client connecting.
+
+Communications protocol.
+Client (C)
+WeatherStation Monitor server (S)
+
+(S) on connecting (C) will send message "Connected to WeatherStation Monitor"
+
+(C) commands:
+HELP
+GET_SENSOR_VALUES
+VERSION
+
+
