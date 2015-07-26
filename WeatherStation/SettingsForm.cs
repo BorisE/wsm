@@ -230,6 +230,9 @@ namespace WeatherStation
                 ParentMainForm.Hardware.CS_NEEDHEATING_MAXDELTA = Convert.ToDouble(txtCSDecreasingMaxDelta.Text);
                 ParentMainForm.Hardware.CS_NEEDHEATING_MINDELTA = Convert.ToDouble(txtCSDecreasingMinDelta.Text);
 
+
+                ParentMainForm.Hardware.HeightAboveSea = Convert.ToDouble(txtHeightAboveSea.Text);
+
                 //Store to vars main interface settings
                 ParentMainForm.maxNumberOfPointsInChart = Convert.ToInt32(txtMaxPoints.Text);
                 ParentMainForm.timer_main.Interval = Convert.ToInt32(txtRefreshInterval.Text);
@@ -600,6 +603,15 @@ namespace WeatherStation
                 errorProvider1.Clear();
             }
         }
+
+        private void txtCheckFloat_Validating(object sender, CancelEventArgs e)
+        {
+            txtCheckFloat_TextChanged(sender, e);
+        }
+        private void txtCheckFloat_TextChanged(object sender, EventArgs e)
+        {
+
+        }        
         #endregion Validating handlers ==============================================
 
         private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -716,6 +728,23 @@ namespace WeatherStation
 
         private void PopulateRainConditions()
         {
+        }
+
+        private void btnCalculatePressure_Click(object sender, EventArgs e)
+        {
+            double Temp = -100.0;
+            if (ParentMainForm.Hardware.CheckData(ParentMainForm.Hardware.BaseTempVal, SensorTypeEnum.Temp))
+            {
+                Temp = ParentMainForm.Hardware.BaseTempVal;
+            }
+            else
+            {
+                Temp = 0.0;
+            }
+            Temp = Convert.ToDouble(txtTempCalc.Text);
+            //txtTempCalc.Text = Temp.ToString();
+            double Press = ParentMainForm.Hardware.CalcPressureOnHeight(760.0, Convert.ToDouble(txtHeightAboveSea.Text), Temp);
+            txtNormalPressure.Text = String.Format("{0:0.0}",Press);
         }
 
 

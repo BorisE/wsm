@@ -69,6 +69,8 @@ namespace WeatherStation
         public int maxNumberOfPointsInChart = 8640; //For 24h with 10sec interval
         public int MAX_LOG_LENGTH = 10000;
 
+        public double NormalPressureVal = 0.0; //normal pressure for comparison
+
         private About aboutForm;
 
         private bool SimulationMode = false;
@@ -923,6 +925,7 @@ waiting 10000
             if (Hardware.CheckData(Hardware.SensorsList["Press"].LastValue, SensorTypeEnum.Press))
             {
                 addGraphicsPoint(chart1, "Press", curX, Hardware.SensorsList["Press"].LastValue);
+                addGraphicsPoint(chart1, "PressN", curX, Hardware.PressureNormalVal);
             }
 
             ///////////////////////////////////////////////////////////////////////////////////////////
@@ -1072,7 +1075,8 @@ waiting 10000
                 Hardware.CS_NEEDHEATING_MAXDELTA = Convert.ToDouble(Properties.Settings.Default.HeatingCS_MaxDelta);
                 Hardware.CS_NEEDHEATING_MINDELTA = Convert.ToDouble(Properties.Settings.Default.HeatingCS_MinDelta);
                 Hardware.CS_NEEDHEATING_LOOKBACK_CYCLES = (int)Math.Round(Convert.ToInt16(Properties.Settings.Default.HeatingPauseTime) / 5 / 60.0 - 1, 0);
-                
+
+                Hardware.HeightAboveSea = Convert.ToDouble(Properties.Settings.Default.HeightAboveSeaLevel);
 
                 maxNumberOfPointsInChart = Convert.ToInt16(Properties.Settings.Default.MaxPoints);
                 timer_main.Interval = Convert.ToInt16(Properties.Settings.Default.RefreshInterval);
@@ -1377,7 +1381,6 @@ waiting 10000
         {
             SocketServer.StartListenSocket();
         }
-
 
 
     }

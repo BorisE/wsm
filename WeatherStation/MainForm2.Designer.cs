@@ -53,6 +53,7 @@
             System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
@@ -61,7 +62,7 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.StripLine stripLine5 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
             System.Windows.Forms.DataVisualization.Charting.StripLine stripLine6 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
-            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.btnStart = new System.Windows.Forms.Button();
             this.timer_main = new System.Windows.Forms.Timer(this.components);
@@ -794,6 +795,10 @@
             series13.Legend = "Legend1";
             series13.Name = "Press";
             series13.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            series14.ChartArea = "ChartArea2_press";
+            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series14.Legend = "Legend1";
+            series14.Name = "PressN";
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
             this.chart1.Series.Add(series3);
@@ -807,6 +812,7 @@
             this.chart1.Series.Add(series11);
             this.chart1.Series.Add(series12);
             this.chart1.Series.Add(series13);
+            this.chart1.Series.Add(series14);
             title1.DockedToChartArea = "ChartArea1_cloud";
             title1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             title1.ForeColor = System.Drawing.Color.LightGray;
@@ -1320,14 +1326,14 @@
             chartArea6.Position.Y = 1F;
             this.chart2.ChartAreas.Add(chartArea6);
             this.chart2.Name = "chart2";
-            series14.BorderWidth = 3;
-            series14.ChartArea = "ChartArea1_cloud";
-            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series14.Name = "CloudIndex";
-            series14.ToolTip = "Cloud index (#VAL{F1} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{F1} \\nmin:#M" +
+            series15.BorderWidth = 3;
+            series15.ChartArea = "ChartArea1_cloud";
+            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series15.Name = "CloudIndex";
+            series15.ToolTip = "Cloud index (#VAL{F1} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{F1} \\nmin:#M" +
     "IN{F1} max:#MAX{F1} avg:#AVG{F1}";
-            series14.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            this.chart2.Series.Add(series14);
+            series15.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            this.chart2.Series.Add(series15);
             // 
             // contextMenuStrip1
             // 

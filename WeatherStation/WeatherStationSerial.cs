@@ -240,6 +240,11 @@ namespace WeatherStation
         public double SensorCaseTempVal = -100.0;
         public double HumidityVal = -1.0;
 
+        public double PressureVal = 0.0;
+
+        public double HeightAboveSea = 0.0;
+        public double PressureNormalVal = 0.0;
+
         public int LumRes = 0;
         public int LumSens = 0;
         public int LumWTime = 0;
@@ -1120,17 +1125,29 @@ namespace WeatherStation
                         // IS THIS A FULL LINE (WITH TAG AND DATA)?
                         if (tagEndPosition >= 0 && valEndPosition >= 0)
                         {
+                            //0. PREPARE VALUES
                             string tagName = aLine.Substring(tagStartPosition, tagEndPosition - tagStartPosition);
                             string tagValue_raw = aLine.Substring(tagEndPosition + 1, valEndPosition - tagEndPosition - 1);
                             
-                            //automatic decimal point correction
+                            //0.1. Automatic decimal point correction
                             char Separator = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator[0];
                             char BadSeparator = '.';
                             
                             if (Separator == '.') { BadSeparator = ','; }
                             if (Separator == ',') { BadSeparator = '.'; }
 
-                            string tagValue = tagValue_raw.Replace(BadSeparator, Separator);
+                            string tagValue_st = tagValue_raw.Replace(BadSeparator, Separator);
+                            
+                            //0.2. Try to convert to double. 
+                            double tagValue_dbl = -100.0;
+                            try
+                            {
+                                tagValue_dbl = Convert.ToDouble(tagValue_st);
+                            }
+                            catch (Exception Ex)
+                            {
+                                //Note, that exception is not always an error - some values should state in string format, i.e. version info
+                            }
 
                             //LINE PARSED TO tagName AND tagValue
                             
@@ -1144,21 +1161,21 @@ namespace WeatherStation
                                         try
                                         {
                                             //Trim value if it is too lengthy (in case of Arduino malfunction)
-                                            if (tagValue.Length > 20)
+                                            if (tagValue_st.Length > 20)
                                             {
-                                                tagValue=tagValue.Substring(0, 20) + "[...]";
-                                                Logging.AddLog("TagValue is too long in ParseBufferData for pair [" + tagName + "][" + tagValue + "]", 2);
+                                                tagValue_st = tagValue_st.Substring(0, 20) + "[...]";
+                                                Logging.AddLog("TagValue is too long in ParseBufferData for pair [" + tagName + "][" + tagValue_st + "]", 2);
                                             }
                                             
                                             //Convert to Double
-                                            if (CheckData(Convert.ToDouble(tagValue), DataSensor.SensorType))
+                                            if (CheckData(tagValue_dbl, DataSensor.SensorType))
                                             {
-                                                SensorsList[DataSensor.SensorName].AddValue(Convert.ToDouble(tagValue));
+                                                SensorsList[DataSensor.SensorName].AddValue(tagValue_dbl);
                                             }
                                         }
                                         catch (Exception ex)
                                         {
-                                            Logging.AddLog("Exception in ParseBufferData for pair ["+tagName+"]["+tagValue+"], message: " + ex.Message + ". " + ex.ToString(), 1);
+                                            Logging.AddLog("Exception in ParseBufferData for pair [" + tagName + "][" + tagValue_st + "], message: " + ex.Message + ". " + ex.ToString(), 1);
                                         }
                                     }
                                 }
@@ -1170,7 +1187,7 @@ namespace WeatherStation
                             }
                             else if (tagName == "RL1")
                             {
-                                int Relay1_n= Convert.ToInt16(tagValue);
+                                int Relay1_n = Convert.ToInt16(tagValue_dbl);
                                 if (Relay1 == 0 && Relay1_n == 1)
                                 {
                                     LastHeating1SwitchOn = DateTime.Now;
@@ -1182,7 +1199,7 @@ namespace WeatherStation
                             }
                             else if (tagName == "RL2")
                             {
-                                int Relay2_n = Convert.ToInt16(tagValue);
+                                int Relay2_n = Convert.ToInt16(tagValue_dbl);
                                 if (Relay2 == 0 && Relay2_n == 1)
                                 {
                                     LastHeating2SwitchOn = DateTime.Now;
@@ -1195,36 +1212,41 @@ namespace WeatherStation
                             }
                             else if (tagName == "WnV")
                             {
-                                WindSensorVal = Convert.ToInt16(tagValue);
+                                WindSensorVal = Convert.ToInt16(tagValue_dbl);
                                 WindSpeedVal = calcWindSpeed(WindSensorVal);
                             }
                             else if (tagName == "Lur")
                             {
-                                LumRes = Convert.ToInt16(tagValue);
+                                LumRes = Convert.ToInt16(tagValue_dbl);
                             }
                             else if (tagName == "Lus")
                             {
-                                LumSens = Convert.ToInt16(tagValue);
+                                LumSens = Convert.ToInt16(tagValue_dbl);
                             }
                             else if (tagName == "Luw")
                             {
-                                LumWTime = Convert.ToInt16(tagValue);
+                                LumWTime = Convert.ToInt16(tagValue_dbl);
                             }
                             else if (tagName == "!r")
                             {
-                                MeasureCycleLen = Convert.ToInt32(tagValue);
+                                MeasureCycleLen = Convert.ToInt32(tagValue_dbl);
                             }
                             else if (tagName == "!be")
                             {
                             }
+                            else if (tagName == "Pre")
+                            {
+                                PressureVal = tagValue_dbl;
+                                PressureNormalVal = CalcNormalPressure();
+                            }
                             else if (tagName == "ver")
                             {
-                                SketchVersion = tagValue;
+                                SketchVersion = tagValue_st;
                                 VersionData.HardwareVersionSt = SketchVersion;
                             }
                             else if (tagName == "ved")
                             {
-                                SketchVersionDate = tagValue;
+                                SketchVersionDate = tagValue_st;
                                 VersionData.HardwareCompileTimeSt = SketchVersionDate;
                             }
                             else if (tagName == "!en")
@@ -1234,21 +1256,21 @@ namespace WeatherStation
                             else if (tagName == "?TD")
                             {
                                 ArduinoSettingsClass El = new ArduinoSettingsClass();
-                                El.Value = tagValue;
+                                El.Value = tagValue_st;
                                 El.ReadTime = DateTime.Now;
                                 ArduinoSettings["TD"]= El;
                             }
                             else if (tagName == "?WT")
                             {
                                 ArduinoSettingsClass El = new ArduinoSettingsClass();
-                                El.Value = tagValue;
+                                El.Value = tagValue_st;
                                 El.ReadTime = DateTime.Now;
                                 ArduinoSettings["WT"] = El;
                             }
                             else if (tagName == "?RT")
                             {
                                 ArduinoSettingsClass El = new ArduinoSettingsClass();
-                                El.Value = tagValue;
+                                El.Value = tagValue_st;
                                 El.ReadTime = DateTime.Now;
                                 ArduinoSettings["RT"] = El;
                             }
@@ -2100,6 +2122,38 @@ namespace WeatherStation
             Logging.Log("getBaseTemp exit, ret: [" + st + "]", 3);
             return st;
         }
+
+        public double CalcPressureOnHeight(double PressBase,double dHeight, double dTemp)
+        {
+            const double MollMass=0.029; //молярная масса сухого воздуха, M = 0,029 кг/моль;
+            const double g=9.81; //ускорение свободного падения, g = 9,81 м/с²;
+            const double R=8.31; // универсальная газовая постоянная, R = 8,31 Дж/моль·К;
+            
+            double Tabs=dTemp+273; // абсолютная температура воздуха, К, T = t + 273, где t — температура в °C;
+
+            double Press=PressBase*Math.Exp(-MollMass*g*dHeight/(R*Tabs));
+
+            return Press;
+        }
+
+        private double CalcNormalPressure()
+        {
+            //temp calc not used
+            double Temp = -100.0;
+            if (CheckData(BaseTempVal, SensorTypeEnum.Temp))
+            {
+                Temp = BaseTempVal;
+            }
+            else
+            {
+                Temp = 0.0;
+            }
+
+            Temp = 0.0;
+            double Press = CalcPressureOnHeight(760.0, HeightAboveSea, Temp);
+            return Press;
+        }
+
 
     }
 }

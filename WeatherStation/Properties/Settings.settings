@@ -206,5 +206,11 @@
     <Setting Name="CloudModelAAG" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="NormalPressure" Type="System.String" Scope="User">
+      <Value Profile="(Default)">744.9</Value>
+    </Setting>
+    <Setting Name="HeightAboveSeaLevel" Type="System.String" Scope="User">
+      <Value Profile="(Default)">130</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
