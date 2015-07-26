@@ -623,7 +623,7 @@ namespace WeatherStation
             SensorEl.Enabled = true;
             SensorEl.SendToWebFlag = true;
             SensorEl.SendToNarodMon = true;
-            SensorEl.SensorFormField = "";
+            SensorEl.SensorFormField = ""; 
             SensorEl.SensorArduinoField = "WnV";
             SensorEl.WebCustomName = "wns";
             SensorsList.Add(SensorEl.SensorName, SensorEl);
