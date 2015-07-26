@@ -62,7 +62,8 @@
     <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\logo_weather.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>WeatherStation.Program</StartupObject>
@@ -159,9 +160,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="About.ru.resx">
       <DependentUpon>About.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="WinFormStrings.ru.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -169,6 +172,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogWindow.resx">
       <DependentUpon>LogWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="LogWindow.ru.resx">
       <DependentUpon>LogWindow.cs</DependentUpon>
@@ -241,7 +245,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="changelog.txt" />
-    <Content Include="logo_48_blue.ico" />
     <Content Include="readme.txt" />
     <None Include="Resources\logo_weather.ico" />
     <None Include="Resources\logo_weather.png" />

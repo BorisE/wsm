@@ -41,47 +41,47 @@
             // 
             // statusStrip1
             // 
-            resources.ApplyResources(this.statusStrip1, "statusStrip1");
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Status1,
             this.toolStripSplitButton1,
             this.toolStripSplitButton2});
+            resources.ApplyResources(this.statusStrip1, "statusStrip1");
             this.statusStrip1.Name = "statusStrip1";
             // 
             // Status1
             // 
-            resources.ApplyResources(this.Status1, "Status1");
             this.Status1.Name = "Status1";
+            resources.ApplyResources(this.Status1, "Status1");
             // 
             // toolStripSplitButton1
             // 
-            resources.ApplyResources(this.toolStripSplitButton1, "toolStripSplitButton1");
             this.toolStripSplitButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clearToolStripMenuItem});
+            resources.ApplyResources(this.toolStripSplitButton1, "toolStripSplitButton1");
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
             this.toolStripSplitButton1.ButtonClick += new System.EventHandler(this.toolStripSplitButton1_ButtonClick);
             // 
             // clearToolStripMenuItem
             // 
-            resources.ApplyResources(this.clearToolStripMenuItem, "clearToolStripMenuItem");
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
+            resources.ApplyResources(this.clearToolStripMenuItem, "clearToolStripMenuItem");
             // 
             // toolStripSplitButton2
             // 
-            resources.ApplyResources(this.toolStripSplitButton2, "toolStripSplitButton2");
             this.toolStripSplitButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripSplitButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem2});
+            resources.ApplyResources(this.toolStripSplitButton2, "toolStripSplitButton2");
             this.toolStripSplitButton2.Name = "toolStripSplitButton2";
             this.toolStripSplitButton2.ButtonClick += new System.EventHandler(this.autosctollToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
-            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
             this.toolStripMenuItem2.Click += new System.EventHandler(this.autosctollToolStripMenuItem_Click);
             // 
             // txtLog
