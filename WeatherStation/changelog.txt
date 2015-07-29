@@ -6,6 +6,9 @@ to do:
 - rain condtions settings
 - socket commands: relay switching, parameters querying
 
+1.8.63 (2015-07-30)
+- addtional exception fighting...
+
 1.8.62 (2015-07-26)
 - normal pressure displaying (depends on height above sea level)
 - rewritten value conversion routines to not raise an exception on getting double type values when int expected

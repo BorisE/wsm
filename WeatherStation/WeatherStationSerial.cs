@@ -1314,15 +1314,22 @@ namespace WeatherStation
             catch { Logging.Log("Base temp calculation exception", 2); }
 
             //3. AUXILIARY SENSOR FIELDS
-            IllumVal = SensorsList["Illum"].LastValue;
-            ObjTempVal = SensorsList["ObjTemp"].LastValue;
-            SensorCaseTempVal = SensorsList["ATemp"].LastValue;
-            HumidityVal = SensorsList["Hum1"].LastValue;
-            WetVal = (int)SensorsList["Wet"].LastValue;
-            RGCVal = (int)SensorsList["RGC"].LastValue;
-            RainIntensityVal = (RGCVal >= 0 ? RGCVal : 0) / (MeasureCycleLen / 1000.0) * 60 * RGC_ONETICK_VALUE; //mm per min
-            RGC_Cumulative += (RGCVal >= 0 ? RGCVal : 0);
-            RGC_Cumulative_mm += (RGCVal >= 0 ? RGCVal : 0) * RGC_ONETICK_VALUE;
+            try
+            {
+                IllumVal = SensorsList["Illum"].LastValue;
+                ObjTempVal = SensorsList["ObjTemp"].LastValue;
+                SensorCaseTempVal = SensorsList["ATemp"].LastValue;
+                HumidityVal = SensorsList["Hum1"].LastValue;
+                WetVal = (int)SensorsList["Wet"].LastValue;
+                RGCVal = (int)SensorsList["RGC"].LastValue;
+                RainIntensityVal = (RGCVal >= 0 ? RGCVal : 0) / (MeasureCycleLen / 1000.0) * 60 * RGC_ONETICK_VALUE; //mm per min
+                RGC_Cumulative += (RGCVal >= 0 ? RGCVal : 0);
+                RGC_Cumulative_mm += (RGCVal >= 0 ? RGCVal : 0) * RGC_ONETICK_VALUE;
+            }
+            catch (Exception ex)
+            {
+                Logging.Log("Exception in MakeSensorCalculations! " +Environment.NewLine+ ex.ToString());
+            }
 
             //4. CALCULATED SENSOR FIELDS
             //4.1. CLOUD INDEX CALCULATIONS
