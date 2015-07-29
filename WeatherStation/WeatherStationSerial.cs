@@ -1892,47 +1892,60 @@ namespace WeatherStation
         {
             Logging.Log("GetRainingCondition enter", 3);
             /*  Calculate RAIN RIGHT NOW CONDITION */
-            
             /* Calculate Wet Sensor value */
-            
-            if (WetVal > RAININDEX_WET_LIMIT)
+            try
             {
-                //DRY
-                RainNow_WetS_FlagC=RainCond.rainDry;
-            }
-            else if (WetVal > RAININDEX_RAIN_LIMIT)
-            {
-                if (Bolt_CloudCond == CloudCond.cloudCloudy || Bolt_CloudCond == CloudCond.cloudVeryCloudy)
+                if (WetVal > RAININDEX_WET_LIMIT)
                 {
-                    //WET
-                    RainNow_WetS_FlagC = RainCond.rainWet;
-                    Logging.Log("Wet sensor is wet now",3);
+                    //DRY
+                    RainNow_WetS_FlagC = RainCond.rainDry;
+                }
+                else if (WetVal > RAININDEX_RAIN_LIMIT)
+                {
+                    if (Bolt_CloudCond == CloudCond.cloudCloudy || Bolt_CloudCond == CloudCond.cloudVeryCloudy)
+                    {
+                        //WET
+                        RainNow_WetS_FlagC = RainCond.rainWet;
+                        Logging.Log("Wet sensor is wet now", 3);
+                    }
+                    else
+                    {
+                        //DRY: if not cloudy - don't set as wet
+                        RainNow_WetS_FlagC = RainCond.rainDry;
+                    }
+                }
+                else if (WetVal >= RAININDEX_BAD_LIMIT)
+                {
+                    //RAIN
+                    RainNow_WetS_FlagC = RainCond.rainRain;
+                    Logging.Log("Wet sensor detects rain now", 3);
+                }
+                if (!SensorsList["Wet"].Enabled)
+                    RainNow_WetS_FlagC = RainCond.rainUnknown;
+            }
+            catch (Exception ex)
+            {
+                Logging.Log("Exception in Calculate Wet Sensor value: " + ex.ToString());
+            }
+
+
+            /* Calculate RGC Sensor value */
+            try
+            {
+                if (RGCVal > 0)
+                {
+                    RainNow_RGC_Flag = true;
+                    Logging.Log("RGC sensed rain now",3);
                 }
                 else
                 {
-                    //DRY: if not cloudy - don't set as wet
-                    RainNow_WetS_FlagC = RainCond.rainDry;
+                    RainNow_RGC_Flag = false;
                 }
-            }
-            else if (WetVal >= RAININDEX_BAD_LIMIT)
-            {
-                //RAIN
-                RainNow_WetS_FlagC = RainCond.rainRain;
-                Logging.Log("Wet sensor detects rain now",3);
-            }
-            if (! SensorsList["Wet"].Enabled)
-                RainNow_WetS_FlagC = RainCond.rainUnknown;
 
-            /* Calculate RGC Sensor value */
-
-            if (RGCVal > 0)
-            {
-                RainNow_RGC_Flag = true;
-                Logging.Log("RGC sensed rain now",3);
             }
-            else
+            catch (Exception ex)
             {
-                RainNow_RGC_Flag = false;
+                Logging.Log("Exception in Calculate RGC Sensor value: " + ex.ToString());
             }
 
             /*  Calculate RAIN IN LAST MINUTE CONDITION */
@@ -1945,47 +1958,63 @@ namespace WeatherStation
             int NumValuesInMinute = (int)Math.Round(60.0 / MeasureCycleLen * 1000);
             
             // Calculate rain last minute for RGC sensor 
-
-            int countRRainCylcles=0;
-            for (int i = 1; i < Math.Min(NumValuesInMinute, SensorsList["RGC"].ValuesLastFiveMin.Count); i++)
+            int countRRainCylcles = 0;
+            try
             {
-                if (SensorsList["RGC"].ValuesLastFiveMin[i]>0) countRRainCylcles++;
+                for (int i = 1; i < Math.Min(NumValuesInMinute, SensorsList["RGC"].ValuesLastFiveMin.Count); i++)
+                {
+                    if (SensorsList["RGC"].ValuesLastFiveMin[i]>0) countRRainCylcles++;
+                }
+                if (countRRainCylcles > 0 && SensorsList["RGC"].Enabled) //
+                {
+                    RainLastMinute_RGC_Flag = true;
+                    Logging.Log("RGC sensed rain last minute",2);
+                }
+                else
+                {
+                    RainLastMinute_RGC_Flag = false;
+                }
             }
-            if (countRRainCylcles > 0 && SensorsList["RGC"].Enabled) //
+            catch (Exception ex)
             {
-                RainLastMinute_RGC_Flag = true;
-                Logging.Log("RGC sensed rain last minute",2);
-            }
-            else
-            {
-                RainLastMinute_RGC_Flag = false;
+                Logging.Log("Exception in Calculate rain last minute for RGC sensor: " + ex.ToString());
             }
 
              // Calculate rain last minute for WET sensor 
 
             int countWRainCylcles = 0, countWWetCylcles=0;
-            for (int i = 1; i < Math.Min(NumValuesInMinute, SensorsList["Wet"].ValuesLastFiveMin.Count); i++)
+
+            try
             {
-                if (SensorsList["Wet"].ValuesLastFiveMin[i] <= RAININDEX_RAIN_LIMIT) {countWRainCylcles++;}
-                else if (SensorsList["Wet"].ValuesLastFiveMin[i] <= RAININDEX_WET_LIMIT) {countWWetCylcles++;}
+
+                for (int i = 1; i < Math.Min(NumValuesInMinute, SensorsList["Wet"].ValuesLastFiveMin.Count); i++)
+                {
+                    if (SensorsList["Wet"].ValuesLastFiveMin[i] <= RAININDEX_RAIN_LIMIT) {countWRainCylcles++;}
+                    else if (SensorsList["Wet"].ValuesLastFiveMin[i] <= RAININDEX_WET_LIMIT) {countWWetCylcles++;}
+                }
+                if (countWRainCylcles > 0 && SensorsList["Wet"].Enabled) //
+                {
+                    RainLastMinute_WetS_FlagC = RainCond.rainRain;
+                    Logging.Log("Wet sensed rain last minute", 3);
+                }
+                else if (countWWetCylcles > 0  && SensorsList["Wet"].Enabled) //
+                {
+                    RainLastMinute_WetS_FlagC = RainCond.rainWet;
+                    Logging.Log("Wet sensed wet last minute", 3);
+                }
+                else if (SensorsList["Wet"].Enabled) //
+                {
+                    RainLastMinute_WetS_FlagC = RainCond.rainDry;
+                }
+                else
+                {
+                    RainLastMinute_WetS_FlagC = RainCond.rainUnknown;
+                }
+
             }
-            if (countWRainCylcles > 0 && SensorsList["Wet"].Enabled) //
+            catch (Exception ex)
             {
-                RainLastMinute_WetS_FlagC = RainCond.rainRain;
-                Logging.Log("Wet sensed rain last minute", 3);
-            }
-            else if (countWWetCylcles > 0  && SensorsList["Wet"].Enabled) //
-            {
-                RainLastMinute_WetS_FlagC = RainCond.rainWet;
-                Logging.Log("Wet sensed wet last minute", 3);
-            }
-            else if (SensorsList["Wet"].Enabled) //
-            {
-                RainLastMinute_WetS_FlagC = RainCond.rainDry;
-            }
-            else
-            {
-                RainLastMinute_WetS_FlagC = RainCond.rainUnknown;
+                Logging.Log("Exception in Calculate Wet Sensor value: " + ex.ToString());
             }
 
             /*  Rain now conditions when using both sensors
@@ -1997,54 +2026,61 @@ namespace WeatherStation
              *  RGC=0 & RGCLM+ |               |           |     X     |           |
              *  --------------------------------------------------------------------
              */
-            switch (RainConditionMode)
+            try
             {
-                case WetSensorsMode.wetSensBoth:
-                    if ((RainNow_RGC_Flag && ( RainNow_WetS_FlagC == RainCond.rainUnknown || RainNow_WetS_FlagC == RainCond.rainWet || RainNow_WetS_FlagC == RainCond.rainRain ))
-                        || (RainNow_RGC_Flag && RainLastMinute_RGC_Flag)
-                        || (!RainNow_RGC_Flag && RainLastMinute_RGC_Flag && (RainNow_WetS_FlagC == RainCond.rainRain))) 
-                    {
-                        RainNow_Flag = true;
-                    }
-                    else 
-                    {
-                        RainNow_Flag = false;
-                    }
+                switch (RainConditionMode)
+                {
+                    case WetSensorsMode.wetSensBoth:
+                        if ((RainNow_RGC_Flag && ( RainNow_WetS_FlagC == RainCond.rainUnknown || RainNow_WetS_FlagC == RainCond.rainWet || RainNow_WetS_FlagC == RainCond.rainRain ))
+                            || (RainNow_RGC_Flag && RainLastMinute_RGC_Flag)
+                            || (!RainNow_RGC_Flag && RainLastMinute_RGC_Flag && (RainNow_WetS_FlagC == RainCond.rainRain))) 
+                        {
+                            RainNow_Flag = true;
+                        }
+                        else 
+                        {
+                            RainNow_Flag = false;
+                        }
 
-                    /*  Rain last minute conditions when using both sensors
-                     *  Wet            | rainUnknown   | rainWet   | rainRain  | rainDry   |
-                     *  --------------------------------------------------------------------
-                     *  RGCLM+         |       X       |     X     |     X     |           |
-                     *  RGCLMcnt>=2    |       X       |     X     |     X     |     X     |
-                     *  RGCLM-         |               |           |           |           |
-                     *  --------------------------------------------------------------------
-                     */
-                    if ((RainLastMinute_RGC_Flag && (RainLastMinute_WetS_FlagC == RainCond.rainUnknown || RainLastMinute_WetS_FlagC == RainCond.rainWet || RainLastMinute_WetS_FlagC == RainCond.rainRain))
-                        || (countRRainCylcles>=2 && ( RainLastMinute_WetS_FlagC == RainCond.rainDry )))
-                    {
-                        RainLastMinute_Flag = true;
-                    }
-                    else 
-                    {
-                        RainLastMinute_Flag = false;
-                    }
-                    break;
-                case WetSensorsMode.wetSensRGCOnly:
-                    if (RainLastMinute_RGC_Flag) { RainLastMinute_Flag = true; }
-                    else { RainLastMinute_Flag = false; }
+                        /*  Rain last minute conditions when using both sensors
+                         *  Wet            | rainUnknown   | rainWet   | rainRain  | rainDry   |
+                         *  --------------------------------------------------------------------
+                         *  RGCLM+         |       X       |     X     |     X     |           |
+                         *  RGCLMcnt>=2    |       X       |     X     |     X     |     X     |
+                         *  RGCLM-         |               |           |           |           |
+                         *  --------------------------------------------------------------------
+                         */
+                        if ((RainLastMinute_RGC_Flag && (RainLastMinute_WetS_FlagC == RainCond.rainUnknown || RainLastMinute_WetS_FlagC == RainCond.rainWet || RainLastMinute_WetS_FlagC == RainCond.rainRain))
+                            || (countRRainCylcles>=2 && ( RainLastMinute_WetS_FlagC == RainCond.rainDry )))
+                        {
+                            RainLastMinute_Flag = true;
+                        }
+                        else 
+                        {
+                            RainLastMinute_Flag = false;
+                        }
+                        break;
+                    case WetSensorsMode.wetSensRGCOnly:
+                        if (RainLastMinute_RGC_Flag) { RainLastMinute_Flag = true; }
+                        else { RainLastMinute_Flag = false; }
 
-                    if (RainNow_RGC_Flag) { RainNow_Flag = true; }
-                    else { RainNow_Flag = false; }
+                        if (RainNow_RGC_Flag) { RainNow_Flag = true; }
+                        else { RainNow_Flag = false; }
                     
-                    break;
-                case WetSensorsMode.wetSensWetOnly:
-                    if (RainLastMinute_WetS_FlagC == RainCond.rainRain) { RainLastMinute_Flag = true; }
-                    else { RainLastMinute_Flag = false; }
+                        break;
+                    case WetSensorsMode.wetSensWetOnly:
+                        if (RainLastMinute_WetS_FlagC == RainCond.rainRain) { RainLastMinute_Flag = true; }
+                        else { RainLastMinute_Flag = false; }
 
-                    if (RainNow_WetS_FlagC==RainCond.rainRain ) {RainNow_Flag = true;}
-                    else {RainNow_Flag = false;}
+                        if (RainNow_WetS_FlagC==RainCond.rainRain ) {RainNow_Flag = true;}
+                        else {RainNow_Flag = false;}
 
-                    break;
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logging.Log("Exception in switch (RainConditionMode): " + ex.ToString());
             }
 
             Logging.Log("GetRainingCondition exit", 3);
