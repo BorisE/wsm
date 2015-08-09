@@ -317,6 +317,38 @@ namespace WeatherStation
         }
 
 
+        public static double ConvertToDouble(string Val)
+        {
+            double DblRes=Double.MinValue;
+            //1. Try to convert
+            if (Double.TryParse(Val, out DblRes))
+            {
+                return DblRes;
+            }
+            else
+            {
+                //2.1. Automatic decimal point correction
+                char Separator = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator[0];
+                char BadSeparator = '.';
+                            
+                if (Separator == '.') { BadSeparator = ','; }
+                if (Separator == ',') { BadSeparator = '.'; }
+
+                string Val_st = Val.Replace(BadSeparator, Separator);
+                            
+                //2.2. Try to convert to double. 
+                try
+                {
+                    DblRes = Convert.ToDouble(Val_st);
+                }
+                catch (Exception Ex)
+                {
+                    throw Ex;
+                }
+                return DblRes;
+            }
+        }
+
     }
 
     [ComImport]

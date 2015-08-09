@@ -6,6 +6,11 @@ to do:
 - rain condtions settings
 - socket commands: relay switching, parameters querying
 
+1.8.64 (2015-07-30)
+- Wind speed parameters for manual calibration
+- Wind speed zero level auto calibration
+- Some bugfixes in wind speed calculation
+
 1.8.63 (2015-07-30)
 - addtional exception fighting...
 

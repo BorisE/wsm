@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.IO.Ports;
 using System.IO;
 using System.Windows.Forms;
+using System.Reflection;
+using System.Diagnostics;
 
 /// <summary>
 /// Custom data types
@@ -42,8 +44,14 @@ using System.Windows.Forms;
         public string WebCustomName = "";
         public string NarodMonID = "";
         public string SensorFormField = "";
+
         public double LastValue = -100.0;
         public DateTime LastValueReadTime = DateTime.MinValue;
+
+        public double MinValue = Int32.MaxValue;
+        public DateTime MinValueSetTime = DateTime.MinValue;
+        public double MaxValue = Int32.MinValue;
+        public DateTime MaxValueSetTime = DateTime.MinValue;
 
         private const byte SENSOR_HISTORY_LENGTH = 25; //approx 5 min (25 * 14.3 sec)
         public List<double> ValuesLastFiveMin = new List<double>(); 
@@ -80,6 +88,18 @@ using System.Windows.Forms;
                 ValuesLastFiveMin[i + 1] = ValuesLastFiveMin[i];
             }
             ValuesLastFiveMin[0] = NewValue;
+
+            //check if extreme values?
+            if (NewValue < MinValue)
+            {
+                MinValue = NewValue;
+                MinValueSetTime = DateTime.Now;
+            }
+            if (NewValue > MaxValue)
+            {
+                MaxValue = NewValue;
+                MaxValueSetTime = DateTime.Now;
+            }
 
             //Average in last stored values
             AverageHistoryValues = ValuesLastFiveMin.Average();
@@ -252,7 +272,20 @@ namespace WeatherStation
         public int WindSensorVal = 0;
         public double WindSpeedVal = 0;
 
-        public Int16 WindSpeed_ZeroSpeedValue = 83;
+        public Int32 WS_Calibraion_ZeroSpeedAnalogValue = 83;
+        public double WS_Calibraion_PartialMultiplier = 1.6;
+        public double WS_Calibraion_MaxspeedMultiplier = 32.4;
+
+        public bool WS_AutoCalibrateFlag = false;
+
+        public double autoCalWS_maxPassedFromHit = 300;
+        public Int32 WS_HitCount_Threshold = 3;
+        //public double autoCalWS_minPassedFromSet = 10;
+        //public double autoCalWS_maxPassedFromSet = 600;
+        private DateTime WS_MinValue_LastHit = new DateTime(2010, 01, 01);
+        private Int32 WS_MinValue_HitCount = 0;
+        private double LastMinValue = Double.MaxValue;
+
 
         public int WetVal = 1025;
         public int RGCVal = 0;
@@ -1142,7 +1175,7 @@ namespace WeatherStation
                             double tagValue_dbl = -100.0;
                             try
                             {
-                                tagValue_dbl = Convert.ToDouble(tagValue_st);
+                                tagValue_dbl = Utils.ConvertToDouble(tagValue_st);
                             }
                             catch (Exception Ex)
                             {
@@ -1175,6 +1208,20 @@ namespace WeatherStation
                                         }
                                         catch (Exception ex)
                                         {
+                                            StackTrace st = new StackTrace(ex, true);
+                                            StackFrame[] frames = st.GetFrames();
+                                            string messstr = "";
+
+                                            // Iterate over the frames extracting the information you need
+                                            foreach (StackFrame frame in frames)
+                                            {
+                                                messstr += String.Format("{0}:{1}({2},{3})", frame.GetFileName(), frame.GetMethod().Name, frame.GetFileLineNumber(), frame.GetFileColumnNumber());
+                                            }
+
+                                            string FullMessage = "Error loading settings. ";
+                                            FullMessage += "IOException source: " + ex.Data + " | " + ex.Message + " | " + messstr;
+
+                                            Logging.Log(FullMessage);
                                             Logging.AddLog("Exception in ParseBufferData for pair [" + tagName + "][" + tagValue_st + "], message: " + ex.Message + ". " + ex.ToString(), 1);
                                         }
                                     }
@@ -1213,6 +1260,12 @@ namespace WeatherStation
                             else if (tagName == "WnV")
                             {
                                 WindSensorVal = Convert.ToInt16(tagValue_dbl);
+                                
+                                //autocalibrate min speed
+                                if (WS_AutoCalibrateFlag)
+                                {
+                                    AutoCalibrateWindSpeed();
+                                }
                                 WindSpeedVal = calcWindSpeed(WindSensorVal);
                             }
                             else if (tagName == "Lur")
@@ -1290,6 +1343,46 @@ namespace WeatherStation
             }
         }
 
+        private void AutoCalibrateWindSpeed()
+        {
+            
+            double curVal = SensorsList["WSp"].LastValue;
+            double minVal = SensorsList["WSp"].MinValue;
+            TimeSpan PassedFromMinSet=DateTime.Now-SensorsList["WSp"].MinValueSetTime;
+
+            //check - if minVal changed?
+            if (minVal != LastMinValue)
+            {
+                LastMinValue = minVal;
+                WS_MinValue_HitCount = 0;
+                WS_MinValue_LastHit = new DateTime(2010, 01, 01);
+            }
+
+            //record it if hit
+            if (curVal == minVal)
+            {
+                WS_MinValue_LastHit = DateTime.Now;
+                WS_MinValue_HitCount++;
+
+                //if was enough hits - ser zerospeed calibration value
+                if (WS_MinValue_HitCount > WS_HitCount_Threshold)
+                {
+                    WS_Calibraion_ZeroSpeedAnalogValue = Convert.ToInt32(minVal);
+                }
+            }
+
+            //calc time from last hit
+            TimeSpan PassedFromMinHit = DateTime.Now - WS_MinValue_LastHit;
+            //reset min value
+            if (PassedFromMinHit.Seconds > autoCalWS_maxPassedFromHit)
+            {
+                SensorsList["WSp"].MinValue = curVal;
+                WS_MinValue_HitCount = 0;
+                WS_MinValue_LastHit = new DateTime(2010, 01, 01);
+            }
+
+        }
+
         /// <summary>
         /// Calculate sensors values after parsing incoming data
         /// </summary>
@@ -1328,6 +1421,20 @@ namespace WeatherStation
             }
             catch (Exception ex)
             {
+                StackTrace st = new StackTrace(ex, true);
+                StackFrame[] frames = st.GetFrames();
+                string messstr = "";
+
+                // Iterate over the frames extracting the information you need
+                foreach (StackFrame frame in frames)
+                {
+                    messstr += String.Format("{0}:{1}({2},{3})", frame.GetFileName(), frame.GetMethod().Name, frame.GetFileLineNumber(), frame.GetFileColumnNumber());
+                }
+
+                string FullMessage = "Error loading settings. ";
+                FullMessage += "IOException source: " + ex.Data + " | " + ex.Message + " | " + messstr;
+
+                Logging.Log(FullMessage);
                 Logging.Log("Exception in MakeSensorCalculations! " +Environment.NewLine+ ex.ToString());
             }
 
@@ -1785,7 +1892,7 @@ namespace WeatherStation
                         return false;
                     break;
                 case SensorTypeEnum.WSp:
-                    if (TagVal < 0 || TagVal > 100) //FYI - >32 it is hurricane
+                    if (TagVal < 0 || TagVal > 1023) //Actually it is AnalogUnits. 1023 - max value, corresponds to MaxSpeed (def 32.4 m/s). Hurricane > 32
                         return false;
                     break;
             }
@@ -1925,6 +2032,20 @@ namespace WeatherStation
             }
             catch (Exception ex)
             {
+                StackTrace st = new StackTrace(ex, true);
+                StackFrame[] frames = st.GetFrames();
+                string messstr = "";
+
+                // Iterate over the frames extracting the information you need
+                foreach (StackFrame frame in frames)
+                {
+                    messstr += String.Format("{0}:{1}({2},{3})", frame.GetFileName(), frame.GetMethod().Name, frame.GetFileLineNumber(), frame.GetFileColumnNumber());
+                }
+
+                string FullMessage = "Error loading settings. ";
+                FullMessage += "IOException source: " + ex.Data + " | " + ex.Message + " | " + messstr;
+
+                Logging.Log(FullMessage);
                 Logging.Log("Exception in Calculate Wet Sensor value: " + ex.ToString());
             }
 
@@ -1945,6 +2066,20 @@ namespace WeatherStation
             }
             catch (Exception ex)
             {
+                StackTrace st = new StackTrace(ex, true);
+                StackFrame[] frames = st.GetFrames();
+                string messstr = "";
+
+                // Iterate over the frames extracting the information you need
+                foreach (StackFrame frame in frames)
+                {
+                    messstr += String.Format("{0}:{1}({2},{3})", frame.GetFileName(), frame.GetMethod().Name, frame.GetFileLineNumber(), frame.GetFileColumnNumber());
+                }
+
+                string FullMessage = "Error loading settings. ";
+                FullMessage += "IOException source: " + ex.Data + " | " + ex.Message + " | " + messstr;
+
+                Logging.Log(FullMessage);
                 Logging.Log("Exception in Calculate RGC Sensor value: " + ex.ToString());
             }
 
@@ -1977,6 +2112,20 @@ namespace WeatherStation
             }
             catch (Exception ex)
             {
+                StackTrace st = new StackTrace(ex, true);
+                StackFrame[] frames = st.GetFrames();
+                string messstr = "";
+
+                // Iterate over the frames extracting the information you need
+                foreach (StackFrame frame in frames)
+                {
+                    messstr += String.Format("{0}:{1}({2},{3})", frame.GetFileName(), frame.GetMethod().Name, frame.GetFileLineNumber(), frame.GetFileColumnNumber());
+                }
+
+                string FullMessage = "Error loading settings. ";
+                FullMessage += "IOException source: " + ex.Data + " | " + ex.Message + " | " + messstr;
+
+                Logging.Log(FullMessage);
                 Logging.Log("Exception in Calculate rain last minute for RGC sensor: " + ex.ToString());
             }
 
@@ -2014,6 +2163,20 @@ namespace WeatherStation
             }
             catch (Exception ex)
             {
+                StackTrace st = new StackTrace(ex, true);
+                StackFrame[] frames = st.GetFrames();
+                string messstr = "";
+
+                // Iterate over the frames extracting the information you need
+                foreach (StackFrame frame in frames)
+                {
+                    messstr += String.Format("{0}:{1}({2},{3})", frame.GetFileName(), frame.GetMethod().Name, frame.GetFileLineNumber(), frame.GetFileColumnNumber());
+                }
+
+                string FullMessage = "Error loading settings. ";
+                FullMessage += "IOException source: " + ex.Data + " | " + ex.Message + " | " + messstr;
+
+                Logging.Log(FullMessage);
                 Logging.Log("Exception in Calculate Wet Sensor value: " + ex.ToString());
             }
 
@@ -2080,6 +2243,20 @@ namespace WeatherStation
             }
             catch (Exception ex)
             {
+                StackTrace st = new StackTrace(ex, true);
+                StackFrame[] frames = st.GetFrames();
+                string messstr = "";
+
+                // Iterate over the frames extracting the information you need
+                foreach (StackFrame frame in frames)
+                {
+                    messstr += String.Format("{0}:{1}({2},{3})", frame.GetFileName(), frame.GetMethod().Name, frame.GetFileLineNumber(), frame.GetFileColumnNumber());
+                }
+
+                string FullMessage = "Error loading settings. ";
+                FullMessage += "IOException source: " + ex.Data + " | " + ex.Message + " | " + messstr;
+
+                Logging.Log(FullMessage);
                 Logging.Log("Exception in switch (RainConditionMode): " + ex.ToString());
             }
 
@@ -2115,12 +2292,25 @@ namespace WeatherStation
         /// <returns>Wind speed in m/s</returns>
         public double calcWindSpeed(double WSVal)
         {
+            double calibration_maxspeed__ = 32.4;
+            double calibration_multiplier__ = 1.6;
 
-            double minVoltage= WindSpeed_ZeroSpeedValue * 5.0 / 1023.0; // minVoltage = minValue * 5 / 1023
+            //1. Cacluate voltage (from arduino analogread value
+                //Analog sensor value (which will be between 0 and 1023, perfect for an int datatype) coming in from your potentiometer:
+                //int sensorValue = analogRead(A0);
+                //To change the values from 0-1023 to a range that corresponds to the voltage the pin is reading, you'll need to create another variable, a float, and do a little math. To scale the numbers between 0.0 and 5.0, divide 5.0 by 1023.0 and multiply that by sensorValue :
+                //float voltage= sensorValue * (5.0 / 1023.0); 
+            double WindSensorVoltage = WSVal * (5.0 / 1023.0); //
 
+            //2. Calculate corresponding zero voltage value based on Calibration ZeroSpeed analogread count value
+            double calibraion_ZeroSpeedVoltage = WS_Calibraion_ZeroSpeedAnalogValue * 5.0 / 1023.0; 
 
-            double WindSensorVoltage = WSVal * (5.0 / 1023.0);
-            double windspeed_raw = (WindSensorVoltage - minVoltage) / 1.6 * 32.4;
+            //3. Calculate wind speed
+                // Range: 0 ~ 32.4m/s
+                // Wind speed values = output voltage - 0.4) /1.6*32.4
+            double windspeed_raw = (WindSensorVoltage - calibraion_ZeroSpeedVoltage) / WS_Calibraion_PartialMultiplier * WS_Calibraion_MaxspeedMultiplier; 
+            
+
             if (windspeed_raw > -1) { windspeed_raw = Math.Max(windspeed_raw, 0.0); } //deal with negative values
             //if too negative (-7.8) then there is no input voltage on sensor and leave the value as is
 

@@ -193,7 +193,6 @@ namespace WeatherStation
                 ParentMainForm.Hardware.RainConditionMode = (WetSensorsMode)(cmbWetMode.SelectedIndex);
 
 
-
                 ParentMainForm.Hardware.K1 = Convert.ToDouble(txtK1.Text);
                 ParentMainForm.Hardware.K2 = Convert.ToDouble(txtK2.Text);
                 ParentMainForm.Hardware.K3 = Convert.ToDouble(txtK3.Text);
@@ -202,7 +201,11 @@ namespace WeatherStation
                 ParentMainForm.Hardware.K6 = Convert.ToDouble(txtK6.Text);
                 ParentMainForm.Hardware.K7 = Convert.ToDouble(txtK7.Text);
 
-                ParentMainForm.Hardware.WindSpeed_ZeroSpeedValue = Convert.ToInt16(txtWSpeedZero.Text);
+                //WindSpeed
+                ParentMainForm.Hardware.WS_Calibraion_ZeroSpeedAnalogValue = Convert.ToInt16(txtWSpeedZero.Text);
+                ParentMainForm.Hardware.WS_Calibraion_PartialMultiplier = Convert.ToDouble(txtWSpeedMult.Text);
+                ParentMainForm.Hardware.WS_Calibraion_MaxspeedMultiplier = Convert.ToDouble(txtWSpeedMax.Text);
+                ParentMainForm.Hardware.WS_AutoCalibrateFlag = chkWSAutoCalibrate.Checked;
 
                 ParentMainForm.Hardware.RAININDEX_WET_LIMIT = Convert.ToDouble(txtWetLimit.Text);
                 ParentMainForm.Hardware.RAININDEX_RAIN_LIMIT = Convert.ToDouble(txtRainLimit.Text);
@@ -229,7 +232,6 @@ namespace WeatherStation
                 ParentMainForm.Hardware.HEATER_WET_START_THRESHOLD = Convert.ToDouble(txtHeaterWetThreshold.Text);
                 ParentMainForm.Hardware.CS_NEEDHEATING_MAXDELTA = Convert.ToDouble(txtCSDecreasingMaxDelta.Text);
                 ParentMainForm.Hardware.CS_NEEDHEATING_MINDELTA = Convert.ToDouble(txtCSDecreasingMinDelta.Text);
-
 
                 ParentMainForm.Hardware.HeightAboveSea = Convert.ToDouble(txtHeightAboveSea.Text);
 

@@ -1050,8 +1050,6 @@ waiting 10000
                 Hardware.K6 = Convert.ToDouble(Properties.Settings.Default.K6);
                 Hardware.K7 = Convert.ToDouble(Properties.Settings.Default.K7);
 
-                Hardware.WindSpeed_ZeroSpeedValue = Convert.ToInt16(Properties.Settings.Default.WindSpeed_Zero);
-
                 Hardware.RAININDEX_WET_LIMIT = Convert.ToDouble(Properties.Settings.Default.WetLimit);
                 Hardware.RAININDEX_RAIN_LIMIT = Convert.ToDouble(Properties.Settings.Default.RainLimit);
 
@@ -1062,9 +1060,15 @@ waiting 10000
                 //Hardware.RainConditionMode = Hardware.WetSensorsModeDictionary[Properties.Settings.Default.WetSensorsMode];
                 Hardware.RGC_ONETICK_VALUE = Convert.ToDouble(Properties.Settings.Default.RGCScale);
 
-                Hardware.WINDSPEED_WINDY = Convert.ToDouble(Properties.Settings.Default.WindyLimit);
-                Hardware.WINDSPEED_VERYWINDY = Convert.ToDouble(Properties.Settings.Default.VeryWindyLimit);
+                //Wind Speed
+                Hardware.WINDSPEED_WINDY = Utils.ConvertToDouble(Properties.Settings.Default.WindyLimit);
+                Hardware.WINDSPEED_VERYWINDY = Utils.ConvertToDouble(Properties.Settings.Default.VeryWindyLimit);
+                Hardware.WS_Calibraion_ZeroSpeedAnalogValue = Convert.ToInt16(Properties.Settings.Default.WindSpeed_Zero);
+                Hardware.WS_Calibraion_PartialMultiplier = Utils.ConvertToDouble(Properties.Settings.Default.WindSpeed_Mult);
+                Hardware.WS_Calibraion_MaxspeedMultiplier = Utils.ConvertToDouble(Properties.Settings.Default.WindSpeed_Max);
+                Hardware.WS_AutoCalibrateFlag = Properties.Settings.Default.WS_AutoCalibrate;
 
+                //Heater
                 Hardware.HEATER_MAX_DURATION = Convert.ToInt16(Properties.Settings.Default.HeatingMaxDuration);
                 Hardware.HEATER_MAX_TEMPERATURE_DELTA = Convert.ToInt16(Properties.Settings.Default.HeatingMaxTemp);
                 Hardware.HEATER_WET_START_THRESHOLD = Convert.ToInt16(Properties.Settings.Default.HeatingWetThreshold);

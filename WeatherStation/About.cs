@@ -98,6 +98,8 @@ namespace WeatherStation
             VersionData.PublishVersionSt = VersionData.PublishVersion.Major.ToString() + "." + VersionData.PublishVersion.Minor.ToString() + "." + VersionData.PublishVersion.Build.ToString() + " rev " + VersionData.PublishVersion.Revision.ToString();
 
             VersionData.CompileTime = RetrieveLinkerTimestamp();
+
+            Logging.Log(VersionData.getVersionString());
         }
 
         public static string getVersionString()
