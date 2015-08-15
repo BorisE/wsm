@@ -128,6 +128,17 @@ namespace WeatherStation
             //return ValuesLastFiveMin.Average();
             return 0;
         }
+
+
+        /// <summary>
+        /// Method to check data validity for different sensors type
+        /// </summary>      
+        public bool CheckLastValue()
+        {
+            double TagVal = LastValue;
+            return Hardware.CheckData(LastValue, SensorType);
+        }
+
     }
 
 

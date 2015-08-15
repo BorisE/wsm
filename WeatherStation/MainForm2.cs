@@ -811,7 +811,7 @@ waiting 10000
                 {
                     if (DataSensor.Enabled && DataSensor.SendToNarodMon)
                     {
-                        if (Hardware.CheckData(Convert.ToDouble(DataSensor.LastValue), DataSensor.SensorType))
+                        if (DataSensor.CheckLastValue())
                         {
                             double TempDataValue = 0.0;
                             if (Hardware.AverageDataFlag)
@@ -876,11 +876,11 @@ waiting 10000
             if (Hardware.CheckData(Hardware.BaseTempVal, SensorTypeEnum.Temp)) {
                 addGraphicsPoint(chart1, "Temp1", curX, Hardware.BaseTempVal);
             }
-            if (Hardware.CheckData(Hardware.SensorsList["Temp2"].LastValue, SensorTypeEnum.Temp))
+            if (Hardware.SensorsList["Temp2"].CheckLastValue())
             {
                 addGraphicsPoint(chart1, "Temp2", curX, Hardware.SensorsList["Temp2"].LastValue); 
             }
-            if (Hardware.CheckData(Hardware.SensorsList["ATemp"]))
+            if (Hardware.SensorsList["ATemp"].CheckLastValue())
             {
                 addGraphicsPoint(chart1, "ATemp", curX, Hardware.SensorsList["ATemp"].LastValue);
             }

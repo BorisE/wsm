@@ -735,7 +735,7 @@ namespace WeatherStation
         private void btnCalculatePressure_Click(object sender, EventArgs e)
         {
             double Temp = -100.0;
-            if (ParentMainForm.Hardware.CheckData(ParentMainForm.Hardware.BaseTempVal, SensorTypeEnum.Temp))
+            if (Hardware.CheckData(ParentMainForm.Hardware.BaseTempVal, SensorTypeEnum.Temp))
             {
                 Temp = ParentMainForm.Hardware.BaseTempVal;
             }

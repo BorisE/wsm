@@ -1016,7 +1016,7 @@ namespace WeatherStation
             {
                 if (SensorsList.ContainsKey(BaseTempName))
                 {
-                    if (CheckData(SensorsList[BaseTempName].LastValue, SensorTypeEnum.Temp))
+                    if (SensorsList[BaseTempName].CheckLastValue())
                     {
                         BaseTempVal = SensorsList[BaseTempName].LastValue;
                     }
@@ -1477,7 +1477,7 @@ namespace WeatherStation
         /// <summary>
         /// Method to check data validity for different sensors type
         /// </summary>      
-        public bool CheckData(double TagVal, SensorTypeEnum checkDataType)
+        public static bool CheckData(double TagVal, SensorTypeEnum checkDataType)
         {
             switch (checkDataType)
             {
@@ -1521,41 +1521,10 @@ namespace WeatherStation
         /// Method to check data validity for different sensors type
         /// Specail for working with SensorArray
         /// </summary>      
-        public bool CheckData(SensorElement Sensor)
+        public static bool CheckData(SensorElement Sensor)
         {
             double TagVal = Sensor.LastValue;
-            switch (Sensor.SensorType)
-            {
-                case SensorTypeEnum.Temp:
-                    if (TagVal < -80 || TagVal > 80)
-                        return false;
-                    break;
-                case SensorTypeEnum.Hum:
-                    if (TagVal <= 0 || TagVal >= 100)
-                        return false;
-                    break;
-                case SensorTypeEnum.Press:
-                    if (TagVal <= 0 || TagVal >= 800)
-                        return false;
-                    break;
-                case SensorTypeEnum.Illum:
-                    if (TagVal < 0 || TagVal >= 100000)
-                        return false;
-                    break;
-                case SensorTypeEnum.Wet:
-                    if (TagVal <= 0 || TagVal >= 1024)
-                        return false;
-                    break;
-                case SensorTypeEnum.RGC:
-                    if (TagVal < 0 || TagVal >= 1000) //maximum value I have ever seen was 237
-                        return false;
-                    break;
-                case SensorTypeEnum.Relay:
-                    if (TagVal < 0 || TagVal > 1) //only 2 values allowed: 0 and 1
-                        return false;
-                    break;
-            }
-            return true;
+            return CheckData(TagVal,Sensor.SensorType);
         }
 
         /// <summary>
