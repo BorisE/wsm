@@ -16,7 +16,7 @@ namespace ConsoleApplication1
             // WeatherStationSerial WS = new WeatherStationSerial();
             // doesn't working because starting using with forms
             // so making it just null
-            WeatherStationSerial WS = null;
+            Hardware WS = null;
 
 
             Random rand = new Random();

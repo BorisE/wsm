@@ -29,7 +29,7 @@ namespace WeatherStation
         /// <summary>
         /// Link to WeatherStationSerial class object which is used to communicate with Arduino
         /// </summary>
-        public WeatherStationSerial Hardware;
+        public Hardware Hardware;
 
         /// <summary>
         /// Link to LogForm, to where all communications with Arduino module is output
@@ -100,7 +100,7 @@ namespace WeatherStation
             LocRM = new ResourceManager("WeatherStation.WinFormStrings", Assembly.GetExecutingAssembly()); //create resource manager
 
             LogForm = new LogWindow(this);
-            Hardware = new WeatherStationSerial(this);
+            Hardware = new Hardware(this);
             //PrefForm = new PreferencesForm(this);
             SetForm = new SettingsForm(this);
             //SerialFile = new SerialFromFile();

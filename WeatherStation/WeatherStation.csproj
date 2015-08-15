@@ -120,6 +120,7 @@
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="CommandInterpretator.cs" />
+    <Compile Include="Hardware_sensors.cs" />
     <Compile Include="SocketServer.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="WinFormStrings.ru.Designer.cs">
@@ -154,7 +155,7 @@
     <Compile Include="LogWindow.Designer.cs">
       <DependentUpon>LogWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="WeatherStationSerial.cs" />
+    <Compile Include="Hardware.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="About.resx">
