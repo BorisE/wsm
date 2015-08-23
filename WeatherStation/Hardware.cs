@@ -98,16 +98,6 @@ namespace WeatherStation
         public int BaseTempIdx___ = -1;
         public double BaseTempVal = -100;
 
-        public Dictionary<string, SensorTypeEnum> SensorTypeEnum_Dict = new Dictionary<string, SensorTypeEnum> {
-            { "Temp", SensorTypeEnum.Temp },
-            { "Press", SensorTypeEnum.Press },
-            { "Hum", SensorTypeEnum.Hum },
-            { "Illum", SensorTypeEnum.Illum },
-            { "Wet", SensorTypeEnum.Wet },
-            { "RGC", SensorTypeEnum.RGC },
-            { "WSp", SensorTypeEnum.WSp },
-            { "Relay", SensorTypeEnum.Relay }
-        };
         #endregion
 
         /// <summary>
