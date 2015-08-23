@@ -546,7 +546,7 @@
             chartArea2.AxisX.MajorGrid.Interval = 1D;
             chartArea2.AxisX.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Hours;
             chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea2.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea2.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
             chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Silver;
             chartArea2.AxisX.MinorGrid.Enabled = true;
             chartArea2.AxisX.MinorGrid.LineColor = System.Drawing.Color.Gainsboro;

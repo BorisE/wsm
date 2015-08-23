@@ -95,8 +95,19 @@ namespace WeatherStation
         public Dictionary<string, int> SensorsArrayHashArduino = new Dictionary<string, int>();
 
         public string BaseTempName = "Temp1";
-        public int BaseTempIdx___ = -1;
         public double BaseTempVal = -100;
+
+        public Dictionary<string, SensorTypeEnum> SensorTypeEnum_Dict = new Dictionary<string, SensorTypeEnum> {
+            { "Temp", SensorTypeEnum.Temp },
+            { "Press", SensorTypeEnum.Press },
+            { "Hum", SensorTypeEnum.Hum },
+            { "Illum", SensorTypeEnum.Illum },
+            { "Wet", SensorTypeEnum.Wet },
+            { "RGC", SensorTypeEnum.RGC },
+            { "WSp", SensorTypeEnum.WSp },
+            { "Relay", SensorTypeEnum.Relay }
+        };
+
 
         #endregion
 
@@ -267,7 +278,7 @@ namespace WeatherStation
         #endregion
 
         /// <summary>
-        /// Limits for wins speed
+        /// Limits for wind speed
         /// </summary>        
         #region Windspeed sensor limits
         public double WINDSPEED_WINDY = 15 / 3.6; //15 kph - 4.2 m/s
