@@ -8,6 +8,7 @@ to do:
 
 1.9.66 (2015-09-05)
 - Debug window to test some processes
+- some optimization
 
 1.8.65 (2015-08-21)
 - Chart displaying small changes

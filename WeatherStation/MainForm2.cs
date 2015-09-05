@@ -797,7 +797,7 @@ waiting 10000
                         }
                         Hardware.SensorsList[DataSensor.SensorName].ClearValuesWeb();
 
-                        webstr += "&" + DataSensor.WebCustomName + "=" + Convert.ToString(TempDataValue);
+                        webstr += "&" + DataSensor.WebCustomName + "=" + Convert.ToString(Math.Round(TempDataValue, 2));
                     }
                 }
             }
@@ -854,7 +854,7 @@ waiting 10000
                             }
                             Hardware.SensorsList[DataSensor.SensorName].ClearValuesNarodmon();
                             
-                            narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(TempDataValue);
+                            narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(Math.Round(TempDataValue,2));
                         }
                     }
                                 
