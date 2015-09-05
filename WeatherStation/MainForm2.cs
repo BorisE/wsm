@@ -501,9 +501,9 @@ waiting 10000
             }
 
             //Calculated fields (custom fields)
-            txtCloudIndex1.Text = Convert.ToString(Hardware.CloudIdx);
+            txtCloudIndex1.Text = Convert.ToString(Math.Round(Hardware.CloudIdx,1));
             txtCloudIndex2.Text = Convert.ToString(Math.Round(Hardware.CloudIdxAAG, 1));
-            txtFldWSpeed.Text = Convert.ToString(Hardware.WindSpeedVal);//WindSpeed
+            txtFldWSpeed.Text = Convert.ToString(Math.Round(Hardware.WindSpeedVal,1));//WindSpeed
             
             //Heating button
             if (Hardware.Relay1==1 && btnRelay.Text == "On")
@@ -683,10 +683,10 @@ waiting 10000
 
             ///////////////////////////////////////////////////////////////////////////////////////////
             //MINIMUN DATA FIELDS
-            txtMinCloudIdx.Text = Convert.ToString(Hardware.CloudIdx);
+            txtMinCloudIdx.Text = Convert.ToString(Math.Round(Hardware.CloudIdx,1));
             txtMinRainIdx.Text = Convert.ToString(Hardware.WetVal);
             txtMinTemp.Text = Convert.ToString(Hardware.BaseTempVal);
-            txtMinWind.Text = Convert.ToString(Hardware.WindSpeedVal);//WindSpeed
+            txtMinWind.Text = Convert.ToString(Math.Round(Hardware.WindSpeedVal, 1));//WindSpeed
 
             Logging.Log("Main.RefreshFormFields2 exit", 3);
         }

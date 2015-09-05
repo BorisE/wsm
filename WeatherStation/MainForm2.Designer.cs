@@ -150,8 +150,8 @@
             this.txt20min = new System.Windows.Forms.TextBox();
             this.txtFldWSpeed = new System.Windows.Forms.TextBox();
             this.pannelMaximum = new System.Windows.Forms.Panel();
-            this.btnShowDebug = new System.Windows.Forms.Button();
             this.panelDebug = new System.Windows.Forms.Panel();
+            this.btnShowDebug = new System.Windows.Forms.Button();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.lblFldWSpeed = new System.Windows.Forms.Label();
             this.pannelMinimum = new System.Windows.Forms.Panel();
@@ -519,7 +519,10 @@
             chartArea1.AxisY.StripLines.Add(stripLine3);
             chartArea1.AxisY.ToolTip = "Cloud index plot";
             chartArea1.AxisY2.Interval = 5D;
+            chartArea1.AxisY2.LabelAutoFitMaxFontSize = 7;
             chartArea1.AxisY2.MajorGrid.Enabled = false;
+            chartArea1.AxisY2.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisY2.MajorTickMark.LineColor = System.Drawing.Color.Silver;
             chartArea1.AxisY2.Maximum = 15D;
             chartArea1.AxisY2.Minimum = -10D;
             chartArea1.BackSecondaryColor = System.Drawing.Color.White;
@@ -566,8 +569,9 @@
             chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Silver;
             chartArea2.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
             chartArea2.AxisY2.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea2.AxisY2.LabelAutoFitMaxFontSize = 7;
-            chartArea2.AxisY2.LabelAutoFitMinFontSize = 7;
+            chartArea2.AxisY2.LabelAutoFitMaxFontSize = 6;
+            chartArea2.AxisY2.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)(((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
+            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.WordWrap)));
             chartArea2.AxisY2.MajorGrid.Enabled = false;
             chartArea2.AxisY2.MajorTickMark.LineColor = System.Drawing.Color.Silver;
             chartArea2.BorderColor = System.Drawing.Color.Silver;
@@ -634,12 +638,16 @@
             chartArea4.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea4.AxisX2.MajorGrid.Enabled = false;
             chartArea4.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea4.AxisY.LabelAutoFitMaxFontSize = 7;
-            chartArea4.AxisY.LabelAutoFitMinFontSize = 7;
+            chartArea4.AxisY.LabelAutoFitMaxFontSize = 8;
+            chartArea4.AxisY.LabelAutoFitMinFontSize = 8;
+            chartArea4.AxisY.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)(((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
+            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.WordWrap)));
             chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
             chartArea4.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
             chartArea4.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Silver;
-            chartArea4.AxisY2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea4.AxisY2.LabelAutoFitMaxFontSize = 7;
+            chartArea4.AxisY2.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)(((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
+            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.WordWrap)));
             chartArea4.AxisY2.MajorGrid.Enabled = false;
             chartArea4.AxisY2.MajorTickMark.LineColor = System.Drawing.Color.Silver;
             chartArea4.AxisY2.ScaleBreakStyle.BreakLineStyle = System.Windows.Forms.DataVisualization.Charting.BreakLineStyle.Wave;
@@ -677,6 +685,7 @@
             chartArea5.AxisY.LabelAutoFitMinFontSize = 7;
             chartArea5.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
             chartArea5.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea5.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Silver;
             chartArea5.AxisY2.LabelStyle.Enabled = false;
             chartArea5.AxisY2.LabelStyle.Interval = 0D;
             chartArea5.AxisY2.MajorGrid.Enabled = false;
@@ -789,7 +798,6 @@
             series11.Name = "ATemp";
             series11.ToolTip = "Case temp (#VAL{F1} at #VALX{dd.MM.yyyy HH:mm})\\nlast value: #LAST{F1} \\nmin:#MIN" +
     "{F1} max:#MAX{F1} avg:#AVG{F1}\\n";
-            series12.BorderWidth = 2;
             series12.ChartArea = "ChartArea2_press";
             series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series12.Legend = "Legend1";
@@ -1165,13 +1173,6 @@
             this.pannelMaximum.Controls.Add(this.groupBox2);
             this.pannelMaximum.Name = "pannelMaximum";
             // 
-            // btnShowDebug
-            // 
-            resources.ApplyResources(this.btnShowDebug, "btnShowDebug");
-            this.btnShowDebug.Name = "btnShowDebug";
-            this.btnShowDebug.UseVisualStyleBackColor = true;
-            this.btnShowDebug.Click += new System.EventHandler(this.btnShowDebug_Click);
-            // 
             // panelDebug
             // 
             this.panelDebug.Controls.Add(this.btnShowDebug);
@@ -1186,6 +1187,13 @@
             this.panelDebug.Controls.Add(this.txt0min);
             resources.ApplyResources(this.panelDebug, "panelDebug");
             this.panelDebug.Name = "panelDebug";
+            // 
+            // btnShowDebug
+            // 
+            resources.ApplyResources(this.btnShowDebug, "btnShowDebug");
+            this.btnShowDebug.Name = "btnShowDebug";
+            this.btnShowDebug.UseVisualStyleBackColor = true;
+            this.btnShowDebug.Click += new System.EventHandler(this.btnShowDebug_Click);
             // 
             // groupBox11
             // 
