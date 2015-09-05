@@ -1907,7 +1907,7 @@ namespace WeatherStation
             if (windspeed_raw > -1) { windspeed_raw = Math.Max(windspeed_raw, 0.0); } //deal with negative values
             //if too negative (-7.8) then there is no input voltage on sensor and leave the value as is
 
-            double RVal = Math.Round(windspeed_raw, 1); //round value to 0.1
+            double RVal = Math.Round(windspeed_raw, 2); //round value to 0.01 
 
             return RVal;
         }

@@ -863,7 +863,7 @@ waiting 10000
 
             if (Hardware.CheckData(Convert.ToDouble(Hardware.CloudIdx), SensorTypeEnum.Temp))
             {
-                narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + "00" + "=" + Convert.ToString(Hardware.CloudIdx);
+                narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + "00" + "=" + Convert.ToString(Math.Round(Hardware.CloudIdx, 2));
             }
 
             WebServices.sendDataToNarodmon(narodmonst);
