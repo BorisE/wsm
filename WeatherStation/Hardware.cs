@@ -962,51 +962,6 @@ namespace WeatherStation
         }
 
 
-        internal double curVal;
-        internal double minVal;
-        internal TimeSpan PassedFromMinSet;
-        internal TimeSpan PassedFromMinHit;
-
-        private void AutoCalibrateWindSpeed()
-        {
-            
-            curVal = SensorsList["WSp"].LastValue;
-            minVal = SensorsList["WSp"].MinValue;
-            PassedFromMinSet=DateTime.Now-SensorsList["WSp"].MinValueSetTime;
-
-            //check - if minVal changed?
-            if (minVal != LastMinValue)
-            {
-                LastMinValue = minVal;
-                WS_MinValue_HitCount = 0;
-                WS_MinValue_LastHit = new DateTime(2010, 01, 01);
-            }
-
-            //record it if hit
-            if (curVal == minVal)
-            {
-                WS_MinValue_LastHit = DateTime.Now;
-                WS_MinValue_HitCount++;
-
-                //if was enough hits - ser zerospeed calibration value
-                if (WS_MinValue_HitCount > WS_HitCount_Threshold)
-                {
-                    WS_Calibraion_ZeroSpeedAnalogValue = Convert.ToInt32(minVal);
-                }
-            }
-
-            //calc time from last hit
-            PassedFromMinHit = DateTime.Now - WS_MinValue_LastHit;
-            //reset min value
-            if (PassedFromMinHit.TotalSeconds > autoCalWS_maxPassedFromHit)
-            {
-                SensorsList["WSp"].MinValue = curVal;
-                WS_MinValue_HitCount = 0;
-                WS_MinValue_LastHit = new DateTime(2010, 01, 01);
-            }
-
-        }
-
         /// <summary>
         /// Calculate sensors values after parsing incoming data
         /// </summary>
@@ -1911,6 +1866,56 @@ namespace WeatherStation
 
             return RVal;
         }
+
+
+        internal double curVal;
+        internal double minVal;
+        internal TimeSpan PassedFromMinSet;
+        internal TimeSpan PassedFromMinHit;
+        /// <summary>
+        /// Procedure to autocalibrate zero wind speed value
+        /// Note. The process can be explored in Debug Window, autocalibrate section
+        /// </summary>
+        private void AutoCalibrateWindSpeed()
+        {
+
+            curVal = SensorsList["WSp"].LastValue;
+            minVal = SensorsList["WSp"].MinValue;
+            PassedFromMinSet = DateTime.Now - SensorsList["WSp"].MinValueSetTime;
+
+            //check - if minVal changed?
+            if (minVal != LastMinValue)
+            {
+                LastMinValue = minVal;
+                WS_MinValue_HitCount = 0;
+                WS_MinValue_LastHit = new DateTime(2010, 01, 01);
+            }
+
+            //record it if hit
+            if (curVal == minVal)
+            {
+                WS_MinValue_LastHit = DateTime.Now;
+                WS_MinValue_HitCount++;
+
+                //if was enough hits - ser zerospeed calibration value
+                if (WS_MinValue_HitCount > WS_HitCount_Threshold)
+                {
+                    WS_Calibraion_ZeroSpeedAnalogValue = Convert.ToInt32(minVal);
+                }
+            }
+
+            //calc time from last hit
+            PassedFromMinHit = DateTime.Now - WS_MinValue_LastHit;
+            //reset min value
+            if (PassedFromMinHit.TotalSeconds > autoCalWS_maxPassedFromHit)
+            {
+                SensorsList["WSp"].MinValue = curVal;
+                WS_MinValue_HitCount = 0;
+                WS_MinValue_LastHit = new DateTime(2010, 01, 01);
+            }
+
+        }
+
 
         /// <summary>
         /// Get sensor data in string for socket output

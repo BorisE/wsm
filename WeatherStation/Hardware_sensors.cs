@@ -44,9 +44,18 @@ namespace WeatherStation
         public double LastValue = -100.0;
         public DateTime LastValueReadTime = DateTime.MinValue;
 
-        public double MinValue = Int32.MaxValue;
+        private double _MinValue = Int32.MaxValue;
+        public double MinValue { 
+            get { return _MinValue; } 
+            set { _MinValue = value; MinValueSetTime = DateTime.Now; } 
+        }
         public DateTime MinValueSetTime = DateTime.MinValue;
-        public double MaxValue = Int32.MinValue;
+
+        private double _MaxValue = Int32.MinValue;
+        public double MaxValue {
+            get { return _MaxValue; }
+            set { _MaxValue = value; MaxValueSetTime = DateTime.Now; }
+        }
         public DateTime MaxValueSetTime = DateTime.MinValue;
 
         private const byte SENSOR_HISTORY_LENGTH = 25; //approx 5 min (25 * 14.3 sec)
@@ -89,12 +98,12 @@ namespace WeatherStation
             if (NewValue < MinValue)
             {
                 MinValue = NewValue;
-                MinValueSetTime = DateTime.Now;
+                //MinValueSetTime = DateTime.Now;
             }
             if (NewValue > MaxValue)
             {
                 MaxValue = NewValue;
-                MaxValueSetTime = DateTime.Now;
+                //MaxValueSetTime = DateTime.Now;
             }
 
             //Average in last stored values
