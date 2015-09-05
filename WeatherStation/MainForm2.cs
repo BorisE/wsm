@@ -47,6 +47,11 @@ namespace WeatherStation
         public SettingsForm SetForm;
 
         /// <summary>
+        /// Link to debug window
+        /// </summary>
+        public DebugWindow DebugForm;
+
+        /// <summary>
         /// Socket server
         /// </summary>
         public SocketServerClass SocketServer;
@@ -99,10 +104,14 @@ namespace WeatherStation
 
             LocRM = new ResourceManager("WeatherStation.WinFormStrings", Assembly.GetExecutingAssembly()); //create resource manager
 
-            LogForm = new LogWindow(this);
             Hardware = new Hardware(this);
-            //PrefForm = new PreferencesForm(this);
+
+            LogForm = new LogWindow(this);
+            DebugForm = new DebugWindow(this);
             SetForm = new SettingsForm(this);
+
+            
+            //PrefForm = new PreferencesForm(this);
             //SerialFile = new SerialFromFile();
             
             //Create SocketServer obj (even if it wouldn't run)
@@ -337,6 +346,12 @@ namespace WeatherStation
             
             //Parse data and make all calculation
             Hardware.LOOP_CYCLE(out curSerialBuffer);
+
+            //Debug window update
+            if (bDebugPannels)
+            {
+                DebugForm.UpdateAutoCalibrate();
+            }
 
             //Write boltwood file (and calculate boltwood fields values)
             if (Properties.Settings.Default.BoltwoodFileFlag)
@@ -1384,6 +1399,11 @@ waiting 10000
         private void backgroundWorker_SocketServer_DoWork(object sender, DoWorkEventArgs e)
         {
             SocketServer.StartListenSocket();
+        }
+
+        private void btnShowDebug_Click(object sender, EventArgs e)
+        {
+            DebugForm.Show();
         }
 
 

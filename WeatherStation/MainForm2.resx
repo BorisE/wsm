@@ -2135,7 +2135,7 @@ But for heating switching on also another conditions must be met:
     <value>panelDebug</value>
   </data>
   <data name="&gt;&gt;txtArdSetTD.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="txtArdSetWT.Location" type="System.Drawing.Point, System.Drawing">
     <value>361, 0</value>
@@ -2162,7 +2162,7 @@ But for heating switching on also another conditions must be met:
     <value>panelDebug</value>
   </data>
   <data name="&gt;&gt;txtArdSetWT.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="txtArdSetRT.Location" type="System.Drawing.Point, System.Drawing">
     <value>313, 25</value>
@@ -2190,7 +2190,7 @@ But for heating switching on also another conditions must be met:
     <value>panelDebug</value>
   </data>
   <data name="&gt;&gt;txtArdSetRT.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="btnQueryArduinoSettings.Location" type="System.Drawing.Point, System.Drawing">
     <value>381, 23</value>
@@ -2220,7 +2220,7 @@ But for heating switching on also another conditions must be met:
     <value>panelDebug</value>
   </data>
   <data name="&gt;&gt;btnQueryArduinoSettings.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="txtMinCloudIdx.Location" type="System.Drawing.Point, System.Drawing">
     <value>292, 105</value>
@@ -2330,7 +2330,7 @@ This field holds data for the newest interval (approx. 0..5 minutes ago)
     <value>panelDebug</value>
   </data>
   <data name="&gt;&gt;txt0min.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="txt5min.Location" type="System.Drawing.Point, System.Drawing">
     <value>65, 11</value>
@@ -2358,7 +2358,7 @@ This field holds data for 2nd interval (approx. 10..15 minute ago)</value>
     <value>panelDebug</value>
   </data>
   <data name="&gt;&gt;txt5min.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="txt10min.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 11</value>
@@ -2387,7 +2387,7 @@ This field holds data for 3rd interval (approx. 15..20 minute ago)
     <value>panelDebug</value>
   </data>
   <data name="&gt;&gt;txt10min.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="txt15min.Location" type="System.Drawing.Point, System.Drawing">
     <value>189, 11</value>
@@ -2417,7 +2417,7 @@ This field holds data for 4th interval (approx. 20..25 minute ago)
     <value>panelDebug</value>
   </data>
   <data name="&gt;&gt;txt15min.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="txt20min.Location" type="System.Drawing.Point, System.Drawing">
     <value>251, 11</value>
@@ -2447,7 +2447,7 @@ This field holds data for 5th interval (approx. 25..30 minute ago)
     <value>panelDebug</value>
   </data>
   <data name="&gt;&gt;txt20min.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="txtFldWSpeed.Location" type="System.Drawing.Point, System.Drawing">
     <value>80, 25</value>
@@ -2479,6 +2479,30 @@ This field holds data for 5th interval (approx. 25..30 minute ago)
   <data name="pannelMaximum.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="btnShowDebug.Location" type="System.Drawing.Point, System.Drawing">
+    <value>425, 5</value>
+  </data>
+  <data name="btnShowDebug.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 38</value>
+  </data>
+  <data name="btnShowDebug.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="btnShowDebug.Text" xml:space="preserve">
+    <value>!</value>
+  </data>
+  <data name="&gt;&gt;btnShowDebug.Name" xml:space="preserve">
+    <value>btnShowDebug</value>
+  </data>
+  <data name="&gt;&gt;btnShowDebug.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnShowDebug.Parent" xml:space="preserve">
+    <value>panelDebug</value>
+  </data>
+  <data name="&gt;&gt;btnShowDebug.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="panelDebug.Location" type="System.Drawing.Point, System.Drawing">
     <value>337, 0</value>
   </data>
@@ -2486,7 +2510,7 @@ This field holds data for 5th interval (approx. 25..30 minute ago)
     <value>4, 4, 4, 4</value>
   </data>
   <data name="panelDebug.Size" type="System.Drawing.Size, System.Drawing">
-    <value>412, 50</value>
+    <value>495, 50</value>
   </data>
   <data name="panelDebug.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>

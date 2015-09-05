@@ -150,6 +150,7 @@
             this.txt20min = new System.Windows.Forms.TextBox();
             this.txtFldWSpeed = new System.Windows.Forms.TextBox();
             this.pannelMaximum = new System.Windows.Forms.Panel();
+            this.btnShowDebug = new System.Windows.Forms.Button();
             this.panelDebug = new System.Windows.Forms.Panel();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.lblFldWSpeed = new System.Windows.Forms.Label();
@@ -564,11 +565,11 @@
             chartArea2.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Silver;
             chartArea2.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea2.AxisY2.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
             chartArea2.AxisY2.LabelAutoFitMaxFontSize = 7;
             chartArea2.AxisY2.LabelAutoFitMinFontSize = 7;
             chartArea2.AxisY2.MajorGrid.Enabled = false;
             chartArea2.AxisY2.MajorTickMark.LineColor = System.Drawing.Color.Silver;
-            chartArea2.AxisY2.Maximum = 10D;
             chartArea2.BorderColor = System.Drawing.Color.Silver;
             chartArea2.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             chartArea2.CursorX.IsUserEnabled = true;
@@ -1164,8 +1165,16 @@
             this.pannelMaximum.Controls.Add(this.groupBox2);
             this.pannelMaximum.Name = "pannelMaximum";
             // 
+            // btnShowDebug
+            // 
+            resources.ApplyResources(this.btnShowDebug, "btnShowDebug");
+            this.btnShowDebug.Name = "btnShowDebug";
+            this.btnShowDebug.UseVisualStyleBackColor = true;
+            this.btnShowDebug.Click += new System.EventHandler(this.btnShowDebug_Click);
+            // 
             // panelDebug
             // 
+            this.panelDebug.Controls.Add(this.btnShowDebug);
             this.panelDebug.Controls.Add(this.btnQueryArduinoSettings);
             this.panelDebug.Controls.Add(this.txtArdSetWT);
             this.panelDebug.Controls.Add(this.txtArdSetRT);
@@ -1546,6 +1555,7 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox txtWindCond;
         private System.ComponentModel.BackgroundWorker backgroundWorker_SocketServer;
+        private System.Windows.Forms.Button btnShowDebug;
     }
 }
 

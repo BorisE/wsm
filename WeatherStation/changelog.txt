@@ -6,6 +6,9 @@ to do:
 - rain condtions settings
 - socket commands: relay switching, parameters querying
 
+1.9.66 (2015-09-05)
+- Debug window to test some processes
+
 1.8.65 (2015-08-21)
 - Chart displaying small changes
 

@@ -141,14 +141,13 @@ namespace WeatherStation
 
         public bool WS_AutoCalibrateFlag = false;
 
-        public double autoCalWS_maxPassedFromHit = 300;
+        public double autoCalWS_maxPassedFromHit = 100;
         public Int32 WS_HitCount_Threshold = 3;
         //public double autoCalWS_minPassedFromSet = 10;
         //public double autoCalWS_maxPassedFromSet = 600;
-        private DateTime WS_MinValue_LastHit = new DateTime(2010, 01, 01);
-        private Int32 WS_MinValue_HitCount = 0;
-        private double LastMinValue = Double.MaxValue;
-
+        internal DateTime WS_MinValue_LastHit = new DateTime(2010, 01, 01);
+        internal Int32 WS_MinValue_HitCount = 0;
+        internal double LastMinValue = Double.MaxValue;
 
         public int WetVal = 1025;
         public int RGCVal = 0;
@@ -962,12 +961,18 @@ namespace WeatherStation
             }
         }
 
+
+        internal double curVal;
+        internal double minVal;
+        internal TimeSpan PassedFromMinSet;
+        internal TimeSpan PassedFromMinHit;
+
         private void AutoCalibrateWindSpeed()
         {
             
-            double curVal = SensorsList["WSp"].LastValue;
-            double minVal = SensorsList["WSp"].MinValue;
-            TimeSpan PassedFromMinSet=DateTime.Now-SensorsList["WSp"].MinValueSetTime;
+            curVal = SensorsList["WSp"].LastValue;
+            minVal = SensorsList["WSp"].MinValue;
+            PassedFromMinSet=DateTime.Now-SensorsList["WSp"].MinValueSetTime;
 
             //check - if minVal changed?
             if (minVal != LastMinValue)
@@ -991,9 +996,9 @@ namespace WeatherStation
             }
 
             //calc time from last hit
-            TimeSpan PassedFromMinHit = DateTime.Now - WS_MinValue_LastHit;
+            PassedFromMinHit = DateTime.Now - WS_MinValue_LastHit;
             //reset min value
-            if (PassedFromMinHit.Seconds > autoCalWS_maxPassedFromHit)
+            if (PassedFromMinHit.TotalSeconds > autoCalWS_maxPassedFromHit)
             {
                 SensorsList["WSp"].MinValue = curVal;
                 WS_MinValue_HitCount = 0;
@@ -1907,6 +1912,10 @@ namespace WeatherStation
             return RVal;
         }
 
+        /// <summary>
+        /// Get sensor data in string for socket output
+        /// </summary>
+        /// <returns></returns>
         public string getSensorsString()
         {
             Logging.Log("getSensorsString enter", 3);
