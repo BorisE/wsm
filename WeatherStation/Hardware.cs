@@ -141,7 +141,7 @@ namespace WeatherStation
 
         public bool WS_AutoCalibrateFlag = false;
 
-        public double autoCalWS_maxPassedFromHit = 100;
+        public double autoCalWS_maxPassedFromHit = 300;
         public Int32 WS_HitCount_Threshold = 3;
         //public double autoCalWS_minPassedFromSet = 10;
         //public double autoCalWS_maxPassedFromSet = 600;
