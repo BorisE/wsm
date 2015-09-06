@@ -1474,6 +1474,9 @@ namespace WeatherStation
                     if (TagVal < 0 || TagVal > 1023) //Actually it is AnalogUnits. 1023 - max value, corresponds to MaxSpeed (def 32.4 m/s). Hurricane > 32
                         return false;
                     break;
+                default:
+                    throw new System.ArgumentException("Sensor type is out of range", "checkDataType");
+                    break;
             }
             return true;
         }
