@@ -351,6 +351,7 @@ namespace WeatherStation
             if (bDebugPannels)
             {
                 DebugForm.UpdateAutoCalibrate();
+                DebugForm.UpdateAutoHeating();
             }
 
             //Write boltwood file (and calculate boltwood fields values)
@@ -841,6 +842,12 @@ waiting 10000
                             //always use increment value in mm for RGC sensor
                             {
                                 TempDataValue = Hardware.RGC_Cumulative_mm;
+
+/*                                if (TempDataValue > 1)
+                                {
+                                    DebugForm.txtRGC_log.AppendText("RGC: " + Hardware.SensorsList["RGC"] + ", RGC_cum:" + Hardware.RGC_Cumulative + ", RGC_cum_mm: " + TempDataValue);
+                                }
+ */
                             }
                             else if (DataSensor.SensorName == "RL1")
                             //always use last value for Relay

@@ -62,6 +62,35 @@ namespace WeatherStation
         }
 
 
+/* ************************************************************************** 
+ * Auto heating
+ * 
+ * 
+ ****************************************************************************/
+        public void UpdateAutoHeating()
+        {
+            chkCloudSensorNeedHeatingFlag.Checked = ParentMainForm.Hardware.CloudSensorNeedHeatingFlag;
+                chkCSNeedsHeating_CSIntervalMet.Checked = ParentMainForm.Hardware.CSNeedsHeating_CSIntervalMet;
+                chkCSNeedsHeating_CSDecreasingTempMet.Checked = ParentMainForm.Hardware.CSNeedsHeating_CSDecreasingTempMet;
+            chkCSNeedsHeating_SinceLastHeatingMet.Checked = ParentMainForm.Hardware.CSNeedsHeating_SinceLastHeatingMet;
+            chkCSNeedsHeating_RelayOffNow.Checked = ParentMainForm.Hardware.CSNeedsHeating_RelayOffNow;
+            chkCSNeedsHeating_HumidityMet.Checked = ParentMainForm.Hardware.CSNeedsHeating_HumidityMet;
+            chkCSNeedsHeating_NotRainingMet.Checked = ParentMainForm.Hardware.CSNeedsHeating_NotRainingMet;
+            chkCSNeedsHeating_DarknessMet.Checked = ParentMainForm.Hardware.CSNeedsHeating_DarknessMet;
+
+            chkWetSesorIsWet.Checked = ParentMainForm.Hardware.WetVal <= ParentMainForm.Hardware.RAININDEX_WET_LIMIT;
+
+            if (chkCloudSensorNeedHeatingFlag.Checked && chkCSNeedsHeating_SinceLastHeatingMet.Checked && chkCSNeedsHeating_RelayOffNow.Checked
+                && chkCSNeedsHeating_HumidityMet.Checked && chkCSNeedsHeating_NotRainingMet.Checked && chkCSNeedsHeating_DarknessMet.Checked)
+            {
+                txtAutoheatingLog.AppendText(DateTime.Now.ToString("HH:mm:ss dd.MM.yyyy")+" Switched on for CloudSensor reason"+Environment.NewLine);
+            }else if (chkWetSesorIsWet.Checked) {
+                txtAutoheatingLog.AppendText(DateTime.Now.ToString("HH:mm:ss dd.MM.yyyy")+" Switched on for WetSensor reason"+Environment.NewLine);
+            }
+        }
+        
+
+
         private void DebugWindow_Load(object sender, EventArgs e)
         {
 

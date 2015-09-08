@@ -995,8 +995,8 @@ namespace WeatherStation
                 WetVal = (int)SensorsList["Wet"].LastValue;
                 RGCVal = (int)SensorsList["RGC"].LastValue;
                 RainIntensityVal = (RGCVal >= 0 ? RGCVal : 0) / (MeasureCycleLen / 1000.0) * 60 * RGC_ONETICK_VALUE; //mm per min
-                RGC_Cumulative += (RGCVal >= 0 ? RGCVal : 0);
-                RGC_Cumulative_mm += (RGCVal >= 0 ? RGCVal : 0) * RGC_ONETICK_VALUE;
+                RGC_Cumulative += (double)(RGCVal >= 0 ? RGCVal : 0);
+                RGC_Cumulative_mm = RGC_Cumulative * RGC_ONETICK_VALUE;
             }
             catch (Exception ex)
             {
@@ -1057,6 +1057,16 @@ namespace WeatherStation
 
         }
 
+
+        internal bool CSNeedsHeating_CSIntervalMet = false;
+        internal bool CSNeedsHeating_CSDecreasingTempMet = false;
+        internal bool CSNeedsHeating_SinceLastHeatingMet = false;
+        internal bool CSNeedsHeating_RelayOffNow = false;
+        internal bool CSNeedsHeating_HumidityMet = false;
+        internal bool CSNeedsHeating_NotRainingMet = false;
+        internal bool CSNeedsHeating_DarknessMet = false;
+
+
         /// <summary>
         /// Check if sensor heating needed
         /// </summary>
@@ -1067,11 +1077,11 @@ namespace WeatherStation
             CloudSensorNeedHeatingFlag = false;
 
             // Check - if cloud sensor values are in given interval?
-            bool CSNeedsHeating_CSIntervalMet = (CloudIdx > HEATER_CLOUDINDEX_MIN && CloudIdx < HEATER_CLOUDINDEX_MAX);
+            CSNeedsHeating_CSIntervalMet = (CloudIdx > HEATER_CLOUDINDEX_MIN && CloudIdx < HEATER_CLOUDINDEX_MAX);
 
             // Ckeck - if CS temp monotonous decreasing
             double deltaCur = -100.0;
-            bool CSNeedsHeating_CSDecreasingTempMet=false;
+            CSNeedsHeating_CSDecreasingTempMet=false;
             for (int i = 1; i < Math.Min(SkyIndex5min.Count, CS_NEEDHEATING_LOOKBACK_CYCLES); i++)
             {
                 deltaCur = SkyIndex5min[i] - SkyIndex5min[i-1];
@@ -1097,18 +1107,18 @@ namespace WeatherStation
             SinceLastHeatingMF = DateTime.Now.Subtract(LastHeating1SwitchOn);
             Heating1On_SecondsPassed = (int)Math.Round(SinceLastHeatingMF.TotalSeconds, 0);
             SinceLastHeating1 = Math.Min(Heating1Off_SecondsPassed, Heating1On_SecondsPassed);
-            bool CSNeedsHeating_SinceLastHeatingMet = (SinceLastHeating1 > HEATER_CS_PAUSE); //since last heating session passed enough time
+            CSNeedsHeating_SinceLastHeatingMet = (SinceLastHeating1 > HEATER_CS_PAUSE); //since last heating session passed enough time
             //Relay off now?
-            bool CSNeedsHeating_RelayOffNow = (SensorsList["RL1"].LastValue == 0); //heating not engaged already
+            CSNeedsHeating_RelayOffNow = (SensorsList["RL1"].LastValue == 0); //heating not engaged already
 
             //Check - humidity is high?
-            bool CSNeedsHeating_HumidityMet = (SensorsList["Hum1"].LastValue >= 99.9); //high humidity
+            CSNeedsHeating_HumidityMet = (SensorsList["Hum1"].LastValue >= 99.9); //high humidity
 
             //Check - is it raining now?
-            bool CSNeedsHeating_NotRainingMet = ( !RainLastMinute_Flag ); //no rain in last minute
+            CSNeedsHeating_NotRainingMet = ( !RainLastMinute_Flag ); //no rain in last minute
 
             //Check - is it dark?
-            bool CSNeedsHeating_DarknessMet = (IllumVal <= DAYLIGHT_DARK_LIMIT && IllumVal >= 0); //is it dark now?
+            CSNeedsHeating_DarknessMet = (IllumVal <= DAYLIGHT_DARK_LIMIT && IllumVal >= 0); //is it dark now?
 
              
             //GENERAL CHECK

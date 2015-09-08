@@ -216,7 +216,7 @@ namespace WeatherStation
                 Properties.Settings.Default.WetSensorsMode = cmbWetMode.SelectedIndex.ToString();
                 ParentMainForm.Hardware.RainConditionMode = (WetSensorsMode)(cmbWetMode.SelectedIndex);
 
-                ParentMainForm.Hardware.RGC_ONETICK_VALUE = Convert.ToDouble(txtGaugeInc.Text);
+                ParentMainForm.Hardware.RGC_ONETICK_VALUE = Convert.ToDouble(txtRGScale.Text);
 
                 ParentMainForm.Hardware.WINDSPEED_WINDY = Convert.ToDouble(txtWindyLimit.Text);
                 ParentMainForm.Hardware.WINDSPEED_VERYWINDY = Convert.ToDouble(txtVeryWindyLimit.Text);
