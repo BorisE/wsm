@@ -307,6 +307,7 @@ namespace WeatherStation
                 timer_debug_portread.Enabled = false;
                 SimulationMode = false;
                 Hardware.UseSimulation = false;
+
                 Logging.Log("Monitoring simulation was stopped");
                 LogForm.AppendLogText("Monitoring simulation was stopped");
                 Logging.CloseLogFile();
@@ -319,6 +320,9 @@ namespace WeatherStation
                 Logging.Log("Monitoring simulation was started");
                 SimulationMode = true;
                 Hardware.UseSimulation = true;
+
+                Hardware.sendParametersToSerial();
+
                 LogForm.AppendLogText("Monitoring simulation was started");
                 btnSimulate.Text = LocRM.GetString("SimulationStop"); 
                 btnStart_min.Text = WinFormStrings.Stop;
@@ -523,12 +527,13 @@ waiting 10000
             }
 
             //For debug
+            /*
             try{ txt0min.Text = Convert.ToString(Math.Round(Hardware.SkyIndex5min[0], 1));  }catch { }
             try{ txt5min.Text = Convert.ToString(Math.Round(Hardware.SkyIndex5min[1], 1));  }catch { }
             try{ txt10min.Text = Convert.ToString(Math.Round(Hardware.SkyIndex5min[2], 1)); }catch { }
             try{ txt15min.Text = Convert.ToString(Math.Round(Hardware.SkyIndex5min[3], 1)); }catch { }
             try{ txt20min.Text = Convert.ToString(Math.Round(Hardware.SkyIndex5min[4], 1)); }catch { }
-
+            */
             //Arduino settings for debug
             try { txtArdSetTD.Text = Convert.ToString(Hardware.ArduinoSettings["TD"].Value); }
             catch { }

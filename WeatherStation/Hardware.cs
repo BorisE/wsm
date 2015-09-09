@@ -588,16 +588,32 @@ namespace WeatherStation
         public bool sendParametersToSerial(out string CommandStr)
         {
             Logging.Log("sendParametersToSerial(overload) enter", 3);
-            
+
+            ArduinoSettingsClass El1 = new ArduinoSettingsClass();
+            ArduinoSettingsClass El2 = new ArduinoSettingsClass();
+            ArduinoSettingsClass El3 = new ArduinoSettingsClass();
             String St = ""; CommandStr = "";
+
             St = "!TD:" + Convert.ToString(HEATER_MAX_TEMPERATURE_DELTA);
             CommandStr += "out: " + St;
+            El1.Value = HEATER_MAX_TEMPERATURE_DELTA.ToString();
+            El1.ReadTime = new DateTime(2010, 01, 01);
+            ArduinoSettings.Add("TD", El1);
             bool retval1 = WriteSerialData(St);
+            
             St = "!WT:" + Convert.ToString(HEATER_WET_START_THRESHOLD);
             CommandStr += "out: " + St;
+            El2.Value = HEATER_WET_START_THRESHOLD.ToString();
+            El2.ReadTime = new DateTime(2010, 01, 01);
+            ArduinoSettings.Add("WT", El2);
             bool retval2 = WriteSerialData(St);
+
             St = "!RT:" + Convert.ToString(HEATER_MAX_DURATION);
             CommandStr += "out: " + St;
+            El3.Value = HEATER_MAX_DURATION.ToString();
+            El3.ReadTime = new DateTime(2010, 01, 01);
+            ArduinoSettings.Add("RT", El3);
+
             bool retval3 = WriteSerialData(St);
 
             Logging.Log("sendParametersToSerial (overload) was sent", 3);
@@ -613,20 +629,12 @@ namespace WeatherStation
         {
             Logging.Log("sendParametersToSerial enter", 3);
 
-            String St = ""; string StAll = "";
-            St = "!TD:" + Convert.ToString(HEATER_MAX_TEMPERATURE_DELTA); //Earlier: + ")" + Environment.NewLine
-            StAll += St;
-            bool retval1 = WriteSerialData(St);
-            St = "!WT:" + Convert.ToString(HEATER_WET_START_THRESHOLD) ;
-            StAll += St;
-            bool retval2 = WriteSerialData(St);
-            St = "!RT:" + Convert.ToString(HEATER_MAX_DURATION); 
-            StAll += St;
-            bool retval3 = WriteSerialData(St);
+            string CommandStr="";
+            bool retval=sendParametersToSerial(out CommandStr);
 
             Logging.Log("sendParametersToSerial was sent", 3);
 
-            return (retval1 && retval2 && retval3);
+            return (retval);
         }
 
         /// <summary>

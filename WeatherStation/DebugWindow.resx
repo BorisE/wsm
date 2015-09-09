@@ -120,7 +120,30 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="txt20min.ToolTip" xml:space="preserve">
+    <value>Average cloud index value for 5 min intervals every fifth minute of last 60 minutes (e.g. if now 20:56, then fields hold average values for 20:50-20:55, 20:45-20:50 etc)
+This field holds data for 5th interval (approx. 25..30 minute ago)
+
+</value>
+  </data>
+  <data name="txt15min.ToolTip" xml:space="preserve">
+    <value>Average cloud index value for 5 min intervals every fifth minute of last 60 minutes (e.g. if now 20:56, then fields hold average values for 20:50-20:55, 20:45-20:50 etc)
+This field holds data for 4th interval (approx. 20..25 minute ago)
+
+</value>
+  </data>
+  <data name="txt10min.ToolTip" xml:space="preserve">
+    <value>Average cloud index value for 5 min intervals every fifth minute of last 60 minutes (e.g. if now 20:56, then fields hold average values for 20:50-20:55, 20:45-20:50 etc)
+This field holds data for 3rd interval (approx. 15..20 minute ago)
+</value>
+  </data>
+  <data name="txt5min.ToolTip" xml:space="preserve">
+    <value>Average cloud index value for 5 min intervals every fifth minute of last 60 minutes (e.g. if now 20:56, then fields hold average values for 20:50-20:55, 20:45-20:50 etc)
+This field holds data for 2nd interval (approx. 10..15 minute ago)</value>
+  </data>
+  <data name="txt0min.ToolTip" xml:space="preserve">
+    <value>Average cloud index value for 5 min intervals every fifth minute of last 60 minutes (e.g. if now 20:56, then fields hold average values for 20:50-20:55, 20:45-20:50 etc)
+This field holds data for the newest interval (approx. 0..5 minutes ago)
+</value>
+  </data>
 </root>

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DebugWindow));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtAutoCallibrationLog = new System.Windows.Forms.TextBox();
             this.chkHitCount_Greater = new System.Windows.Forms.CheckBox();
@@ -50,18 +51,23 @@
             this.txtWS_MinValue_HitCount = new System.Windows.Forms.TextBox();
             this.txtLastMinVal = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.txtRGC_log = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.chkCloudSensorNeedHeatingFlag = new System.Windows.Forms.CheckBox();
-            this.txtAutoheatingLog = new System.Windows.Forms.TextBox();
-            this.chkCSNeedsHeating_SinceLastHeatingMet = new System.Windows.Forms.CheckBox();
             this.chkCSNeedsHeating_RelayOffNow = new System.Windows.Forms.CheckBox();
             this.chkCSNeedsHeating_HumidityMet = new System.Windows.Forms.CheckBox();
             this.chkCSNeedsHeating_NotRainingMet = new System.Windows.Forms.CheckBox();
             this.chkCSNeedsHeating_DarknessMet = new System.Windows.Forms.CheckBox();
-            this.chkWetSesorIsWet = new System.Windows.Forms.CheckBox();
             this.chkCSNeedsHeating_CSIntervalMet = new System.Windows.Forms.CheckBox();
             this.chkCSNeedsHeating_CSDecreasingTempMet = new System.Windows.Forms.CheckBox();
+            this.txtRGC_log = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtAutoheatingLog = new System.Windows.Forms.TextBox();
+            this.chkWetSesorIsWet = new System.Windows.Forms.CheckBox();
+            this.chkCSNeedsHeating_SinceLastHeatingMet = new System.Windows.Forms.CheckBox();
+            this.chkCloudSensorNeedHeatingFlag = new System.Windows.Forms.CheckBox();
+            this.txt20min = new System.Windows.Forms.TextBox();
+            this.txt15min = new System.Windows.Forms.TextBox();
+            this.txt10min = new System.Windows.Forms.TextBox();
+            this.txt5min = new System.Windows.Forms.TextBox();
+            this.txt0min = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -286,74 +292,6 @@
             this.txtLastMinVal.TabIndex = 0;
             this.txtLastMinVal.TextChanged += new System.EventHandler(this.TXT_TextChanged);
             // 
-            // txtRGC_log
-            // 
-            this.txtRGC_log.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRGC_log.Location = new System.Drawing.Point(9, 470);
-            this.txtRGC_log.Margin = new System.Windows.Forms.Padding(2);
-            this.txtRGC_log.Multiline = true;
-            this.txtRGC_log.Name = "txtRGC_log";
-            this.txtRGC_log.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtRGC_log.Size = new System.Drawing.Size(435, 98);
-            this.txtRGC_log.TabIndex = 3;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.txtAutoheatingLog);
-            this.groupBox2.Controls.Add(this.chkWetSesorIsWet);
-            this.groupBox2.Controls.Add(this.chkCSNeedsHeating_DarknessMet);
-            this.groupBox2.Controls.Add(this.chkCSNeedsHeating_NotRainingMet);
-            this.groupBox2.Controls.Add(this.chkCSNeedsHeating_HumidityMet);
-            this.groupBox2.Controls.Add(this.chkCSNeedsHeating_RelayOffNow);
-            this.groupBox2.Controls.Add(this.chkCSNeedsHeating_SinceLastHeatingMet);
-            this.groupBox2.Controls.Add(this.chkCSNeedsHeating_CSDecreasingTempMet);
-            this.groupBox2.Controls.Add(this.chkCSNeedsHeating_CSIntervalMet);
-            this.groupBox2.Controls.Add(this.chkCloudSensorNeedHeatingFlag);
-            this.groupBox2.Location = new System.Drawing.Point(9, 238);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(434, 227);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Autoheating";
-            // 
-            // chkCloudSensorNeedHeatingFlag
-            // 
-            this.chkCloudSensorNeedHeatingFlag.AutoSize = true;
-            this.chkCloudSensorNeedHeatingFlag.Location = new System.Drawing.Point(5, 18);
-            this.chkCloudSensorNeedHeatingFlag.Margin = new System.Windows.Forms.Padding(2);
-            this.chkCloudSensorNeedHeatingFlag.Name = "chkCloudSensorNeedHeatingFlag";
-            this.chkCloudSensorNeedHeatingFlag.Size = new System.Drawing.Size(169, 17);
-            this.chkCloudSensorNeedHeatingFlag.TabIndex = 2;
-            this.chkCloudSensorNeedHeatingFlag.Text = "CloudSensorNeedHeatingFlag";
-            this.chkCloudSensorNeedHeatingFlag.UseVisualStyleBackColor = true;
-            // 
-            // txtAutoheatingLog
-            // 
-            this.txtAutoheatingLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAutoheatingLog.Location = new System.Drawing.Point(220, 18);
-            this.txtAutoheatingLog.Margin = new System.Windows.Forms.Padding(2);
-            this.txtAutoheatingLog.Multiline = true;
-            this.txtAutoheatingLog.Name = "txtAutoheatingLog";
-            this.txtAutoheatingLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtAutoheatingLog.Size = new System.Drawing.Size(204, 203);
-            this.txtAutoheatingLog.TabIndex = 3;
-            // 
-            // chkCSNeedsHeating_SinceLastHeatingMet
-            // 
-            this.chkCSNeedsHeating_SinceLastHeatingMet.AutoSize = true;
-            this.chkCSNeedsHeating_SinceLastHeatingMet.Location = new System.Drawing.Point(5, 81);
-            this.chkCSNeedsHeating_SinceLastHeatingMet.Margin = new System.Windows.Forms.Padding(2);
-            this.chkCSNeedsHeating_SinceLastHeatingMet.Name = "chkCSNeedsHeating_SinceLastHeatingMet";
-            this.chkCSNeedsHeating_SinceLastHeatingMet.Size = new System.Drawing.Size(216, 17);
-            this.chkCSNeedsHeating_SinceLastHeatingMet.TabIndex = 2;
-            this.chkCSNeedsHeating_SinceLastHeatingMet.Text = "CSNeedsHeating_SinceLastHeatingMet";
-            this.chkCSNeedsHeating_SinceLastHeatingMet.UseVisualStyleBackColor = true;
-            // 
             // chkCSNeedsHeating_RelayOffNow
             // 
             this.chkCSNeedsHeating_RelayOffNow.AutoSize = true;
@@ -402,17 +340,6 @@
             this.toolTip1.SetToolTip(this.chkCSNeedsHeating_DarknessMet, "Check - is it dark?");
             this.chkCSNeedsHeating_DarknessMet.UseVisualStyleBackColor = true;
             // 
-            // chkWetSesorIsWet
-            // 
-            this.chkWetSesorIsWet.AutoSize = true;
-            this.chkWetSesorIsWet.Location = new System.Drawing.Point(5, 204);
-            this.chkWetSesorIsWet.Margin = new System.Windows.Forms.Padding(2);
-            this.chkWetSesorIsWet.Name = "chkWetSesorIsWet";
-            this.chkWetSesorIsWet.Size = new System.Drawing.Size(101, 17);
-            this.chkWetSesorIsWet.TabIndex = 2;
-            this.chkWetSesorIsWet.Text = "WetSesorIsWet";
-            this.chkWetSesorIsWet.UseVisualStyleBackColor = true;
-            // 
             // chkCSNeedsHeating_CSIntervalMet
             // 
             this.chkCSNeedsHeating_CSIntervalMet.AutoSize = true;
@@ -436,6 +363,140 @@
             this.chkCSNeedsHeating_CSDecreasingTempMet.Text = "CSNeedsHeating_CSDecreasingTempMet";
             this.toolTip1.SetToolTip(this.chkCSNeedsHeating_CSDecreasingTempMet, "Ckeck - if CS temp monotonous decreasing");
             this.chkCSNeedsHeating_CSDecreasingTempMet.UseVisualStyleBackColor = true;
+            // 
+            // txtRGC_log
+            // 
+            this.txtRGC_log.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtRGC_log.Location = new System.Drawing.Point(9, 513);
+            this.txtRGC_log.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRGC_log.Multiline = true;
+            this.txtRGC_log.Name = "txtRGC_log";
+            this.txtRGC_log.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtRGC_log.Size = new System.Drawing.Size(435, 55);
+            this.txtRGC_log.TabIndex = 3;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.txt20min);
+            this.groupBox2.Controls.Add(this.txt15min);
+            this.groupBox2.Controls.Add(this.txt10min);
+            this.groupBox2.Controls.Add(this.txt5min);
+            this.groupBox2.Controls.Add(this.txt0min);
+            this.groupBox2.Controls.Add(this.txtAutoheatingLog);
+            this.groupBox2.Controls.Add(this.chkWetSesorIsWet);
+            this.groupBox2.Controls.Add(this.chkCSNeedsHeating_DarknessMet);
+            this.groupBox2.Controls.Add(this.chkCSNeedsHeating_NotRainingMet);
+            this.groupBox2.Controls.Add(this.chkCSNeedsHeating_HumidityMet);
+            this.groupBox2.Controls.Add(this.chkCSNeedsHeating_RelayOffNow);
+            this.groupBox2.Controls.Add(this.chkCSNeedsHeating_SinceLastHeatingMet);
+            this.groupBox2.Controls.Add(this.chkCSNeedsHeating_CSDecreasingTempMet);
+            this.groupBox2.Controls.Add(this.chkCSNeedsHeating_CSIntervalMet);
+            this.groupBox2.Controls.Add(this.chkCloudSensorNeedHeatingFlag);
+            this.groupBox2.Location = new System.Drawing.Point(9, 238);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(434, 270);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Autoheating";
+            // 
+            // txtAutoheatingLog
+            // 
+            this.txtAutoheatingLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAutoheatingLog.Location = new System.Drawing.Point(220, 18);
+            this.txtAutoheatingLog.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAutoheatingLog.Multiline = true;
+            this.txtAutoheatingLog.Name = "txtAutoheatingLog";
+            this.txtAutoheatingLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtAutoheatingLog.Size = new System.Drawing.Size(204, 203);
+            this.txtAutoheatingLog.TabIndex = 3;
+            // 
+            // chkWetSesorIsWet
+            // 
+            this.chkWetSesorIsWet.AutoSize = true;
+            this.chkWetSesorIsWet.Location = new System.Drawing.Point(5, 204);
+            this.chkWetSesorIsWet.Margin = new System.Windows.Forms.Padding(2);
+            this.chkWetSesorIsWet.Name = "chkWetSesorIsWet";
+            this.chkWetSesorIsWet.Size = new System.Drawing.Size(101, 17);
+            this.chkWetSesorIsWet.TabIndex = 2;
+            this.chkWetSesorIsWet.Text = "WetSesorIsWet";
+            this.chkWetSesorIsWet.UseVisualStyleBackColor = true;
+            // 
+            // chkCSNeedsHeating_SinceLastHeatingMet
+            // 
+            this.chkCSNeedsHeating_SinceLastHeatingMet.AutoSize = true;
+            this.chkCSNeedsHeating_SinceLastHeatingMet.Location = new System.Drawing.Point(5, 81);
+            this.chkCSNeedsHeating_SinceLastHeatingMet.Margin = new System.Windows.Forms.Padding(2);
+            this.chkCSNeedsHeating_SinceLastHeatingMet.Name = "chkCSNeedsHeating_SinceLastHeatingMet";
+            this.chkCSNeedsHeating_SinceLastHeatingMet.Size = new System.Drawing.Size(216, 17);
+            this.chkCSNeedsHeating_SinceLastHeatingMet.TabIndex = 2;
+            this.chkCSNeedsHeating_SinceLastHeatingMet.Text = "CSNeedsHeating_SinceLastHeatingMet";
+            this.chkCSNeedsHeating_SinceLastHeatingMet.UseVisualStyleBackColor = true;
+            // 
+            // chkCloudSensorNeedHeatingFlag
+            // 
+            this.chkCloudSensorNeedHeatingFlag.AutoSize = true;
+            this.chkCloudSensorNeedHeatingFlag.Location = new System.Drawing.Point(5, 18);
+            this.chkCloudSensorNeedHeatingFlag.Margin = new System.Windows.Forms.Padding(2);
+            this.chkCloudSensorNeedHeatingFlag.Name = "chkCloudSensorNeedHeatingFlag";
+            this.chkCloudSensorNeedHeatingFlag.Size = new System.Drawing.Size(169, 17);
+            this.chkCloudSensorNeedHeatingFlag.TabIndex = 2;
+            this.chkCloudSensorNeedHeatingFlag.Text = "CloudSensorNeedHeatingFlag";
+            this.chkCloudSensorNeedHeatingFlag.UseVisualStyleBackColor = true;
+            // 
+            // txt20min
+            // 
+            this.txt20min.Location = new System.Drawing.Point(192, 235);
+            this.txt20min.Margin = new System.Windows.Forms.Padding(2);
+            this.txt20min.Name = "txt20min";
+            this.txt20min.ReadOnly = true;
+            this.txt20min.Size = new System.Drawing.Size(43, 20);
+            this.txt20min.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.txt20min, resources.GetString("txt20min.ToolTip"));
+            // 
+            // txt15min
+            // 
+            this.txt15min.Location = new System.Drawing.Point(146, 235);
+            this.txt15min.Margin = new System.Windows.Forms.Padding(2);
+            this.txt15min.Name = "txt15min";
+            this.txt15min.ReadOnly = true;
+            this.txt15min.Size = new System.Drawing.Size(43, 20);
+            this.txt15min.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.txt15min, resources.GetString("txt15min.ToolTip"));
+            // 
+            // txt10min
+            // 
+            this.txt10min.Location = new System.Drawing.Point(99, 235);
+            this.txt10min.Margin = new System.Windows.Forms.Padding(2);
+            this.txt10min.Name = "txt10min";
+            this.txt10min.ReadOnly = true;
+            this.txt10min.Size = new System.Drawing.Size(43, 20);
+            this.txt10min.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.txt10min, resources.GetString("txt10min.ToolTip"));
+            // 
+            // txt5min
+            // 
+            this.txt5min.Location = new System.Drawing.Point(53, 235);
+            this.txt5min.Margin = new System.Windows.Forms.Padding(2);
+            this.txt5min.Name = "txt5min";
+            this.txt5min.ReadOnly = true;
+            this.txt5min.Size = new System.Drawing.Size(43, 20);
+            this.txt5min.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.txt5min, resources.GetString("txt5min.ToolTip"));
+            // 
+            // txt0min
+            // 
+            this.txt0min.Location = new System.Drawing.Point(6, 235);
+            this.txt0min.Margin = new System.Windows.Forms.Padding(2);
+            this.txt0min.Name = "txt0min";
+            this.txt0min.ReadOnly = true;
+            this.txt0min.Size = new System.Drawing.Size(43, 20);
+            this.txt0min.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.txt0min, resources.GetString("txt0min.ToolTip"));
             // 
             // DebugWindow
             // 
@@ -494,5 +555,10 @@
         private System.Windows.Forms.CheckBox chkWetSesorIsWet;
         private System.Windows.Forms.CheckBox chkCSNeedsHeating_CSIntervalMet;
         private System.Windows.Forms.CheckBox chkCSNeedsHeating_CSDecreasingTempMet;
+        private System.Windows.Forms.TextBox txt20min;
+        private System.Windows.Forms.TextBox txt15min;
+        private System.Windows.Forms.TextBox txt10min;
+        private System.Windows.Forms.TextBox txt5min;
+        private System.Windows.Forms.TextBox txt0min;
     }
 }

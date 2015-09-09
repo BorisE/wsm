@@ -89,7 +89,7 @@ namespace WeatherStation
             Logging.Log("WebServices.sendDataToNarodmon enter", 3);
             
             string DevPrefix=Narodmon_MAC.Replace("-", "");
-            if (queryst == "") queryst = "&" + DevPrefix+"01" + "=10.2"+"&" + DevPrefix+"02" + "=754";
+            if (queryst == "") queryst = DevPrefix+"01" + "=10.2"+"&" + DevPrefix+"02" + "=754";
             string postData = "ID=" + Narodmon_MAC + "&" + queryst + ""; //[&time=UnixTime][&lat=LAT][&lng=LNG][&name=ASTROMANIA.INFO]
 
             //Logging.Log("Narodmon query: " + postData, 2);

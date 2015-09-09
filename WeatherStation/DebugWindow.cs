@@ -67,6 +67,8 @@ namespace WeatherStation
  * 
  * 
  ****************************************************************************/
+        bool prevWetSesorIsWet_state = false;
+
         public void UpdateAutoHeating()
         {
             chkCloudSensorNeedHeatingFlag.Checked = ParentMainForm.Hardware.CloudSensorNeedHeatingFlag;
@@ -78,14 +80,37 @@ namespace WeatherStation
             chkCSNeedsHeating_NotRainingMet.Checked = ParentMainForm.Hardware.CSNeedsHeating_NotRainingMet;
             chkCSNeedsHeating_DarknessMet.Checked = ParentMainForm.Hardware.CSNeedsHeating_DarknessMet;
 
-            chkWetSesorIsWet.Checked = ParentMainForm.Hardware.WetVal <= ParentMainForm.Hardware.RAININDEX_WET_LIMIT;
+
+            try { txt0min.Text = Convert.ToString(Math.Round(ParentMainForm.Hardware.SkyIndex5min[0], 1)); }
+            catch { }
+            try { txt5min.Text = Convert.ToString(Math.Round(ParentMainForm.Hardware.SkyIndex5min[1], 1)); }
+            catch { }
+            try { txt10min.Text = Convert.ToString(Math.Round(ParentMainForm.Hardware.SkyIndex5min[2], 1)); }
+            catch { }
+            try { txt15min.Text = Convert.ToString(Math.Round(ParentMainForm.Hardware.SkyIndex5min[3], 1)); }
+            catch { }
+            try { txt20min.Text = Convert.ToString(Math.Round(ParentMainForm.Hardware.SkyIndex5min[4], 1)); }
+            catch { }
+
+
+            if (ParentMainForm.Hardware.WetVal <= Convert.ToInt32(ParentMainForm.Hardware.ArduinoSettings["WT"].Value))
+            {
+                chkWetSesorIsWet.Checked = true;
+                if (!prevWetSesorIsWet_state)
+                {
+                    txtAutoheatingLog.AppendText(DateTime.Now.ToString("HH:mm:ss dd.MM.yyyy") + " Switched on for WetSensor reason" + Environment.NewLine);
+                }
+                prevWetSesorIsWet_state = true;
+            }
+            else
+            {
+                prevWetSesorIsWet_state = false;
+            }
 
             if (chkCloudSensorNeedHeatingFlag.Checked && chkCSNeedsHeating_SinceLastHeatingMet.Checked && chkCSNeedsHeating_RelayOffNow.Checked
                 && chkCSNeedsHeating_HumidityMet.Checked && chkCSNeedsHeating_NotRainingMet.Checked && chkCSNeedsHeating_DarknessMet.Checked)
             {
                 txtAutoheatingLog.AppendText(DateTime.Now.ToString("HH:mm:ss dd.MM.yyyy")+" Switched on for CloudSensor reason"+Environment.NewLine);
-            }else if (chkWetSesorIsWet.Checked) {
-                txtAutoheatingLog.AppendText(DateTime.Now.ToString("HH:mm:ss dd.MM.yyyy")+" Switched on for WetSensor reason"+Environment.NewLine);
             }
         }
         
