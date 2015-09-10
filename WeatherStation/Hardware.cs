@@ -598,21 +598,21 @@ namespace WeatherStation
             CommandStr += "out: " + St;
             El1.Value = HEATER_MAX_TEMPERATURE_DELTA.ToString();
             El1.ReadTime = new DateTime(2010, 01, 01);
-            ArduinoSettings.Add("TD", El1);
+            ArduinoSettings["TD"]=El1;
             bool retval1 = WriteSerialData(St);
             
             St = "!WT:" + Convert.ToString(HEATER_WET_START_THRESHOLD);
             CommandStr += "out: " + St;
             El2.Value = HEATER_WET_START_THRESHOLD.ToString();
             El2.ReadTime = new DateTime(2010, 01, 01);
-            ArduinoSettings.Add("WT", El2);
+            ArduinoSettings["WT"]=El2;
             bool retval2 = WriteSerialData(St);
 
             St = "!RT:" + Convert.ToString(HEATER_MAX_DURATION);
             CommandStr += "out: " + St;
             El3.Value = HEATER_MAX_DURATION.ToString();
             El3.ReadTime = new DateTime(2010, 01, 01);
-            ArduinoSettings.Add("RT", El3);
+            ArduinoSettings["RT"]=El3;
 
             bool retval3 = WriteSerialData(St);
 

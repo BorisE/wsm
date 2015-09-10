@@ -380,6 +380,25 @@ namespace WeatherStation
             //set base temp
             BaseTempVal = SensorsList[BaseTempName].LastValue;
 
+
+            //Init settings array
+            ArduinoSettingsClass El1 = new ArduinoSettingsClass();
+            El1.Value = HEATER_MAX_TEMPERATURE_DELTA.ToString();
+            El1.ReadTime = new DateTime(2010, 01, 01);
+            ArduinoSettings.Add("TD", El1);
+
+            ArduinoSettingsClass El2 = new ArduinoSettingsClass();
+            El2.Value = HEATER_WET_START_THRESHOLD.ToString();
+            El2.ReadTime = new DateTime(2010, 01, 01);
+            ArduinoSettings.Add("WT", El2);
+
+            
+            ArduinoSettingsClass El3 = new ArduinoSettingsClass();
+            El3.Value = HEATER_MAX_DURATION.ToString();
+            El3.ReadTime = new DateTime(2010, 01, 01);
+            ArduinoSettings.Add("RT", El3);
+
+
             Logging.Log("initSensorList exit", 3);
 
         }
