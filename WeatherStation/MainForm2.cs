@@ -262,6 +262,7 @@ namespace WeatherStation
                 btnRelay.Enabled = false;
             }
             else
+            // Otherwise - start port reading
             {
                 if (!Hardware.startReadData())
                 {

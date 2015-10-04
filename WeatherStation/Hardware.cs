@@ -8,7 +8,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Reflection;
 using System.Diagnostics;
-
+using System.Threading;
 
 namespace WeatherStation
 {
@@ -365,15 +365,17 @@ namespace WeatherStation
         /// <summary>
         /// This method is called to start reading data
         /// </summary>        
+        bool error = false;
+
         public bool startReadData()
         {
-            bool error = false;
             Logging.Log("startReadData command issued", 2);
 
             // If the port is not open
             if (!comport.IsOpen)
             {
 
+                //SOCKET MODE
                 if (UseSocketRead)
                 {
                     //nothing much to check...
@@ -381,6 +383,7 @@ namespace WeatherStation
                     queryParametersFromSerial();
                     if (!error) Logging.Log("Socket data read was opened", 2);
                 }
+                //FILE EMULATION MODE
                 else if (UseFileEmulation)
                 {
                     error=!SerialFromFile.Open();
@@ -388,23 +391,11 @@ namespace WeatherStation
                     queryParametersFromSerial();
                     if (!error) Logging.Log("FileEmulation was opened", 2);
                 }
+                //SERIAL MODE
                 else
                 {
-                    try
-                    {
-                        setPortSettings();
-                        eventHandler();
-
-                        // Open the port
-                        comport.Open();
-                        Logging.Log("Comport was opened", 2);
-
-                        sendParametersToSerial();
-                        queryParametersFromSerial();
-                    }
-                    catch (UnauthorizedAccessException) { error = true; }
-                    catch (IOException) { error = true; }
-                    catch (ArgumentException) { error = true; }
+                    Thread thread1 = new Thread(new ThreadStart(startReadData_thread));
+                    error = true; //workaround for now
                 }
             }
             if (error)
@@ -416,6 +407,30 @@ namespace WeatherStation
             {
                 return true;
             }
+        }
+
+        /// <summary>
+        /// Run separate thread
+        /// </summary>
+        private void startReadData_thread()
+        {
+            try
+            {
+                setPortSettings();
+                eventHandler();
+
+                // Open the port
+                comport.Open();
+                Logging.Log("Comport was opened", 2);
+
+                Thread.Sleep(5000);
+
+                sendParametersToSerial();
+                queryParametersFromSerial();
+            }
+            catch (UnauthorizedAccessException) { error = true; }
+            catch (IOException) { error = true; }
+            catch (ArgumentException) { error = true; }
         }
 
         /// <summary>
