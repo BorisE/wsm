@@ -6,6 +6,11 @@ to do:
 - rain condtions settings
 - socket commands: relay switching, parameters querying
 
+1.9.68 (2015-10-04)
+- more multithreading - during serial read start
+- some optimization
+- marking which skymodel is used
+
 1.9.67 (2015-09-09)
 - Bug in RGC narodmon calculations
 - Debug window to test autoheating

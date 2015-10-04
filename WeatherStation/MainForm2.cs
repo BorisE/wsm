@@ -673,7 +673,6 @@ waiting 10000
             }
             CS_color = System.Drawing.ColorTranslator.FromHtml(CS_Colors_arr[CS_coloridx]);
             btnIndCloud.BackColor = CS_color;
-            txtCloudIndex1.BackColor = CS_color;
 
             Color CS_color2 = Color.Blue;
             if (Hardware.CloudIdxAAG > 5)
@@ -685,8 +684,22 @@ waiting 10000
                 CS_coloridx = Convert.ToInt16(Math.Max(Math.Floor(Hardware.CloudIdxAAG+3) + 1, 0));
             }
             CS_color2 = System.Drawing.ColorTranslator.FromHtml(CS_Colors_arr[CS_coloridx]);
-            txtCloudIndex2.BackColor = CS_color2;
 
+
+            if (Hardware.CLOUDMODEL == CloudSensorModel.Classic)
+            {
+                txtCloudIndex1.BackColor = CS_color;
+                txtCloudIndex2.BackColor = System.Drawing.Color.Empty;
+                txtCloudIndex1.BorderStyle = BorderStyle.FixedSingle;
+                txtCloudIndex2.BorderStyle = BorderStyle.Fixed3D;
+            }
+            else
+            {
+                txtCloudIndex2.BackColor = CS_color2;
+                txtCloudIndex1.BackColor = System.Drawing.Color.Empty;
+                txtCloudIndex1.BorderStyle = BorderStyle.Fixed3D;
+                txtCloudIndex2.BorderStyle = BorderStyle.FixedSingle;
+            }
 
             ///////////////////////////////////////////////////////////////////////////////////////////
             //MINIMUN DATA FIELDS
@@ -804,7 +817,14 @@ waiting 10000
                         }
                         Hardware.SensorsList[DataSensor.SensorName].ClearValuesWeb();
 
-                        webstr += "&" + DataSensor.WebCustomName + "=" + Convert.ToString(Math.Round(TempDataValue, 2));
+                        if (TempDataValue != Double.NaN)
+                        {
+                            webstr += "&" + DataSensor.WebCustomName + "=" + Convert.ToString(Math.Round(TempDataValue, 2));
+                        }
+                        else
+                        {
+                            Logging.Log(" & " + DataSensor.WebCustomName + " = " + Convert.ToString(Math.Round(TempDataValue, 2)),2);
+                        }
                     }
                 }
             }
@@ -866,8 +886,15 @@ waiting 10000
                                 TempDataValue = Hardware.calcWindSpeed(TempDataValue);
                             }
                             Hardware.SensorsList[DataSensor.SensorName].ClearValuesNarodmon();
-                            
-                            narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(Math.Round(TempDataValue,2));
+
+                            if (TempDataValue != Double.NaN)
+                            {
+                                narodmonst += (narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(Math.Round(TempDataValue, 2));
+                            }
+                            else
+                            {
+                                Logging.Log((narodmonst != "" ? "&" : "") + DevPrefix + SensIdx.ToString("D2") + "=" + Convert.ToString(Math.Round(TempDataValue, 2)), 2);
+                            }
                         }
                     }
                                 

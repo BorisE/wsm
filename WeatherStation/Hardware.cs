@@ -395,7 +395,8 @@ namespace WeatherStation
                 else
                 {
                     Thread thread1 = new Thread(new ThreadStart(startReadData_thread));
-                    error = true; //workaround for now
+                    thread1.Start();
+                    error = false; //workaround for now
                 }
             }
             if (error)
@@ -814,13 +815,9 @@ namespace WeatherStation
                             
                             //0.2. Try to convert to double. 
                             double tagValue_dbl = -100.0;
-                            try
+                            if (!Double.TryParse(tagValue_st,out tagValue_dbl))
                             {
-                                tagValue_dbl = Utils.ConvertToDouble(tagValue_st);
-                            }
-                            catch (Exception Ex)
-                            {
-                                //Note, that exception is not always an error - some values should state in string format, i.e. version info
+                                tagValue_dbl = - 100.0;
                             }
 
                             //LINE PARSED TO tagName AND tagValue
