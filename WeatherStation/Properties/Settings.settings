@@ -221,5 +221,26 @@
     <Setting Name="WS_AutoCalibrate" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="RainNowCondString1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">N+ LM+;true;true;true;true</Value>
+    </Setting>
+    <Setting Name="RainNowCondString2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">N+ LM-;true;true;false;true</Value>
+    </Setting>
+    <Setting Name="RainNowCondString3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">N- LM+;false;true;false;false</Value>
+    </Setting>
+    <Setting Name="RainNowCondString4" Type="System.String" Scope="User">
+      <Value Profile="(Default)">N- LM-;false;true;false;false</Value>
+    </Setting>
+    <Setting Name="RainLMCondString1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LM+;true;true;false;true</Value>
+    </Setting>
+    <Setting Name="RainLMCondString2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LM &gt;2;true;true;true;true</Value>
+    </Setting>
+    <Setting Name="RainLMCondString3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LM-;false;false;false;false</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -6,6 +6,11 @@ to do:
 - rain condtions settings
 - socket commands: relay switching, parameters querying
 
+1.9.70 (2015-10-11)
+- settings dialog restructuring
+- some code structuring
+- starting rain conditions management implementing
+
 1.9.68 (2015-10-04)
 - more multithreading - during serial read start
 - some optimization

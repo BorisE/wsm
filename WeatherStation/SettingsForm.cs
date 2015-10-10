@@ -119,6 +119,10 @@ namespace WeatherStation
             //POPULATE SENSOR DATAGRID
             PopulateSensorListGrid();
 
+            //RainConditions grid
+            LoadRainConditionsArrayFromSettings();
+            PopulateRainConditionsGrid();
+
             //set comboboxes
             cmbLogLevel.SelectedIndex = Logging.DEBUG_LEVEL-1;
             cmbWetMode.SelectedIndex = (byte)ParentMainForm.Hardware.RainConditionMode; ;
@@ -327,7 +331,73 @@ namespace WeatherStation
                 Properties.Settings.Default.SensorArduinoName = ArduinoName;
                 Properties.Settings.Default.SensorWebCustomName = WebCustomName;
                 Properties.Settings.Default.SensorFieldName = SensorFieldNames;
-                //3 - commit changes
+
+
+
+                // Save Rain conditions
+                string CondStr = "";
+
+                //rain now
+                CondStr = dataGridRainNOWConditions.Rows[0].Cells["RGC_conditions"].Value + ";";
+                CondStr += dataGridRainNOWConditions.Rows[0].Cells["rainWet"].Value + ";";
+                CondStr += dataGridRainNOWConditions.Rows[0].Cells["rainRain"].Value + ";";
+                CondStr += dataGridRainNOWConditions.Rows[0].Cells["rainDry"].Value + ";";
+                CondStr += dataGridRainNOWConditions.Rows[0].Cells["rainUnknown"].Value + ";";
+
+                Properties.Settings.Default.RainNowCondString1 = CondStr;
+
+                CondStr = dataGridRainNOWConditions.Rows[1].Cells["RGC_conditions"].Value + ";";
+                CondStr += dataGridRainNOWConditions.Rows[1].Cells["rainWet"].Value + ";";
+                CondStr += dataGridRainNOWConditions.Rows[1].Cells["rainRain"].Value + ";";
+                CondStr += dataGridRainNOWConditions.Rows[1].Cells["rainDry"].Value + ";";
+                CondStr += dataGridRainNOWConditions.Rows[1].Cells["rainUnknown"].Value + ";";
+
+                Properties.Settings.Default.RainNowCondString2 = CondStr;
+
+                CondStr = dataGridRainNOWConditions.Rows[2].Cells["RGC_conditions"].Value + ";";
+                CondStr += dataGridRainNOWConditions.Rows[2].Cells["rainWet"].Value + ";";
+                CondStr += dataGridRainNOWConditions.Rows[2].Cells["rainRain"].Value + ";";
+                CondStr += dataGridRainNOWConditions.Rows[2].Cells["rainDry"].Value + ";";
+                CondStr += dataGridRainNOWConditions.Rows[2].Cells["rainUnknown"].Value + ";";
+
+                Properties.Settings.Default.RainNowCondString3 = CondStr;
+
+                CondStr = dataGridRainNOWConditions.Rows[3].Cells["RGC_conditions"].Value + ";";
+                CondStr += dataGridRainNOWConditions.Rows[3].Cells["rainWet"].Value + ";";
+                CondStr += dataGridRainNOWConditions.Rows[3].Cells["rainRain"].Value + ";";
+                CondStr += dataGridRainNOWConditions.Rows[3].Cells["rainDry"].Value + ";";
+                CondStr += dataGridRainNOWConditions.Rows[3].Cells["rainUnknown"].Value + ";";
+
+                Properties.Settings.Default.RainNowCondString4 = CondStr;
+
+
+                //rain last minute
+                CondStr = dataGridRainLMConditions.Rows[0].Cells["RGC_conditions2"].Value + ";";
+                CondStr += dataGridRainLMConditions.Rows[0].Cells["rainWet2"].Value + ";";
+                CondStr += dataGridRainLMConditions.Rows[0].Cells["rainRain2"].Value + ";";
+                CondStr += dataGridRainLMConditions.Rows[0].Cells["rainDry2"].Value + ";";
+                CondStr += dataGridRainLMConditions.Rows[0].Cells["rainUnknown2"].Value + ";";
+
+                Properties.Settings.Default.RainLMCondString1 = CondStr;
+
+                CondStr = dataGridRainLMConditions.Rows[1].Cells["RGC_conditions2"].Value + ";";
+                CondStr += dataGridRainLMConditions.Rows[1].Cells["rainWet2"].Value + ";";
+                CondStr += dataGridRainLMConditions.Rows[1].Cells["rainRain2"].Value + ";";
+                CondStr += dataGridRainLMConditions.Rows[1].Cells["rainDry2"].Value + ";";
+                CondStr += dataGridRainLMConditions.Rows[1].Cells["rainUnknown2"].Value + ";";
+
+                Properties.Settings.Default.RainLMCondString2 = CondStr;
+
+                CondStr = dataGridRainLMConditions.Rows[2].Cells["RGC_conditions2"].Value + ";";
+                CondStr += dataGridRainLMConditions.Rows[2].Cells["rainWet2"].Value + ";";
+                CondStr += dataGridRainLMConditions.Rows[2].Cells["rainRain2"].Value + ";";
+                CondStr += dataGridRainLMConditions.Rows[2].Cells["rainDry2"].Value + ";";
+                CondStr += dataGridRainLMConditions.Rows[2].Cells["rainUnknown2"].Value + ";";
+
+                Properties.Settings.Default.RainLMCondString3 = CondStr;
+
+
+                // Commit changes
                 Properties.Settings.Default.Save();
 
                 //4 - reload data from AppSettings into SensorArray
@@ -511,6 +581,102 @@ namespace WeatherStation
                 }
             }
             Logging.Log("Preferences: PopulateSensorListGrid(): ended", 3);
+        }
+
+
+        string[][] RainNOWCondArr = new String[4][];
+        string[][] RainLMCondArr = new String[3][];
+
+        /// <summary>
+        /// Load sensor data from Application.Settings into SensorsArray
+        /// </summary>
+        public void LoadRainConditionsArrayFromSettings()
+        {
+            Logging.Log("Load rain conditions from settings...", 3);
+
+
+            //Read sensor parameters from Settings and split them into arrays
+            string CondString = "";
+
+            try
+            {
+                //Rain NOW conditions
+                CondString = Properties.Settings.Default.RainNowCondString1;
+                RainNOWCondArr[0] = new String[5];
+                RainNOWCondArr[0] = CondString.Split(';');
+
+                CondString = Properties.Settings.Default.RainNowCondString2;
+                RainNOWCondArr[1] = new String[5];
+                RainNOWCondArr[1] = CondString.Split(';');
+
+                CondString = Properties.Settings.Default.RainNowCondString3;
+                RainNOWCondArr[2] = new String[5];
+                RainNOWCondArr[2] = CondString.Split(';');
+
+                CondString = Properties.Settings.Default.RainNowCondString4;
+                RainNOWCondArr[3] = new String[5];
+                RainNOWCondArr[3] = CondString.Split(';');
+
+
+                //Rain LASTMINIUTE conditions
+                CondString = Properties.Settings.Default.RainLMCondString1;
+                RainLMCondArr[0] = new String[5];
+                RainLMCondArr[0] = CondString.Split(';');
+
+                CondString = Properties.Settings.Default.RainLMCondString2;
+                RainLMCondArr[1] = new String[5];
+                RainLMCondArr[1] = CondString.Split(';');
+
+                CondString = Properties.Settings.Default.RainLMCondString3;
+                RainLMCondArr[2] = new String[5];
+                RainLMCondArr[2] = CondString.Split(';');
+
+            }
+            catch(Exception ex)
+            {
+                Logging.Log("LoadRainConditionsArrayFromSettings() exception!"+ex.ToString());
+
+            }
+
+            Logging.Log("Preferences: LoadRainConditionsArrayFromSettings(): Sensor data was loaded", 3);
+
+        }
+
+        /// <summary>
+        /// Populate data grid with sensor data from SensorArray
+        /// </summary>
+        private void PopulateRainConditionsGrid()
+        {
+            //Rain NOW grid
+            int curRowIndex = 0;
+            dataGridRainNOWConditions.Rows.Clear();
+
+            foreach (string[] CondStringArrEl in RainNOWCondArr)
+            { 
+                curRowIndex = dataGridRainNOWConditions.Rows.Add();
+                dataGridRainNOWConditions.Rows[curRowIndex].Cells["RGC_conditions"].Value = CondStringArrEl[0];
+                dataGridRainNOWConditions.Rows[curRowIndex].Cells["rainWet"].Value =       (CondStringArrEl.Length < 2 ? "" : CondStringArrEl[1]);
+                dataGridRainNOWConditions.Rows[curRowIndex].Cells["rainRain"].Value =      (CondStringArrEl.Length < 3 ? "" : CondStringArrEl[2]);
+                dataGridRainNOWConditions.Rows[curRowIndex].Cells["rainDry"].Value =       (CondStringArrEl.Length < 4 ? "" : CondStringArrEl[3]);
+                dataGridRainNOWConditions.Rows[curRowIndex].Cells["rainUnknown"].Value =   (CondStringArrEl.Length < 5 ? "" : CondStringArrEl[4]);
+            }
+
+            //Rain LAST MINUTE grid
+            curRowIndex = 0;
+            dataGridRainLMConditions.Rows.Clear();
+
+            //Add row to grid
+            foreach (string[] CondStringArrEl in RainLMCondArr)
+            {
+                curRowIndex = dataGridRainLMConditions.Rows.Add();
+                dataGridRainLMConditions.Rows[curRowIndex].Cells["RGC_conditions2"].Value = CondStringArrEl[0];
+                dataGridRainLMConditions.Rows[curRowIndex].Cells["rainWet2"].Value = (CondStringArrEl.Length < 2 ? "" : CondStringArrEl[1]);
+                dataGridRainLMConditions.Rows[curRowIndex].Cells["rainRain2"].Value = (CondStringArrEl.Length < 3 ? "" : CondStringArrEl[2]);
+                dataGridRainLMConditions.Rows[curRowIndex].Cells["rainDry2"].Value = (CondStringArrEl.Length < 4 ? "" : CondStringArrEl[3]);
+                dataGridRainLMConditions.Rows[curRowIndex].Cells["rainUnknown2"].Value = (CondStringArrEl.Length < 5 ? "" : CondStringArrEl[4]);
+            }
+
+            Logging.Log("Preferences: PopulateRainConditionsGrid(): ended", 3);
         }
 
         #region Validating handlers ==============================================

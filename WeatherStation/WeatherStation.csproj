@@ -126,6 +126,7 @@
     <Compile Include="DebugWindow.Designer.cs">
       <DependentUpon>DebugWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hardware_calculations.cs" />
     <Compile Include="Hardware_sensors.cs" />
     <Compile Include="SocketServer.cs" />
     <Compile Include="Utils.cs" />
