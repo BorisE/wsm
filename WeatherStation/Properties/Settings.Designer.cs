@@ -181,7 +181,7 @@ namespace WeatherStation.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public string Cloudysky {
             get {
                 return ((string)(this["Cloudysky"]));
@@ -980,6 +980,66 @@ namespace WeatherStation.Properties {
             }
             set {
                 this["RainLMCondString3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string CloudIdx_main_lower {
+            get {
+                return ((string)(this["CloudIdx_main_lower"]));
+            }
+            set {
+                this["CloudIdx_main_lower"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("25")]
+        public string CloudIdx_primary_upper {
+            get {
+                return ((string)(this["CloudIdx_primary_upper"]));
+            }
+            set {
+                this["CloudIdx_primary_upper"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string CloudIdx_primary_lower {
+            get {
+                return ((string)(this["CloudIdx_primary_lower"]));
+            }
+            set {
+                this["CloudIdx_primary_lower"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        public string CloudIdx_secondary_upper {
+            get {
+                return ((string)(this["CloudIdx_secondary_upper"]));
+            }
+            set {
+                this["CloudIdx_secondary_upper"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-10")]
+        public string CloudIdx_secondary_lower {
+            get {
+                return ((string)(this["CloudIdx_secondary_lower"]));
+            }
+            set {
+                this["CloudIdx_secondary_lower"] = value;
             }
         }
     }

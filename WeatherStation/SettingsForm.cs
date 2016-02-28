@@ -205,6 +205,11 @@ namespace WeatherStation
                 ParentMainForm.Hardware.K6 = Convert.ToDouble(txtK6.Text);
                 ParentMainForm.Hardware.K7 = Convert.ToDouble(txtK7.Text);
 
+                ParentMainForm.chart1.ChartAreas["ChartArea1_cloud"].AxisY.Maximum= Convert.ToDouble(txtCloudIdxAxis_primary_upper.Text);
+                ParentMainForm.chart1.ChartAreas["ChartArea1_cloud"].AxisY.Minimum = Convert.ToDouble(txtCloudIdxAxis_primary_lower.Text);
+                ParentMainForm.chart1.ChartAreas["ChartArea1_cloud"].AxisY2.Maximum = Convert.ToDouble(txtCloudIdxAxis_secondary_upper.Text);
+                ParentMainForm.chart1.ChartAreas["ChartArea1_cloud"].AxisY2.Minimum = Convert.ToDouble(txtCloudIdxAxis_secondary_lower.Text);
+
                 //WindSpeed
                 ParentMainForm.Hardware.WS_Calibraion_ZeroSpeedAnalogValue = Convert.ToInt16(txtWSpeedZero.Text);
                 ParentMainForm.Hardware.WS_Calibraion_PartialMultiplier = Convert.ToDouble(txtWSpeedMult.Text);

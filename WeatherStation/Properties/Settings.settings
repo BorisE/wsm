@@ -42,7 +42,7 @@
       <Value Profile="(Default)">12</Value>
     </Setting>
     <Setting Name="Cloudysky" Type="System.String" Scope="User">
-      <Value Profile="(Default)">8</Value>
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="WetLimit" Type="System.String" Scope="User">
       <Value Profile="(Default)">1010</Value>
@@ -241,6 +241,21 @@
     </Setting>
     <Setting Name="RainLMCondString3" Type="System.String" Scope="User">
       <Value Profile="(Default)">LM-;false;false;false;false</Value>
+    </Setting>
+    <Setting Name="CloudIdx_main_lower" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="CloudIdx_primary_upper" Type="System.String" Scope="User">
+      <Value Profile="(Default)">25</Value>
+    </Setting>
+    <Setting Name="CloudIdx_primary_lower" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="CloudIdx_secondary_upper" Type="System.String" Scope="User">
+      <Value Profile="(Default)">15</Value>
+    </Setting>
+    <Setting Name="CloudIdx_secondary_lower" Type="System.String" Scope="User">
+      <Value Profile="(Default)">-10</Value>
     </Setting>
   </Settings>
 </SettingsFile>

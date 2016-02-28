@@ -1,10 +1,14 @@
 WeatherStation Project
-(c) 2013-2015 by Emchenko Boris
+(c) 2013-2016 by Emchenko Boris
 
 Change log
 to do:
 - rain condtions settings
 - socket commands: relay switching, parameters querying
+
+
+1.9.71 (2016-02-28)
+- new setting: upper/lower cloud graphics limit 
 
 1.9.70 (2015-10-11)
 - settings dialog restructuring

@@ -2655,6 +2655,258 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="&gt;&gt;groupBox10.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="label40.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label40.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label40.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 59</value>
+  </data>
+  <data name="label40.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 13</value>
+  </data>
+  <data name="label40.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label40.Text" xml:space="preserve">
+    <value>Y axis lower limit</value>
+  </data>
+  <data name="&gt;&gt;label40.Name" xml:space="preserve">
+    <value>label40</value>
+  </data>
+  <data name="&gt;&gt;label40.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label40.Parent" xml:space="preserve">
+    <value>groupBox19</value>
+  </data>
+  <data name="&gt;&gt;label40.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label52.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label52.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label52.Location" type="System.Drawing.Point, System.Drawing">
+    <value>166, 16</value>
+  </data>
+  <data name="label52.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 13</value>
+  </data>
+  <data name="label52.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label52.Text" xml:space="preserve">
+    <value>Secondary</value>
+  </data>
+  <data name="&gt;&gt;label52.Name" xml:space="preserve">
+    <value>label52</value>
+  </data>
+  <data name="&gt;&gt;label52.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label52.Parent" xml:space="preserve">
+    <value>groupBox19</value>
+  </data>
+  <data name="&gt;&gt;label52.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label42.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label42.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label42.Location" type="System.Drawing.Point, System.Drawing">
+    <value>117, 16</value>
+  </data>
+  <data name="label42.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="label42.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label42.Text" xml:space="preserve">
+    <value>Primary</value>
+  </data>
+  <data name="&gt;&gt;label42.Name" xml:space="preserve">
+    <value>label42</value>
+  </data>
+  <data name="&gt;&gt;label42.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label42.Parent" xml:space="preserve">
+    <value>groupBox19</value>
+  </data>
+  <data name="&gt;&gt;label42.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label41.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label41.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label41.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 35</value>
+  </data>
+  <data name="label41.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 13</value>
+  </data>
+  <data name="label41.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label41.Text" xml:space="preserve">
+    <value>Y axis upper limit</value>
+  </data>
+  <data name="&gt;&gt;label41.Name" xml:space="preserve">
+    <value>label41</value>
+  </data>
+  <data name="&gt;&gt;label41.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label41.Parent" xml:space="preserve">
+    <value>groupBox19</value>
+  </data>
+  <data name="&gt;&gt;label41.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="txtCloudIdxAxis_primary_lower.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 56</value>
+  </data>
+  <data name="txtCloudIdxAxis_primary_lower.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
+  </data>
+  <data name="txtCloudIdxAxis_primary_lower.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="txtCloudIdxAxis_primary_lower.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="txtCloudIdxAxis_primary_lower.ToolTip" xml:space="preserve">
+    <value>Cloudy index graph primary axis lower limit</value>
+  </data>
+  <data name="&gt;&gt;txtCloudIdxAxis_primary_lower.Name" xml:space="preserve">
+    <value>txtCloudIdxAxis_primary_lower</value>
+  </data>
+  <data name="&gt;&gt;txtCloudIdxAxis_primary_lower.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtCloudIdxAxis_primary_lower.Parent" xml:space="preserve">
+    <value>groupBox19</value>
+  </data>
+  <data name="&gt;&gt;txtCloudIdxAxis_primary_lower.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="txtCloudIdxAxis_secondary_lower.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 56</value>
+  </data>
+  <data name="txtCloudIdxAxis_secondary_lower.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
+  </data>
+  <data name="txtCloudIdxAxis_secondary_lower.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="txtCloudIdxAxis_secondary_lower.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="txtCloudIdxAxis_secondary_lower.ToolTip" xml:space="preserve">
+    <value>Cloudy index graph secondary axis lower limit</value>
+  </data>
+  <data name="&gt;&gt;txtCloudIdxAxis_secondary_lower.Name" xml:space="preserve">
+    <value>txtCloudIdxAxis_secondary_lower</value>
+  </data>
+  <data name="&gt;&gt;txtCloudIdxAxis_secondary_lower.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtCloudIdxAxis_secondary_lower.Parent" xml:space="preserve">
+    <value>groupBox19</value>
+  </data>
+  <data name="&gt;&gt;txtCloudIdxAxis_secondary_lower.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="txtCloudIdxAxis_secondary_upper.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 32</value>
+  </data>
+  <data name="txtCloudIdxAxis_secondary_upper.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
+  </data>
+  <data name="txtCloudIdxAxis_secondary_upper.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="txtCloudIdxAxis_secondary_upper.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="txtCloudIdxAxis_secondary_upper.ToolTip" xml:space="preserve">
+    <value>Cloudy index graph main axis upper limit</value>
+  </data>
+  <data name="&gt;&gt;txtCloudIdxAxis_secondary_upper.Name" xml:space="preserve">
+    <value>txtCloudIdxAxis_secondary_upper</value>
+  </data>
+  <data name="&gt;&gt;txtCloudIdxAxis_secondary_upper.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtCloudIdxAxis_secondary_upper.Parent" xml:space="preserve">
+    <value>groupBox19</value>
+  </data>
+  <data name="&gt;&gt;txtCloudIdxAxis_secondary_upper.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="txtCloudIdxAxis_primary_upper.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 32</value>
+  </data>
+  <data name="txtCloudIdxAxis_primary_upper.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
+  </data>
+  <data name="txtCloudIdxAxis_primary_upper.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="txtCloudIdxAxis_primary_upper.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="txtCloudIdxAxis_primary_upper.ToolTip" xml:space="preserve">
+    <value>Cloudy index graph primary axis upper limit</value>
+  </data>
+  <data name="&gt;&gt;txtCloudIdxAxis_primary_upper.Name" xml:space="preserve">
+    <value>txtCloudIdxAxis_primary_upper</value>
+  </data>
+  <data name="&gt;&gt;txtCloudIdxAxis_primary_upper.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtCloudIdxAxis_primary_upper.Parent" xml:space="preserve">
+    <value>groupBox19</value>
+  </data>
+  <data name="&gt;&gt;txtCloudIdxAxis_primary_upper.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="groupBox19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>325, 140</value>
+  </data>
+  <data name="groupBox19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>286, 114</value>
+  </data>
+  <data name="groupBox19.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="groupBox19.Text" xml:space="preserve">
+    <value>Cloud index graph settings</value>
+  </data>
+  <data name="&gt;&gt;groupBox19.Name" xml:space="preserve">
+    <value>groupBox19</value>
+  </data>
+  <data name="&gt;&gt;groupBox19.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox19.Parent" xml:space="preserve">
+    <value>tabModeling</value>
+  </data>
+  <data name="&gt;&gt;groupBox19.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -2791,7 +3043,7 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
     <value>tabModeling</value>
   </data>
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="tabModeling.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -2923,6 +3175,9 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   <data name="checkBox1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="checkBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="checkBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 144</value>
   </data>
@@ -2934,6 +3189,9 @@ K1 = -7.0; K2 = 110.0;  K3 = 46.0; K4 = 88.0; K5 = 88.0; K6 = 42.0; K7 = 25.0</v
   </data>
   <data name="checkBox1.Text" xml:space="preserve">
     <value>Do not report wet if sky is clear</value>
+  </data>
+  <data name="checkBox1.ToolTip" xml:space="preserve">
+    <value>Not implemented yet</value>
   </data>
   <data name="&gt;&gt;checkBox1.Name" xml:space="preserve">
     <value>checkBox1</value>
@@ -11328,6 +11586,36 @@ Set 0 to disable</value>
   <data name="&gt;&gt;FormFieldName.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;RGC_conditions2.Name" xml:space="preserve">
+    <value>RGC_conditions2</value>
+  </data>
+  <data name="&gt;&gt;RGC_conditions2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rainWet2.Name" xml:space="preserve">
+    <value>rainWet2</value>
+  </data>
+  <data name="&gt;&gt;rainWet2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rainRain2.Name" xml:space="preserve">
+    <value>rainRain2</value>
+  </data>
+  <data name="&gt;&gt;rainRain2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rainDry2.Name" xml:space="preserve">
+    <value>rainDry2</value>
+  </data>
+  <data name="&gt;&gt;rainDry2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rainUnknown2.Name" xml:space="preserve">
+    <value>rainUnknown2</value>
+  </data>
+  <data name="&gt;&gt;rainUnknown2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;RGC_conditions.Name" xml:space="preserve">
     <value>RGC_conditions</value>
   </data>
@@ -11381,36 +11669,6 @@ Set 0 to disable</value>
   </data>
   <data name="&gt;&gt;fileChooseDialog.Type" xml:space="preserve">
     <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RGC_conditions2.Name" xml:space="preserve">
-    <value>RGC_conditions2</value>
-  </data>
-  <data name="&gt;&gt;RGC_conditions2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rainWet2.Name" xml:space="preserve">
-    <value>rainWet2</value>
-  </data>
-  <data name="&gt;&gt;rainWet2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rainRain2.Name" xml:space="preserve">
-    <value>rainRain2</value>
-  </data>
-  <data name="&gt;&gt;rainRain2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rainDry2.Name" xml:space="preserve">
-    <value>rainDry2</value>
-  </data>
-  <data name="&gt;&gt;rainDry2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rainUnknown2.Name" xml:space="preserve">
-    <value>rainUnknown2</value>
-  </data>
-  <data name="&gt;&gt;rainUnknown2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>SettingsForm</value>

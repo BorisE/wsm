@@ -1097,6 +1097,11 @@ waiting 10000
                 Hardware.CLOUDINDEXAAG_CLEAR = Convert.ToDouble(Properties.Settings.Default.ClearSkyAAG);
                 Hardware.CLOUDINDEXAAG_CLOUDY = Convert.ToDouble(Properties.Settings.Default.CloudySkyAAG);
 
+                chart1.ChartAreas["ChartArea1_cloud"].AxisY.Maximum = Convert.ToDouble(Properties.Settings.Default.CloudIdx_primary_upper);
+                chart1.ChartAreas["ChartArea1_cloud"].AxisY.Minimum = Convert.ToDouble(Properties.Settings.Default.CloudIdx_primary_lower);
+                chart1.ChartAreas["ChartArea1_cloud"].AxisY2.Maximum = Convert.ToDouble(Properties.Settings.Default.CloudIdx_secondary_upper);
+                chart1.ChartAreas["ChartArea1_cloud"].AxisY2.Minimum = Convert.ToDouble(Properties.Settings.Default.CloudIdx_secondary_lower);
+
                 Hardware.K1 = Convert.ToDouble(Properties.Settings.Default.K1);
                 Hardware.K2 = Convert.ToDouble(Properties.Settings.Default.K2);
                 Hardware.K3 = Convert.ToDouble(Properties.Settings.Default.K3);

@@ -92,7 +92,13 @@
             this.tabRain = new System.Windows.Forms.TabPage();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
             this.dataGridRainLMConditions = new System.Windows.Forms.DataGridView();
+            this.RGC_conditions2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rainWet2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.rainRain2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.rainDry2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.rainUnknown2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label27 = new System.Windows.Forms.Label();
             this.btnSetGaugeInc = new System.Windows.Forms.Button();
             this.label53 = new System.Windows.Forms.Label();
@@ -147,11 +153,11 @@
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.fileChooseDialog = new System.Windows.Forms.SaveFileDialog();
-            this.RGC_conditions2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rainWet2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.rainRain2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.rainDry2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.rainUnknown2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.groupBox19 = new System.Windows.Forms.GroupBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
             this.chkAverageData = new System.Windows.Forms.CheckBox();
             this.txtRefreshNarodmonInterval = new System.Windows.Forms.TextBox();
             this.txtRefreshWebDataInterval = new System.Windows.Forms.TextBox();
@@ -212,7 +218,10 @@
             this.txtHeaterMaxDuration = new System.Windows.Forms.TextBox();
             this.txtSocketServerPort = new System.Windows.Forms.TextBox();
             this.chkSocketServer = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.txtCloudIdxAxis_primary_lower = new System.Windows.Forms.TextBox();
+            this.txtCloudIdxAxis_primary_upper = new System.Windows.Forms.TextBox();
+            this.txtCloudIdxAxis_secondary_upper = new System.Windows.Forms.TextBox();
+            this.txtCloudIdxAxis_secondary_lower = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -243,6 +252,7 @@
             this.tabSocket.SuspendLayout();
             this.groupBox13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.groupBox19.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -594,6 +604,7 @@
             // 
             this.tabModeling.Controls.Add(this.groupBox14);
             this.tabModeling.Controls.Add(this.groupBox10);
+            this.tabModeling.Controls.Add(this.groupBox19);
             this.tabModeling.Controls.Add(this.groupBox2);
             resources.ApplyResources(this.tabModeling, "tabModeling");
             this.tabModeling.Name = "tabModeling";
@@ -734,6 +745,37 @@
             this.dataGridRainLMConditions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.MyToolTip.SetToolTip(this.dataGridRainLMConditions, resources.GetString("dataGridRainLMConditions.ToolTip"));
             // 
+            // RGC_conditions2
+            // 
+            this.RGC_conditions2.Frozen = true;
+            resources.ApplyResources(this.RGC_conditions2, "RGC_conditions2");
+            this.RGC_conditions2.Name = "RGC_conditions2";
+            this.RGC_conditions2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // rainWet2
+            // 
+            this.rainWet2.Frozen = true;
+            resources.ApplyResources(this.rainWet2, "rainWet2");
+            this.rainWet2.Name = "rainWet2";
+            // 
+            // rainRain2
+            // 
+            this.rainRain2.Frozen = true;
+            resources.ApplyResources(this.rainRain2, "rainRain2");
+            this.rainRain2.Name = "rainRain2";
+            // 
+            // rainDry2
+            // 
+            this.rainDry2.Frozen = true;
+            resources.ApplyResources(this.rainDry2, "rainDry2");
+            this.rainDry2.Name = "rainDry2";
+            // 
+            // rainUnknown2
+            // 
+            this.rainUnknown2.Frozen = true;
+            resources.ApplyResources(this.rainUnknown2, "rainUnknown2");
+            this.rainUnknown2.Name = "rainUnknown2";
+            // 
             // groupBox18
             // 
             this.groupBox18.Controls.Add(this.checkBox1);
@@ -746,6 +788,13 @@
             resources.ApplyResources(this.groupBox18, "groupBox18");
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.TabStop = false;
+            // 
+            // checkBox1
+            // 
+            resources.ApplyResources(this.checkBox1, "checkBox1");
+            this.checkBox1.Name = "checkBox1";
+            this.MyToolTip.SetToolTip(this.checkBox1, resources.GetString("checkBox1.ToolTip"));
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // label27
             // 
@@ -1117,36 +1166,39 @@
             this.fileChooseDialog.InitialDirectory = "MyComputer";
             resources.ApplyResources(this.fileChooseDialog, "fileChooseDialog");
             // 
-            // RGC_conditions2
+            // groupBox19
             // 
-            this.RGC_conditions2.Frozen = true;
-            resources.ApplyResources(this.RGC_conditions2, "RGC_conditions2");
-            this.RGC_conditions2.Name = "RGC_conditions2";
-            this.RGC_conditions2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.groupBox19.Controls.Add(this.label40);
+            this.groupBox19.Controls.Add(this.label52);
+            this.groupBox19.Controls.Add(this.label42);
+            this.groupBox19.Controls.Add(this.label41);
+            this.groupBox19.Controls.Add(this.txtCloudIdxAxis_primary_lower);
+            this.groupBox19.Controls.Add(this.txtCloudIdxAxis_secondary_lower);
+            this.groupBox19.Controls.Add(this.txtCloudIdxAxis_secondary_upper);
+            this.groupBox19.Controls.Add(this.txtCloudIdxAxis_primary_upper);
+            resources.ApplyResources(this.groupBox19, "groupBox19");
+            this.groupBox19.Name = "groupBox19";
+            this.groupBox19.TabStop = false;
             // 
-            // rainWet2
+            // label40
             // 
-            this.rainWet2.Frozen = true;
-            resources.ApplyResources(this.rainWet2, "rainWet2");
-            this.rainWet2.Name = "rainWet2";
+            resources.ApplyResources(this.label40, "label40");
+            this.label40.Name = "label40";
             // 
-            // rainRain2
+            // label41
             // 
-            this.rainRain2.Frozen = true;
-            resources.ApplyResources(this.rainRain2, "rainRain2");
-            this.rainRain2.Name = "rainRain2";
+            resources.ApplyResources(this.label41, "label41");
+            this.label41.Name = "label41";
             // 
-            // rainDry2
+            // label42
             // 
-            this.rainDry2.Frozen = true;
-            resources.ApplyResources(this.rainDry2, "rainDry2");
-            this.rainDry2.Name = "rainDry2";
+            resources.ApplyResources(this.label42, "label42");
+            this.label42.Name = "label42";
             // 
-            // rainUnknown2
+            // label52
             // 
-            this.rainUnknown2.Frozen = true;
-            resources.ApplyResources(this.rainUnknown2, "rainUnknown2");
-            this.rainUnknown2.Name = "rainUnknown2";
+            resources.ApplyResources(this.label52, "label52");
+            this.label52.Name = "label52";
             // 
             // chkAverageData
             // 
@@ -1676,11 +1728,41 @@
             this.chkSocketServer.Name = "chkSocketServer";
             this.chkSocketServer.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // txtCloudIdxAxis_primary_lower
             // 
-            resources.ApplyResources(this.checkBox1, "checkBox1");
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.txtCloudIdxAxis_primary_lower.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "CloudIdx_primary_lower", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            resources.ApplyResources(this.txtCloudIdxAxis_primary_lower, "txtCloudIdxAxis_primary_lower");
+            this.txtCloudIdxAxis_primary_lower.Name = "txtCloudIdxAxis_primary_lower";
+            this.txtCloudIdxAxis_primary_lower.Text = global::WeatherStation.Properties.Settings.Default.CloudIdx_primary_lower;
+            this.MyToolTip.SetToolTip(this.txtCloudIdxAxis_primary_lower, resources.GetString("txtCloudIdxAxis_primary_lower.ToolTip"));
+            this.txtCloudIdxAxis_primary_lower.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
+            // 
+            // txtCloudIdxAxis_primary_upper
+            // 
+            this.txtCloudIdxAxis_primary_upper.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "CloudIdx_primary_upper", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            resources.ApplyResources(this.txtCloudIdxAxis_primary_upper, "txtCloudIdxAxis_primary_upper");
+            this.txtCloudIdxAxis_primary_upper.Name = "txtCloudIdxAxis_primary_upper";
+            this.txtCloudIdxAxis_primary_upper.Text = global::WeatherStation.Properties.Settings.Default.CloudIdx_primary_upper;
+            this.MyToolTip.SetToolTip(this.txtCloudIdxAxis_primary_upper, resources.GetString("txtCloudIdxAxis_primary_upper.ToolTip"));
+            this.txtCloudIdxAxis_primary_upper.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
+            // 
+            // txtCloudIdxAxis_secondary_upper
+            // 
+            this.txtCloudIdxAxis_secondary_upper.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "CloudIdx_secondary_upper", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            resources.ApplyResources(this.txtCloudIdxAxis_secondary_upper, "txtCloudIdxAxis_secondary_upper");
+            this.txtCloudIdxAxis_secondary_upper.Name = "txtCloudIdxAxis_secondary_upper";
+            this.txtCloudIdxAxis_secondary_upper.Text = global::WeatherStation.Properties.Settings.Default.CloudIdx_secondary_upper;
+            this.MyToolTip.SetToolTip(this.txtCloudIdxAxis_secondary_upper, resources.GetString("txtCloudIdxAxis_secondary_upper.ToolTip"));
+            this.txtCloudIdxAxis_secondary_upper.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
+            // 
+            // txtCloudIdxAxis_secondary_lower
+            // 
+            this.txtCloudIdxAxis_secondary_lower.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "CloudIdx_secondary_lower", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            resources.ApplyResources(this.txtCloudIdxAxis_secondary_lower, "txtCloudIdxAxis_secondary_lower");
+            this.txtCloudIdxAxis_secondary_lower.Name = "txtCloudIdxAxis_secondary_lower";
+            this.txtCloudIdxAxis_secondary_lower.Text = global::WeatherStation.Properties.Settings.Default.CloudIdx_secondary_lower;
+            this.MyToolTip.SetToolTip(this.txtCloudIdxAxis_secondary_lower, resources.GetString("txtCloudIdxAxis_secondary_lower.ToolTip"));
+            this.txtCloudIdxAxis_secondary_lower.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
             // 
             // SettingsForm
             // 
@@ -1746,6 +1828,8 @@
             this.groupBox13.ResumeLayout(false);
             this.groupBox13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.groupBox19.ResumeLayout(false);
+            this.groupBox19.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1934,5 +2018,14 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn rainDry2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn rainUnknown2;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.GroupBox groupBox19;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.TextBox txtCloudIdxAxis_primary_lower;
+        private System.Windows.Forms.TextBox txtCloudIdxAxis_primary_upper;
+        private System.Windows.Forms.TextBox txtCloudIdxAxis_secondary_upper;
+        private System.Windows.Forms.TextBox txtCloudIdxAxis_secondary_lower;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label42;
     }
 }
