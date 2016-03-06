@@ -7,6 +7,9 @@ to do:
 - socket commands: relay switching, parameters querying
 
 
+1.9.72b (2016-03-06)
+- adding sqlite data storage
+
 1.9.71 (2016-02-28)
 - new setting: upper/lower cloud graphics limit 
 
