@@ -83,7 +83,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>WeatherStation_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -225,7 +226,6 @@
     </Compile>
     <None Include="weather.snk" />
     <None Include="WeatherStation_1_TemporaryKey.pfx" />
-    <None Include="WeatherStation_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
