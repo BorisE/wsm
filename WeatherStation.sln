@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherStation", "WeatherStation\WeatherStation.csproj", "{79152F63-712D-4864-A633-08271CFEFD4D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "ConsoleApplication1\Test.csproj", "{908BDE5C-CACE-43A3-A4EA-00500918711A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{541169D7-7498-4CC7-9996-63FAEBF4EC66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDataBase", "TestDataBase\TestDataBase.csproj", "{BB5D4E66-E301-4482-9608-DD8A3C036A1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,18 @@ Global
 		{908BDE5C-CACE-43A3-A4EA-00500918711A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{908BDE5C-CACE-43A3-A4EA-00500918711A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{908BDE5C-CACE-43A3-A4EA-00500918711A}.Release|Win32.ActiveCfg = Release|Any CPU
+		{BB5D4E66-E301-4482-9608-DD8A3C036A1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB5D4E66-E301-4482-9608-DD8A3C036A1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB5D4E66-E301-4482-9608-DD8A3C036A1D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{BB5D4E66-E301-4482-9608-DD8A3C036A1D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{BB5D4E66-E301-4482-9608-DD8A3C036A1D}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{BB5D4E66-E301-4482-9608-DD8A3C036A1D}.Debug|Win32.Build.0 = Debug|Any CPU
+		{BB5D4E66-E301-4482-9608-DD8A3C036A1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB5D4E66-E301-4482-9608-DD8A3C036A1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB5D4E66-E301-4482-9608-DD8A3C036A1D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{BB5D4E66-E301-4482-9608-DD8A3C036A1D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{BB5D4E66-E301-4482-9608-DD8A3C036A1D}.Release|Win32.ActiveCfg = Release|Any CPU
+		{BB5D4E66-E301-4482-9608-DD8A3C036A1D}.Release|Win32.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
