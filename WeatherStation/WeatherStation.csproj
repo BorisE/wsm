@@ -119,6 +119,8 @@
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.99.0\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -277,6 +279,7 @@
   <ItemGroup>
     <Content Include="changelog.txt" />
     <Content Include="readme.txt" />
+    <Content Include="readme_db.txt" />
     <None Include="Resources\logo_weather.ico" />
     <None Include="Resources\logo_weather.png" />
   </ItemGroup>

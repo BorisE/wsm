@@ -240,6 +240,8 @@ namespace WeatherStation
         public double Bolt_now = 0;
         public DateTime LastMeasure;
         public string Web_date = "";
+
+        public decimalSeparatorType ForcedDecimalSeparator=decimalSeparatorType.useLocale;
         #endregion
 
         /// <summary>
@@ -1011,7 +1013,8 @@ namespace WeatherStation
             Logging.Log("WriteBolwoodFile enter", 3);
 
             //Сохранение Boltwood файла
-            Logging.WirteBoltwoodData(getBoltwoodString());
+            string res=Utils.ConvertDecimalPoint(getBoltwoodString(), ForcedDecimalSeparator);
+            Logging.WirteBoltwoodData(res);
 
             Logging.Log("WriteBolwoodFile exit", 3);
 

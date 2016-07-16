@@ -1089,6 +1089,17 @@ waiting 10000
 
                 Hardware.UseSocketRead = (Hardware.PortName == LocRM.GetString("_WORK_WITH_SOCKET_SERVER"));
 
+                uint res = 0;
+                if (uint.TryParse(Properties.Settings.Default.DecimalPoint, out res))
+                {
+                    Hardware.ForcedDecimalSeparator = (decimalSeparatorType)(res);
+                }
+                else
+                {
+                    Hardware.ForcedDecimalSeparator = decimalSeparatorType.useLocale;
+                }
+
+
                 Hardware.CLOUDMODEL = (Properties.Settings.Default.CloudModelClassic ? CloudSensorModel.Classic : CloudSensorModel.AAG);
 
                 Hardware.CLOUDINDEX_CLEAR = Convert.ToDouble(Properties.Settings.Default.Clearsky);

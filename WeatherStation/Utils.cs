@@ -349,6 +349,59 @@ namespace WeatherStation
             }
         }
 
+
+        //Decimal point override correction (parameter is a double)
+        public static string ConvertDecimalPoint(double Val, decimalSeparatorType SeparatorType = decimalSeparatorType.useLocale)
+        {
+            string Val_st = "";
+            //1. Convert to string. 
+            try
+            {
+                Val_st = Convert.ToString(Val);
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+
+            string Val_res = Val_st;
+
+            //2. Replace separator if needed
+            if (SeparatorType != decimalSeparatorType.useLocale)
+            {
+
+                char LocalSeparator = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator[0];
+                char SearchSeparator = LocalSeparator;
+                char TargetSeparator = (SeparatorType == decimalSeparatorType.useLocale ? LocalSeparator :
+                                        (SeparatorType == decimalSeparatorType.useComma ? ',' : '.')
+                                       );
+
+                Val_res = Val_st.Replace(SearchSeparator, TargetSeparator);
+
+            }
+            return Val_res;
+        }
+        
+        //Decimal point override correction (parameter is a string)
+        public static string ConvertDecimalPoint(string St, decimalSeparatorType SeparatorType = decimalSeparatorType.useLocale)
+        {
+            string Val_res = St;
+
+            //2. Replace separator if needed
+            if (SeparatorType != decimalSeparatorType.useLocale)
+            {
+
+                char LocalSeparator = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator[0];
+                char SearchSeparator = LocalSeparator;
+                char TargetSeparator = (SeparatorType == decimalSeparatorType.useLocale ? LocalSeparator :
+                                        (SeparatorType == decimalSeparatorType.useComma ? ',' : '.')
+                                       );
+
+                Val_res = St.Replace(SearchSeparator, TargetSeparator);
+
+            }
+            return Val_res;
+        }
     }
 
     [ComImport]

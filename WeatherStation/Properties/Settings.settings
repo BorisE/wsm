@@ -257,5 +257,8 @@
     <Setting Name="CloudIdx_secondary_lower" Type="System.String" Scope="User">
       <Value Profile="(Default)">-10</Value>
     </Setting>
+    <Setting Name="DecimalPoint" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Use local settings</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

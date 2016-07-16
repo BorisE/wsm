@@ -1,8 +1,8 @@
 ﻿WeatherStation Project
-(c) 2013-2015 by Emchenko Boris
+(c) 2013-2016 by Emchenko Boris
 http://astromania.info/
 
-WeatherStation Monitor is a part of DIY Weather Station Project (more details can be found at http://www.astronomy.ru/forum/index.php/topic,118732.0.html [russian] or at mother site http://astromania.info [russian]).
+WeatherStation Monitor is a part of DIY Weather Station Project (more details can be found http://www.astronomy.ru/forum/index.php/topic,118732.0.html [russian] or http://astromania.info [russian]).
 In brief it consists of three parts:
 
 1. Arduino based hardware part.

@@ -29,7 +29,7 @@ using System.Resources;
 // 3.1 Add writting from element to var in btnOk_Click event
 // 3.2 Add writting from element to Properties.Settings.Default.####
 // 4. Add to LoadParams() in MainForm initial var setting from setting provider
-// 5. Add to SettingsForm.Show() initializing combobox selectedindex from var
+// 5. Add to SettingsForm.Load() initializing combobox selectedindex from var
 ///////////////////////////////////////////
 
 namespace WeatherStation
@@ -127,12 +127,15 @@ namespace WeatherStation
             cmbLogLevel.SelectedIndex = Logging.DEBUG_LEVEL-1;
             cmbWetMode.SelectedIndex = (byte)ParentMainForm.Hardware.RainConditionMode; ;
 
+            cmbDecimalPoint.SelectedIndex= (byte)ParentMainForm.Hardware.ForcedDecimalSeparator;
+
             //enable/disable serial file emulation/socket data read
             if (ParentMainForm.Hardware.UseFileEmulation || ParentMainForm.Hardware.UseSocketRead)
             {
                 cmbPortList_SelectedIndexChanged(this,e);
             }
 
+            //locale cmb init
             cmbLang.DataSource = new CultureInfo[]{
                 CultureInfo.GetCultureInfo("en-US"),
                 CultureInfo.GetCultureInfo("ru-RU")
@@ -140,6 +143,7 @@ namespace WeatherStation
             cmbLang.DisplayMember = "NativeName";
             cmbLang.ValueMember = "Name";
             cmbLang.SelectedValue = ParentMainForm.currentLang;
+
 
             //Load current value to Rain Gauge Incremental value
             if (ParentMainForm.Hardware.RGC_Cumulative < 0)
@@ -195,6 +199,10 @@ namespace WeatherStation
                 //Wet combobox
                 Properties.Settings.Default.WetSensorsMode = cmbWetMode.SelectedIndex.ToString();
                 ParentMainForm.Hardware.RainConditionMode = (WetSensorsMode)(cmbWetMode.SelectedIndex);
+
+                //DecimalPointOverride
+                Properties.Settings.Default.DecimalPoint = cmbDecimalPoint.SelectedIndex.ToString();
+                ParentMainForm.Hardware.ForcedDecimalSeparator = (decimalSeparatorType)(cmbDecimalPoint.SelectedIndex);
 
 
                 ParentMainForm.Hardware.K1 = Convert.ToDouble(txtK1.Text);
@@ -919,7 +927,5 @@ namespace WeatherStation
             double Press = ParentMainForm.Hardware.CalcPressureOnHeight(760.0, Convert.ToDouble(txtHeightAboveSea.Text), Temp);
             txtNormalPressure.Text = String.Format("{0:0.0}",Press);
         }
-
-
     }
 }

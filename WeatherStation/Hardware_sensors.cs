@@ -16,6 +16,12 @@ namespace WeatherStation
     public enum SensorTypeEnum { Temp, Press, Hum, Illum, Wet, RGC, Relay, WSp };
 
     /// <summary>
+    /// Decimal separator override
+    /// </summary>
+    public enum decimalSeparatorType { useLocale = 0, useDot = 1, useComma = 2 }
+
+
+    /// <summary>
     /// Boltwood Data Types
     /// </summary>
     public enum CloudCond { cloudUnknown = 0, cloudClear = 1, cloudCloudy = 2, cloudVeryCloudy = 3 }

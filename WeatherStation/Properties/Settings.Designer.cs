@@ -1042,5 +1042,17 @@ namespace WeatherStation.Properties {
                 this["CloudIdx_secondary_lower"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Use local settings")]
+        public string DecimalPoint {
+            get {
+                return ((string)(this["DecimalPoint"]));
+            }
+            set {
+                this["DecimalPoint"] = value;
+            }
+        }
     }
 }
