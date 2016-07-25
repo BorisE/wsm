@@ -1054,5 +1054,53 @@ namespace WeatherStation.Properties {
                 this["DecimalPoint"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ASCOM_telescope_park {
+            get {
+                return ((bool)(this["ASCOM_telescope_park"]));
+            }
+            set {
+                this["ASCOM_telescope_park"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ASCOM_Dome_shutter {
+            get {
+                return ((bool)(this["ASCOM_Dome_shutter"]));
+            }
+            set {
+                this["ASCOM_Dome_shutter"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ASCOM_telescope_driverid {
+            get {
+                return ((string)(this["ASCOM_telescope_driverid"]));
+            }
+            set {
+                this["ASCOM_telescope_driverid"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ASCOM_Dome_driverid {
+            get {
+                return ((string)(this["ASCOM_Dome_driverid"]));
+            }
+            set {
+                this["ASCOM_Dome_driverid"] = value;
+            }
+        }
     }
 }

@@ -158,9 +158,12 @@ namespace WeatherStation
             {
                 tp.Show();
             }
-        }
 
-        private void btnOk_Click(object sender, EventArgs e)
+
+            //btnASCOM_Telescope_choose.Enabled=Pro
+    }
+
+    private void btnOk_Click(object sender, EventArgs e)
         {
             Logging.Log("Preferences form saving starting...", 3);
 
@@ -476,14 +479,6 @@ namespace WeatherStation
 
                 //Environment.SpecialFolder root = folderDlg.RootFolder;
             }
-        }
-
-
-        private void btnGenerateMac_Click(object sender, EventArgs e)
-        {
-            string myString = WebServices.GetMacAddress();
-            myString = Regex.Replace(myString, ".{2}", "$0-");
-            txtNarodmonMAC.Text = (myString.Substring(myString.Length - 1, 1) == "-" ? myString.Substring(0, myString.Length - 1) : myString);
         }
 
         private void btnResetSensorList_Click(object sender, EventArgs e)
@@ -927,5 +922,40 @@ namespace WeatherStation
             double Press = ParentMainForm.Hardware.CalcPressureOnHeight(760.0, Convert.ToDouble(txtHeightAboveSea.Text), Temp);
             txtNormalPressure.Text = String.Format("{0:0.0}",Press);
         }
+
+        private void chkASCOM_Telescope_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((CheckBox)sender).Checked)
+            {
+                btnASCOM_Telescope_choose.Enabled = true;
+            }
+            else
+            {
+                btnASCOM_Telescope_choose.Enabled = false;
+            }
+        }
+
+        private void chkASCOM_Dome_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((CheckBox)sender).Checked)
+            {
+                btnASCOM_Dome_choose.Enabled = true;
+            }
+            else
+            {
+                btnASCOM_Dome_choose.Enabled = false;
+            }
+        }
+
+        private void btnASCOM_Telescope_choose_Click(object sender, EventArgs e)
+        {
+            txtASCOM_Telescope_driver.Text = ASCOM.DriverAccess.Telescope.Choose(Properties.Settings.Default.ASCOM_telescope_driverid);
+        }
+
+        private void btnASCOM_Dome_choose_Click(object sender, EventArgs e)
+        {
+            txtASCOM_Dome_driver.Text = ASCOM.DriverAccess.Dome.Choose(Properties.Settings.Default.ASCOM_Dome_driverid);
+        }
+
     }
 }

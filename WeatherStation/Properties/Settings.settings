@@ -260,5 +260,17 @@
     <Setting Name="DecimalPoint" Type="System.String" Scope="User">
       <Value Profile="(Default)">Use local settings</Value>
     </Setting>
+    <Setting Name="ASCOM_telescope_park" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ASCOM_Dome_shutter" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ASCOM_telescope_driverid" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ASCOM_Dome_driverid" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
