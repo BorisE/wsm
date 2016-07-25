@@ -56,6 +56,11 @@ namespace WeatherStation
         /// </summary>
         public SocketServerClass SocketServer;
 
+
+        internal ASCOMTelescopeParkSensor objASCOMTelescopeParkSensor;
+        internal ASCOMDomeShutterClosedSensor objASCOMDomeClosedSensor;
+
+
         /// <summary>
         /// Link to serial from file methods
         /// </summary>
@@ -92,6 +97,12 @@ namespace WeatherStation
 
         public bool bRunSocketServerFlag = true;
 
+        public bool bUseASCOM_TelescopePark = false;
+        public string ASCOM_Telescope_driverid="";
+        public bool bUseASCOM_DomeShutter = false;
+        public string ASCOM_dome_driverid="";
+
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -122,8 +133,10 @@ namespace WeatherStation
             //Sync consntans 
             SocketServer.MAX_BUFFER_LEN = Hardware.MAX_BUFFER_LEN;
 
+
             //Init versiondata static class
             VersionData.initVersionData();
+
 
             InitializeComponent();
         }
@@ -138,6 +151,11 @@ namespace WeatherStation
             LoadParams();
 
             Logging.Log("Program started", 1);
+
+            //Init ASCOMSensors objects (after load params - because of need to read drivers id)
+            objASCOMTelescopeParkSensor = new ASCOMTelescopeParkSensor(ASCOM_Telescope_driverid);
+            objASCOMDomeClosedSensor = new ASCOMDomeShutterClosedSensor(ASCOM_dome_driverid);
+
 
             //Sky Chart borders
             chart1.ChartAreas[0].AxisY.StripLines[1].IntervalOffset = Hardware.CLOUDINDEX_CLOUDY;
@@ -382,6 +400,18 @@ namespace WeatherStation
 
             //Refresh graph
             refreshGraphs();
+
+            //Refresh ASCOM part
+            if (bUseASCOM_TelescopePark)
+            {
+                objASCOMTelescopeParkSensor.ReadStatus();
+                LogForm.AppendLogText("ASCOM Telescope Park: " + objASCOMTelescopeParkSensor.CurrentStatus.ToString());
+            }
+            if (bUseASCOM_DomeShutter)
+            {
+                objASCOMDomeClosedSensor.ReadStatus();
+                LogForm.AppendLogText("ASCOM Dome Shutter: " + objASCOMDomeClosedSensor.CurrentStatus.ToString());
+            }
 
             //Send data to web
             SendDataToWeb2();
@@ -757,6 +787,17 @@ waiting 10000
                 txtDayCond.ForeColor = Color.PaleGoldenrod;
             }
 
+
+            //ASCOM sensors
+            if (bUseASCOM_TelescopePark)
+            {
+                chkTelescopeParked.Checked = (objASCOMTelescopeParkSensor.CurrentStatus == 1);
+            }
+            if (bUseASCOM_DomeShutter)
+            {
+                chkDomeClosed.Checked = (objASCOMDomeClosedSensor.CurrentStatus == 1);
+            }
+
         }
 
         /// <summary>
@@ -1121,6 +1162,10 @@ waiting 10000
                 Hardware.K6 = Convert.ToDouble(Properties.Settings.Default.K6);
                 Hardware.K7 = Convert.ToDouble(Properties.Settings.Default.K7);
 
+
+                Hardware.DAYLIGHT_DARK_LIMIT = Convert.ToDouble(Properties.Settings.Default.LightThreshold);
+                Hardware.DAYLIGHT_LIGHT_LIMIT = Convert.ToDouble(Properties.Settings.Default.VeryLightThreshold);
+
                 Hardware.RAININDEX_WET_LIMIT = Convert.ToDouble(Properties.Settings.Default.WetLimit);
                 Hardware.RAININDEX_RAIN_LIMIT = Convert.ToDouble(Properties.Settings.Default.RainLimit);
 
@@ -1174,6 +1219,14 @@ waiting 10000
                 Hardware.AverageDataFlag = Properties.Settings.Default.AverageData;
                 bRunSocketServerFlag = Properties.Settings.Default.RunSocketServer;
                 SocketServer.serverPort = Convert.ToInt32(Properties.Settings.Default.SocketServerPort);
+
+
+                bUseASCOM_TelescopePark = Properties.Settings.Default.ASCOM_telescope_park;
+                ASCOM_Telescope_driverid = Properties.Settings.Default.ASCOM_telescope_driverid;
+
+                bUseASCOM_DomeShutter = Properties.Settings.Default.ASCOM_Dome_shutter;
+                ASCOM_dome_driverid = Properties.Settings.Default.ASCOM_Dome_driverid;
+
 
                 Logging.LogFilePath = Properties.Settings.Default.logFileLocation;
                 Logging.DataFilePath = Properties.Settings.Default.CSVFileLocation;

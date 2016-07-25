@@ -8,7 +8,7 @@ namespace WeatherStation
     /// <summary>
     /// Base class for ASCOM custom sensors
     /// </summary>
-    abstract class ASCOMCustomSensors
+    internal abstract class ASCOMCustomSensors
     {
         /// <summary>
         /// Variable for storing driver id
@@ -76,7 +76,7 @@ namespace WeatherStation
     /// <summary>
     /// ASCOM PARK SENSOR
     /// </summary>
-    class ASCOMTelescopeParkSensor : ASCOMCustomSensors
+    internal class ASCOMTelescopeParkSensor : ASCOMCustomSensors
     {
         private bool? bAtParkFlag = null;
 
@@ -126,11 +126,11 @@ namespace WeatherStation
     /// <summary>
     /// ASCOM DOME SHUTTER STATUS SENSOR
     /// </summary>
-    class ASCOMDomeShutterSensor : ASCOMCustomSensors
+    internal class ASCOMDomeShutterClosedSensor : ASCOMCustomSensors
     {
         private ASCOM.DeviceInterface.ShutterState ShutterStatus = ASCOM.DeviceInterface.ShutterState.shutterError;
 
-        public ASCOMDomeShutterSensor(string initDriverId) : base(initDriverId)
+        public ASCOMDomeShutterClosedSensor(string initDriverId) : base(initDriverId)
         {
         }
 
@@ -163,6 +163,10 @@ namespace WeatherStation
             else if (ShutterStatus == ASCOM.DeviceInterface.ShutterState.shutterClosed)
             {
                 _curstatus = 1;
+            }
+            else if (ShutterStatus == ASCOM.DeviceInterface.ShutterState.shutterClosing || ShutterStatus == ASCOM.DeviceInterface.ShutterState.shutterOpening)
+            {
+                _curstatus = 10;
             }
             else
             {

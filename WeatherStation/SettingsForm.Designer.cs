@@ -153,6 +153,9 @@ namespace WeatherStation
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.tabSocket = new System.Windows.Forms.TabPage();
+            this.groupBox20 = new System.Windows.Forms.GroupBox();
+            this.btnASCOM_Dome_choose = new System.Windows.Forms.Button();
+            this.btnASCOM_Telescope_choose = new System.Windows.Forms.Button();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.label43 = new System.Windows.Forms.Label();
             this.btnOk = new System.Windows.Forms.Button();
@@ -162,9 +165,9 @@ namespace WeatherStation
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.fileChooseDialog = new System.Windows.Forms.SaveFileDialog();
-            this.groupBox20 = new System.Windows.Forms.GroupBox();
-            this.btnASCOM_Telescope_choose = new System.Windows.Forms.Button();
-            this.btnASCOM_Dome_choose = new System.Windows.Forms.Button();
+            this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
             this.chkAverageData = new System.Windows.Forms.CheckBox();
             this.txtRefreshNarodmonInterval = new System.Windows.Forms.TextBox();
             this.txtRefreshWebDataInterval = new System.Windows.Forms.TextBox();
@@ -172,8 +175,6 @@ namespace WeatherStation
             this.txtWebDataURL = new System.Windows.Forms.TextBox();
             this.chkNarodMon = new System.Windows.Forms.CheckBox();
             this.chkWebData = new System.Windows.Forms.CheckBox();
-            this.txtASCOM_Dome_driver = new System.Windows.Forms.TextBox();
-            this.txtASCOM_Telescope_driver = new System.Windows.Forms.TextBox();
             this.chkShowDebugPannels = new System.Windows.Forms.CheckBox();
             this.chkTrayIcon = new System.Windows.Forms.CheckBox();
             this.chkMinMode = new System.Windows.Forms.CheckBox();
@@ -229,10 +230,16 @@ namespace WeatherStation
             this.txtHeaterWetThreshold = new System.Windows.Forms.TextBox();
             this.txtHeaterMaxTemp = new System.Windows.Forms.TextBox();
             this.txtHeaterMaxDuration = new System.Windows.Forms.TextBox();
+            this.txtASCOM_Dome_driver = new System.Windows.Forms.TextBox();
+            this.txtASCOM_Telescope_driver = new System.Windows.Forms.TextBox();
+            this.chkASCOM_Dome = new System.Windows.Forms.CheckBox();
+            this.chkASCOM_Telescope = new System.Windows.Forms.CheckBox();
             this.txtSocketServerPort = new System.Windows.Forms.TextBox();
             this.chkSocketServer = new System.Windows.Forms.CheckBox();
-            this.chkASCOM_Telescope = new System.Windows.Forms.CheckBox();
-            this.chkASCOM_Dome = new System.Windows.Forms.CheckBox();
+            this.txtVeryLightThreshold = new System.Windows.Forms.TextBox();
+            this.txtLightThreshold = new System.Windows.Forms.TextBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -262,9 +269,10 @@ namespace WeatherStation
             this.groupBox9.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabSocket.SuspendLayout();
+            this.groupBox20.SuspendLayout();
             this.groupBox13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.groupBox20.SuspendLayout();
+            this.groupBox21.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -636,6 +644,7 @@ namespace WeatherStation
             this.tabModeling.Controls.Add(this.groupBox14);
             this.tabModeling.Controls.Add(this.groupBox10);
             this.tabModeling.Controls.Add(this.groupBox19);
+            this.tabModeling.Controls.Add(this.groupBox21);
             this.tabModeling.Controls.Add(this.groupBox2);
             resources.ApplyResources(this.tabModeling, "tabModeling");
             this.tabModeling.Name = "tabModeling";
@@ -1183,6 +1192,32 @@ namespace WeatherStation
             this.tabSocket.Name = "tabSocket";
             this.tabSocket.UseVisualStyleBackColor = true;
             // 
+            // groupBox20
+            // 
+            this.groupBox20.Controls.Add(this.txtASCOM_Dome_driver);
+            this.groupBox20.Controls.Add(this.txtASCOM_Telescope_driver);
+            this.groupBox20.Controls.Add(this.btnASCOM_Dome_choose);
+            this.groupBox20.Controls.Add(this.btnASCOM_Telescope_choose);
+            this.groupBox20.Controls.Add(this.chkASCOM_Dome);
+            this.groupBox20.Controls.Add(this.chkASCOM_Telescope);
+            resources.ApplyResources(this.groupBox20, "groupBox20");
+            this.groupBox20.Name = "groupBox20";
+            this.groupBox20.TabStop = false;
+            // 
+            // btnASCOM_Dome_choose
+            // 
+            resources.ApplyResources(this.btnASCOM_Dome_choose, "btnASCOM_Dome_choose");
+            this.btnASCOM_Dome_choose.Name = "btnASCOM_Dome_choose";
+            this.btnASCOM_Dome_choose.UseVisualStyleBackColor = true;
+            this.btnASCOM_Dome_choose.Click += new System.EventHandler(this.btnASCOM_Dome_choose_Click);
+            // 
+            // btnASCOM_Telescope_choose
+            // 
+            resources.ApplyResources(this.btnASCOM_Telescope_choose, "btnASCOM_Telescope_choose");
+            this.btnASCOM_Telescope_choose.Name = "btnASCOM_Telescope_choose";
+            this.btnASCOM_Telescope_choose.UseVisualStyleBackColor = true;
+            this.btnASCOM_Telescope_choose.Click += new System.EventHandler(this.btnASCOM_Telescope_choose_Click);
+            // 
             // groupBox13
             // 
             this.groupBox13.Controls.Add(this.label43);
@@ -1232,31 +1267,27 @@ namespace WeatherStation
             this.fileChooseDialog.InitialDirectory = "MyComputer";
             resources.ApplyResources(this.fileChooseDialog, "fileChooseDialog");
             // 
-            // groupBox20
+            // groupBox21
             // 
-            this.groupBox20.Controls.Add(this.txtASCOM_Dome_driver);
-            this.groupBox20.Controls.Add(this.txtASCOM_Telescope_driver);
-            this.groupBox20.Controls.Add(this.btnASCOM_Dome_choose);
-            this.groupBox20.Controls.Add(this.btnASCOM_Telescope_choose);
-            this.groupBox20.Controls.Add(this.chkASCOM_Dome);
-            this.groupBox20.Controls.Add(this.chkASCOM_Telescope);
-            resources.ApplyResources(this.groupBox20, "groupBox20");
-            this.groupBox20.Name = "groupBox20";
-            this.groupBox20.TabStop = false;
+            this.groupBox21.Controls.Add(this.label56);
+            this.groupBox21.Controls.Add(this.label59);
+            this.groupBox21.Controls.Add(this.label58);
+            this.groupBox21.Controls.Add(this.label57);
+            this.groupBox21.Controls.Add(this.txtVeryLightThreshold);
+            this.groupBox21.Controls.Add(this.txtLightThreshold);
+            resources.ApplyResources(this.groupBox21, "groupBox21");
+            this.groupBox21.Name = "groupBox21";
+            this.groupBox21.TabStop = false;
             // 
-            // btnASCOM_Telescope_choose
+            // label56
             // 
-            resources.ApplyResources(this.btnASCOM_Telescope_choose, "btnASCOM_Telescope_choose");
-            this.btnASCOM_Telescope_choose.Name = "btnASCOM_Telescope_choose";
-            this.btnASCOM_Telescope_choose.UseVisualStyleBackColor = true;
-            this.btnASCOM_Telescope_choose.Click += new System.EventHandler(this.btnASCOM_Telescope_choose_Click);
+            resources.ApplyResources(this.label56, "label56");
+            this.label56.Name = "label56";
             // 
-            // btnASCOM_Dome_choose
+            // label57
             // 
-            resources.ApplyResources(this.btnASCOM_Dome_choose, "btnASCOM_Dome_choose");
-            this.btnASCOM_Dome_choose.Name = "btnASCOM_Dome_choose";
-            this.btnASCOM_Dome_choose.UseVisualStyleBackColor = true;
-            this.btnASCOM_Dome_choose.Click += new System.EventHandler(this.btnASCOM_Dome_choose_Click);
+            resources.ApplyResources(this.label57, "label57");
+            this.label57.Name = "label57";
             // 
             // chkAverageData
             // 
@@ -1320,22 +1351,6 @@ namespace WeatherStation
             this.chkWebData.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "WebDataFlag", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.chkWebData.Name = "chkWebData";
             this.chkWebData.UseVisualStyleBackColor = true;
-            // 
-            // txtASCOM_Dome_driver
-            // 
-            this.txtASCOM_Dome_driver.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "ASCOM_Dome_driverid", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            resources.ApplyResources(this.txtASCOM_Dome_driver, "txtASCOM_Dome_driver");
-            this.txtASCOM_Dome_driver.Name = "txtASCOM_Dome_driver";
-            this.txtASCOM_Dome_driver.ReadOnly = true;
-            this.txtASCOM_Dome_driver.Text = global::WeatherStation.Properties.Settings.Default.ASCOM_Dome_driverid;
-            // 
-            // txtASCOM_Telescope_driver
-            // 
-            this.txtASCOM_Telescope_driver.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "ASCOM_telescope_driverid", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            resources.ApplyResources(this.txtASCOM_Telescope_driver, "txtASCOM_Telescope_driver");
-            this.txtASCOM_Telescope_driver.Name = "txtASCOM_Telescope_driver";
-            this.txtASCOM_Telescope_driver.ReadOnly = true;
-            this.txtASCOM_Telescope_driver.Text = global::WeatherStation.Properties.Settings.Default.ASCOM_telescope_driverid;
             // 
             // chkShowDebugPannels
             // 
@@ -1822,6 +1837,40 @@ namespace WeatherStation
             this.MyToolTip.SetToolTip(this.txtHeaterMaxDuration, resources.GetString("txtHeaterMaxDuration.ToolTip"));
             this.txtHeaterMaxDuration.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckIntPos_Validating);
             // 
+            // txtASCOM_Dome_driver
+            // 
+            this.txtASCOM_Dome_driver.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "ASCOM_Dome_driverid", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            resources.ApplyResources(this.txtASCOM_Dome_driver, "txtASCOM_Dome_driver");
+            this.txtASCOM_Dome_driver.Name = "txtASCOM_Dome_driver";
+            this.txtASCOM_Dome_driver.ReadOnly = true;
+            this.txtASCOM_Dome_driver.Text = global::WeatherStation.Properties.Settings.Default.ASCOM_Dome_driverid;
+            // 
+            // txtASCOM_Telescope_driver
+            // 
+            this.txtASCOM_Telescope_driver.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "ASCOM_telescope_driverid", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            resources.ApplyResources(this.txtASCOM_Telescope_driver, "txtASCOM_Telescope_driver");
+            this.txtASCOM_Telescope_driver.Name = "txtASCOM_Telescope_driver";
+            this.txtASCOM_Telescope_driver.ReadOnly = true;
+            this.txtASCOM_Telescope_driver.Text = global::WeatherStation.Properties.Settings.Default.ASCOM_telescope_driverid;
+            // 
+            // chkASCOM_Dome
+            // 
+            resources.ApplyResources(this.chkASCOM_Dome, "chkASCOM_Dome");
+            this.chkASCOM_Dome.Checked = global::WeatherStation.Properties.Settings.Default.ASCOM_Dome_shutter;
+            this.chkASCOM_Dome.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "ASCOM_Dome_shutter", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkASCOM_Dome.Name = "chkASCOM_Dome";
+            this.chkASCOM_Dome.UseVisualStyleBackColor = true;
+            this.chkASCOM_Dome.CheckedChanged += new System.EventHandler(this.chkASCOM_Dome_CheckedChanged);
+            // 
+            // chkASCOM_Telescope
+            // 
+            resources.ApplyResources(this.chkASCOM_Telescope, "chkASCOM_Telescope");
+            this.chkASCOM_Telescope.Checked = global::WeatherStation.Properties.Settings.Default.ASCOM_telescope_park;
+            this.chkASCOM_Telescope.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "ASCOM_telescope_park", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkASCOM_Telescope.Name = "chkASCOM_Telescope";
+            this.chkASCOM_Telescope.UseVisualStyleBackColor = true;
+            this.chkASCOM_Telescope.CheckedChanged += new System.EventHandler(this.chkASCOM_Telescope_CheckedChanged);
+            // 
             // txtSocketServerPort
             // 
             this.txtSocketServerPort.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "SocketServerPort", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -1838,23 +1887,33 @@ namespace WeatherStation
             this.chkSocketServer.Name = "chkSocketServer";
             this.chkSocketServer.UseVisualStyleBackColor = true;
             // 
-            // chkASCOM_Telescope
+            // txtVeryLightThreshold
             // 
-            resources.ApplyResources(this.chkASCOM_Telescope, "chkASCOM_Telescope");
-            this.chkASCOM_Telescope.Checked = global::WeatherStation.Properties.Settings.Default.ASCOM_telescope_park;
-            this.chkASCOM_Telescope.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "ASCOM_telescope_park", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkASCOM_Telescope.Name = "chkASCOM_Telescope";
-            this.chkASCOM_Telescope.UseVisualStyleBackColor = true;
-            this.chkASCOM_Telescope.CheckedChanged += new System.EventHandler(this.chkASCOM_Telescope_CheckedChanged);
+            this.txtVeryLightThreshold.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "VeryLightThreshold", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            resources.ApplyResources(this.txtVeryLightThreshold, "txtVeryLightThreshold");
+            this.txtVeryLightThreshold.Name = "txtVeryLightThreshold";
+            this.txtVeryLightThreshold.Text = global::WeatherStation.Properties.Settings.Default.VeryLightThreshold;
+            this.MyToolTip.SetToolTip(this.txtVeryLightThreshold, resources.GetString("txtVeryLightThreshold.ToolTip"));
+            this.txtVeryLightThreshold.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
             // 
-            // chkASCOM_Dome
+            // txtLightThreshold
             // 
-            resources.ApplyResources(this.chkASCOM_Dome, "chkASCOM_Dome");
-            this.chkASCOM_Dome.Checked = global::WeatherStation.Properties.Settings.Default.ASCOM_Dome_shutter;
-            this.chkASCOM_Dome.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WeatherStation.Properties.Settings.Default, "ASCOM_Dome_shutter", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkASCOM_Dome.Name = "chkASCOM_Dome";
-            this.chkASCOM_Dome.UseVisualStyleBackColor = true;
-            this.chkASCOM_Dome.CheckedChanged += new System.EventHandler(this.chkASCOM_Dome_CheckedChanged);
+            this.txtLightThreshold.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WeatherStation.Properties.Settings.Default, "LightThreshold", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            resources.ApplyResources(this.txtLightThreshold, "txtLightThreshold");
+            this.txtLightThreshold.Name = "txtLightThreshold";
+            this.txtLightThreshold.Text = global::WeatherStation.Properties.Settings.Default.LightThreshold;
+            this.MyToolTip.SetToolTip(this.txtLightThreshold, resources.GetString("txtLightThreshold.ToolTip"));
+            this.txtLightThreshold.Validating += new System.ComponentModel.CancelEventHandler(this.txtCheckInt_Validating);
+            // 
+            // label58
+            // 
+            resources.ApplyResources(this.label58, "label58");
+            this.label58.Name = "label58";
+            // 
+            // label59
+            // 
+            resources.ApplyResources(this.label59, "label59");
+            this.label59.Name = "label59";
             // 
             // SettingsForm
             // 
@@ -1919,11 +1978,13 @@ namespace WeatherStation
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.tabSocket.ResumeLayout(false);
+            this.groupBox20.ResumeLayout(false);
+            this.groupBox20.PerformLayout();
             this.groupBox13.ResumeLayout(false);
             this.groupBox13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.groupBox20.ResumeLayout(false);
-            this.groupBox20.PerformLayout();
+            this.groupBox21.ResumeLayout(false);
+            this.groupBox21.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2129,5 +2190,12 @@ namespace WeatherStation
         private System.Windows.Forms.Button btnASCOM_Telescope_choose;
         private System.Windows.Forms.CheckBox chkASCOM_Dome;
         private System.Windows.Forms.CheckBox chkASCOM_Telescope;
+        private System.Windows.Forms.GroupBox groupBox21;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.TextBox txtVeryLightThreshold;
+        private System.Windows.Forms.TextBox txtLightThreshold;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label58;
     }
 }

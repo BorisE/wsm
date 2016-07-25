@@ -1934,7 +1934,7 @@ But for heating switching on also another conditions must be met:
     <value>panelDebug</value>
   </data>
   <data name="&gt;&gt;txtArdSetTD.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="txtArdSetWT.Location" type="System.Drawing.Point, System.Drawing">
     <value>271, 0</value>
@@ -1961,7 +1961,7 @@ But for heating switching on also another conditions must be met:
     <value>panelDebug</value>
   </data>
   <data name="&gt;&gt;txtArdSetWT.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="txtArdSetRT.Location" type="System.Drawing.Point, System.Drawing">
     <value>235, 20</value>
@@ -1989,7 +1989,7 @@ But for heating switching on also another conditions must be met:
     <value>panelDebug</value>
   </data>
   <data name="&gt;&gt;txtArdSetRT.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="btnQueryArduinoSettings.Location" type="System.Drawing.Point, System.Drawing">
     <value>286, 19</value>
@@ -2019,7 +2019,7 @@ But for heating switching on also another conditions must be met:
     <value>panelDebug</value>
   </data>
   <data name="&gt;&gt;btnQueryArduinoSettings.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="txtMinCloudIdx.Location" type="System.Drawing.Point, System.Drawing">
     <value>219, 85</value>
@@ -2120,6 +2120,63 @@ But for heating switching on also another conditions must be met:
   <data name="pannelMaximum.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="chkDomeClosed.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkDomeClosed.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkDomeClosed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>124, 15</value>
+  </data>
+  <data name="chkDomeClosed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 17</value>
+  </data>
+  <data name="chkDomeClosed.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="chkDomeClosed.Text" xml:space="preserve">
+    <value>Dome closed</value>
+  </data>
+  <data name="&gt;&gt;chkDomeClosed.Name" xml:space="preserve">
+    <value>chkDomeClosed</value>
+  </data>
+  <data name="&gt;&gt;chkDomeClosed.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkDomeClosed.Parent" xml:space="preserve">
+    <value>panelDebug</value>
+  </data>
+  <data name="&gt;&gt;chkDomeClosed.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="chkTelescopeParked.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkTelescopeParked.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 15</value>
+  </data>
+  <data name="chkTelescopeParked.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 17</value>
+  </data>
+  <data name="chkTelescopeParked.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="chkTelescopeParked.Text" xml:space="preserve">
+    <value>Telescope Parked</value>
+  </data>
+  <data name="&gt;&gt;chkTelescopeParked.Name" xml:space="preserve">
+    <value>chkTelescopeParked</value>
+  </data>
+  <data name="&gt;&gt;chkTelescopeParked.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkTelescopeParked.Parent" xml:space="preserve">
+    <value>panelDebug</value>
+  </data>
+  <data name="&gt;&gt;chkTelescopeParked.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="btnShowDebug.Location" type="System.Drawing.Point, System.Drawing">
     <value>319, 4</value>
   </data>
@@ -2145,7 +2202,7 @@ But for heating switching on also another conditions must be met:
     <value>panelDebug</value>
   </data>
   <data name="&gt;&gt;btnShowDebug.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="panelDebug.Location" type="System.Drawing.Point, System.Drawing">
     <value>253, 0</value>

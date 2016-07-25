@@ -6,6 +6,9 @@ to do:
 - rain condtions settings
 - socket commands: relay switching, parameters querying
 
+1.10.75 (2016-07-26)
+- adding "custom ASCOM sensors": Telescope.AtPark and Dome.ShutterStatus (closed)
+- adding Light/Very Light threshold settings
 
 1.9.73 (2016-07-16)
 - adding option to override decimal point in boltwood file

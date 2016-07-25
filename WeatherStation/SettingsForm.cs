@@ -160,10 +160,11 @@ namespace WeatherStation
             }
 
 
-            //btnASCOM_Telescope_choose.Enabled=Pro
-    }
+            txtASCOM_Telescope_driver.Enabled= ParentMainForm.bUseASCOM_TelescopePark;
+            txtASCOM_Dome_driver.Enabled = ParentMainForm.bUseASCOM_DomeShutter;
+        }
 
-    private void btnOk_Click(object sender, EventArgs e)
+        private void btnOk_Click(object sender, EventArgs e)
         {
             Logging.Log("Preferences form saving starting...", 3);
 
@@ -198,6 +199,10 @@ namespace WeatherStation
                 ParentMainForm.Hardware.CLOUDINDEXAAG_CLOUDY = Convert.ToDouble(txtCloudyskyAAG.Text);
                 Logging.Log("Preferences: CLOUDINDEXAAG_CLEAR: " + txtClearskyAAG.Text, 2);
                 Logging.Log("Preferences: CLOUDINDEXAAG_CLOUDY: " + txtCloudyskyAAG.Text, 2);
+
+                //Light conditions
+                ParentMainForm.Hardware.DAYLIGHT_DARK_LIMIT = Convert.ToDouble(txtLightThreshold.Text);
+                ParentMainForm.Hardware.DAYLIGHT_LIGHT_LIMIT = Convert.ToDouble(txtVeryLightThreshold.Text);
 
                 //Wet combobox
                 Properties.Settings.Default.WetSensorsMode = cmbWetMode.SelectedIndex.ToString();
@@ -289,6 +294,19 @@ namespace WeatherStation
                 {
                     ParentMainForm.RunSocketServer();
                 }
+
+
+                //ASCOM settings
+                ParentMainForm.bUseASCOM_TelescopePark = chkASCOM_Telescope.Checked;
+                ParentMainForm.bUseASCOM_DomeShutter = chkASCOM_Dome.Checked;
+                ParentMainForm.ASCOM_Telescope_driverid = txtASCOM_Telescope_driver.Text;
+                ParentMainForm.ASCOM_dome_driverid = txtASCOM_Dome_driver.Text;
+
+                ParentMainForm.objASCOMTelescopeParkSensor.DeviceId = ParentMainForm.ASCOM_Telescope_driverid;
+                ParentMainForm.objASCOMTelescopeParkSensor.ResetDriver(); //to reset driver connection
+                ParentMainForm.objASCOMDomeClosedSensor.DeviceId = ParentMainForm.ASCOM_dome_driverid;
+                ParentMainForm.objASCOMDomeClosedSensor.ResetDriver(); //to reset driver connection
+
 
                 //Store log settings
                 Logging.LogFilePath = txtLogFileLocation.Text;

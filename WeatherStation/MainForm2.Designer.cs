@@ -169,6 +169,8 @@
             this.toolStripMenuItem_exit = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.backgroundWorker_SocketServer = new System.ComponentModel.BackgroundWorker();
+            this.chkTelescopeParked = new System.Windows.Forms.CheckBox();
+            this.chkDomeClosed = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -1135,6 +1137,8 @@
             // 
             // panelDebug
             // 
+            this.panelDebug.Controls.Add(this.chkDomeClosed);
+            this.panelDebug.Controls.Add(this.chkTelescopeParked);
             this.panelDebug.Controls.Add(this.btnShowDebug);
             this.panelDebug.Controls.Add(this.btnQueryArduinoSettings);
             this.panelDebug.Controls.Add(this.txtArdSetWT);
@@ -1355,6 +1359,18 @@
             this.backgroundWorker_SocketServer.WorkerSupportsCancellation = true;
             this.backgroundWorker_SocketServer.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_SocketServer_DoWork);
             // 
+            // chkTelescopeParked
+            // 
+            resources.ApplyResources(this.chkTelescopeParked, "chkTelescopeParked");
+            this.chkTelescopeParked.Name = "chkTelescopeParked";
+            this.chkTelescopeParked.UseVisualStyleBackColor = true;
+            // 
+            // chkDomeClosed
+            // 
+            resources.ApplyResources(this.chkDomeClosed, "chkDomeClosed");
+            this.chkDomeClosed.Name = "chkDomeClosed";
+            this.chkDomeClosed.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AcceptButton = this.btnStart;
@@ -1514,6 +1530,8 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker_SocketServer;
         private System.Windows.Forms.Button btnShowDebug;
         internal System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.CheckBox chkDomeClosed;
+        private System.Windows.Forms.CheckBox chkTelescopeParked;
     }
 }
 
