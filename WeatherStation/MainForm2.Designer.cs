@@ -146,6 +146,8 @@
             this.txtFldWSpeed = new System.Windows.Forms.TextBox();
             this.pannelMaximum = new System.Windows.Forms.Panel();
             this.panelDebug = new System.Windows.Forms.Panel();
+            this.chkDomeClosed = new System.Windows.Forms.CheckBox();
+            this.chkTelescopeParked = new System.Windows.Forms.CheckBox();
             this.btnShowDebug = new System.Windows.Forms.Button();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.lblFldWSpeed = new System.Windows.Forms.Label();
@@ -169,8 +171,6 @@
             this.toolStripMenuItem_exit = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.backgroundWorker_SocketServer = new System.ComponentModel.BackgroundWorker();
-            this.chkTelescopeParked = new System.Windows.Forms.CheckBox();
-            this.chkDomeClosed = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -1147,6 +1147,22 @@
             resources.ApplyResources(this.panelDebug, "panelDebug");
             this.panelDebug.Name = "panelDebug";
             // 
+            // chkDomeClosed
+            // 
+            resources.ApplyResources(this.chkDomeClosed, "chkDomeClosed");
+            this.chkDomeClosed.Checked = true;
+            this.chkDomeClosed.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.chkDomeClosed.Name = "chkDomeClosed";
+            this.chkDomeClosed.UseVisualStyleBackColor = true;
+            // 
+            // chkTelescopeParked
+            // 
+            resources.ApplyResources(this.chkTelescopeParked, "chkTelescopeParked");
+            this.chkTelescopeParked.Checked = true;
+            this.chkTelescopeParked.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.chkTelescopeParked.Name = "chkTelescopeParked";
+            this.chkTelescopeParked.UseVisualStyleBackColor = true;
+            // 
             // btnShowDebug
             // 
             resources.ApplyResources(this.btnShowDebug, "btnShowDebug");
@@ -1358,18 +1374,6 @@
             // 
             this.backgroundWorker_SocketServer.WorkerSupportsCancellation = true;
             this.backgroundWorker_SocketServer.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_SocketServer_DoWork);
-            // 
-            // chkTelescopeParked
-            // 
-            resources.ApplyResources(this.chkTelescopeParked, "chkTelescopeParked");
-            this.chkTelescopeParked.Name = "chkTelescopeParked";
-            this.chkTelescopeParked.UseVisualStyleBackColor = true;
-            // 
-            // chkDomeClosed
-            // 
-            resources.ApplyResources(this.chkDomeClosed, "chkDomeClosed");
-            this.chkDomeClosed.Name = "chkDomeClosed";
-            this.chkDomeClosed.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 

@@ -793,9 +793,17 @@ waiting 10000
             {
                 chkTelescopeParked.Checked = (objASCOMTelescopeParkSensor.CurrentStatus == 1);
             }
+            else
+            {
+                chkTelescopeParked.CheckState = CheckState.Indeterminate;
+            }
             if (bUseASCOM_DomeShutter)
             {
                 chkDomeClosed.Checked = (objASCOMDomeClosedSensor.CurrentStatus == 1);
+            }
+            else
+            {
+                chkDomeClosed.CheckState = CheckState.Indeterminate;
             }
 
         }
