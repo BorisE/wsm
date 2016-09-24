@@ -296,7 +296,8 @@ namespace WeatherStation
                         {
                             Logging.AddLog("Client [" + ClientSocket.RemoteEndPoint + "]: " + "command [" + cmd + "] successfully run", 1, Highlight.Normal);
                             Logging.AddLog("Client [" + ClientSocket.RemoteEndPoint + "]: " + "command [" + cmd + "] successfully run. Output: " + cmd_output, 2, Highlight.Normal);
-                            msg = "Command [" + cmd + "] was run. Output: " + cmd_output;
+                            msg = "Command [" + cmd + "] was run. Output: " + cmd_output; //for debug
+                            msg = cmd_output;
                         }
                         else
                         {
