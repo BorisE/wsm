@@ -259,6 +259,11 @@ namespace WeatherStation
         {
             string msg = "";
 
+            //Trim etc command string
+            cmd = cmd.Replace("\n", String.Empty).Replace("\r", String.Empty); 
+            cmd = cmd.Replace("\t", String.Empty);
+            cmd = cmd.Trim();
+
             //if it is sensor value - add ir to buffer
             if (cmd.StartsWith("[!"))
             {

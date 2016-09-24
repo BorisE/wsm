@@ -26,24 +26,36 @@ namespace WeatherStation
     /// </summary>        
     public class BoltwoodFields
     {
-        public UInt16 Bolt_Heater = 0;
+        public string Bolt_date = "";
+        public string Bolt_time = "";
+
+        public double Bolt_SkyTemp = -100; //no direct var
+        public double Bolt_Temp = -100; //no direct var
+        public double Bolt_SensorTemp = -100; //no direct var
+        public double Bolt_WindSpeed = -100; //no direct var
+        public double Bolt_Hum = -100; //no direct var
         public double Bolt_DewPoint = 0.0;
+        public UInt16 Bolt_Heater = 0;
+
         public RainFlag Bolt_RainFlag = RainFlag.rainFlagDry;
         public DateTime Bolt_RainFlag_LastDetected;
         public UInt16 Bolt_RainFlag_sinceLastDetected = 65535;
+
         public WetFlag Bolt_WetFlag = WetFlag.wetFlagDry;
         public DateTime Bolt_WetFlag_LastDetected;
         public UInt16 Bolt_WetFlag_sinceLastDetected = 65535;
+
         public UInt16 Bolt_SinceLastMeasure = 0;
+        public double Bolt_now = 0;
+
         public CloudCond Bolt_CloudCond = CloudCond.cloudUnknown;
         public WindCond Bolt_WindCond = WindCond.windUnknown;
         public RainCond Bolt_RainCond = RainCond.rainUnknown;
         public DayCond Bolt_DaylighCond = DayCond.dayUnknown;
+
         public UInt16 Bolt_RoofCloseFlag = 0;
         public UInt16 Bolt_AlertFlag = 0;
-        public string Bolt_date = "";
-        public string Bolt_time = "";
-        public double Bolt_now = 0;
+
         public DateTime LastMeasure;
         public string Web_date = "";
         public decimalSeparatorType ForcedDecimalSeparator = decimalSeparatorType.useLocale;
@@ -432,6 +444,9 @@ namespace WeatherStation
             El3.ReadTime = new DateTime(2010, 01, 01);
             ArduinoSettings.Add("RT", El3);
 
+
+            //Init boltwood object
+            BoltwoodSate = new BoltwoodFields();
 
             Logging.Log("initSensorList exit", 3);
 
