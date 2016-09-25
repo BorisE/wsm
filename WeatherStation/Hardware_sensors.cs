@@ -5,11 +5,7 @@ using System.Text;
 
 namespace WeatherStation
 {
-    /// <summary>
-    /// Custom data types
-    /// </summary>
     #region Custom data types for Sensors, Boltwood and so on
-
     /// <summary>
     /// Sensor type
     /// </summary>
@@ -31,6 +27,8 @@ namespace WeatherStation
 
         public double Bolt_SkyTemp = -100; //no direct var
         public double Bolt_Temp = -100; //no direct var
+        public double Bolt_CloudIdx = -100; //no direct var
+        public double Bolt_CloudIdxAAG = -100; //no direct var
         public double Bolt_SensorTemp = -100; //no direct var
         public double Bolt_WindSpeed = -100; //no direct var
         public double Bolt_Hum = -100; //no direct var
@@ -39,10 +37,12 @@ namespace WeatherStation
 
         public RainFlag Bolt_RainFlag = RainFlag.rainFlagDry;
         public DateTime Bolt_RainFlag_LastDetected;
+        public string Bolt_RainFlag_LastDetected_s;
         public UInt16 Bolt_RainFlag_sinceLastDetected = 65535;
 
         public WetFlag Bolt_WetFlag = WetFlag.wetFlagDry;
         public DateTime Bolt_WetFlag_LastDetected;
+        public string Bolt_WetFlag_LastDetected_s;
         public UInt16 Bolt_WetFlag_sinceLastDetected = 65535;
 
         public UInt16 Bolt_SinceLastMeasure = 0;
@@ -57,7 +57,7 @@ namespace WeatherStation
         public UInt16 Bolt_AlertFlag = 0;
 
         public DateTime LastMeasure;
-        public string Web_date = "";
+        public string LastMeasure_s;
         public decimalSeparatorType ForcedDecimalSeparator = decimalSeparatorType.useLocale;
     }
 

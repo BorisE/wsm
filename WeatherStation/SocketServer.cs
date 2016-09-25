@@ -221,7 +221,7 @@ namespace WeatherStation
                         if (cmdMess == STOP_MESSAGE) {break; }
 
                         //Output return string
-                        byte[] msg2 = Encoding.UTF8.GetBytes(cmdMess + "\n\r");
+                        byte[] msg2 = Encoding.UTF8.GetBytes(cmdMess + "\r\n");
                         ClientSocket.Send(msg2);
                     }
                 }
@@ -239,7 +239,7 @@ namespace WeatherStation
         public string SendCommandToClient(string cmd)
         {
             //not working yet
-            byte[] msg = Encoding.UTF8.GetBytes(cmd + "\n\r");
+            byte[] msg = Encoding.UTF8.GetBytes(cmd + "\r\n");
             Logging.AddLog("Send command to сlient [" + ClientSocket.RemoteEndPoint + "]: " + cmd, 1);
             ClientSocket.Send(msg);
 

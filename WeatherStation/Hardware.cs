@@ -1149,6 +1149,8 @@ namespace WeatherStation
 
             BoltwoodSate.Bolt_SkyTemp = ObjTempVal;
             BoltwoodSate.Bolt_Temp = BaseTempVal;
+            BoltwoodSate.Bolt_CloudIdx = CloudIdx;
+            BoltwoodSate.Bolt_CloudIdxAAG = CloudIdxAAG;
             BoltwoodSate.Bolt_SensorTemp = SensorCaseTempVal; //no direct var
             BoltwoodSate.Bolt_WindSpeed = WindSpeedVal; //no direct var
             BoltwoodSate.Bolt_Hum = HumidityVal; //no direct var
@@ -1178,7 +1180,6 @@ namespace WeatherStation
             BoltwoodSate.Bolt_AlertFlag = Bolt_AlertFlag;
 
             BoltwoodSate.LastMeasure = LastMeasure;
-            BoltwoodSate.Web_date = Web_date;
             BoltwoodSate.ForcedDecimalSeparator = ForcedDecimalSeparator;
 
 
@@ -1402,16 +1403,14 @@ namespace WeatherStation
             string st = "";
 
 
-
-            
-
-
-
-            st += (st != String.Empty ? ", " : "") + @"""Bolt_date"": " + Convert.ToString(Bolt_date);
-            st += (st != String.Empty ? ", " : "") + @"""Bolt_time"": " + Convert.ToString(Bolt_time);
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_date_s"": " + @"""" + Convert.ToString(Bolt_date) + @"""";
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_time_s"": " + @"""" + Convert.ToString(Bolt_time) + @"""";
 
             st += (st != String.Empty ? ", " : "") + @"""Bolt_SkyTemp"": " + Convert.ToString(BoltwoodSate.Bolt_SkyTemp);
             st += (st != String.Empty ? ", " : "") + @"""Bolt_Temp"": " + Convert.ToString(BoltwoodSate.Bolt_Temp);
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_CloudIdx"": " + Convert.ToString(BoltwoodSate.Bolt_CloudIdx);
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_CloudIdxAAG"": " + Convert.ToString(BoltwoodSate.Bolt_CloudIdxAAG);
+
             st += (st != String.Empty ? ", " : "") + @"""Bolt_SensorTemp"": " + Convert.ToString(BoltwoodSate.Bolt_SensorTemp);
             st += (st != String.Empty ? ", " : "") + @"""Bolt_WindSpeed"": " + Convert.ToString(BoltwoodSate.Bolt_WindSpeed);
             st += (st != String.Empty ? ", " : "") + @"""Bolt_Hum"": " + Convert.ToString(BoltwoodSate.Bolt_Hum);
@@ -1419,28 +1418,27 @@ namespace WeatherStation
             st += (st != String.Empty ? ", " : "") + @"""Bolt_DewPoint"": " + Convert.ToString(Bolt_DewPoint);
             st += (st != String.Empty ? ", " : "") + @"""Bolt_Heater"": " + Convert.ToString(Bolt_Heater);
 
-            st += (st != String.Empty ? ", " : "") + @"""Bolt_RainFlag"": " + Convert.ToString(Bolt_RainFlag);
-            st += (st != String.Empty ? ", " : "") + @"""Bolt_RainFlag_LastDetected"": " + Convert.ToString(Bolt_RainFlag_LastDetected);
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_RainFlag"": " + @"""" + Convert.ToString(Bolt_RainFlag) + @"""";
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_RainFlag_LastDetected_s"": " + @"""" + Convert.ToString(Bolt_RainFlag_LastDetected) + @"""";
             st += (st != String.Empty ? ", " : "") + @"""Bolt_RainFlag_sinceLastDetected"": " + Convert.ToString(Bolt_RainFlag_sinceLastDetected);
-            st += (st != String.Empty ? ", " : "") + @"""Bolt_WetFlag"": " + Convert.ToString(Bolt_WetFlag);
-            st += (st != String.Empty ? ", " : "") + @"""Bolt_WetFlag_LastDetected"": " + Convert.ToString(Bolt_WetFlag_LastDetected);
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_WetFlag"": " + @"""" + Convert.ToString(Bolt_WetFlag) + @"""";
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_WetFlag_LastDetected_s"": " + @"""" + Convert.ToString(Bolt_WetFlag_LastDetected) + @"""";
             st += (st != String.Empty ? ", " : "") + @"""Bolt_WetFlag_sinceLastDetected"": " + Convert.ToString(Bolt_WetFlag_sinceLastDetected);
 
 
             st += (st != String.Empty? ", " : "") + @"""Bolt_SinceLastMeasure"": " + Convert.ToString(Bolt_SinceLastMeasure);
             st += (st != String.Empty ? ", " : "") + @"""Bolt_now"": " + Convert.ToString(Bolt_now);
 
-            st += (st != String.Empty ? ", " : "") + @"""Bolt_CloudCond"": " + Convert.ToString(Bolt_CloudCond);
-            st += (st != String.Empty ? ", " : "") + @"""Bolt_WindCond"": " + Convert.ToString(Bolt_WindCond);
-            st += (st != String.Empty ? ", " : "") + @"""Bolt_RainCond"": " + Convert.ToString(Bolt_RainCond);
-            st += (st != String.Empty ? ", " : "") + @"""Bolt_DaylighCond"": " + Convert.ToString(Bolt_DaylighCond);
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_CloudCond"": " + @"""" + Convert.ToString(Bolt_CloudCond) + @"""";
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_WindCond"": " + @"""" + Convert.ToString(Bolt_WindCond) + @"""";
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_RainCond"": " + @"""" + Convert.ToString(Bolt_RainCond) + @"""";
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_DaylighCond"": " + @"""" + Convert.ToString(Bolt_DaylighCond) + @"""";
 
             st += (st != String.Empty ? ", " : "") + @"""Bolt_RoofCloseFlag"": " + Convert.ToString(Bolt_RoofCloseFlag);
             st += (st != String.Empty ? ", " : "") + @"""Bolt_AlertFlag"": " + Convert.ToString(Bolt_AlertFlag);
 
-            st += (st != String.Empty ? ", " : "") + @"""LastMeasure"": " + Convert.ToString(LastMeasure);
-            st += (st != String.Empty ? ", " : "") + @"""Web_date"": " + Convert.ToString(Web_date);
-            st += (st != String.Empty ? ", " : "") + @"""ForcedDecimalSeparator"": " + Convert.ToString(ForcedDecimalSeparator);
+            st += (st != String.Empty ? ", " : "") + @"""LastMeasure_s"": " + @"""" + Convert.ToString(LastMeasure) + @"""";
+            st += (st != String.Empty ? ", " : "") + @"""ForcedDecimalSeparator"": " + @"""" + Convert.ToString(ForcedDecimalSeparator) + @"""";
 
             if (st != String.Empty) st = "{" + st + "}";
 
