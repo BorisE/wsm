@@ -1176,6 +1176,11 @@ namespace WeatherStation
             BoltwoodSate.Bolt_RainCond = Bolt_RainCond;
             BoltwoodSate.Bolt_DaylighCond = Bolt_DaylighCond;
 
+            BoltwoodSate.WetSensorVal = WetVal;
+            BoltwoodSate.RGCVal = RGCVal;
+
+            BoltwoodSate.Preassure = PressureVal;
+
             BoltwoodSate.Bolt_RoofCloseFlag = Bolt_RoofCloseFlag;
             BoltwoodSate.Bolt_AlertFlag = Bolt_AlertFlag;
 
@@ -1436,6 +1441,11 @@ namespace WeatherStation
 
             st += (st != String.Empty ? ", " : "") + @"""Bolt_RoofCloseFlag"": " + Convert.ToString(Bolt_RoofCloseFlag);
             st += (st != String.Empty ? ", " : "") + @"""Bolt_AlertFlag"": " + Convert.ToString(Bolt_AlertFlag);
+
+            st += (st != String.Empty ? ", " : "") + @"""WetSensorVal"": " + Convert.ToString(BoltwoodSate.WetSensorVal);
+            st += (st != String.Empty ? ", " : "") + @"""RGCVal"": " + Convert.ToString(BoltwoodSate.RGCVal);
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_AlertFlag"": " + Convert.ToString(BoltwoodSate.Preassure);
+
 
             st += (st != String.Empty ? ", " : "") + @"""LastMeasure_s"": " + @"""" + Convert.ToString(LastMeasure) + @"""";
             st += (st != String.Empty ? ", " : "") + @"""ForcedDecimalSeparator"": " + @"""" + Convert.ToString(ForcedDecimalSeparator) + @"""";
