@@ -222,7 +222,7 @@ namespace WeatherStation
         #region Boltwood Data Fields 
         public BoltwoodFields BoltwoodSate; //object with all boltwood fields
 
-        public UInt16 Bolt_Heater = 0;
+        public Int16 Bolt_Heater = 0;
         public double Bolt_DewPoint = 0.0;
         public RainFlag Bolt_RainFlag = RainFlag.rainFlagDry;
         public DateTime Bolt_RainFlag_LastDetected;
@@ -1060,7 +1060,7 @@ namespace WeatherStation
             Bolt_DewPoint = calcDewPoint(BaseTempVal, HumidityVal);
 
             //Bolt_Heater
-            Bolt_Heater = (ushort)(Relay1 == 1? 100 : 0);
+            Bolt_Heater = (short)(Relay1 == 1? 100 : 0);
 
             //Boltwood date time fields
             Bolt_date = DateTime.Now.ToString("yyyy-MM-dd");

@@ -32,8 +32,8 @@ namespace WeatherStation
         public double Bolt_SensorTemp = -100; //no direct var
         public double Bolt_WindSpeed = -100; //no direct var
         public double Bolt_Hum = -100; //no direct var
-        public double Bolt_DewPoint = 0.0;
-        public UInt16 Bolt_Heater = 0;
+        public double Bolt_DewPoint = -100.0;
+        public Int16 Bolt_Heater = -1;
 
         public RainFlag Bolt_RainFlag = RainFlag.rainFlagDry;
         public DateTime Bolt_RainFlag_LastDetected;
@@ -57,7 +57,7 @@ namespace WeatherStation
         public UInt16 Bolt_AlertFlag = 0;
 
         public double WetSensorVal = 0;
-        public int RGCVal = 0;
+        public int RGCVal = -1;
         public double Preassure = 0;
 
         public DateTime LastMeasure;
