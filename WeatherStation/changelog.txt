@@ -6,6 +6,17 @@ to do:
 - rain condtions settings
 - socket commands: relay switching, parameters querying
 
+1.11.78 (2016-09-28)
+- more data for command GET_BOLTWOOD_STRING_JSON
+
+1.11.77 (2016-09-25)
+- socket command GET_BOLTWOOD_STRING_JSON optimization
+
+1.11.76 (2016-09-25)
+- some architecture changed
+- boltwood heater field is now calculated
+- added new socket server commands (incl. json format)
+
 1.10.75 (2016-07-26)
 - adding "custom ASCOM sensors": Telescope.AtPark and Dome.ShutterStatus (closed)
 - adding Light/Very Light threshold settings

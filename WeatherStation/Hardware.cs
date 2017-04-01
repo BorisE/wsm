@@ -220,7 +220,9 @@ namespace WeatherStation
         /// Boltwood data fields
         /// </summary>        
         #region Boltwood Data Fields 
-        public UInt16 Bolt_Heater = 0;
+        public BoltwoodFields BoltwoodSate; //object with all boltwood fields
+
+        public Int16 Bolt_Heater = 0;
         public double Bolt_DewPoint = 0.0;
         public RainFlag Bolt_RainFlag = RainFlag.rainFlagDry;
         public DateTime Bolt_RainFlag_LastDetected;
@@ -1039,13 +1041,26 @@ namespace WeatherStation
         /// </summary>   
         public string getBoltwoodString()
         {
+            BoltwoodFields BoltwObj = new BoltwoodFields();
+            string st = getBoltwoodString(out BoltwObj);
+
+            return st;
+        }
+
+
+        /// <summary>
+        /// Method to generate contents of Boltwood format file
+        /// - Changed: rain condition from main method
+        /// </summary>   
+        public string getBoltwoodString(out BoltwoodFields BoltwObj)
+        {
             Logging.Log("getBoltwoodString enter", 3);
 
             //Calculations for boltwood
             Bolt_DewPoint = calcDewPoint(BaseTempVal, HumidityVal);
 
             //Bolt_Heater
-            //not implemented yet
+            Bolt_Heater = (short)(Relay1 == 1? 100 : 0);
 
             //Boltwood date time fields
             Bolt_date = DateTime.Now.ToString("yyyy-MM-dd");
@@ -1128,8 +1143,55 @@ namespace WeatherStation
                 (int)Bolt_RainFlag, (int)Bolt_WetFlag, Bolt_SinceLastMeasure.ToString("00000"), Bolt_now.ToString("000000.#####"),
                 (int)Bolt_CloudCond, (int)Bolt_WindCond, (int)Bolt_RainCond, (int)Bolt_DaylighCond, (int)Bolt_RoofCloseFlag, (int)Bolt_AlertFlag);
 
-            Logging.Log("getBoltwoodString exit", 3);
 
+            BoltwoodSate.Bolt_date = Bolt_date;
+            BoltwoodSate.Bolt_time = Bolt_time;
+
+            BoltwoodSate.Bolt_SkyTemp = ObjTempVal;
+            BoltwoodSate.Bolt_Temp = BaseTempVal;
+            BoltwoodSate.Bolt_CloudIdx = CloudIdx;
+            BoltwoodSate.Bolt_CloudIdxAAG = CloudIdxAAG;
+            BoltwoodSate.Bolt_SensorTemp = SensorCaseTempVal; //no direct var
+            BoltwoodSate.Bolt_WindSpeed = WindSpeedVal; //no direct var
+            BoltwoodSate.Bolt_Hum = HumidityVal; //no direct var
+
+
+            BoltwoodSate.Bolt_DewPoint = Bolt_DewPoint;
+            BoltwoodSate.Bolt_Heater = Bolt_Heater;
+
+            BoltwoodSate.Bolt_RainFlag = Bolt_RainFlag;
+            BoltwoodSate.Bolt_RainFlag_LastDetected = Bolt_RainFlag_LastDetected;
+            BoltwoodSate.Bolt_RainFlag_sinceLastDetected = Bolt_RainFlag_sinceLastDetected;
+
+
+            BoltwoodSate.Bolt_WetFlag = Bolt_WetFlag;
+            BoltwoodSate.Bolt_WetFlag_LastDetected = Bolt_WetFlag_LastDetected;
+            BoltwoodSate.Bolt_WetFlag_sinceLastDetected = Bolt_WetFlag_sinceLastDetected;
+
+            BoltwoodSate.Bolt_SinceLastMeasure = Bolt_SinceLastMeasure;
+            BoltwoodSate.Bolt_now = Bolt_now;
+
+            BoltwoodSate.Bolt_CloudCond = Bolt_CloudCond;
+            BoltwoodSate.Bolt_WindCond = Bolt_WindCond;
+            BoltwoodSate.Bolt_RainCond = Bolt_RainCond;
+            BoltwoodSate.Bolt_DaylighCond = Bolt_DaylighCond;
+
+            BoltwoodSate.WetSensorVal = WetVal;
+            BoltwoodSate.RGCVal = RGCVal;
+
+            BoltwoodSate.Preassure = PressureVal;
+
+            BoltwoodSate.Bolt_RoofCloseFlag = Bolt_RoofCloseFlag;
+            BoltwoodSate.Bolt_AlertFlag = Bolt_AlertFlag;
+
+            BoltwoodSate.LastMeasure = LastMeasure;
+            BoltwoodSate.ForcedDecimalSeparator = ForcedDecimalSeparator;
+
+
+            //Return object with data:
+            BoltwObj = BoltwoodSate; //return as out parameter
+
+            Logging.Log("getBoltwoodString exit", 3);
             return bold_st;
         }
 
@@ -1286,6 +1348,43 @@ namespace WeatherStation
             return st;
         }
 
+        
+        /// <summary>
+        /// Get sensor data in JSON string for socket output
+        /// </summary>
+        /// <returns></returns>
+        public string getSensorsJSONString()
+        {
+            Logging.Log("getSensorsJSONString enter", 3);
+
+            string st = "";
+            int SensIdx = -1;
+            foreach (SensorElement DataSensor in SensorsList.Values)
+            {
+                SensIdx++;
+                if (DataSensor != null)
+                {
+                    if (DataSensor.Enabled)
+                    {
+                        st += (st!=String.Empty? ", " : "") + @"""" + Convert.ToString(DataSensor.SensorName) + @""": " + Convert.ToString(DataSensor.LastValue);
+                    }
+                }
+            }
+
+            st += (st != String.Empty ? ", " : "") + @"""CloudIdx"": " + Convert.ToString(CloudIdx);
+            st += (st != String.Empty ? ", " : "") + @"""CloudIdxAAG"": " + Convert.ToString(CloudIdxAAG);
+
+            if (st != String.Empty) st = "{" + st + "}";
+
+
+            Logging.Log("getSensorsJSONString exit, ret: [" + st + "]", 3);
+            return st;
+        }
+
+        /// <summary>
+        /// Get base temp
+        /// </summary>
+        /// <returns></returns>
         public string getBaseTemp()
         {
             Logging.Log("getBaseTemp enter", 3);
@@ -1298,6 +1397,64 @@ namespace WeatherStation
             return st;
         }
 
+        /// <summary>
+        /// Get boltwood state in JSON string for socket output
+        /// </summary>
+        /// <returns></returns>
+        public string getBoltwoodJSONString()
+        {
+            Logging.Log("getBoltwoodJSONString enter", 3);
+
+            string st = "";
+
+
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_date_s"": " + @"""" + Convert.ToString(Bolt_date) + @"""";
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_time_s"": " + @"""" + Convert.ToString(Bolt_time) + @"""";
+
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_SkyTemp"": " + Convert.ToString(BoltwoodSate.Bolt_SkyTemp);
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_Temp"": " + Convert.ToString(BoltwoodSate.Bolt_Temp);
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_CloudIdx"": " + Convert.ToString(BoltwoodSate.Bolt_CloudIdx);
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_CloudIdxAAG"": " + Convert.ToString(BoltwoodSate.Bolt_CloudIdxAAG);
+
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_SensorTemp"": " + Convert.ToString(BoltwoodSate.Bolt_SensorTemp);
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_WindSpeed"": " + Convert.ToString(BoltwoodSate.Bolt_WindSpeed);
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_Hum"": " + Convert.ToString(BoltwoodSate.Bolt_Hum);
+
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_DewPoint"": " + Convert.ToString(Bolt_DewPoint);
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_Heater"": " + Convert.ToString(Bolt_Heater);
+
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_RainFlag"": " + @"""" + Convert.ToString(Bolt_RainFlag) + @"""";
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_RainFlag_LastDetected_s"": " + @"""" + Convert.ToString(Bolt_RainFlag_LastDetected) + @"""";
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_RainFlag_sinceLastDetected"": " + Convert.ToString(Bolt_RainFlag_sinceLastDetected);
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_WetFlag"": " + @"""" + Convert.ToString(Bolt_WetFlag) + @"""";
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_WetFlag_LastDetected_s"": " + @"""" + Convert.ToString(Bolt_WetFlag_LastDetected) + @"""";
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_WetFlag_sinceLastDetected"": " + Convert.ToString(Bolt_WetFlag_sinceLastDetected);
+
+
+            st += (st != String.Empty? ", " : "") + @"""Bolt_SinceLastMeasure"": " + Convert.ToString(Bolt_SinceLastMeasure);
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_now"": " + Convert.ToString(Bolt_now);
+
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_CloudCond"": " + @"""" + Convert.ToString(Bolt_CloudCond) + @"""";
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_WindCond"": " + @"""" + Convert.ToString(Bolt_WindCond) + @"""";
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_RainCond"": " + @"""" + Convert.ToString(Bolt_RainCond) + @"""";
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_DaylighCond"": " + @"""" + Convert.ToString(Bolt_DaylighCond) + @"""";
+
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_RoofCloseFlag"": " + Convert.ToString(Bolt_RoofCloseFlag);
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_AlertFlag"": " + Convert.ToString(Bolt_AlertFlag);
+
+            st += (st != String.Empty ? ", " : "") + @"""WetSensorVal"": " + Convert.ToString(BoltwoodSate.WetSensorVal);
+            st += (st != String.Empty ? ", " : "") + @"""RGCVal"": " + Convert.ToString(BoltwoodSate.RGCVal);
+            st += (st != String.Empty ? ", " : "") + @"""Bolt_AlertFlag"": " + Convert.ToString(BoltwoodSate.Preassure);
+
+
+            st += (st != String.Empty ? ", " : "") + @"""LastMeasure_s"": " + @"""" + Convert.ToString(LastMeasure) + @"""";
+            st += (st != String.Empty ? ", " : "") + @"""ForcedDecimalSeparator"": " + @"""" + Convert.ToString(ForcedDecimalSeparator) + @"""";
+
+            if (st != String.Empty) st = "{" + st + "}";
+
+            Logging.Log("getBoltwoodJSONString exit, ret: [" + st + "]", 3);
+            return st;
+        }
 
 
     }

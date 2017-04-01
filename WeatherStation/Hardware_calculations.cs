@@ -73,6 +73,11 @@ namespace WeatherStation
                     CloudIdx = calcCloudIndex(ObjTempVal, BaseTempVal);
                     CloudIdxAAG = calcCloudIndexCorr(ObjTempVal, BaseTempVal);
                 }
+                else if (CloudIdx==-100)
+                {
+                    CloudIdx = calcCloudIndex(ObjTempVal, BaseTempVal); //если было -100, то оно и останется. Так хоть что-то будет
+                    CloudIdxAAG = calcCloudIndexCorr(ObjTempVal, BaseTempVal); //если было -100, то оно и останется. Так хоть что-то будет
+                }
             }
 
             //4.2. Calc if needed average of last 5 min (more precisely - 25 by default) values

@@ -5,11 +5,7 @@ using System.Text;
 
 namespace WeatherStation
 {
-    /// <summary>
-    /// Custom data types
-    /// </summary>
     #region Custom data types for Sensors, Boltwood and so on
-
     /// <summary>
     /// Sensor type
     /// </summary>
@@ -20,6 +16,54 @@ namespace WeatherStation
     /// </summary>
     public enum decimalSeparatorType { useLocale = 0, useDot = 1, useComma = 2 }
 
+
+    /// <summary>
+    /// Boltwood data fields
+    /// </summary>        
+    public class BoltwoodFields
+    {
+        public string Bolt_date = "";
+        public string Bolt_time = "";
+
+        public double Bolt_SkyTemp = -100; //no direct var
+        public double Bolt_Temp = -100; //no direct var
+        public double Bolt_CloudIdx = -100; //no direct var
+        public double Bolt_CloudIdxAAG = -100; //no direct var
+        public double Bolt_SensorTemp = -100; //no direct var
+        public double Bolt_WindSpeed = -100; //no direct var
+        public double Bolt_Hum = -100; //no direct var
+        public double Bolt_DewPoint = -100.0;
+        public Int16 Bolt_Heater = -1;
+
+        public RainFlag Bolt_RainFlag = RainFlag.rainFlagDry;
+        public DateTime Bolt_RainFlag_LastDetected;
+        public string Bolt_RainFlag_LastDetected_s;
+        public UInt16 Bolt_RainFlag_sinceLastDetected = 65535;
+
+        public WetFlag Bolt_WetFlag = WetFlag.wetFlagDry;
+        public DateTime Bolt_WetFlag_LastDetected;
+        public string Bolt_WetFlag_LastDetected_s;
+        public UInt16 Bolt_WetFlag_sinceLastDetected = 65535;
+
+        public UInt16 Bolt_SinceLastMeasure = 0;
+        public double Bolt_now = 0;
+
+        public CloudCond Bolt_CloudCond = CloudCond.cloudUnknown;
+        public WindCond Bolt_WindCond = WindCond.windUnknown;
+        public RainCond Bolt_RainCond = RainCond.rainUnknown;
+        public DayCond Bolt_DaylighCond = DayCond.dayUnknown;
+
+        public UInt16 Bolt_RoofCloseFlag = 0;
+        public UInt16 Bolt_AlertFlag = 0;
+
+        public double WetSensorVal = 0;
+        public int RGCVal = -1;
+        public double Preassure = 0;
+
+        public DateTime LastMeasure;
+        public string LastMeasure_s;
+        public decimalSeparatorType ForcedDecimalSeparator = decimalSeparatorType.useLocale;
+    }
 
     /// <summary>
     /// Boltwood Data Types
@@ -405,6 +449,9 @@ namespace WeatherStation
             ArduinoSettings.Add("RT", El3);
 
 
+            //Init boltwood object
+            BoltwoodSate = new BoltwoodFields();
+
             Logging.Log("initSensorList exit", 3);
 
         }
@@ -432,6 +479,8 @@ namespace WeatherStation
         {
             CommandParser.Commands.Add("GET_BASETEMP", () => this.getBaseTemp());
             CommandParser.Commands.Add("GET_SENSOR_VALUES", () => this.getSensorsString());
+            CommandParser.Commands.Add("GET_SENSOR_VALUES_JSON", () => this.getSensorsJSONString());
+            CommandParser.Commands.Add("GET_BOLTWOOD_STRING_JSON", () => this.getBoltwoodJSONString());
             CommandParser.Commands.Add("HELP", () => CommandParser.ListCommands());
             CommandParser.Commands.Add("VERSION", () => VersionData.getVersionString());
         }

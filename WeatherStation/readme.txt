@@ -53,6 +53,8 @@ WeatherStation Monitor server (S)
 (C) commands:
 HELP
 GET_SENSOR_VALUES
+GET_SENSOR_VALUES_JSON
+GET_BOLTWOOD_STRING_JSON
 VERSION
 
 
