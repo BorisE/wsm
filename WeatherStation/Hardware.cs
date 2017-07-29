@@ -217,7 +217,8 @@ namespace WeatherStation
         #endregion
 
         /// <summary>
-        /// Boltwood data fields
+        /// 
+        /// wood data fields
         /// </summary>        
         #region Boltwood Data Fields 
         public BoltwoodFields BoltwoodSate; //object with all boltwood fields

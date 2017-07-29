@@ -128,5 +128,10 @@ namespace WeatherStation
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ParentMainForm.SQLDB.Check_NeedToCreateDB();
+            ParentMainForm.SQLDB.Check_NeedToCreateTables();
+        }
     }
 }

@@ -9,30 +9,36 @@ using System.Data.SQLite;
 
 namespace WeatherStation
 {
-    class DataManagement
+    public class DataManagement
     {
-        string baseName = "SensorData.db3";
+        string baseName = "SensorsData.db3";
+
+        //Table SensorsNames
+        //Table SensorsData
 
         /// <summary>
-        /// Create DB and Table (1st run)
+        /// Create DB if needed (1st run)
         /// </summary>
-        void Check_NeedToCreateDB()
+        public void Check_NeedToCreateDB()
         {
             if (!File.Exists(baseName))
                 CreateDB();
         }
 
-        void Check_NeedToCreateTables()
+        /// <summary>
+        /// Run this method to create Table if needed (1st run)
+        /// </summary>
+        public void Check_NeedToCreateTables()
         {
-            using (SQLiteConnection conn = new SQLiteConnection("Data Source="+ baseName + "; Version=3;"))
+            using (SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source="+ baseName + "; Version=3;"))
             {
                 try
                 {
-                    conn.Open();
-                    if (conn.State == ConnectionState.Open)
+                    m_dbConnection.Open();
+                    if (m_dbConnection.State == ConnectionState.Open)
                     {
 
-                        SQLiteCommand cmd = new SQLiteCommand(conn);
+                        SQLiteCommand cmd = new SQLiteCommand(m_dbConnection);
 
                         cmd.CommandText = "SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'table_name';";
                         object amount = -1;
@@ -40,10 +46,15 @@ namespace WeatherStation
                         {
                             amount = cmd.ExecuteScalar();
                             //text1.Text = amount.ToString();
+
+                            if (amount == null)
+                            {
+                                CreateTables();
+                            }
                         }
                         catch (SQLiteException ex)
                         {
-                           // text1.Text = ex.Message;
+                            CreateTables();
                         }
                     }
                 }
@@ -51,31 +62,37 @@ namespace WeatherStation
                 {
                     CreateDB();
                 }
-
             }
-
-            
         }
 
         /// <summary>
-        /// Create DB and Table (1st run)
+        /// Create DB
         /// </summary>
-        void CreateDB()
+        private void CreateDB()
         {
             //Create file
             if (!File.Exists(baseName))
                 SQLiteConnection.CreateFile(baseName);
+        }
+
+        /// <summary>
+        /// Create Tables (and DB) (1st run)
+        /// </summary>
+        private void CreateTables()
+        {
+            //Create db if needed
+            Check_NeedToCreateDB();
 
             SQLiteFactory factory = (SQLiteFactory)DbProviderFactories.GetFactory("System.Data.SQLite");
             using (SQLiteConnection connection = (SQLiteConnection)factory.CreateConnection())
             {
-                connection.ConnectionString = "Data Source = " + baseName;
+                connection.ConnectionString = "Data Source = " + baseName + "; Version = 3; ";
                 connection.Open();
 
                 //CreateSensor
                 using (SQLiteCommand command = new SQLiteCommand(connection))
                 {
-                    command.CommandText = @"CREATE TABLE [Sensors] (
+                    command.CommandText = @"CREATE TABLE [SensorsData] (
                     [id] integer PRIMARY KEY AUTOINCREMENT NOT NULL,
                     [date] integer NOT NULL,
                     [ObjTemp] real NOT NULL,
@@ -94,7 +111,7 @@ namespace WeatherStation
                     [RL1] integer NOT NULL,
                     [WSp] real NOT NULL,
                     [CloudIdx] real NOT NULL,
-                    [CloudIdxCorr] real NOT NULL,
+                    [CloudIdxCorr] real NOT NULL
                     );";
                     command.CommandType = CommandType.Text;
                     command.ExecuteNonQuery();
@@ -125,8 +142,8 @@ namespace WeatherStation
                 //CreateSensor
                 using (SQLiteCommand command = new SQLiteCommand(connection))
                 {
-                    command.CommandText = @"INSERT INTO TABLE [Sensors] SET
-                    date="+ UnixTS.ToString() + 
+                    command.CommandText = @"INSERT INTO TABLE [SensorsData] SET
+                    date=" + UnixTS.ToString() + 
                     "ObjTemp = "+ 99 +
                     "ATemp="+11+
                     ";";

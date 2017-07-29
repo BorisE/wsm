@@ -56,6 +56,8 @@ namespace WeatherStation
         /// </summary>
         public SocketServerClass SocketServer;
 
+        public DataManagement SQLDB;
+
 
         internal ASCOMTelescopeParkSensor objASCOMTelescopeParkSensor;
         internal ASCOMDomeShutterClosedSensor objASCOMDomeClosedSensor;
@@ -120,11 +122,11 @@ namespace WeatherStation
             LogForm = new LogWindow(this);
             DebugForm = new DebugWindow(this);
             SetForm = new SettingsForm(this);
+            SQLDB = new DataManagement();
 
-            
             //PrefForm = new PreferencesForm(this);
             //SerialFile = new SerialFromFile();
-            
+
             //Create SocketServer obj (even if it wouldn't run)
             SocketServer = new SocketServerClass(this);
             //Give a link to it for Harware class
